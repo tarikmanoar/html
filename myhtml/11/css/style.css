@@ -1,0 +1,294 @@
+						/**Defult CSS**/
+*{margin:0px;padding:0px}
+body{font-family: 'Gentium Book Basic', serif !important;}
+a{text-decoration:none;color:blue;}
+a,a:hover{text-decoration:none;}
+h1,h2,h3,h4,h5,h6{
+	font-weight:700;
+	margin:0 0 15px;
+	font-family: 'Yeseva One',serif !important;
+}
+						/*Class CSS*/
+.top_area {
+  position:relative;
+}
+.top-area-bg {
+  background:url(../images/header_bg.jpg) repeat scroll 0 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+}
+.header{
+  position:relative;
+}
+.header-text-area{
+  position:relative;
+}
+.header-text{
+  padding:100px;
+}
+.header-text h2 {
+  background: url(../images/divider.png) no-repeat;
+    font-size: 65px;
+    color: #fff;
+    background-position: center bottom;
+    padding-bottom: 65px;
+    margin-bottom:40px;
+  }
+.mainmenu ul.nav.navbar-nav {
+    text-align: right;
+    float: none;
+    font-size:18px;
+}
+.mainmenu ul.nav.navbar-nav li{
+  float:none;
+  display:inline-block;
+  position:relative;
+}
+.mainmenu ul.nav.navbar-nav li a{
+  color: #fff;
+  padding:40px 15px;
+}
+.mainmenu ul.nav.navbar-nav li.active::before{
+  position:absolute;
+  top: 0;
+  left:o;
+  width: 100%;
+  height:3px;
+  background:#ddd;
+  content:"";
+
+}
+.mainmenu{
+  position:relative;
+  padding-right:90px;
+}
+.social-link{
+  position: absolute;
+  top: 50px;
+  right:0;
+}
+.social-link a{
+  color: #c89f2d;
+    font-size: 21px;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+a.btn-filled {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    margin: 0 10px;
+}
+a.btn-filled::after {
+    z-index: -1;
+    background: #000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    opacity: .8;
+}
+a.btn-filled.btn-filled-bg::after {
+  background:#afafaf;
+  border:2px solid #ddd;
+  opacity:0.9;
+}
+.section-padding{padding:80px 0}
+.section-title{    
+  background: url(../images/section_title.png) no-repeat scroll center bottom;
+    color: #CC9A05;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    text-align:center;
+  }
+.about-area{
+  background:url(../images/pattan.png);
+}
+.aboute-text {
+    font-size: 18px;
+    color: #262626;
+}
+
+.author-photo {
+    margin-top: 40px;
+}
+.igredients-area{
+  position:relative;
+}
+.parallax-bg {
+  position:absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+}
+.igredients-bg{background:url(../images/igredients-bg.jpg)}
+.igredients-text{
+  position:relative;
+  z-index: 1;
+  color:#fff;
+  font-size:18px;
+  float:right;
+  padding:30px;
+}
+.igredients-text p{
+  margin-bottom:30px;
+}
+.igredients-text::before{
+  position:absolute;
+  z-index:-1;
+  background:#000;
+  opacity:.5;
+  width:100%;
+  height:100%;
+  content:"";
+  margin-left: -220px;
+}
+.section-title.white-sec-title{
+  color:#fff;
+  background:url(../images/section_title_white.png) no-repeat scroll center bottom;
+  margin-top:25px;
+}
+.food-menu-area {
+  background:url(../images/pattan1.png);
+}
+.singel-food-menu h2 {
+    color: #c89f2d;
+    border-bottom: 1px solid #c89f2d;
+    font-size: 21px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+.singel-food-menu h2 span {
+    float: right;
+    font-weight:normal;
+}
+.singel-food-menu{
+  margin-bottom:40px
+}
+.appetisers-left{
+  float:left;
+}
+.appetisers-right{
+  float:right;
+}
+.singel-food-menu.special {
+    border: 1px solid #E5D7AD;
+    padding: 5px;
+    position: relative;
+}
+
+.singel-food-menu.special::before {
+    content: "speacial";
+    text-transform: uppercase;
+    background: #e2b632;
+    padding: 5px;
+    top: -28px;
+    position: absolute;
+    right: -1px;
+    color: #fff;
+    font-size: 12px;
+}
+
+.singel-food-menu p {
+    margin-bottom: 0;
+}
+.test-col{align:center}
+.testmonial-area{position:relative}
+.testmonial-list::before{
+  position:absolute;
+  z-index:-1;
+  background:#000;
+  opacity:.5;
+  width:110%;
+  height:110%;
+  content:"";
+  margin-left:-398px;
+  margin-top: -26px;
+}
+.testmonial-bg{background:url(../images/prallax1.jpg)}
+.testmonial-list{
+  color:#fff;
+  font-size: 25px;
+  position:relative;
+  z-index:1;
+
+}
+.testmonial-list p.testmonial-authore{
+  font-size: 18px;
+  margin-top:30px
+}
+#testmonial-carousel::before{
+  font-family:FontAwesome;
+  content:"\f10d";
+  position:absolute;
+  left:-30px;
+  top:0;
+  color: #9a9b9a;
+}
+.contact-img img {
+    margin-left: 30px;
+    width: 285px;
+}
+.contact-text {
+    margin-left: 60px;
+}
+.contact-form input[type=text] {
+    border: 1px solid #CC9A05;
+    width: 100%;
+    padding: 5px;
+    background: transparent;
+}
+.contact-form label {
+    color: #CC9A05;
+    width: 100%;
+    margin-top:10px;
+}
+.contact-form input[type=submit] {
+    background: #CC9A05;
+    color: #fff;
+    border: 2px solid #ecba22;
+    padding: 5px 15px;
+    margin-left: 120px;
+    margin-top: 25px;
+}
+.contact-form input[type=submit]:hover{
+  background:#7b5d03
+}
+.footer-area{
+  background:#262626;
+  color:#fff;
+  
+}
+/* stick2 */
+
+
+#sticker{       
+}
+
+.stick {
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+  right: 105px;
+  background:#ddd;
+  opacity:.9
+}
+#scrollUp{
+          height:38px;
+          width:38px;
+          background:url(../images/top.png) no-repeat;
+          bottom:50px;
+          right:70px;
+          text-indent:-99999px
+}

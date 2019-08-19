@@ -1,0 +1,147 @@
+<html>
+	<head>
+		<title></title>
+		<link href="style.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<div class="fix header_area">
+			<div class="fix warppar header">
+				<div class="fix header_top">
+					<div class="fix logo floatleft">
+						<a href=""><img src="images/logo.png"/></a>
+					</div>
+					<div class="fix header_right floatright">
+						<a href=""><img src="images/suggestion.png" alt="tarik"/></a>
+					</div>
+					<div class="fix header_right floatright">
+						<a href=""><img src="images/find_an_event.png" alt="tarik"/></a>
+					</div>
+					<div class="fix header_right floatright">
+						<a href=""><img src="images/why_join.png" alt="tarik"/></a>
+					</div>
+				</div>
+				
+				<div id="sticker"class="fix mainmenu">
+					<ul>
+						<li><a href="">Home</a></li>
+						<li><a href="">About Us</a></li>
+						<li><a href="">Singles Ministries</a></li>
+						<li><a href="">Blog</a></li>
+						<li><a href="">Newsletter</a></li>
+						<li><a href="">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="fix maincontant_area">
+			<div class="fix warppar maincontant">
+				<div class="fix contant floatleft">
+					<h2>Submit an Event</h2>
+					<div class="box fix">
+						<div class="two_column fix">
+							<div class="left_colmn floatleft fix">
+								<p>Your Name<br/><input type="text"/></p>
+								<p>Your Phone Number<br/><input type="text"/></p>
+								<p>Your Email<br/><input type="text"/></p>
+								<p>Event Name<br/><input type="text"/></p>
+							</div>
+							<div class="right_colmn floatright fix">
+								<p>Event Start Date (MM/DD/YYYY)<br/><input placeholder="04/16/2017" type="text"/></p>
+								<p>Event End Date (MM/DD/YYYY) <br/><input placeholder="08/16/2017" type="text"/></p>
+								<p>Event Start Time<br/><input type="text"/></p>
+								<p>Event End Time (not required, leave blank if unknown)<br/><input type="text"/></p>
+							</div>
+						</div>
+						<div class="one_column fix">
+							<p>Event description, details and additional information<br/><textarea class="full_width_input"></textarea></p>
+							<p>Email address for questions about the event. (not displayed publicly)<br/><input class="full_width_input" type="text"/></p>
+							<p>Location/Directions<br/><textarea class="full_width_input" ></textarea></p>
+							<p>Physical address where the event will take place.(No PO Boxes)<br/><input class="half_width_input" type="text"/><input class="half_width_input" style="margin-right:0px" type="text"/></p>
+						</div>
+						<div class="three_column fix">
+							<div class="t_singel_column floatleft fix">
+								<p>City<br/><input class="onetherd_width_input" type="text"/></p>
+							</div>
+							<div class="t_singel_column floatleft fix">
+								<p>State<br/><input class="onetherd_width_input" type="text"/></p>
+							</div>
+							<div class="t_singel_column floatleft fix">
+								<p>Zip Code<br/><input class="onetherd_width_input" style="margin-right:0px" type="text"/></p>
+							</div>
+						</div>
+						<div class="one_column fix">
+							<p>Phone number for questions about the event. (displayed publicly)<br/><input class="full_width_input" type="text"/></p>
+							<p>Special Registration URL - Enter the full path URL (For example, http://www.website.com)<br/><input class="full_width_input" type="text"/></p>
+							<p>Overriding Weather Information Link  Leave this box blank if you have entered the Zip Code  <br/><input class="full_width_input" type="text"/></p>
+							<p>Overriding Map Link <br/><input class="full_width_input" type="text"/></p>
+							<p>Related Website - Enter the full path URL (For example,http://www.website.com )<br/><input class="full_width_input" type="text"/></p>
+						</div>
+					</div>
+					<div class="form_submit fix">
+						<input type="submit" value="Submit Event"/>
+						<input type="reset" value="Cancel"/>
+					</div>
+				</div>
+				<div class="fix sidebar floatright">
+					<div class="singel_sidebar fix">
+						<h2>Event</h2>
+						<ul>
+							<li><a href="">Signature Events</a></li>
+							<li><a href="">Phoenix Events</a></li>
+							<li><a href="">Tucson Events</a></li>
+							<li><a href="">Community Events</a></li>
+							<li><a href="">Arizona Innovation Institute</a></li>
+						</ul>
+					</div>
+					<div class="singel_sidebar fix">
+						<a href=""><img width="100%" src="images/submit_an_event.png" alt=""/></a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="fix footer_area">
+			<div class="fix warppar footer">
+				<div class="fix copywrite floatleft">
+					<p>&copy;2013 Events for Single Christians. All Rights Reserved</p>
+				</div>
+				<div class="fix profile floatleft">
+					<p>Stay Connected</p>
+					<a href=""><img src="images/facebook.png"/></a>
+					<a href=""><img src="images/yahoo.png"/></a>
+					<a href=""><img src="images/twitter.png"/></a>
+					<a href=""><img src="images/linkedin.png"/></a>
+				</div>
+				<div class="fix footer_menu floatright">
+					<ul>
+						<li><a href="">About Us</a></li>
+						<li><a href="">Singles Ministries</a></li>
+						<li><a href="">Blog</a></li>
+						<li><a href="">Newsletter</a></li>
+						<li><a href="">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+
+		<script type="text/javascript" src="js/1.9.1_jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var s=$("#sticker");
+				var pos=s.position();
+				$(window).scroll(function(){
+					var windowpos=$(window).scrollTop();
+					if(windowpos>=pos.top){
+						s.addClass("stick");
+					} 
+					else{s.removeClass("stick");
+					}
+				});
+			});
+		</script>
+		
+
+		
+	</body>
+</html>

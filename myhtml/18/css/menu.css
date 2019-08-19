@@ -1,0 +1,233 @@
+#cssmenu {
+  position: relative;
+  height: 40px;
+  background: #;
+  width: auto;
+}
+#cssmenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+#cssmenu > ul {
+  position: relative;
+  display: block;
+  background: #;
+  width: 100%;
+  z-index: 500;
+}
+#cssmenu:after,
+#cssmenu > ul:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+#cssmenu.align-right > ul > li {
+  float: right;
+}
+#cssmenu.align-center ul {
+  text-align: center;
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+}
+#cssmenu > ul > li {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+#cssmenu > ul > #menu-button {
+  display: none;
+}
+#cssmenu ul li a {
+  display: block;
+  font-family: Helvetica, sans-serif;
+  text-decoration: none;
+}
+#cssmenu > ul > li > a {
+  font-size:19px;
+  font-family: 'BenSenHandwriting';
+  padding: 0px 10px;
+  color: #fff;
+  -webkit-transition: color 0.25s ease-out;
+  -moz-transition: color 0.25s ease-out;
+  -ms-transition: color 0.25s ease-out;
+  -o-transition: color 0.25s ease-out;
+  transition: color 0.25s ease-out;
+  line-height:40px;
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 16px;
+}
+#cssmenu > ul > li > a:hover,#cssmenu > ul > li.active {
+  color: #ffffff;
+  background:#0066af;
+}
+#cssmenu li.has-sub::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+#cssmenu > ul > li.has-sub::after{
+  right: 0px;
+  top: 20px;
+  border: 4px solid transparent;
+  border-top-color: #fff;
+}
+#cssmenu > ul > li:hover::after {
+  border-top-color: #ffffff;
+}
+#indicatorContainer {
+  position: absolute;
+  height: 12px;
+  width: 100%;
+  bottom: 0px;
+  overflow: hidden;
+  z-index: -1;
+}
+#pIndicator {
+  position: absolute;
+  height: 0;
+  width: 100%;
+  border: 12px solid transparent;
+  border-top-color: #2b2f3a;
+  z-index: -2;
+  -webkit-transition: left .25s ease;
+  -moz-transition: left .25s ease;
+  -ms-transition: left .25s ease;
+  -o-transition: left .25s ease;
+  transition: left .25s ease;
+}
+#cIndicator {
+  position: absolute;
+  height: 0;
+  width: 100%;
+  border: 12px solid transparent;
+  border-top-color: #2b2f3a;
+  top: -12px;
+  right: 100%;
+  z-index: -2;
+}
+#cssmenu ul ul {
+  position: absolute;
+  left: -9999px;
+  top: 70px;
+  opacity: 0;
+  -webkit-transition: opacity .3s ease, top .25s ease;
+  -moz-transition: opacity .3s ease, top .25s ease;
+  -ms-transition: opacity .3s ease, top .25s ease;
+  -o-transition: opacity .3s ease, top .25s ease;
+  transition: opacity .3s ease, top .25s ease;
+  z-index: 1000;
+}
+#cssmenu ul ul ul {
+  top: 37px;
+  padding-left: 5px;
+}
+#cssmenu ul ul li {
+  position: relative;
+}
+#cssmenu > ul > li:hover > ul {
+  left: auto;
+  top: 40px;
+  opacity: 1;
+}
+#cssmenu.align-right > ul > li:hover > ul {
+  left: auto;
+  right: 0;
+  opacity: 1;
+}
+#cssmenu ul ul li:hover > ul {
+  left: 124px;
+  top: 0;
+  opacity: 1;
+}
+#cssmenu.align-right ul ul li:hover > ul {
+  left: auto;
+  right: 124px;
+  top: 0;
+  opacity: 1;
+  padding-right: 5px;
+}
+#cssmenu ul ul li a {
+  width: 190px;
+  border-bottom: 1px solid #eeeeee;
+  padding: 10px 10px;
+  color: #fff;
+  background: #0066af;
+  font-size:14px;
+  font-family: 'SolaimanLipiNormal';
+  -webkit-transition: all .35s ease;
+  -moz-transition: all .35s ease;
+  -ms-transition: all .35s ease;
+  -o-transition: all .35s ease;
+  transition: all .35s ease;
+}
+#cssmenu.align-right ul ul li a {
+  text-align: right;
+}
+#cssmenu ul ul li:hover > a {
+  background: #0082cf;
+  color: #fff;
+}
+#cssmenu ul ul li:last-child > a,
+#cssmenu ul ul li.last > a {
+  border-bottom: 0;
+}
+#cssmenu > ul > li > ul::after {
+  content: '';
+  border: 6px solid transparent;
+  width: 0;
+  height: 0;
+  border-bottom-color: #ffffff;
+  position: absolute;
+  top: -12px;
+  left: 30px;
+}
+#cssmenu.align-right > ul > li > ul::after {
+  left: auto;
+  right: 30px;
+}
+#cssmenu ul ul li.has-sub::after {
+  border: 4px solid transparent;
+  border-left-color: #9ea2a5;
+  right: 10px;
+  top: 12px;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  -webkit-transition: -webkit-transform 0.2s ease, right 0.2s ease;
+}
+#cssmenu.align-right ul ul li.has-sub::after {
+  border-left-color: transparent;
+  border-right-color: #9ea2a5;
+  right: auto;
+  left: 10px;
+}
+#cssmenu ul ul li.has-sub:hover::after {
+  border-left-color: #ffffff;
+  right: -5px;
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+#cssmenu.align-right ul ul li.has-sub:hover::after {
+  border-right-color: #ffffff;
+  border-left-color: transparent;
+  left: -5px;
+  -webkit-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
