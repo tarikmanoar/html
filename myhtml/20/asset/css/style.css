@@ -429,7 +429,6 @@ margin-top: 10%;
 
 
 .contact-left{
-	position: absolute;
 	box-sizing: border-box;
 	z-index: 19;
 	height: 380px;
@@ -449,10 +448,9 @@ margin-top: 10%;
 input.form-control{
     box-sizing: border-box;
     z-index: 17;
-    height: 48px;
-    width: 400px;
     left: 0px;
     top: 0px;
+    height: 45px;
     border: 1px solid rgb(227, 227, 227);
     background-color: rgb(255, 255, 255);
     border-radius: 40px;
@@ -465,8 +463,6 @@ input.form-control{
 textarea{
 	box-sizing: border-box;
     z-index: 5;
-    height: 100px;
-    width: 400px;
     left: 0px;
     top: 0px;
     border: 1px solid rgb(227, 227, 227);
@@ -519,4 +515,55 @@ textarea{
 .is-watching {
   -webkit-transform: translate3d(0,-100%,0);
   transform: translate3d(0,-100%,0);
+}
+
+/* Google map */
+.mapouter{
+    position:relative;
+    text-align:right;
+}
+.gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+}
+
+
+
+
+
+@media only screen and (max-width: 567px){
+.navbar-brand img{
+    width: 135px;
+}
+ul.topNavContact li a{
+    font-size: 13px;
+}
+.sliderArea {
+    margin-top: 30%;
+}
+.services-img{
+    display: none;
+}
+.slider-area-content {
+    margin-bottom: 28px;
+}
+.title-wrap .title {
+    font-size: 25px;
+}
+.title-container {
+    margin-bottom:0px;
+}
+.services-outer{
+    height: 10vh;
+}
+.services-bg{
+    height: 72vh;
+}
+.contact-right textarea{
+        width: 320px;
+    height: 145px;
+}
+.footerArea p{
+    font-size: 13px !important;
+}
 }
