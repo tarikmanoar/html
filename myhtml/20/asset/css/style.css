@@ -73,6 +73,9 @@ ul.topNavContact li a i.fa{
 .mainNav ul li a.active{
 	color: #00b4cc !important;
 }
+.sliderArea{
+margin-top: 10%;
+}
 .slider-area{
 	background:url('../images/slider/1.jpg') no-repeat;
 	background-size: cover;
@@ -475,4 +478,45 @@ textarea{
     line-height: 1;
     padding: 12px 20px;
     transition: border-color 200ms ease 0s, box-shadow 200ms ease 0s;
+}
+
+
+
+
+
+
+/*Scroll Up Css*/
+#scrollUp {
+    bottom: 0;
+    right:15px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: -10px;
+    padding: 10px 5px;
+    font: 14px/20px sans-serif;
+    background: url('../images/top.png')no-repeat scroll 0 0;
+    text-indent:-9999px;
+
+}
+
+#scrollUp:hover {
+    margin-bottom: 0;
+}
+
+/* Sticky Navigation */
+  .shy-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  background: #fff;
+}
+
+.is-watching {
+  -webkit-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
 }
