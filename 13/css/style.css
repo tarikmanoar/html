@@ -43,6 +43,7 @@ section.header_bg::after {
 .mainmenu ul li {
     margin: 0px;
 }
+
 .logo img {
     padding:  10px;
 }
@@ -364,25 +365,27 @@ img.img-fluid.footer_logo {
     }
 
     /*Sticky Div CSS*/
-            #sticky {}
 
-            #sticky.stick {
-            margin-top:0;
-            position: fixed;
-            top: 0;
-            z-index: 10000;
-            width:84%;
-            }
-            #sticky.stick::after {
-                position:  absolute;
-                background:  #1c2e3cd6;
-                width:  100%;
-                height:  100%;
-                top: 0;
-                left:  0;
-                content:  '';
-                z-index:  -1;
-            }
+#sticky.stick {
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    left: 15px;
+    padding-right: 105px;
+    padding-left: 107px;
+}
+#sticky.stick::after {
+    position:  absolute;
+    background:  #1c2e3cd6;
+    width:  100%;
+    height:  100%;
+    top: 0;
+    left:  0;
+    content:  '';
+    z-index:  -1;
+}
 /*Scroll Up Css*/
 #scrollUp{
 	    height: 38px;
