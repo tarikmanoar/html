@@ -54,6 +54,42 @@ a.nav-link:hover {
 .section-gap{
     height: 100px;
 }
+.site-heading h1 {
+    text-align: center;
+    padding: 40px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333333;
+}
+
+ .line-wrap::after {
+    position: absolute;
+    content: '';
+    width: 75px;
+    height: 4px;
+    bottom: 40%;
+    background: #ef7e0c;
+    z-index: 9;
+}
+.line-wrap::before {
+    position: absolute;
+    content: '';
+    width: 75px;
+    height: 4px;
+    bottom: 40%;
+    left: 29%;
+    background: #ef7e0c;
+    z-index: 9;
+}
+
+
+
+
+
+
+
+
+
 /* Hero area  */
 .logo img {
     width: 200px;
@@ -95,6 +131,80 @@ a.nav-link:hover {
     color: #fff;
     cursor: pointer;
 }
+/* Service area */
+.services-text{
+    padding: 25px;
+}
+
+/* Client Area */
+.jobs-wrap .job-item {
+    display: block;
+    border-bottom: 1px solid #ced4da !important;
+    color: rgba(0, 0, 0, 0.5);
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.jobs-wrap .job-item:hover {
+    background: #fff;
+    -webkit-box-shadow: 4px 0 40px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 0 40px 0 rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.jobs-wrap .job-item.last {
+    border-bottom: none !important;
+}
+
+.jobs-wrap .job-item.fulltime {
+    border-left: 3px solid #26baee;
+}
+
+.jobs-wrap .job-item.freelance {
+    border-left: 3px solid #f8b500;
+}
+
+.jobs-wrap .job-item.partime {
+    border-left: 3px solid #f23a2e;
+}
+
+.jobs-wrap .job-item .company-logo {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100px;
+    flex: 0 0 100px;
+}
+
+.jobs-wrap .job-item .company-logo img {
+    max-width: 50px;
+    border-radius: 4px;
+}
+
+.jobs-wrap .job-item h3 {
+    font-size: 17px;
+}
+
+.jobs-wrap .job-item .job-details {
+    width: calc(100% - 250px);
+}
+
+@media (max-width: 1199.98px) {
+    .jobs-wrap .job-item .job-details {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.jobs-wrap .job-item .job-category {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 150px;
+    flex: 0 0 150px;
+    text-align: center;
+}
+
+
+
+
 /* Why Choose us  */
 .pricing{
     padding: 90px 0 60px 0;
@@ -141,15 +251,6 @@ h2.category {
 .support-area{
     background: #ef7d0c1f;
 }
-/* .support-area::before{
-    background: url("../images/wave.svg");
-    content: '';
-    position: relative;
-    bottom: 0;
-    height: 50px;
-    z-index: 4;
-
-} */
 .top-svg{
     background: url("../images/wave.svg");
     height: 100px;
@@ -181,4 +282,27 @@ h2.category {
     -webkit-background-size: 419px 283px;
     -moz-background-size: 419px 283px;
     background-size: 419px 283px;
+}
+
+
+
+/* Footer area  */
+
+.footer-area{
+    background-repeat: no-repeat;
+    background: url("../images/Footer-min.png"),
+    #9bc408;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    opacity: 1;
+    visibility: inherit;
+    z-index: 20;
+}
+.footer{
+    padding-top: 75px;
+    padding-bottom: 20px;
+}
+.footer hr{
+    background: #ef7e0c;
 }
