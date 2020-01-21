@@ -16,6 +16,8 @@
 
     <!-- Custom Css  -->
     <link rel="stylesheet" href="asset/css/style.css">
+    <!-- <link rel="stylesheet" href="asset/css/animate.css"> -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Favicons  -->
     <link rel="icon" href="asset/favicons/cropped-ms-icon-310x310-32x32.png" sizes="32x32" />
     <link rel="icon" href="asset/favicons/cropped-ms-icon-310x310-192x192.png" sizes="192x192" />
@@ -38,83 +40,74 @@
 </head>
 
 <body>
-    <section class="nav-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand logo" href="">
-                            <img src="asset/images/logo.png" alt="ERROR">
-                        </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+    <header class="header shy-header">
+        <section class="nav-bar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand logo" href="">
+                                <img src="asset/images/logo.png" alt="ERROR">
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Services</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">How it work?</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="aboutDrop" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        About Us
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="aboutDrop">
-                                        <a class="dropdown-item" href="#">Our Team</a>
-                                        <a class="dropdown-item" href="#">Who We Are</a>
-                                        <!-- <div class="dropdown-divider"></div> -->
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="langDrop" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Language
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="langDrop">
-                                        <a class="dropdown-item" href="#">Bangla</a>
-                                        <a class="dropdown-item" href="#">English</a>
-                                        <a class="dropdown-item" href="#">Arabic</a>
-                                        <a class="dropdown-item" href="#">Arabic</a>
-                                        <a class="dropdown-item" href="#">Arabic</a>
-                                        <a class="dropdown-item" href="#">Arabic</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="btn btn-p" href="">Get Start</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Services</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">How it work?</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="aboutDrop" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            About Us
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="aboutDrop">
+                                            <a class="dropdown-item" href="#">Our Team</a>
+                                            <a class="dropdown-item" href="#">Who We Are</a>
+                                            <!-- <div class="dropdown-divider"></div> -->
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href=""><img src="asset/images/flag.svg" class="img-fluid" width="35"
+                                                alt="error"></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="btn btn-p" href="register.html">Register</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="hero-area">
-        <div class="container">
+        </section>
+    </header>
+    <section class="hero-area" >
+        <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-md-6">
                     <div class="hero-text">
-                        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
-                        <p>Lorem ipsum dolor sit amet.</p>
+                        <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+                        <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum
+                            dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit
+                            amet.Lorem ipsum dolor sit amet.</p>
                         <a href="" class="btn btn-s">Get Services &nbsp; <i class="fa fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="hero-right">
-                        <img src="asset/images/Iphone.png" class="img-fluid" alt="">
+                        <img src="asset/images/makka.jpg" class="img-fluid" alt="">
                     </div>
-                </div>
-                <div class="scroll col-md-12">
-                    <a href="#service"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -124,17 +117,17 @@
         <div class="container">
             <div class="service">
                 <div class="row">
-                <div class="col-md-5 offset-4">
-                    <div class="site-heading">
-                        <h1><span class="line-wrap">Our Services</span> </h1>
+                    <div class="col-md-5 offset-4" data-aos="fade-up" data-aos-duration="500">
+                        <div class="site-heading">
+                            <h1><span class="line-wrap">Our Services</span> </h1>
+                        </div>
                     </div>
-                </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
                         <div class="service-img">
                             <img src="asset/images/hajj.gif" class="img-fluid" alt="SORRY">
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 " data-aos="fade-left" data-aos-duration="1000">
                         <div class="services-text">
                             <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1><br>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, omnis? Quod doloribus,
@@ -148,7 +141,7 @@
             </div>
             <div class="section-gap"></div>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-right">
                     <div class="services-text">
                         <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1><br>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, omnis? Quod doloribus,
@@ -158,7 +151,7 @@
                         <a href="" class="btn btn-p">Umrah</a>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left">
                     <div class="service-img">
                         <img src="asset/images/umrah.jpg" class="img-fluid" alt="SORRY">
                     </div>
@@ -167,139 +160,150 @@
         </div>
     </section>
     <div class="section-gap"></div>
-    <section class="client-area">
+
+    <!--	Start Testimonial-->
+    <section id="testimonial">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 offset-4">
+                <div class="col-md-5 offset-3" data-aos="fade-up">
                     <div class="site-heading">
-                        <h1><span class="line-wrap">Our Client</span> </h1>
+                        <h1><span class="line-wrap">Testimonial</span> </h1>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="rounded border clients-wrap">
+                <div class="col-md-6 offset-md-3" data-aos="fade-up" data-aos-duration="3000">
+                    <!-- Section: Testimonials  -->
+                    <section class="text-center my-5">
+                        <div class="wrapper-carousel-fix">
+                            <!-- Carousel Wrapper -->
+                            <div id="carousel-example-1"
+                                class="carousel no-flex testimonial-carousel slide carousel-fade" data-ride="carousel">
+                                <!--Slides-->
+                                <div class="carousel-inner" role="listbox">
+                                    <!--First slide-->
+                                    <div class="carousel-item active">
+                                        <div class="testimonial">
+                                            <!--Avatar-->
+                                            <div class="avatar mx-auto mb-4">
+                                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
+                                                    class="rounded-circle img-fluid" alt="First sample avatar image">
+                                            </div>
+                                            <!--Content-->
+                                            <p>
+                                                <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet,
+                                                consectetur adipisicing elit. Quod
+                                                eos
+                                                id officiis hic tenetur quae quaerat ad velit ab. Lorem ipsum dolor sit
+                                                amet, consectetur
+                                                adipisicing elit. Dolore cum accusamus eveniet molestias voluptatum
+                                                inventore laboriosam labore
+                                                sit, aspernatur praesentium iste impedit quidem dolor veniam.
+                                            </p>
+                                            <h4 class="font-weight-bold">Anna Deynah</h4>
+                                            <h6 class="font-weight-bold my-3">Founder at ET Company</h6>
+                                            <!--Review-->
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star-half-o text-warning"> </i>
+                                        </div>
+                                    </div>
+                                    <!--First slide-->
+                                    <!--Second slide-->
+                                    <div class="carousel-item">
+                                        <div class="testimonial">
+                                            <!--Avatar-->
+                                            <div class="avatar mx-auto mb-4">
+                                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
+                                                    class="rounded-circle img-fluid" alt="Second sample avatar image">
+                                            </div>
+                                            <!--Content-->
+                                            <p>
+                                                <i class="fa fa-quote-left"></i> Nemo enim ipsam voluptatem quia
+                                                voluptas sit aspernatur aut
+                                                odit
+                                                aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                                                voluptatem sequi nesciunt. Neque
+                                                porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+                                                adipisci velit, sed quia
+                                                non numquam eius modi tempora incidunt ut labore. </p>
+                                            <h4 class="font-weight-bold">Maria Kate</h4>
+                                            <h6 class="font-weight-bold my-3">Photographer at Studio LA</h6>
+                                            <!--Review-->
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                        </div>
+                                    </div>
+                                    <!--Second slide-->
+                                    <!--Third slide-->
+                                    <div class="carousel-item">
+                                        <div class="testimonial">
+                                            <!--Avatar-->
+                                            <div class="avatar mx-auto mb-4">
+                                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg"
+                                                    class="rounded-circle img-fluid" alt="Third sample avatar image">
+                                            </div>
+                                            <!--Content-->
+                                            <p>
+                                                <i class="fa fa-quote-left"></i> Duis aute irure dolor in reprehenderit
+                                                in voluptate velit esse
+                                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                                                cupidatat non proident, sunt in
+                                                culpa qui officia deserunt mollit anim id est laborum. Sed ut
+                                                perspiciatis unde omnis iste natus
+                                                error sit voluptatem accusantium doloremque laudantium.</p>
+                                            <h4 class="font-weight-bold">John Doe</h4>
+                                            <h6 class="font-weight-bold my-3">Front-end Developer in NY</h6>
+                                            <!--Review-->
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="fa fa-star text-warning"> </i>
+                                            <i class="far fa-star text-warning"> </i>
+                                        </div>
+                                    </div>
+                                    <!--Third slide-->
+                                </div>
+                                <!--Slides-->
+                                <!--Controls-->
+                                <a class="carousel-control-prev left carousel-control" href="#carousel-example-1"
+                                    role="button" data-slide="prev">
+                                    <span class="icon-prev" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next right carousel-control" href="#carousel-example-1"
+                                    role="button" data-slide="next">
+                                    <span class="icon-next" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                                <!--Controls-->
+                            </div>
+                            <!-- Carousel Wrapper -->
+                        </div>
 
-                        <a href=""
-                            class="client-item d-block d-md-flex align-items-center  border-bottom hajj">
-                            <div class="company-logo blank-logo text-center text-md-left pl-3">
-                                <img  src="asset/images/clint.jpg" alt="Image" class="img-fluid mx-auto">
-                            </div>
-                            <div class="client-details h-100">
-                                <div class="p-3 align-self-center">
-                                    <h3>Shohanur Rahman</h3>
-                                    <div class="d-block d-lg-flex">
-                                        <!-- <div class="mr-3"><span class="icon-suitcase mr-1"></span> Resto Bar</div> -->
-                                        <div class="mr-3"><i class="fa fa-map-marker" aria-hidden="true"></i> Florida</div>
-                                        <div><i class="fa fa-globe" aria-hidden="true"></i> Bangladesh</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="client-category align-self-center">
-                                <div class="p-3">
-                                    <span class="text-info p-2 rounded border border-info">Hajj</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href=""
-                            class="client-item d-block d-md-flex align-items-center  border-bottom umrah">
-                            <div class="company-logo blank-logo text-center text-md-left pl-3">
-                                <img  src="asset/images/clint.jpg" alt="Image" class="img-fluid mx-auto">
-                            </div>
-                            <div class="client-details h-100">
-                                <div class="p-3 align-self-center">
-                                    <h3>Shohanur Rahman</h3>
-                                    <div class="d-block d-lg-flex">
-                                        <!-- <div class="mr-3"><span class="icon-suitcase mr-1"></span> Resto Bar</div> -->
-                                        <div class="mr-3"><i class="fa fa-map-marker" aria-hidden="true"></i> Florida</div>
-                                        <div><i class="fa fa-globe" aria-hidden="true"></i> Bangladesh</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="client-category align-self-center">
-                                <div class="p-3">
-                                    <span class="text-danger p-2 rounded border border-danger">Umrah</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href=""
-                            class="client-item d-block d-md-flex align-items-center  border-bottom hajj">
-                            <div class="company-logo blank-logo text-center text-md-left pl-3">
-                                <img  src="asset/images/clint.jpg" alt="Image" class="img-fluid mx-auto">
-                            </div>
-                            <div class="client-details h-100">
-                                <div class="p-3 align-self-center">
-                                    <h3>Shohanur Rahman</h3>
-                                    <div class="d-block d-lg-flex">
-                                        <!-- <div class="mr-3"><span class="icon-suitcase mr-1"></span> Resto Bar</div> -->
-                                        <div class="mr-3"><i class="fa fa-map-marker" aria-hidden="true"></i> Florida</div>
-                                        <div><i class="fa fa-globe" aria-hidden="true"></i> Bangladesh</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="client-category align-self-center">
-                                <div class="p-3">
-                                    <span class="text-info p-2 rounded border border-info">Hajj</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href=""
-                            class="client-item d-block d-md-flex align-items-center  border-bottom umrah">
-                            <div class="company-logo blank-logo text-center text-md-left pl-3">
-                                <img  src="asset/images/clint.jpg" alt="Image" class="img-fluid mx-auto">
-                            </div>
-                            <div class="client-details h-100">
-                                <div class="p-3 align-self-center">
-                                    <h3>Shohanur Rahman</h3>
-                                    <div class="d-block d-lg-flex">
-                                        <!-- <div class="mr-3"><span class="icon-suitcase mr-1"></span> Resto Bar</div> -->
-                                        <div class="mr-3"><i class="fa fa-map-marker" aria-hidden="true"></i> Florida</div>
-                                        <div><i class="fa fa-globe" aria-hidden="true"></i> Bangladesh</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="client-category align-self-center">
-                                <div class="p-3">
-                                    <span class="text-danger p-2 rounded border border-danger">Umrah</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href=""
-                            class="client-item d-block d-md-flex align-items-center  border-bottom hajj">
-                            <div class="company-logo blank-logo text-center text-md-left pl-3">
-                                <img  src="asset/images/clint.jpg" alt="Image" class="img-fluid mx-auto">
-                            </div>
-                            <div class="client-details h-100">
-                                <div class="p-3 align-self-center">
-                                    <h3>Shohanur Rahman</h3>
-                                    <div class="d-block d-lg-flex">
-                                        <!-- <div class="mr-3"><span class="icon-suitcase mr-1"></span> Resto Bar</div> -->
-                                        <div class="mr-3"><i class="fa fa-map-marker" aria-hidden="true"></i> Florida</div>
-                                        <div><i class="fa fa-globe" aria-hidden="true"></i> Bangladesh</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="client-category align-self-center">
-                                <div class="p-3">
-                                    <span class="text-info p-2 rounded border border-info">Hajj</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    </section>
+                    <!-- Section: Testimonials  -->
                 </div>
             </div>
         </div>
     </section>
+    <!--	End Testimonial
+	===================================================-->
     <section class="why-choseus">
         <div class="pricing">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5 offset-4">
+                    <div class="col-md-5 offset-4" data-aos="fade-up">
                         <div class="site-heading">
                             <h1><span class="line-wrap">Why Choose Us?</span> </h1>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4" data-aos="fade-right">
                         <div class="block block-pricing block-raised">
                             <div class="table table">
                                 <h2 class="category">Save Money</h2>
@@ -316,7 +320,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" data-aos="fade-up">
                         <div class="block block-pricing block-raised">
                             <div class="table table-warning">
                                 <h2 class="category">Full document process</h2>
@@ -334,7 +338,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" data-aos="fade-left">
                         <div class="block block-pricing block-raised">
                             <div class="table">
                                 <h2 class="category">Save Money</h2>
@@ -361,7 +365,7 @@
     <section class="support-area">
         <div class="container">
             <div class="row text-center">
-                <div class="col-md-6 mobile-box top">
+                <div class="col-md-6 mobile-box top" data-aos="zoom-in">
                     <div class="mobile-wrapper">
                         <div class="sprite-icons sprite-icons-support"></div>
                         <h4>
@@ -374,7 +378,7 @@
                         <a class="btn btn-p" href="#">Talk to a Human</a>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-push-2 mobile-box bottom">
+                <div class="col-md-6 col-sm-push-2 mobile-box bottom" data-aos="fade-up">
                     <div class="mobile-wrapper">
                         <div class="sprite-icons sprite-icons-money-back-guarantee"></div>
                         <h4>
@@ -400,27 +404,68 @@
     <section class="footer-area">
         <div class="container">
             <div class="row footer">
-                <div class="col-md-4">
-                    <div class="footer-text text-center">
-                        <p>Download Our App Now</p>
-                        <a href="">
-                            <img src="asset/images/android.png" alt="SORRY" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="footer-text text-center">
-                        <p>Download Our App Now</p>
-                        <a href="">
-                            <img src="asset/images/apple.png" alt="SORRY" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="500">
                     <div class="footer-text text-center">
                         <a href="">
                             <img src="asset/images/logo.png" alt="SORRY" class="img-fluid">
                         </a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="700">
+                    <div class="footer-text text-center">
+                        <h4><span>Connect</span></h4>
+                        <div class="template-demo">
+                            <a href="">
+                                <button type="button" class="btn btn-social-icon btn-facebook btn-rounded">
+                                    <i class="fa fa-facebook"></i>
+                                </button>
+                            </a>
+                            <a href="">
+                                <button type="button" class="btn btn-social-icon btn-youtube btn-rounded">
+                                    <i class="fa fa-youtube"></i>
+                                </button>
+                            </a>
+                            <a href="">
+                                <button type="button" class="btn btn-social-icon btn-twitter btn-rounded">
+                                    <i class="fa fa-twitter"></i>
+                                </button>
+                            </a>
+                            <a href="">
+                                <button type="button" class="btn btn-social-icon btn-linkedin btn-rounded">
+                                    <i class="fa fa-linkedin"></i>
+                                </button>
+                            </a>
+                            <a href="">
+                                <button type="button" class="btn btn-social-icon btn-instagram btn-rounded">
+                                    <i class="fa fa-instagram"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="900">
+                    <div class="footer-text text-center">
+                        <h4><span>payment gateway</span> </h4>
+                        <div class="template-demo">
+                            <ul>
+                                <li class="nav-item">
+                                    <a href=""><img src="asset/favicons/card/master.png" class="img-fluid" width="35"
+                                            alt="error"></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href=""><img src="asset/favicons/card/paypal.png" class="img-fluid" width="35"
+                                            alt="error"></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href=""><img src="asset/favicons/card/skrill.png" class="img-fluid" width="35"
+                                            alt="error"></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href=""><img src="asset/favicons/card/visa.png" class="img-fluid" width="35"
+                                            alt="error"></a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -442,15 +487,22 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+    <!-- Custom Javascript -->
+    <script src="asset/js/jquery.scrollUp.min.js"></script>
+    <script src="asset/js/jquery.shyheader.min.js"></script>
+    <script src="asset/js/smoothScroll.js"></script>
+    <!-- <script src="asset/js/wow.min.js"></script> -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="asset/js/myJs.js"></script>
 </body>
 
 </html>
