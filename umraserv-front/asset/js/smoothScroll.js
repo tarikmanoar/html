@@ -2,7 +2,7 @@
     'use strict';
     $.fn.smoothScroll = function(setting) {
         var _default = {
-                duration: 1000,
+                duration: 1500,
                 easing: 'swing',
                 offset: 0
             },
