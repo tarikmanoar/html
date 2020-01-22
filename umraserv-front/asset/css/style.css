@@ -2,6 +2,7 @@ body {
     font: normal 15px / 27px "Cairo", Arial, Verdana, sans-serif !important;
     word-spacing: normal;
     color: #85868c;
+    width: 100%;
 }
 
 .p-color {
@@ -65,40 +66,61 @@ a.nav-link:hover,
     height: 100px;
 }
 
-.site-heading h1 {
-    text-align: center;
-    padding: 40px 0;
+
+.section_title_1 {
+    width: 60%;
+}
+
+.pb_60 {
+    padding-bottom: 60px;
+}
+
+.color_white {
+    color: #000;
+}
+
+.section_title_1 .title span {
+    display: table;
+    font-weight: 600;
+    padding-left: 35px;
     text-transform: uppercase;
-    font-weight: bold;
-    color: #333333;
 }
 
-.line-wrap::after {
-    position: absolute;
-    content: '';
-    width: 75px;
-    height: 4px;
-    bottom: 40%;
-    right: 0;
-    background: #ef7f22;
-    z-index: 9;
+.line_double {
+    position: relative;
+    text-transform: lowercase;
+    padding: 0 50px !important;
 }
 
-.line-wrap::before {
+.line_double::before {
+    background-color: #ef7f22 !important;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    content: "";
     position: absolute;
-    content: '';
-    width: 75px;
+    width: 35px;
     height: 4px;
-    bottom: 40%;
+    top: 50%;
     left: 0;
-    background: #ef7f22;
-    z-index: 9;
 }
 
-
-
-
-
+.line_double::after {
+    background-color: #ef7f22 !important;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 4px;
+    top: 50%;
+    right: 0;
+}
 
 
 
@@ -118,9 +140,11 @@ a.nav-link:hover,
     z-index: 20;
     margin-top: 110px;
 }
+
 .hero-text a.btn.btn-s {
     margin-top: 30px;
 }
+
 .hero-text,
 .hero-right {
     color: #fff;
@@ -128,7 +152,6 @@ a.nav-link:hover,
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-
 }
 
 .hero-text h1 {
@@ -159,12 +182,14 @@ a.nav-link:hover,
 
 
 /* Testimonial */
-#testimonial{
+#testimonial {
     background: #ef7e221c;
 }
-.rounded-img{
+
+.rounded-img {
     width: 160px;
 }
+
 /* Why Choose us  */
 .pricing {
     padding: 90px 0 60px 0;
@@ -278,7 +303,8 @@ h2.category {
 .footer hr {
     background: #ef7f22;
 }
-.footer-text h4 span::before{
+
+.footer-text h4 span::before {
     content: '';
     position: absolute;
     height: 10px;
@@ -286,35 +312,38 @@ h2.category {
     border-radius: 50%;
     background: #9bc408;
     left: 49%;
-    bottom: 61%;
+    bottom: 47%;
     z-index: 1;
 }
-.footer-text h4 span::after{
+
+.footer-text h4 span::after {
     content: '';
     position: absolute;
     width: 90px;
     height: 3px;
     background: #ef7f22;
-    bottom: 65%;
+    bottom: 50%;
     left: 38%;
 }
-.footer-text h4{
+
+.footer-text h4 {
     text-transform: uppercase;
     margin-bottom: 20px;
 }
 
 
- @media (max-width:991.98px) {
-     .padding {
-         padding: 1.5rem
-     }
- }
+@media (max-width:991.98px) {
+    .padding {
+        padding: 1.5rem
+    }
+}
 
- @media (max-width:767.98px) {
-     .padding {
-         padding: 1rem
-     }
- }
+@media (max-width:767.98px) {
+    .padding {
+        padding: 1rem
+    }
+}
+
 .template-demo>.btn {
     margin-right: 0.5rem !important
 }
@@ -454,6 +483,7 @@ h2.category {
     list-style: none;
     float: left;
 }
+
 .card-icons {
     margin: auto;
 }
@@ -526,3 +556,78 @@ a.btn.btn-primary.btn-gg {
     background: #4285F4;
     border: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* @media (min-width:1200) {
+    .logo img {
+        width: 20px;
+    }
+}
+
+@media (max-width:991) {
+    .logo img {
+        width: 200px;
+    }
+}
+
+@media (max-width:767) {}
+
+@media (max-width:575) {}
+
+@media (max-width:480) {
+    .hero-left-bg{
+        margin-top: 42px;
+    }
+    .hero-right {
+        display: none;
+        margin-top: 0;
+    }
+
+    .logo img {
+        width: 78px;
+    }
+} */
+
+@media only screen and (max-width:479px) {
+    .section-gap {
+        height: 50px;
+    }
+
+    .hero-area {
+        height: 100%;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    .hero-text {
+        padding: 10px;
+    }
+
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .hero-right {
+        display: none;
+    }
+}
+
+@media only screen and (max-width:575px) {}
+
+@media only screen and (max-width:767px) {}
+
+@media only screen and (max-width:991px) {}
+
+@media only screen and (max-width:1200px) {}
