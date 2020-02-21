@@ -229,9 +229,9 @@
                                             <div class="col-md-1">
                                                 <div class="step s0">1</div>
                                             </div>
-                                            <div class="col-md-11 step-text">Selecciona la empresa a la que vas a
-                                                realizar el cargue de
-                                                información de nómina</div>
+                                            <div class="col-md-11 step-text">Selecciona la empresa a la que vas
+                                                arealizar el cargue deinformación de nómina
+                                            </div>
                                         </div>
                                     </a>
                                 </h4>
@@ -242,25 +242,9 @@
                                     <div class="row">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-11 step-text">
-                                            <div class="form-group">
-                                                <select class="form-control" id="sel1">
-                                                    <option>Selecciones una empresa...</option>
-                                                    <option>Avianca 1</option>
-                                                    <option>Avianca 2</option>
-                                                    <option>Avianca 3</option>
-                                                </select>
-                                            </div>
-                                            <div class="row pull-right">
-                                                <div class="col-md-1">
-                                                    <div class="step-fll-prev step-prev prev" num-step="0"><i
-                                                            class="fa fa-angle-left" aria-hidden="true"></i></div>
-                                                </div>
-                                                <div class="col-md-1"></div>
-                                                <div class="col-md-1">
-                                                    <div class="step-fll-prev step-fll next" num-step="0"><i
-                                                            class="fa fa-angle-right" aria-hidden="true"></i></div>
-                                                </div>
-                                            </div>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio
+                                            placeat, est tempore assumenda suscipit ab voluptatibus odio autem maxime
+                                            tenetur quod eum unde eaque sit cupiditate mollitia temporibus natus nihil.
 
 
                                         </div>
@@ -369,31 +353,40 @@
     <script>
         $(function () {
 
-                    $('.next').click(function () {
-                            var numStep = $(this).attr("num-step");
-                            var clStep = '#collapse' + (parseInt(numStep) + 1);
-                            $(clStep).collapse('show');
-                            $('#accordion .in').collapse('hide');
-                            console.log(clStep);
-                            /*cambiar estilo e imagen a botón*/
-                            $('.s' + numStep).addClass('step-ok').removeClass('step');
-                            $('.s' + numStep).empty().append('<i class=\"fa fa-check\" aria-hidden=\"true\"> <\/i> '); }); $('.prev ').click(function() { var numStep=$(this).attr( "num-step" ); var clStep='#collapse ' +
-                                (parseInt(numStep) - 1); $(clStep).collapse('show'); $('#accordion .in')
-                                .collapse('hide');
-                            }); $('.btn-primary').click(function () {
-                            var delay = 4000;
-                            setTimeout(function () {
-                                    window.location = 'p3';
-                                },
-                                delay);
-                        }); $('.btn-secondary').click(function () {
-                            $('.step-ok').addClass('step').removeClass('step-ok');
-                            $('.s0').empty().append('1');
-                            $('.s1').empty().append('2');
-                            $('#collapse0').collapse('show');
-                            $('#accordion .in').collapse('hide');
-                        });
-                    });
+            $('.next').click(function () {
+                var numStep = $(this).attr("num-step");
+                var clStep = '#collapse' + (parseInt(numStep) + 1);
+                $(clStep).collapse('show');
+                $('#accordion .in').collapse('hide');
+                console.log(clStep);
+                /*cambiar estilo e imagen a botón*/
+                $('.s' + numStep).addClass('step-ok').removeClass('step');
+                $('.s' + numStep).empty().append(
+                    '<i class=\"fa fa-check\" aria-hidden=\"true\"> <\/i> ');
+            });
+            $('.prev ').click(function () {
+                var numStep = $(this).attr("num-step");
+                var clStep = '#collapse ' +
+                    (parseInt(numStep) - 1);
+                $(clStep).collapse('show');
+                $('#accordion .in')
+                    .collapse('hide');
+            });
+            $('.btn-primary').click(function () {
+                var delay = 4000;
+                setTimeout(function () {
+                        window.location = 'p3';
+                    },
+                    delay);
+            });
+            $('.btn-secondary').click(function () {
+                $('.step-ok').addClass('step').removeClass('step-ok');
+                $('.s0').empty().append('1');
+                $('.s1').empty().append('2');
+                $('#collapse0').collapse('show');
+                $('#accordion .in').collapse('hide');
+            });
+        });
     </script>
 </body>
 
