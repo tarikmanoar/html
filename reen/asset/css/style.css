@@ -2,18 +2,83 @@
     margin: 0;
     padding: 0;
 }
+
 body {
-    font-size: 12px;
+    font-size: 14px;
     font-family: 'Lato', sans-serif;
 }
-a,p,h1,h2,h3{
+
+a,
+p,
+h1,
+h2,
+h3 {
     color: #506a85;
 }
+
+.btn-p:hover {
+    background: #08bea0;
+}
+
+.btn-p {
+    color: #fff;
+    background: #02977e;
+    padding: 10px 40px;
+    transition: .5s;
+}
+
+.section-gap {
+    height: 100px;
+}
+
+/* Custom Scroll Bar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #506a85;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #02977e;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(4, 150, 235);
+    cursor: pointer;
+}
+::selection{
+    background: #00bc9c;
+    color: #fff;
+}
+::-moz-selection{
+    background: #00bc9c;
+    color: #fff;
+}
+::spelling-error{
+    background: red;
+}
+
+
+
+
+
+
+
+/* ============
+==Top Nav Bar
+============== */
 .navbar-header {
     height: 42px;
     background: #f5f7fb;
     border-bottom: 1px solid #ddd;
 }
+
 .topnav {
     padding: 12px 5px;
     color: #ddd;
@@ -21,6 +86,7 @@ a,p,h1,h2,h3{
 
 .topnav.navbar-left ul li {
     margin-right: 15px;
+    font-size: 12px;
 }
 
 .topnav.navbar-left ul li a i.fa {
@@ -30,10 +96,275 @@ a,p,h1,h2,h3{
 .topnav.navbar-right ul li {
     padding: 0px 5px;
 }
+
 .main-nav {
     padding: 15px 0;
 }
+
 .main-nav ul li {
+    font-family: 'Source Sans Pro';
     font-size: 17px;
+    font-weight: bold;
     text-transform: uppercase;
+}
+.topnav.navbar-right {
+    float: right;
+}
+
+/*============ 
+=Slider Style 
+============== */
+#slider {
+    background: url("../images/slider.jpg") no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 79vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-content h1 {
+    font-weight: bold;
+    color: #fff;
+    font-size: 48px;
+}
+
+.slider-content p {
+    font-size: 18px;
+    color: #fff;
+}
+
+/* ============
+==Who We are
+============= */
+.single-item h3 {
+    top: 0;
+    margin-top: -56px;
+    margin-left: 90px;
+}
+
+.single-item p {
+    margin-left: 90px;
+}
+
+/* =============
+==latest-work
+============== */
+#latest-work {
+    background: #f2f5f7;
+}
+
+.figure-text {
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.card {
+    box-sizing: border-box;
+    box-shadow: 1px 5px 10px #b0b9bf;
+}
+
+
+/* ===========
+==get-in-touch 
+============= */
+
+
+#get-in-touch {
+    display: flex;
+    height: 65vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+/*===========
+== Footer Top
+============= */
+#footer-top p {
+    color: #a3b1bf;
+}
+
+#footer-top {
+    background: #2f4052;
+    color: #fff;
+    padding: 60px 0px;
+}
+
+.footer-location ul li {
+    color: #a3b1bf;
+}
+
+.footer-location ul li i.fa {
+    margin-right: 10px;
+    color: #02977e;
+}
+
+form.subs input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid #a3b1bf;
+    float: left;
+    width: 68%;
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+form.subs button {
+    float: left;
+    width: 35%;
+    padding: 10px;
+    background: #02977e;
+    color: white;
+    font-size: 17px;
+    border: 1px solid #a3b1bf;
+    border-left: none;
+    cursor: pointer;
+    margin-left: -10px;
+    border-radius: 0 10px 10px 0;
+}
+
+form.subs button:hover {
+    background: #0b7dda;
+}
+
+form.subs::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* ============
+==Footer
+============== */
+#footer{
+    background: #283645;
+    color:#a3b1bf;
+}
+.footer-menu {
+    float: right;
+}
+
+.footer-menu ul li {
+    padding: 15px;
+}
+
+.copywrite {
+    margin-top: 15px;
+}
+
+
+
+/* =============
+==Hover Effects
+================= */
+.card:hover {
+    box-shadow: 1px 5px 20px #b0b9bf;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.carsoule-area img:hover {
+    box-shadow: -1px 8px 20px #b0b9bf;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .5s;
+}
+
+section#footer-top img:hover {
+    box-shadow: 1px 8px 20px #8199b3;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .5s;
+}
+
+.single-item:hover h3 {
+    color: #00bc9c;
+    transition: .5s;
+}
+
+
+
+
+
+
+
+
+
+
+/*Scroll Up Css*/
+#scrollUp {
+    bottom: 0;
+    right: 15px;
+    width: 70px;
+    height: 70px;
+    margin-bottom: -10px;
+    padding: 10px 5px;
+    font: 14px/20px sans-serif;
+    background: url('../images/top.png')no-repeat scroll 0 0;
+    text-indent: -9999px;
+
+}
+
+#scrollUp:hover {
+    margin-bottom: 0;
+}
+
+
+/* ==============
+==OWL CSS
+================= */
+.owl-nav {
+    display: flex;
+    justify-content: center;
+    padding: 25px 0;
+    color: #506a85;
+    font-size: 32px;
+}
+
+button.owl-prev {
+    margin-right: 50px;
+}
+
+.owl-nav i.fa:hover {
+    color: #00bc9c;
+    transition: .5s;
+    transform: scale(1.5);
+}
+
+/*Sticky Div CSS*/
+#sticky.stick {
+    margin-top: 0;
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    transition: .5s;
+}
+
+#sticky.stick::after {
+    position: absolute;
+    background: #f5f7fb;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    z-index: -1;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 20px #bebfbe;
+    transition: .5s;
+}
+#sticky.stick .navbar-brand img {
+    width: 85px;
+    transition: .5s;
+}
+
+.main-nav.stick {
+    padding: 0;
+    font-size: 12px;
+    transition: .5s;
 }
