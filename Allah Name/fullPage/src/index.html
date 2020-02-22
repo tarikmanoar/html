@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="fullpage.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Full Page</title>
+</head>
+
+<body>
+    <div class="containerfluid">
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="https://alvarotrigo.com/fullPage/examples/scrollBar.html">Scroll Bar Enabled</a></li>
+        </ul>
+        <!-- <a href="#" id="showExamples">X</a>
+        <div id="examplesList">
+            <div class="column">
+                <ul>
+                    <li><a href="https://alvarotrigo.com/fullPage/examples/scrollBar.html">Scroll Bar Enabled</a></li>
+                </ul>
+            </div>
+        </div> -->
+    </div>
+    <div class="main-content">
+        <div id="fullpage">
+            <div class="section">
+                <h1>HI</h1>
+            </div>
+            <div class="section">
+                <h1>HI</h1>
+            </div>
+            <div class="section">
+                <h1>HI</h1>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+    </script>
+    <script src="fullpage.js"></script>
+    <script src="example.js"></script>
+    <script type="text/javascript">
+        var myFullpage = new fullpage('#fullpage', {
+            // anchors: ['firstPage', 'secondPage', '3rdPage'],
+            // sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+            // navigation: false,
+            // navigationPosition: 'right',
+            navigationTooltips: ['First page', 'Second page', 'Third and last page'],
+            responsiveWidth: 1100,
+            afterResponsive: function (isResponsive) {
+
+            }
+
+        });
+    </script>
+</body>
+
+</html>
