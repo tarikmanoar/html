@@ -1,0 +1,132 @@
+/*		Default Layout: 992px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8      9      10
+px      68    160    252    344    436    528    620    712    804    896    */
+
+
+
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
+
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+    .btn-p {
+        background: #00d271;
+        padding: 7px 25px;
+    }
+    .section-gap {
+        height: 50px;
+    }
+    #header ul.navbar-nav {
+        float: right;
+    }
+
+    .navbar-brand img {
+        width: 110px;
+    }
+
+    section#header {
+        height: 100%;
+        background: #6dfc00;
+    }
+
+    .slider-left {
+        height: auto;
+        text-align: center;
+    }
+
+    .slider-content h1 {
+        font-size: 28px;
+    }
+    .slider-right img {
+        height: auto;
+        margin-right: 80px;
+        width: 185px;
+        margin-top: 35px;
+    }
+
+    .feature-title h1 {
+        font-size: 28px;
+    }
+    .single-feature h3 {
+        font-size: 22px;
+        top: 0;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 0;
+    }
+    .single-feature p {
+        margin-left: 0;
+        text-align: center;
+    }
+    .single-feature i.fa {
+        font-size: 35.49pt;
+        text-align: center;
+        display: block;
+        margin: 10px 0;
+    }
+    .get-touch-title h1 {
+        color: #00d271;
+        font-size: 28px;
+    }
+    button.btn.btn-p.mb-2.text-uppercase {
+        text-align: center;
+        margin-left: 100px;
+    }
+    ul.footer-nav li a {
+        margin: -12px;
+    }
+    ul.footer-nav {
+        list-style: none;
+        margin-top: 15px;
+        margin-left: 25px;
+    }
+    ul.footer-nav li a i.fa {
+        font-size: 12pt;
+        background: #00d271;
+        padding: 4px;
+        border-radius: 15px;
+        min-width: 55px;
+    }
+}
+
+
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {}
+
+
+/*	Retina media query.
+	Overrides styles for devices with a 
+	device-pixel-ratio of 2+, such as iPhone 4.
+-----------------------------------------------    */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {}
