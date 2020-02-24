@@ -1,0 +1,140 @@
+/*		Default Layout: 992px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8      9      10
+px      68    160    252    344    436    528    620    712    804    896    */
+
+
+
+
+/*		Tablet Layout: 768px.
+		Gutters: 24px.
+		Outer margins: 28px.
+		Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .latest-work img {
+        width: 42%;
+        padding: 5px;
+    }
+    .getin-touch,
+    .updates{
+        margin-top: 30px;
+    }
+}
+
+
+
+/*		Mobile Layout: 320px.
+		Gutters: 24px.
+		Outer margins: 34px.
+		Inherits styles from: Default Layout.
+---------------------------------------------
+cols    1     2      3
+px      68    160    252    */
+
+@media only screen and (max-width: 767px) {
+    .topnav.navbar-left ul li {
+        margin-right: 5px;
+        font-size: 12px;
+    }
+
+    .topnav.navbar-right {
+        float: right;
+        margin-top: -43px;
+    }
+
+    .topnav.navbar-right ul li {
+        padding: 0px 3px;
+    }
+
+    a.navbar-brand img {
+        width: 65%;
+    }
+
+    .main-nav {
+        padding: 5px 0;
+    }
+
+    .main-nav ul.navbar-nav {
+        float: right;
+        text-align: right;
+    }
+
+    .main-nav form.form-inline.my-2.my-lg-0 {
+        display: none;
+    }
+    .section-gap {
+        height: 50px;
+    }
+    #slider{
+        height: 60vh !important;
+    }
+    #footer-top{
+        text-align: center;
+    }
+    .latest-work {
+        margin: 30px 0;
+    }
+    .latest-work img {
+        width: 35%;
+        padding: 5px;
+    }
+    .updates {
+        margin-top: 30px;
+    }
+form.subs input[type=text],
+form.subs button {
+    float:none;
+    margin-top: 15px;
+    border-radius:15px !important;
+}
+#footer{
+    text-align: center;
+}
+.footer-menu ul li {
+    padding: 10px;
+}
+
+
+    .btn-p {
+        color: #fff;
+        background: #0188aa;
+        padding: 10px 40px;
+        transition: .5s;
+    }
+}
+
+
+
+/*		Wide Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .btn-p {
+        color: #fff;
+        background: #03a5ce;
+        padding: 10px 40px;
+        transition: .5s;
+    }
+}
+
+
+/*	Retina media query.
+	Overrides styles for devices with a 
+	device-pixel-ratio of 2+, such as iPhone 4.
+-----------------------------------------------    */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {}
