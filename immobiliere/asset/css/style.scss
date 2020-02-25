@@ -800,10 +800,10 @@ section#Gestion {
     position: absolute;
     right: 50%;
     top: -5%;
-    @include phone(){
+    @include phone() {
       position: absolute;
-    right: 39%;
-    top: 33%;
+      right: 39%;
+      top: 33%;
     }
   }
   ul {
@@ -907,13 +907,19 @@ section#footer-arae {
       font-weight: bold;
     }
   }
-  .vda{
-    @include phone(){
-    width: 50%;
-    float: left;
-    margin-top: -225px;
-    margin-left: 50%;
+  .vda {
+    p {
+      font-weight: bold;
     }
+    @include phone() {
+      width: 50%;
+      float: left;
+      margin-top: -225px;
+      margin-left: 50%;
+    }
+  }
+  .suivez {
+    text-align: center;
   }
   .social {
     ul li {
