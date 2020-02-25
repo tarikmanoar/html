@@ -58,7 +58,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     @include phone() {
-      height: 85vh;
+      height: 90vh;
     }
   }
 }
@@ -72,13 +72,21 @@ section#header-area {
     .navbar-brand img {
       width: 65%;
       margin-left: -23%;
-      margin-top: -7%;
     }
     button {
       float: right;
       margin-left: 90%;
-      margin-top: -19%;
+      margin-top: -13%;
     }
+    ul {
+      text-align: right;
+    }
+    #sticky.stick .navbar-brand img {
+      width: 120px;
+      margin-left: 5px;
+    }
+  }
+  @include tab() {
     ul {
       text-align: right;
     }
@@ -141,6 +149,10 @@ section#slider-area {
   position: relative;
   @include phone() {
     margin-top: 10vh;
+    min-height: 70vh;
+  }
+  @include tab() {
+    min-height: 57vh;
   }
   margin-top: 30vh;
   .location-area {
@@ -251,6 +263,9 @@ section#slider-bottom {
       font-size: 15px;
     }
   }
+  @include tab() {
+    height: 50vh;
+  }
   display: flex;
   height: 75vh;
   width: 100%;
@@ -287,6 +302,20 @@ section#slider-bottom {
       top: -33px;
       left: -73px;
       font-size: 11px;
+      max-width: 59px;
+      max-height: 32px;
+    }
+    @include tab() {
+      left: -175px;
+      span {
+        &.line {
+          width: 130px !important;
+          left: 111px !important;
+        }
+        &.dot {
+          left: 273% !important;
+        }
+      }
     }
     span {
       &.line {
@@ -331,6 +360,21 @@ section#slider-bottom {
       bottom: -40px;
       left: -75px;
       font-size: 11px;
+      max-width: 54px;
+      max-height: 32px;
+    }
+
+    @include tab() {
+      left: -175px;
+      span {
+        &.line {
+          width: 130px !important;
+          left: 111px !important;
+        }
+        &.dot {
+          left: 300% !important;
+        }
+      }
     }
     span {
       &.line {
@@ -375,6 +419,21 @@ section#slider-bottom {
       top: -50px;
       right: -73px;
       font-size: 11px;
+      max-width: 48px;
+      max-height: 64px;
+    }
+
+    @include tab() {
+      right: -175px;
+      span {
+        &.line {
+          width: 140px !important;
+          right: 111px !important;
+        }
+        &.dot {
+          right: 353% !important;
+        }
+      }
     }
     span {
       &.line {
@@ -422,6 +481,20 @@ section#slider-bottom {
       bottom: -40px;
       right: -70px;
       font-size: 11px;
+      max-width: 45px;
+      max-height: 32px;
+    }
+    @include tab() {
+      right: -175px;
+      span {
+        &.line {
+          width: 140px !important;
+          right: 111px !important;
+        }
+        &.dot {
+          right: 373% !important;
+        }
+      }
     }
     span {
       &.line {
@@ -461,12 +534,22 @@ section#slider-bottom {
 section#presentation {
   position: relative;
   text-align: center;
+  @include tab() {
+    min-height: 90vh;
+  }
   .shape-4 {
     background: black;
     height: 2px;
     width: 400px;
     position: absolute;
     top: 42%;
+    @include tab() {
+      background: #6a4d6c;
+      height: 4px;
+      width: 400px;
+      position: absolute;
+      top: 23%;
+    }
     @include phone() {
       background: #a2a2a2;
       height: 2px;
@@ -544,6 +627,10 @@ section#presentation {
         height: 450px !important;
       }
     }
+    @include tab() {
+      top: 50%;
+      width: 100%;
+    }
     img {
       padding-left: 122px;
       width: 830px;
@@ -557,6 +644,9 @@ section#calque {
   width: 100%;
   height: 65vh;
   @include phone() {
+    height: 25vh;
+  }
+  @include tab(){
     height: 25vh;
   }
 }
@@ -953,58 +1043,48 @@ section#footer-arae {
   }
 }
 
-
-
-
-
-
-
-
-
 /*Scroll Up Css*/
 #scrollUp {
-    bottom: 0;
-    right: 15px;
-    width: 70px;
-    height: 70px;
-    margin-bottom: -10px;
-    padding: 10px 5px;
-    font: 14px/20px sans-serif;
-    background: url('../image/top.png')no-repeat scroll 0 0;
-    text-indent: -9999px;
-
+  bottom: 0;
+  right: 15px;
+  width: 70px;
+  height: 70px;
+  margin-bottom: -10px;
+  padding: 10px 5px;
+  font: 14px/20px sans-serif;
+  background: url("../image/top.png") no-repeat scroll 0 0;
+  text-indent: -9999px;
 }
 
 #scrollUp:hover {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
-
 
 /*Sticky Div CSS*/
 #sticky.stick {
-    margin-top: 0;
-    position: fixed;
-    top: 0;
-    z-index: 10000;
-    width: 100%;
-    transition: .5s;
-    left: 0;
+  margin-top: 0;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  transition: 0.5s;
+  left: 0;
 }
 
 #sticky.stick::after {
-    position: absolute;
-    background: #f5f7fb;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    content: '';
-    z-index: -1;
-    box-sizing: border-box;
-    box-shadow: 0px 2px 20px #bebfbe;
-    transition: .5s;
+  position: absolute;
+  background: #f5f7fb;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "";
+  z-index: -1;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 20px #bebfbe;
+  transition: 0.5s;
 }
 #sticky.stick .navbar-brand img {
-    width: 150px;
-    transition: .5s;
+  width: 150px;
+  transition: 0.5s;
 }
