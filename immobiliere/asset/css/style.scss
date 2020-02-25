@@ -524,7 +524,7 @@ section#Convention-area {
       }
     }
   }
-.shape-bg {
+  .shape-bg {
     background: url(../image/conventionBg.png);
     height: 85px;
     position: absolute;
@@ -534,7 +534,7 @@ section#Convention-area {
     z-index: -1;
     background-position: center center;
     background-size: cover;
-}
+  }
   .pourquo-logo {
     position: absolute;
     right: 46px;
@@ -558,6 +558,92 @@ section#Convention-area {
       font-size: 15px;
       line-height: 22pt;
       color: #a1a1a1;
+    }
+  }
+}
+
+section#Gestion {
+  position: relative;
+  .shape-line {
+    position: absolute;
+    width: 380px;
+    height: 3px;
+    background: #a1a1a1;
+    top: 55px;
+    left: 0;
+  }
+  .shape-bg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #cfcdd2;
+    width: 62%;
+    height: 94%;
+}
+
+.shape-marker {
+    position: absolute;
+    right: 50%;
+    top: -5%;
+}
+  ul {
+    list-style: none;
+    li {
+      padding: 5px 0;
+
+      &:hover {
+        padding-left: 5px;
+        transition: 0.5s;
+      }
+      span {
+        width: 10px;
+        height: 10px;
+        background: $mainColor;
+        display: inline-block;
+        margin-right: 9px;
+        border-radius: 50%;
+      }
+      a {
+        color: $mainColor;
+        display: inline-block;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    line-height: 0.9;
+    span {
+      font-weight: 100;
+      color: $mainColor;
+    }
+  }
+  p {
+    font-size: 15px;
+    line-height: 22pt;
+    color: #a1a1a1;
+  }
+
+  .btn.btn-p {
+    background: #734f77;
+    color: #fff;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px #734f77;
+  }
+  .gestion-right {
+    margin-top: 100px;
+    padding-bottom: 30px;
+    h5 {
+      padding: 25px 0;
+      span {
+        font-weight: bold;
+        color: $mainColor;
+      }
     }
   }
 }
