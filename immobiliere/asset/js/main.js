@@ -15,6 +15,13 @@ $(function () {
     //Sticky Top
     $(window).scroll(sticky_relocate);
     sticky_relocate();
+
+    $("#date").datepicker({
+        dateFormat: "dd-mm-yy",
+        showOn: "both",
+        buttonText: '<i class="zmdi zmdi-calendar-alt"></i>',
+    });
+
 });
 
 // Sticky Div
