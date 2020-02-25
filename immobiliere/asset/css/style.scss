@@ -579,13 +579,13 @@ section#Gestion {
     background: #cfcdd2;
     width: 62%;
     height: 94%;
-}
+  }
 
-.shape-marker {
+  .shape-marker {
     position: absolute;
     right: 50%;
     top: -5%;
-}
+  }
   ul {
     list-style: none;
     li {
@@ -644,6 +644,67 @@ section#Gestion {
         font-weight: bold;
         color: $mainColor;
       }
+    }
+  }
+}
+section#footer-arae {
+  background: #2b2929;
+  color: #fff;
+  padding-top: 40px;
+  .footer-logo {
+    p {
+      margin-top: 30px;
+      line-height: 22pt;
+    }
+  }
+  ul {
+    list-style: none;
+    display: inline-block;
+    li {
+      padding: 5px 0;
+      font-weight: 100;
+      a {
+        color: #fff;
+        &:hover {
+          text-decoration: none;
+          color: $mainColor;
+        }
+      }
+      &:hover {
+        color: $mainColor;
+        padding-left: 5px;
+        font-size: 17px;
+        transition: 0.5s;
+      }
+    }
+  }
+  .couvrir {
+    padding-left: 40px;
+    p {
+      font-weight: bold;
+    }
+  }
+  .social {
+    ul li {
+      float: left;
+      padding: 5px 20px !important;
+      a i.fa {
+        font-size: 28px;
+      }
+    }
+  }
+  .partner {
+    margin-left: 15px;
+    ul {
+      li {
+        float: left;
+        &:hover{
+          padding-left: 0 !important;
+        }
+      }
+    }
+    img {
+      width: 70%;
     }
   }
 }
