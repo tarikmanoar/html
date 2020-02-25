@@ -32,6 +32,10 @@ button:active,
           box-shadow: none !important;
 }
 
+.section-gap {
+  height: 100px;
+}
+
 body {
   font-family: "Lato";
   width: 100%;
@@ -379,6 +383,7 @@ section#presentation .presentation-left h2 {
 section#presentation .presentation-left p {
   color: #a1a1a1;
   padding-right: 35px;
+  line-height: 22pt;
 }
 
 section#presentation .presentation-right {
@@ -421,5 +426,217 @@ section#presentation .shape-6 {
 section#presentation .shape-6 img {
   padding-left: 122px;
   width: 830px;
+}
+
+section#calque {
+  background: url(../image/calque2.jpg) no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 65vh;
+}
+
+section#product-area .col-lg-3 {
+  padding: 0;
+}
+
+section#product-area .col-lg-3 .product-content {
+  background: #734f77;
+  color: #fff;
+  padding: 55px 30px;
+}
+
+section#product-area .col-lg-3 .product-content:hover {
+  -webkit-transform: translateY(-25px);
+          transform: translateY(-25px);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0px 8px 20px 0px #929292;
+          box-shadow: 0px 8px 20px 0px #929292;
+}
+
+section#product-area .col-lg-3 .product-content h1 {
+  font-size: 35px;
+  font-weight: bold;
+  padding-right: 40px;
+  margin-bottom: 30px;
+}
+
+section#product-area .col-lg-3 .product-content h1 span {
+  font-size: 26px;
+  font-weight: 100;
+}
+
+section#product-area .col-lg-3 .product-content a {
+  color: #fff;
+}
+
+section#product-area .col-lg-3 .product-content a i.fa {
+  margin-left: 15px;
+}
+
+section#product-area .col-lg-3 .product-content a.btn.btnProduct {
+  background: #734f77;
+  padding: 10px 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 0 20px #734f77;
+          box-shadow: 0 0 20px #734f77;
+}
+
+section#product-area .col-lg-3 .product-content.light {
+  background: #fff !important;
+  color: #6a4d6c !important;
+  padding: 44px;
+  max-height: 332px;
+  min-height: 332px;
+  padding-top: 95px;
+  padding-left: 60px;
+}
+
+section#product-area .col-lg-3 .product-content.light::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background: #cfcdd2;
+  left: 0;
+  bottom: 0;
+}
+
+section#product-area .col-lg-3 .product-content.dark {
+  background: #cfcdd2 !important;
+  color: #6a4d6c !important;
+  padding: 44px;
+  max-height: 332px;
+  min-height: 332px;
+  padding-top: 95px;
+  padding-left: 75px;
+}
+
+section#product-area .col-lg-3 .product-content.dark::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background: #b9b5bf;
+  left: 0;
+  bottom: 0;
+}
+
+section#product-area .col-lg-3 .product-content.darklight {
+  background: #e5e3e4 !important;
+  color: #6a4d6c !important;
+  padding: 44px;
+  max-height: 332px;
+  min-height: 332px;
+  padding-top: 95px;
+  padding-left: 60px;
+}
+
+section#product-area .col-lg-3 .product-content.darklight::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 7px;
+  background: #cfcdd2;
+  left: 0;
+  bottom: 0;
+}
+
+section#Convention-area {
+  position: relative;
+}
+
+section#Convention-area .shape-img {
+  position: absolute;
+}
+
+section#Convention-area .shape-img img {
+  width: 85%;
+}
+
+section#Convention-area .shape-drop {
+  position: absolute;
+  top: -35px;
+  left: 22%;
+}
+
+section#Convention-area .shape-line {
+  position: absolute;
+  width: 500px;
+  height: 2px;
+  background: #a1a1a1;
+  left: 18%;
+  top: 22%;
+}
+
+section#Convention-area .pourquo {
+  position: absolute;
+  right: 0;
+  bottom: -135px;
+  background: #734f77;
+  color: #fff;
+  padding: 50px 100px 50px 60px;
+}
+
+section#Convention-area .pourquo h1 {
+  font-weight: 100;
+  font-size: 36px;
+  line-height: 0.97;
+}
+
+section#Convention-area .pourquo h1 span {
+  font-weight: bold;
+}
+
+section#Convention-area .pourquo ul {
+  padding-left: 20px;
+}
+
+section#Convention-area .pourquo ul li {
+  padding: 10px 0;
+}
+
+section#Convention-area .shape-bg {
+  background: url(../image/conventionBg.png);
+  height: 85px;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  background-position: center center;
+  background-size: cover;
+}
+
+section#Convention-area .pourquo-logo {
+  position: absolute;
+  right: 46px;
+  bottom: 150px;
+}
+
+section#Convention-area .pourquo-logo img {
+  width: 70%;
+}
+
+section#Convention-area .convention-content h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  line-height: 0.9;
+}
+
+section#Convention-area .convention-content h1 span {
+  font-weight: 100;
+  color: #734f77;
+}
+
+section#Convention-area .convention-content p {
+  font-size: 15px;
+  line-height: 22pt;
+  color: #a1a1a1;
 }
 /*# sourceMappingURL=style.css.map */
