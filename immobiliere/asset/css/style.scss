@@ -27,11 +27,25 @@ button:active,
   //   border-color: $mainColor;
 }
 
-.section-gap {
-  height: 100px;
-}
 $mainColor: #734f77;
 
+@mixin phone {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin tab {
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+.section-gap {
+  height: 100px;
+  @include phone() {
+    height: 50px;
+  }
+}
 body {
   font-family: "Lato";
   width: 100%;
@@ -43,6 +57,9 @@ body {
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    @include phone() {
+      height: 85vh;
+    }
   }
 }
 section#header-area {
@@ -51,6 +68,21 @@ section#header-area {
   position: relative;
   background: linear-gradient(180deg, #f4f4f4, #f4f4f496);
   box-shadow: 0px 13px 20px 8px #f4f4f4;
+  @include phone() {
+    .navbar-brand img {
+      width: 65%;
+      margin-left: -23%;
+      margin-top: -7%;
+    }
+    button {
+      float: right;
+      margin-left: 90%;
+      margin-top: -19%;
+    }
+    ul {
+      text-align: right;
+    }
+  }
   ul {
     li {
       padding: 10px 25px;
@@ -106,12 +138,21 @@ section#header-area {
 }
 
 section#slider-area {
+  position: relative;
+  @include phone() {
+    margin-top: 10vh;
+  }
   margin-top: 30vh;
   .location-area {
     background: #ffffffe3;
     padding-top: 50px;
     text-align: center;
     border-radius: 0.5rem;
+    @include phone() {
+      h1 {
+        font-size: 26px;
+      }
+    }
     h1 {
       font-weight: 100;
       span {
@@ -120,6 +161,9 @@ section#slider-area {
     }
     p.loacP {
       padding: 5px 212px;
+      @include phone() {
+        padding: 5px 10px;
+      }
     }
     .shape-2 {
       position: absolute;
@@ -132,18 +176,17 @@ section#slider-area {
       right: 35px;
       color: $mainColor;
     }
-    .form-control {
-      height: 55px;
-      margin-right: 10px;
-      min-width: 155px;
-      max-width: 155px;
-    }
-
+    .form-control,
     .custom-select {
       height: 55px;
       margin-right: 10px;
       min-width: 155px;
       max-width: 155px;
+      @include phone() {
+        margin-right: 10px;
+        min-width: -moz-available;
+        max-width: -moz-available;
+      }
     }
     .btn-p {
       background: #734f77;
@@ -166,6 +209,9 @@ section#slider-area {
     .lavel {
       position: absolute;
       top: 10px;
+      @include phone() {
+        display: none;
+      }
     }
   }
 }
@@ -180,6 +226,14 @@ section#slider-bottom {
       padding: 10px 15px;
       letter-spacing: 5px;
       font-weight: 100;
+      @include phone() {
+        display: inline-block;
+        float: left;
+        padding: 5px;
+        letter-spacing: 4px;
+        font-weight: 100;
+        font-size: 10px;
+      }
       span {
         background: $mainColor;
         height: 5px;
@@ -191,6 +245,12 @@ section#slider-bottom {
   }
 }
 .promo-area {
+  @include phone() {
+    height: 35vh;
+    h2 {
+      font-size: 15px;
+    }
+  }
   display: flex;
   height: 75vh;
   width: 100%;
@@ -208,11 +268,24 @@ section#slider-bottom {
     top: 0;
     margin-top: -130px;
     margin-left: 10px;
+    @include phone() {
+      margin-top: -38px;
+      margin-left: 0;
+      img {
+        width: 100px;
+        margin-left: 25%;
+      }
+    }
   }
   .topLeft {
     position: absolute;
     top: -90px;
     left: -260px;
+    @include phone() {
+      top: -33px;
+      left: -73px;
+      font-size: 11px;
+    }
     span {
       &.line {
         background: $mainColor;
@@ -222,6 +295,10 @@ section#slider-bottom {
         position: absolute;
         top: 50%;
         left: 155px;
+        @include phone() {
+          width: 60px;
+          left: 116%;
+        }
       }
       &.dot {
         background: $mainColor;
@@ -232,6 +309,12 @@ section#slider-bottom {
         border-radius: 50%;
         left: 396%;
         top: 41%;
+        @include phone() {
+          height: 8px;
+          width: 8px;
+          left: 214%;
+          top: 41%;
+        }
       }
     }
   }
@@ -239,6 +322,12 @@ section#slider-bottom {
     position: absolute;
     bottom: -100px;
     left: -260px;
+
+    @include phone() {
+      bottom: -40px;
+      left: -75px;
+      font-size: 11px;
+    }
     span {
       &.line {
         background: $mainColor;
@@ -248,6 +337,10 @@ section#slider-bottom {
         position: absolute;
         top: 50%;
         left: 155px;
+        @include phone() {
+          width: 60px;
+          left: 130%;
+        }
       }
       &.dot {
         background: $mainColor;
@@ -258,6 +351,13 @@ section#slider-bottom {
         border-radius: 50%;
         left: 425%;
         top: 41%;
+
+        @include phone() {
+          height: 8px;
+          width: 8px;
+          left: 235%;
+          top: 41%;
+        }
       }
     }
   }
@@ -265,6 +365,11 @@ section#slider-bottom {
     position: absolute;
     top: -90px;
     right: -265px;
+    @include phone() {
+      top: -50px;
+      right: -73px;
+      font-size: 11px;
+    }
     span {
       &.line {
         background: $mainColor;
@@ -274,6 +379,10 @@ section#slider-bottom {
         position: absolute;
         top: 50%;
         right: 165px;
+        @include phone() {
+          width: 60px;
+          right: 160%;
+        }
       }
       &.dot {
         background: $mainColor;
@@ -284,6 +393,13 @@ section#slider-bottom {
         border-radius: 50%;
         right: 500%;
         top: 43%;
+
+        @include phone() {
+          height: 8px;
+          width: 8px;
+          right: 281%;
+          top: 45%;
+        }
       }
       &.text {
         margin-right: -60px;
@@ -294,6 +410,12 @@ section#slider-bottom {
     position: absolute;
     bottom: -100px;
     right: -260px;
+
+    @include phone() {
+      bottom: -40px;
+      right: -70px;
+      font-size: 11px;
+    }
     span {
       &.line {
         background: $mainColor;
@@ -303,6 +425,11 @@ section#slider-bottom {
         position: absolute;
         top: 50%;
         right: 155px;
+
+        @include phone() {
+          width: 60px;
+          right: 154%;
+        }
       }
       &.dot {
         background: $mainColor;
@@ -313,18 +440,33 @@ section#slider-bottom {
         border-radius: 50%;
         right: 515%;
         top: 41%;
+
+        @include phone() {
+          height: 8px;
+          width: 8px;
+          right: 281%;
+          top: 45%;
+        }
       }
     }
   }
 }
 section#presentation {
   position: relative;
+  text-align: center;
   .shape-4 {
     background: black;
     height: 2px;
     width: 400px;
     position: absolute;
     top: 42%;
+    @include phone() {
+      background: #a2a2a2;
+      height: 2px;
+      width: 174px;
+      position: absolute;
+      top: 105px;
+    }
   }
   .presentation-left {
     h1 {
@@ -345,6 +487,21 @@ section#presentation {
     margin-left: 30%;
     margin-top: 25%;
     color: #fff;
+    @include phone() {
+      margin-left: 0 !important;
+      margin-top: 25%;
+      color: #fff;
+      padding-bottom: 20% !important;
+      h1 {
+        font-size: 18px !important;
+      }
+      p {
+        margin-left: 20px !important;
+      }
+      a {
+        margin-left: 0 !important;
+      }
+    }
     h1 {
       font-weight: bold;
       font-size: 32px;
@@ -372,6 +529,14 @@ section#presentation {
     right: 0;
     top: 0;
     z-index: -1;
+    @include phone() {
+      top: 57%;
+      img {
+        padding-left: 0 !important;
+        width: 100% !important;
+        height: 450px !important;
+      }
+    }
     img {
       padding-left: 122px;
       width: 830px;
@@ -384,6 +549,9 @@ section#calque {
   background-size: cover;
   width: 100%;
   height: 65vh;
+  @include phone() {
+    height: 25vh;
+  }
 }
 section#product-area {
   .col-lg-3 {
@@ -482,6 +650,37 @@ section#product-area {
 
 section#Convention-area {
   position: relative;
+  @include phone() {
+    text-align: center;
+    .shape-img {
+      display: none;
+    }
+    .shape-drop {
+      display: none;
+    }
+    .shape-bg {
+      display: none;
+    }
+    .shape-line {
+      width: 200px !important;
+      height: 4px !important;
+      background: $mainColor;
+      right: 0 !important;
+      left: 0 !important;
+      top: 12% !important;
+    }
+    h1 {
+      font-size: 26px !important;
+      line-height: 1.5 !important;
+    }
+    .pourquo {
+      position: unset !important;
+      margin-top: 90px;
+    }
+    .pourquo-logo {
+      top: 53%;
+    }
+  }
   .shape-img {
     position: absolute;
     img {
@@ -571,6 +770,14 @@ section#Gestion {
     background: #a1a1a1;
     top: 55px;
     left: 0;
+    @include phone() {
+      position: absolute;
+      width: 185px;
+      height: 4px;
+      background: #734f77;
+      top: 55px;
+      left: 0;
+    }
   }
   .shape-bg {
     position: absolute;
@@ -579,12 +786,25 @@ section#Gestion {
     background: #cfcdd2;
     width: 62%;
     height: 94%;
+    @include phone() {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: #cfcdd2;
+      width: 100%;
+      height: 63%;
+    }
   }
 
   .shape-marker {
     position: absolute;
     right: 50%;
     top: -5%;
+    @include phone(){
+      position: absolute;
+    right: 39%;
+    top: 33%;
+    }
   }
   ul {
     list-style: none;
@@ -636,6 +856,9 @@ section#Gestion {
     box-shadow: 0 0 20px #734f77;
   }
   .gestion-right {
+    @include phone() {
+      margin-top: 150px;
+    }
     margin-top: 100px;
     padding-bottom: 30px;
     h5 {
@@ -698,7 +921,7 @@ section#footer-arae {
     ul {
       li {
         float: left;
-        &:hover{
+        &:hover {
           padding-left: 0 !important;
         }
       }
