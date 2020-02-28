@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>FAQ</title>
+    <style>
+        a:hover{
+text-decoration: none;
+
+        }
+        .step {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-family: 'SansaPro-SemiBold';
+            font-size: 25px;
+            color: #404040;
+            line-height: 50px;
+            text-align: center !important;
+            background: rgb(255, 255, 255);
+            transition: all 1s;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px 0 #00000019;
+        }
+
+        .step-ok {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-family: 'SansaPro-SemiBold';
+            font-size: 25px;
+            color: #fff;
+            line-height: 50px;
+            text-align: center !important;
+            background: #39B54A;
+        }
+
+        .step-fll-prev {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-family: 'SansaPro-Bold';
+            font-size: 30px !important;
+            text-align: center !important;
+            cursor: pointer;
+        }
+
+        .step-fll {
+            color: #fff;
+            background: #283897;
+            margin-left: 3px;
+            line-height: 38px;
+        }
+
+        .step-prev {
+            color: #283897;
+            background: #FFF;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #283897;
+            margin-left: -5px;
+            line-height: 35px;
+        }
+
+        .step-fll-prev i {
+            font-size: 30px !important;
+        }
+
+        .step-text {
+            /*font-family: 'SansaPro-SemiBold';*/
+            font-size: 15px;
+            padding-left: 46px;
+            padding-top: 5px;
+        }
+
+        .panel-default {
+            border-color: transparent;
+        }
+
+        .panel {
+            margin-bottom: 20px;
+            background-color: transparent;
+            border: 0px solid transparent;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.05);
+        }
+
+        .panel-default>.panel-heading {
+            color: #333;
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+        .panel-group .panel-heading+.panel-collapse .panel-body {
+            border-top: 0px solid #ddd;
+        }
+
+        .line-wizard {
+            position: absolute;
+            width: 2px;
+            background-color: #321b3c;
+            z-index: -1;
+        }
+
+        .l1 {
+            height: 335px;
+            margin-top: -44px;
+            margin-left: 25px;
+        }
+
+        .l2 {
+            height: 320px;
+            margin-top: -80px;
+            margin-left: 25px;
+        }
+
+        .l3 {
+            height: 350px;
+            margin-top: -199px;
+            margin-left: 25px;
+        }
+        .l4 {
+                height: 310px;
+                margin-top: -225px;
+                margin-left: 25px;
+        }
+        .l5 {
+            height: 250px;
+            margin-top: -295px;
+            margin-left: 25px;
+        }
+
+        .tab-container {
+            max-width: 643px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row d0flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="tab-container">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse0">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="step s0">01</div>
+                                            </div>
+                                            <div class="col-md-11 step-text">Heading 0ne
+                                            </div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse0" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="line-wizard l1"></div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-11 step-text">
+                                            Simply book an appointment online, discuss with one of our nutritionists
+                                            which health goals you have and which habits and lifestyle you are currently
+                                            maintaining.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="step s1">02</div>
+                                            </div>
+                                            <div class="col-md-11 step-text">Heading 2</div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="line-wizard l2"></div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-11 step-text">
+                                            Simply book an appointment online, discuss with one of our nutritionists
+                                            which health goals you have and which habits and lifestyle you are currently
+                                            maintaining.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="step s3">03</div>
+                                            </div>
+                                            <div class="col-md-11 step-text">Heading 3e</div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="line-wizard l3"></div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-11 step-text">
+                                            Simply book an appointment online, discuss with one of our nutritionists
+                                            which health goals you have and which habits and lifestyle you are currently
+                                            maintaining.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="step s4">04</div>
+                                            </div>
+                                            <div class="col-md-11 step-text">Heading 4</div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse3" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="line-wizard l4"></div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-11 step-text">
+                                            Simply book an appointment online, discuss with one of our nutritionists
+                                            which health goals you have and which habits and lifestyle you are currently
+                                            maintaining.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <div class="step s5">05</div>
+                                            </div>
+                                            <div class="col-md-11 step-text">Heading 5</div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse4" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="line-wizard l5"></div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-11 step-text">
+                                            Simply book an appointment online, discuss with one of our nutritionists
+                                            which health goals you have and which habits and lifestyle you are currently
+                                            maintaining.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
+    </script>
+    <script>
+        $(function () {
+
+            $('.next').click(function () {
+                var numStep = $(this).attr("num-step");
+                var clStep = '#collapse' + (parseInt(numStep) + 1);
+                $(clStep).collapse('show');
+                $('#accordion .in').collapse('hide');
+                console.log(clStep);
+                /*cambiar estilo e imagen a botón*/
+                $('.s' + numStep).addClass('step-ok').removeClass('step');
+                $('.s' + numStep).empty().append(
+                    '<i class=\"fa fa-check\" aria-hidden=\"true\"> <\/i> ');
+            });
+            $('.prev ').click(function () {
+                var numStep = $(this).attr("num-step");
+                var clStep = '#collapse ' +
+                    (parseInt(numStep) - 1);
+                $(clStep).collapse('show');
+                $('#accordion .in')
+                    .collapse('hide');
+            });
+            $('.btn-primary').click(function () {
+                var delay = 4000;
+                setTimeout(function () {
+                        window.location = 'p3';
+                    },
+                    delay);
+            });
+            $('.btn-secondary').click(function () {
+                $('.step-ok').addClass('step').removeClass('step-ok');
+                $('.s0').empty().append('1');
+                $('.s1').empty().append('2');
+                $('.s2').empty().append('3');
+                $('.s3').empty().append('4');
+                $('#collapse0').collapse('show');
+                $('#accordion .in').collapse('hide');
+            });
+        });
+    </script>
+</body>
+
+</html>
