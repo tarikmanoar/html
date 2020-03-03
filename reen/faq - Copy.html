@@ -11,10 +11,11 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <title>FAQ</title>
     <style>
-        a:hover{
-text-decoration: none;
+        a:hover {
+            text-decoration: none;
 
         }
+
         .step {
             width: 50px;
             height: 50px;
@@ -127,11 +128,13 @@ text-decoration: none;
             margin-top: -199px;
             margin-left: 25px;
         }
+
         .l4 {
-                height: 310px;
-                margin-top: -225px;
-                margin-left: 25px;
+            height: 310px;
+            margin-top: -225px;
+            margin-left: 25px;
         }
+
         .l5 {
             height: 250px;
             margin-top: -295px;
@@ -140,6 +143,20 @@ text-decoration: none;
 
         .tab-container {
             max-width: 643px;
+        }
+
+        svg {
+            width: 1.25em;
+            height: 1.25em;
+            margin-left: auto;
+            position: relative;
+            z-index: 10;
+            float: right;
+        }
+
+        a.collapsed svg {
+            -webkit-transform: rotate(-180deg);
+            transform: rotate(-180deg);
         }
     </style>
 </head>
@@ -159,6 +176,11 @@ text-decoration: none;
                                                 <div class="step s0">01</div>
                                             </div>
                                             <div class="col-md-11 step-text">Heading 0ne
+                                                <svg viewBox="0 0 24 24">
+                                                    <polyline fill="none" points="21,8.5 12,17.5 3,8.5 " stroke="#000"
+                                                        stroke-miterlimit="10" stroke-width="2">
+                                                    </polyline>
+                                                </svg>
                                             </div>
                                         </div>
                                     </a>
@@ -186,7 +208,12 @@ text-decoration: none;
                                             <div class="col-md-1">
                                                 <div class="step s1">02</div>
                                             </div>
-                                            <div class="col-md-11 step-text">Heading 2</div>
+                                            <div class="col-md-11 step-text">Heading 2
+                                                <svg viewBox="0 0 24 24">
+                                                    <polyline fill="none" points="21,8.5 12,17.5 3,8.5 " stroke="#000"
+                                                        stroke-miterlimit="10" stroke-width="2">
+                                                    </polyline>
+                                                </svg></div>
                                         </div>
                                     </a>
                                 </h4>
@@ -213,7 +240,12 @@ text-decoration: none;
                                             <div class="col-md-1">
                                                 <div class="step s3">03</div>
                                             </div>
-                                            <div class="col-md-11 step-text">Heading 3e</div>
+                                            <div class="col-md-11 step-text">Heading 3e
+                                                <svg viewBox="0 0 24 24">
+                                                    <polyline fill="none" points="21,8.5 12,17.5 3,8.5 " stroke="#000"
+                                                        stroke-miterlimit="10" stroke-width="2">
+                                                    </polyline>
+                                                </svg></div>
                                         </div>
                                     </a>
                                 </h4>
@@ -240,7 +272,12 @@ text-decoration: none;
                                             <div class="col-md-1">
                                                 <div class="step s4">04</div>
                                             </div>
-                                            <div class="col-md-11 step-text">Heading 4</div>
+                                            <div class="col-md-11 step-text">Heading 4
+                                                <svg viewBox="0 0 24 24">
+                                                    <polyline fill="none" points="21,8.5 12,17.5 3,8.5 " stroke="#000"
+                                                        stroke-miterlimit="10" stroke-width="2">
+                                                    </polyline>
+                                                </svg></div>
                                         </div>
                                     </a>
                                 </h4>
@@ -267,7 +304,14 @@ text-decoration: none;
                                             <div class="col-md-1">
                                                 <div class="step s5">05</div>
                                             </div>
-                                            <div class="col-md-11 step-text">Heading 5</div>
+                                            <div class="col-md-11 step-text">
+                                                Heading 5
+                                                <svg viewBox="0 0 24 24">
+                                                    <polyline fill="none" points="21,8.5 12,17.5 3,8.5 " stroke="#000"
+                                                        stroke-miterlimit="10" stroke-width="2">
+                                                    </polyline>
+                                                </svg>
+                                            </div>
                                         </div>
                                     </a>
                                 </h4>
@@ -300,44 +344,6 @@ text-decoration: none;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
     </script>
     <script>
-        $(function () {
-
-            $('.next').click(function () {
-                var numStep = $(this).attr("num-step");
-                var clStep = '#collapse' + (parseInt(numStep) + 1);
-                $(clStep).collapse('show');
-                $('#accordion .in').collapse('hide');
-                console.log(clStep);
-                /*cambiar estilo e imagen a botón*/
-                $('.s' + numStep).addClass('step-ok').removeClass('step');
-                $('.s' + numStep).empty().append(
-                    '<i class=\"fa fa-check\" aria-hidden=\"true\"> <\/i> ');
-            });
-            $('.prev ').click(function () {
-                var numStep = $(this).attr("num-step");
-                var clStep = '#collapse ' +
-                    (parseInt(numStep) - 1);
-                $(clStep).collapse('show');
-                $('#accordion .in')
-                    .collapse('hide');
-            });
-            $('.btn-primary').click(function () {
-                var delay = 4000;
-                setTimeout(function () {
-                        window.location = 'p3';
-                    },
-                    delay);
-            });
-            $('.btn-secondary').click(function () {
-                $('.step-ok').addClass('step').removeClass('step-ok');
-                $('.s0').empty().append('1');
-                $('.s1').empty().append('2');
-                $('.s2').empty().append('3');
-                $('.s3').empty().append('4');
-                $('#collapse0').collapse('show');
-                $('#accordion .in').collapse('hide');
-            });
-        });
     </script>
 </body>
 
