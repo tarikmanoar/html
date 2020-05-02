@@ -1,0 +1,577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" /><link rel="icon" href="https://services.nidw.gov.bd/application/resource/images/logo.jpg" type="image/jpg"/><title>হোম</title><link href="https://services.nidw.gov.bd/application/resource/css/bec.css?v12" rel="stylesheet" type="text/css"/><link href="https://services.nidw.gov.bd/application/resource/css/reset.css?v12" rel="stylesheet" type="text/css"/><link href="https://services.nidw.gov.bd/application/resource/css/jquery-ui.css?v12" rel="stylesheet" type="text/css"/><link href="https://services.nidw.gov.bd/application/resource/css/bootstrap.min.css?v12" rel="stylesheet" type="text/css"/><link href="https://services.nidw.gov.bd/application/resource/css/jquery.alerts.css?v12" rel="stylesheet" type="text/css"/><script type="text/javascript" src="https://services.nidw.gov.bd/application/resource/js/jquery-1.9.1.js"></script><script type="text/javascript" src="https://services.nidw.gov.bd/application/resource/js/jquery-ui.js"></script><script type="text/javascript" src="https://services.nidw.gov.bd/application/resource/js/bootstrap.min.js"></script><script type="text/javascript" src="https://services.nidw.gov.bd/application/resource/js/jquery.alerts.js"></script><script>
+            $(document).ready(function() {
+                $("#left").tooltip({
+                    placement: 'left'
+                });
+                $("#top").tooltip({
+                    placement: 'top'
+                });
+                $("#bottom").tooltip({
+                    placement: 'bottom'
+                });
+
+                $("#nid").tooltip({
+                    placement: 'right'
+                });
+            });
+</script>
+<script>
+            $(document).ready(function() {
+                $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+                    e.preventDefault();
+                    $(this).siblings('a.active').removeClass("active");
+                    $(this).addClass("active");
+                    var index = $(this).index();
+                    $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+                    $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+                });
+                
+                
+                ""
+                
+            });
+
+</script>
+<style type="text/css">
+
+
+            /*  bhoechie tab */
+            div.bhoechie-tab-container{
+                z-index: 10;
+                background-color: #ffffff;
+                padding: 0 !important;
+                border-radius: 4px;
+                -moz-border-radius: 4px;
+                border:1px solid #ddd;
+                margin-top: 130px;
+                margin-left: 76px;
+                -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+                box-shadow: 0 6px 12px rgba(0,0,0,.175);
+                -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+                background-clip: padding-box;
+                opacity: 0.97;
+                filter: alpha(opacity=97);
+                width: 900px;
+                margin-bottom: 20px;
+            }
+            div.bhoechie-tab-menu{
+                padding-right: 0;
+                padding-left: 0;
+                padding-bottom: 0;
+            }
+            div.bhoechie-tab-menu div.list-group{
+                margin-bottom: 0;
+            }
+            div.bhoechie-tab-menu div.list-group>a{
+                margin-bottom: 0;
+            }
+            div.bhoechie-tab-menu div.list-group>a .glyphicon,
+            div.bhoechie-tab-menu div.list-group>a .fa {
+                color: #5A55A3;
+            }
+            div.bhoechie-tab-menu div.list-group>a:first-child{
+                border-top-right-radius: 0;
+                -moz-border-top-right-radius: 0;
+            }
+            div.bhoechie-tab-menu div.list-group>a:last-child{
+                border-bottom-right-radius: 0;
+                -moz-border-bottom-right-radius: 0;
+            }
+            div.bhoechie-tab-menu div.list-group>a.active,
+            div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+            div.bhoechie-tab-menu div.list-group>a.active .fa{
+                background-color: #749173;
+                background-image: #5A55A3;
+                color: #ffffff;
+            }
+            div.bhoechie-tab-menu div.list-group>a.active:after{
+                content: '';
+                position: absolute;
+                left: 100%;
+                top: 50%;
+                margin-top: -13px;
+                border-left: 0;
+                border-bottom: 13px solid transparent;
+                border-top: 13px solid transparent;
+                border-left: 10px solid #749173;
+            }
+
+            div.bhoechie-tab-content{
+                background-color: #ffffff;
+                /* border: 1px solid #eeeeee; */
+                padding-left: 20px;
+                padding-top: 10px;
+            }
+
+            div.bhoechie-tab div.bhoechie-tab-content:not(.active){
+                display: none;
+            }
+
+
+
+
+
+
+
+            #wrapper {
+                background: none repeat scroll 0 0 #f4f4f4;
+                border-radius: 5px;
+                margin: 0 auto;
+                width: 900px;
+            }
+            #wrapper h3 {
+                background: none repeat scroll 0 0 #dbe1d3;
+                color: #333;
+                font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+                font-size: 16px;
+                height: 50px;
+                margin: 0 0 30px;
+                padding: 14px;
+                text-shadow: 1px 2px 3px #fff;
+            }
+
+
+
+</style>
+</head>
+<body>
+    <div id="wrap" class="">
+            <div id="" class="container">
+                <div id="header" class="">
+                    <div id="top-bar">
+                        <div style="float:right;margin-right:10px;color:white;margin-top:6px;">
+                            <div class="dropdown">
+                                <button class="btn btn-default1 dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                    মোঃ তারিক মনোয়ার                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://services.nidw.gov.bd/user">হোম</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://services.nidw.gov.bd/user/update_password">পাসওয়ার্ড পরিবর্তন</a></li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="https://services.nidw.gov.bd/login/dologout">লগ-আউট</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <h1>Election Commission Bangladesh</h1>
+                    <div id="nav" class="">
+                        <ul>
+                            <li><a href="#">তথ্য পরিবর্তন<span style="font-size:11px;padding-left:1px;">&#x25BC;</span></a>
+                                <ul>
+                                    <li><a href="https://services.nidw.gov.bd/card_info_modify">কার্ডের তথ্য পরিবর্তন</a></li>
+                                    <li><a href="https://services.nidw.gov.bd/other_info_modify">অন্যান্য তথ্য পরিবর্তন</a></li>
+                                </ul>
+                            </li>    
+                            <li><a href="#">ঠিকানা পরিবর্তন <span style="font-size:11px;padding-left:1px;">&#x25BC;</span></a>
+                                <ul>
+                                    <li><a href="https://services.nidw.gov.bd/address_modify/index/permanent">স্থায়ী ঠিকানা পরিবর্তন</a></li>
+                                    <li><a href="https://services.nidw.gov.bd/address_modify/index/present">বর্তমান ঠিকানা পরিবর্তন</a></li>
+                                    <!--<li><a href="https://services.nidw.gov.bd/voterAreaChange">ভোটার এলাকা স্থানান্তর</a></li>-->     
+                                </ul>
+                            </li>
+                            <li><a href="https://services.nidw.gov.bd/user">কার্ডের জন্য আবেদন <span style="font-size:11px;padding-left:1px;">&#x25BC;</span></a>
+                                <ul>
+                                                                            <li><a href="https://services.nidw.gov.bd/re_issue_card/foreign">বৈদেশিক স্মার্ট কার্ড আবেদন</a></li>
+                                                                            
+                                        <li><a href="https://services.nidw.gov.bd/re_issue_card">বাংলাদেশী আবেদন</a></li>
+                                                                        
+                                </ul>
+                            </li> 
+                            <li><a href="https://services.nidw.gov.bd/biometric_appointment">ছবি পরিবর্তন</a></li>
+                            <li><a href="https://services.nidw.gov.bd/appStatus">আবেদনপত্রের হাল অবস্থা</a></li>
+                                                                                    <li><a target="_blank" href="https://services.nidw.gov.bd/provisional_nid">পরিচয় বিবরণী</a></li>
+                        </ul>
+                    </div><!-- nav ends -->
+                </div><!-- header ends -->
+                <div id="main" class="col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item active text-center">
+                                        <h4 class="">বেসিক তথ্য</h4>ছবি,এন.আইডি ,নাম,জন্ম তারিখ...
+                                    </a>
+                                    <a href="#" class="list-group-item text-center">
+                                        <h4 class="">অন্যান্য তথ্য</h4>শিক্ষা,পেশা,রক্তের গ্রুপ...
+                                    </a>
+                                    <a href="#" class="list-group-item text-center">
+                                        <h4 class="">বর্তমান ঠিকানা</h4>জেলা,উপজেলা,ইউনিয়ন/ওয়ার্ড...
+                                    </a>
+                                    <a href="#" class="list-group-item text-center">
+                                        <h4 class="">স্থায়ী ঠিকানা</h4>জেলা,উপজেলা,ইউনিয়ন/ওয়ার্ড,...
+                                    </a>
+                                    <a href="#" class="list-group-item text-center">
+                                        <h4 class="">ভোটার তথ্য</h4>ভোটার এলাকা,ভোটার নম্বর...
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+
+
+
+
+
+                                <!-- Tab Active -->
+                                <div class="bhoechie-tab-content active">
+
+                                    <center>		
+
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">MD. TARIK MANOAR</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://services.nidw.gov.bd/./resources/Voter_Photo/photo_5066269.jpg" class="img-circle" style="width:146px;height:186px"> </div>
+                                              
+                                                            <div class=" col-md-9 col-lg-9 "> 
+                                                                <table class="table table-user-information">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>এন.আই.ডি নম্বরঃ</td>
+                                                                            <td>20004417129000419</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>নামঃ</td>
+                                                                            <td>মোঃ তারিক মনোয়ার</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>জন্ম তারিখঃ</td>
+                                                                            <td>09-08-2000</td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>পিতাঃ</td>
+                                                                            <td>মোঃ বজলুর রহমান</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>মাতাঃ</td>
+                                                                            <td>নুরুন নাহার</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>বৈবাহিক অবস্থাঃ</td>
+                                                                            <td>অবিবাহিত</td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <tr>
+                                                                                <td>স্বামী/স্ত্রীঃ</td>
+                                                                                <td>-</td>
+                                                                            </tr> 
+
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                            </tr>
+
+                                                                    </tbody>
+                                                                </table>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-footer">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </center>	
+
+
+                                </div>
+
+
+
+
+                                <!-- Tab 2 -->
+                                <div class="bhoechie-tab-content">
+
+                                    <center>
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">MD. TARIK MANOAR</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-md-3 col-lg-3 " align="center"> <img class="img-circle"> </div>
+
+                                                            <div class=" col-md-9 col-lg-9 "> 
+                                                                <table class="table table-user-information">
+                                                                    <tbody>
+
+                                                                        <tr>
+                                                                            <tr>
+                                                                                <td>শিক্ষাঃ</td>
+                                                                                <td>মাধ্যমিক বা সমতুল্য</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>পেশাঃ</td>
+                                                                                <td>ছাত্র/ছাত্রী</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>রক্তের গ্রুপঃ</td>
+                                                                                <td>A+</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>ফোন/মোবাইল</td>
+                                                                                <td>01945609791</td>
+                                                                            </tr>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>ড্রাইভিং লাইসেন্স নম্বরঃ</td>
+                                                                            <td>-</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>টিআইএনঃ</td>
+                                                                            <td>-</td>
+                                                                        </tr>
+                                                                        <td>জন্ম নিবন্ধন নম্বরঃ</td>
+                                                                        <td>20004417129002058</td>
+
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-footer">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </center>
+                                </div>
+
+                                <!-- Tab 3 -->
+                                <div class="bhoechie-tab-content">
+                                    <center>
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">MD. TARIK MANOAR</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-md-3 col-lg-3 " align="center"> <img class="img-circle"> </div>
+
+                                                            <div class=" col-md-9 col-lg-9 "> 
+                                                                <table class="table table-user-information">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>জেলাঃ</td>
+                                                                            <td>ঝিনাইদহ</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>উপজেলাঃ</td>
+                                                                            <td>মহেশপুর</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>ইউনিয়ন/ওয়ার্ডঃ</td>
+                                                                            <td>কাজীরবেড়</td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <tr>
+                                                                                <td>গ্রাম / রাস্তা</td>
+                                                                                <td>লালপুর</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>বাসাঃ</td>
+                                                                                <td>-</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                            </tr>
+
+
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-footer">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <center>
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">MD. TARIK MANOAR</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-md-3 col-lg-3 " align="center"> <img class="img-circle"> </div>
+                                                            <div class=" col-md-9 col-lg-9 "> 
+                                                                <table class="table table-user-information">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>জেলাঃ</td>
+                                                                            <td>ঝিনাইদহ</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>উপজেলাঃ</td>
+                                                                            <td>মহেশপুর</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>ইউনিয়ন/ওয়ার্ডঃ</td>
+                                                                            <td>কাজীরবেড়</td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <tr>
+                                                                                <td>গ্রাম / রাস্তা</td>
+                                                                                <td>লালপুর</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>বাসাঃ</td>
+                                                                                <td>-</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td></td>
+                                                                                <td></td>
+                                                                            </tr>
+
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-footer">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </center>
+                                </div>
+                                <div class="bhoechie-tab-content">
+                                    <center>
+                                        <div class="row">
+
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+
+
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">MD. TARIK MANOAR</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-md-3 col-lg-3 " align="center"> <img class="img-circle"> </div>
+
+                                                            
+                                                            <div class=" col-md-9 col-lg-9 "> 
+                                                                <table class="table table-user-information">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>ভোটার নম্বরঃ</td>
+                                                                            <td>440939000215</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>ভোটার এলাকাঃ</td>
+                                                                            <td>লালপুর</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>ক্রমিক নম্বরঃ</td>
+                                                                            <td>322</td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td>ভোট কেন্দ্রঃ</td>
+                                                                            <td>-</td>
+                                                                        </tr>
+
+
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                        </tr>
+
+
+
+
+                                                                    </tbody>
+                                                                </table>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-footer">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <!-- 	</div> -->
+                </div><!-- main ends -->
+            </div><!-- container ends -->
+        </div><!-- wrap ends -->
+        <div id="" class="container">
+            <div id="footer" class="col-sm-12">
+                &copy; ২০১৪, সত্ত্বাধিকার সংরক্ষিত, নির্বাচন কমিশন বাংলাদেশ।
+            </div><!-- footer ends -->
+        </div>
+</body>
+</html>
