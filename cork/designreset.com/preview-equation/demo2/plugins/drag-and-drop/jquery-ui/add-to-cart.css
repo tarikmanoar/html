@@ -1,0 +1,184 @@
+li { list-style: none }
+
+a { text-decoration: none }
+   
+        
+        /*  PRODUCTS
+----------------------------*/
+
+#product ul li {
+    margin: 0 0 10px 10px;
+    padding: 15px;
+        box-shadow: 0px 0px 10px 0px rgba(113, 106, 202, 0.2);
+    background-color: #fff;
+    border-radius: 4px;
+    -webkit-transition: -webkit-transform .1s ease;
+    -moz-transition: -webkit-transform .1s ease;
+    -o-transition: -webkit-transform .1s ease;
+    -ms-transition: -webkit-transform .1s ease;
+    transition: transform .1s ease;
+}
+#product ul li a .media img {
+	width: 45px;
+	border-radius: 6px;
+}
+
+#product ul li:hover {
+    background-color: #f1f3f9;
+}
+
+#product.active ul li {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+    filter: alpha(opacity = 40);
+    opacity: .4;
+}
+
+#product.active ul li.active {
+    z-index: 2;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity = 100);
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(.6);
+    -moz-transform: scale(.6);
+    -o-transform: scale(.6);
+    -ms-transform: scale(.6);
+    transform: scale(.6);
+}
+#product.active ul li a .media img {
+	width: 57px;
+	border-radius: 50%;
+}
+#product ul li a {
+    display: block;
+    color: #3b3f5c;
+}
+
+#product ul li a h3 {
+    margin-top: 5px;
+}
+
+#product ul li a h5 {
+    font-size: 15px;
+    font-weight: 600
+}
+#product ul li a p.cat {
+	font-size: 12px
+}
+
+/*  BASKET
+----------------------------*/
+
+.basket {
+    position: relative;
+}
+
+.basket .basket_list {
+    width: 220px;
+    background-color: #fff;
+}
+
+/* .head */
+
+.basket .head {
+    overflow: hidden;
+    padding: 14px 7px;
+    border: 1px solid #d5dae2;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0px 0px 15px 1px rgba(113, 106, 202, 0.1);
+}
+
+/* .head */
+
+.basket ul { 
+    padding: 21px 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+    border: 1px solid #d5dae2;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0px 0px 15px 1px rgba(113, 106, 202, 0.1);
+}
+
+.basket .droptext {
+    font-size: 20px;
+    color: #000;
+}
+
+.basket ul li {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 12px 0 12px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.basket ul li:first-child {
+    padding-top: 15px;
+}
+.basket ul li:not(:last-child) {
+    border-bottom: 1px dashed #e9ecef;
+}
+.basket ul li:hover { border-bottom-color: #ccc }
+
+
+.basket ul li span.name {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-transition: width .2s ease;
+    -moz-transition: width .2s ease;
+    -o-transition: width .2s ease;
+    -ms-transition: width .2s ease;
+    transition: width .2s ease;
+}
+
+.basket ul li:hover span.name { width: 146px }
+
+.basket ul li input.count {
+    margin: 3px 2px 0 0;
+    width: 25px;
+    line-height: 20px;
+    text-align: center;
+    border: 0;
+    border-radius: 3px;
+    background-color: #ddd;
+}
+
+.basket ul li button.delete {
+    position: absolute;
+    right: 30px;
+    bottom: 16px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity = 0);
+    opacity: 0;
+    width: 20px;
+    line-height: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 11px;
+    border: 0;
+    color: #000;
+    background-color: #eee;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-transition: opacity .2s ease;
+    -moz-transition: opacity .2s ease;
+    -o-transition: opacity .2s ease;
+    -ms-transition: opacity .2s ease;
+    transition: opacity .2s ease;
+}
+
+.basket ul li:hover button.delete {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity = 100);
+    opacity: 1;
+}

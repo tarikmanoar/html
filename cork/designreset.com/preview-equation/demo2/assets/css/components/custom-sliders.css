@@ -1,0 +1,80 @@
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    background-image: url(../../img/arrow-left-dark.png);
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+    background-image: url(../../img/arrow-right-dark.png);
+}
+.swiper-slide img { width: 100%; height: 100%; }
+.swiper-container, .swiper-container3, .swiper-container12, .swiper-container13 {
+    width: 50%;
+    height: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.swiper-container2, .swiper-container4, .swiper-container8, .swiper-container9, .swiper-container11 {
+    width: 100%;
+    height: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.swiper-container5 {
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.swiper-container6, .swiper-container7 {
+    width: 100%;
+    height: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #eee;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide5 { height: 200px; }
+.swiper-slide6 { width: 60%; }
+.swiper-slide6:nth-child(2n) { width: 40%; }
+.swiper-slide6:nth-child(3n) { width: 20%; }
+.swiper-slide7 { width: 250px; }
+.swiper-slide12, .swiper-slide13 { line-height: 300px; }
+ .append-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+.append-buttons a {
+    display: inline-block;
+    border: 1px solid #007aff;
+    color: #007aff;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin: 0 10px;
+    font-size: 13px;
+}
+@media (max-width: 768px) {
+    .widget.box .widget-content { padding: 15px; }
+    .swiper-container, .swiper-container3, .swiper-container12, .swiper-container13 {
+        width: 100%;
+        height: 200px;
+    }
+    .swiper-container2, .swiper-container4, .swiper-container8, .swiper-container9, .swiper-container11 { height: 200px; }
+    .swiper-container6, .swiper-container7 { height: 200px; }
+    .swiper-slide { font-size: 14px; }
+}

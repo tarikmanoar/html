@@ -1,0 +1,119 @@
+/*-----------------------------------*\
+  $RESET
+\*-----------------------------------*/
+input, select, button, textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font: inherit;
+    color: inherit;
+}
+/*-----------------------------------*\
+  $OBJECTS
+\*-----------------------------------*/
+
+.butt, .input {
+    padding: .75rem;
+    margin: .375rem;
+    background-color: transparent;
+    border-radius: 4px;
+}
+.butt:focus, .input:focus {
+    outline: none;
+}
+.butt {
+    border: 2px solid #f35626;
+    line-height: 1.375;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-weight: 700;
+    color: #f35626;
+    cursor: pointer;
+    /*-webkit-animation: hue 60s infinite linear;*/
+}
+.butt--primary {
+    background-color: #f35626;
+    color: #fff;
+}
+.input {
+    border: 1px solid #c0c8c9;
+    border-radius: 4px;
+}
+.input--dropdown {
+    background-image: url("images/ddown.png");
+    background-image: url("images/ddowneccb.svg?3"), none;
+    background-repeat: no-repeat;
+    background-size: 1.5rem 1rem;
+    background-position: right center;
+}
+
+
+/*-----------------------------------*\
+  $LAYOUT
+\*-----------------------------------*/
+
+.wrap {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.mega {
+    font-size: 4rem;
+}
+#animationSandbox {
+    display: block;
+}
+.island {
+    padding: 1.5rem;
+}
+.isle {
+    padding: .75rem;
+}
+.spit {
+    padding: .375rem;
+}
+
+
+/*-----------------------------------*\
+  $HEADER
+\*-----------------------------------*/
+
+.site__header {
+    -webkit-animation: bounceInUp 1s;
+}
+.site__title {
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.site__content {
+    -webkit-animation: bounceInUp 1s;
+    -webkit-animation-delay: .1s;
+}
+.site__content form {
+    -webkit-animation: bounceInUp 1s;
+    -webkit-animation-delay: .1s;
+}
+
+
+/*-----------------------------------*\
+  $ANIMATIONS
+\*-----------------------------------*/
+
+@media screen and (max-width: 991px) {
+    .island {
+        padding: 0.5rem;
+    }
+    .mega {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .mega {
+        font-size: 3rem;
+    }
+}

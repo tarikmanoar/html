@@ -1,0 +1,214 @@
+/*
+    =============
+     Arrow Steps
+    =============
+*/
+
+.arrow-steps .step-item-arrow {
+    position: relative;
+    text-align: center;
+}
+.arrow-steps .step-item-arrow.active>a {
+    cursor: default;
+    background-color: #816cfd;
+    color: #fff;
+}
+.arrow-steps .step-item-arrow.active i.onactive { display: inline-block!important; }
+.arrow-steps .step-item-arrow.active i:not(.onactive) { display: none!important; }
+.arrow-steps .step-item-arrow>a {
+    display: block;
+    height: 71px;
+    padding: 6px 15px;
+    font-size: 14px;
+    color: #474747;
+    border: 1px solid #e9ecef;
+    background-color: #f2f6f9;
+}
+.arrow-steps .step-item-arrow:not(:last-child)>a:before {
+    right: -45px;
+    border-left: 45px solid transparent;
+    border-left-color: #e9ecef;
+}
+.step-item-arrow:not(:last-child)>a:after {
+    right: -44px;
+    border-left: 45px solid transparent;
+    border-left-color: #f2f6f9;
+}
+.arrow-steps .step-item-arrow>a i {
+    width: 28px;
+    height: 28px;
+    padding: 5px 5px;
+    margin-bottom: 7px;
+    font-size: 17px;
+    border-radius: 25px;
+}
+.arrow-steps .step-item-arrow>a span { display: block; }
+.arrow-steps .step-item-arrow.active>a:after { border-left-color: #816cfd; }
+@media (min-width: 576px) {
+    .arrow-steps .step-item-arrow.active:not(:last-child)>a { border-right: 1px solid #fff; }
+    .arrow-steps .step-item-arrow.active>a:before { border-left-color: #fff!important; }
+    .arrow-steps .step-item-arrow:not(:last-child)>a:before, .arrow-steps .step-item-arrow:not(:last-child)>a:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        border-top: 35px solid transparent;
+        border-bottom: 35px solid transparent;
+    }
+}
+
+
+/*
+    ====================
+     Rectangular Steps
+    ====================
+*/
+.rectangular-steps.list-steps-success>.step-item-rect.active>a {
+    color: #fff;
+    background-color: #07e0c4;
+}
+.rectangular-steps .step-item-rect>a {
+    display: block;
+    padding: 10px;
+    font-size: 15px;
+    color: #3b3f5c;
+    border-radius: 4px;
+    border: 1px solid #f1f3f1;
+}
+.rectangular-steps .step-item-rect>a span:first-child {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-right: 15px;
+    font-size: 17px;
+    color: #3b3f5c;
+    text-align: center;
+    border: 1px solid #f1f2f1;
+    border-radius: 100%;
+    background-color: #fff;
+}
+.rectangular-steps .step-item-rect>a span { display: inline-block; vertical-align: middle; }
+
+/*
+    ============
+     Line Steps
+    ============
+*/
+.step-item-line {
+    margin-bottom: 20px;
+    font-size: 17px;
+    text-align: center;
+}
+.step-item-line.active>a {
+    cursor: default;
+    border-width: 3px;
+}
+.step-item-line.active>i.onactive { display: block!important; }
+.step-item-line.active>i:not(.onactive) { display: none!important; }
+.d-block { color: #3b3f5c; }
+.step-item-line>a {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin-top: 18px;
+    border-radius: 25px;
+    border: 5px solid transparent;
+    top: 1px;
+}
+.list-steps-primary>.step-item-line i { color: #3862f5; }
+.list-steps-primary>.step-item-line:before { background-color: #3862f5; } 
+.step-item-line:not(:last-child):before { left: 50%; right: -50%; }
+.step-item-line:not(:last-child):before {
+    content: "";
+    height: 3px;
+    position: absolute;
+    bottom: 14px;
+}
+.list-steps-primary>.step-item-line.active>a {
+    border-color: #3862f5;
+    background: #ffffff;
+}
+.list-steps-primary>.step-item-line a {
+    border-color: #cfdaff;
+    background: #3862f5;
+}
+
+@media (max-width: 575px) {
+    .step-item-line:before {
+        left: 0!important;
+        right: 0!important;
+    }
+    .step-item-line:not(:last-child):before { left: 50%; right: -50%; }
+    .step-item-line:not(:last-child):before {
+        content: "";
+        height: 3px;
+        position: absolute;
+        bottom: 12px;
+    }
+    .step-item-line:last-child:before { left: 50%; right: -50%; }
+    .step-item-line:last-child:before {
+        content: "";
+        height: 3px;
+        position: absolute;
+        bottom: 12px;
+    }
+}
+
+
+/*
+    ===============
+     Circle Steps
+    ===============
+*/
+
+.circle-step .step-item-circle { text-align: center; }
+.circle-step .step-item-circle.active:before, .circle-step .step-item-circle.done:before,
+.circle-step .step-item-circle.active:after, .circle-step .step-item-circle.done:after { background-color: #e95f2b!important; }
+.circle-step .step-item-circle:not(:last-child):before { left: 50%; right: 0; }
+.circle-step .step-item-circle:not(:last-child):before, .circle-step .step-item-circle:not(:last-child):after {
+    content: "";
+    height: 3px;
+    position: absolute;
+    top: 17px;
+    background-color: #f1f2f2;
+}
+.circle-step .step-item-circle.active>a { cursor: default; }
+.circle-step .step-item-circle.active .step, .circle-step .step-item-circle.done .step {
+    color: #fff;
+    background-color: #e95f2b;
+}
+.circle-step .step-item-circle .step {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    position: relative;
+    z-index: 1;
+    line-height: 200%;
+    font-size: 19px;
+    text-align: center;
+    color: #888da8;
+    border-radius: 100%;
+    background-color: #e9ecef;
+    margin: 0 0 10px 0;
+}
+.circle-step .step-item-circle:not(:last-child):after { left: 100%; right: -50%; }
+.circle-step .step-item-circle .step-heading {
+    margin-top: 25px;
+    color: #3b3f5c;
+    font-size: 17px;
+}
+.circle-step .step-item-circle.active .step-heading, .step-item-circle.done .step-heading { color: #e95f2b; }
+@media (max-width: 575px) {
+    .circle-step .step-item-circle:last-child:after { left: 0; right: 0; }
+    .circle-step .step-item-circle:last-child:before { left: 0; right: 0; }
+    .circle-step .step-item-circle:not(:last-child):after { left: 100%; right: 0; }
+    .circle-step .step-item-circle:not(:last-child):before { left: 0; right: 0; }
+    .circle-step .step-item-circle:last-child:before, .circle-step .step-item-circle:last-child:after {
+        content: "";
+        height: 3px;
+        position: absolute;
+        top: 17px;
+        background-color: #f1f2f2;
+    }
+}

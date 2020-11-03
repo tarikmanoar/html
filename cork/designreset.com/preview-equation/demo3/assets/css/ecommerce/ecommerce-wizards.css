@@ -1,0 +1,362 @@
+/*
+    Common 
+*/
+
+.wizard, .tabcontrol {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+.wizard a, .tabcontrol a { outline: 0; }
+.wizard ul, .tabcontrol ul {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+}
+.wizard ul > li, .tabcontrol ul > li { display: block; padding: 0; }
+
+/* Accessibility */
+.wizard > .steps .current-info,
+.tabcontrol > .steps .current-info {
+    position: absolute;
+    left: -999em;
+}
+.wizard > .content > .title,
+.tabcontrol > .content > .title {
+    position: absolute;
+    left: -999em;
+}
+
+
+/*
+    Circle  Wizard
+*/
+.circle.wizard ul, .circle.wizard.tabcontrol ul {
+    display: flex;
+    justify-content: space-around;
+}
+.circle.wizard > .actions { padding: 0 4.5%; }
+.circle.wizard .actions ul {
+    justify-content: flex-end;
+    width: 50%;
+    margin: 0 0 0 auto;
+}
+.circle.wizard > .actions li:first-child a {
+    background-color: #e7ebf3!important;
+    background-image: none;
+    padding: 9px 20px;
+    border-radius: 30px;
+    color: #3b3f5c;
+}
+.circle.wizard > .actions li:first-child a:hover,
+.circle.wizard > .actions li:first-child a:active {
+    background-color: #3b3f5c!important;
+    color: #fff;
+}
+.circle.wizard > .actions a,
+.circle.wizard > .actions a:hover,
+.circle.wizard > .actions a:active {
+    padding: 9px 25px;
+    border-radius: 30px;
+    margin-right: 10px;
+    background-image: linear-gradient(-20deg, #3232b7 0%, #1a73e9 100%);
+    background-color: #3232b7;
+}
+.circle.wizard > .actions a:hover {
+    background-image: linear-gradient(-20deg, #1a73e9 0%, #3232b7 100%);
+}
+.circle.wizard  > .steps > ul > li {
+    float: none;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+.circle.wizard > .steps .icon {
+    font-size: 15px;
+    border: 3px solid #000;
+    border-radius: 50%;
+    display: block;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.circle.wizard > .steps .current a,
+.circle.wizard > .steps .current a:hover,
+.circle.wizard > .steps .current a:active {
+    background: transparent;
+    color: #6156ce;
+    cursor: default;
+    text-align: center;
+}
+.circle.wizard > .steps ul li::after,
+.circle.wizard > .steps ul li::before {
+    content: '';
+    z-index: 9;
+    display: block;
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    height: 3px;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e9ecef;
+}
+.circle.wizard.wizard > .content { margin-top: 0 }
+.circle.wizard.wizard > .content .w-title {
+    font-weight: 600;
+    color: #4f5163;
+    font-size: 17px;
+}
+.circle.wizard > .steps a .icon, .circle.wizard > .steps a:hover .icon, .circle.wizard > .steps a:active .icon {
+    border-color: #e9ecef;
+    background-color: #fff;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+.circle.wizard > .steps .disabled a .icon, .circle.wizard > .steps .disabled a:hover .icon, .circle.wizard > .steps .disabled a:active .icon {
+    border-color: #e9ecef;
+    background-color: #fff;
+}
+.circle.wizard > .steps .current:not(.done) a .icon i.active, .circle.wizard > .steps .current:not(.done) a:hover .icon i.active, .circle.wizard > .steps .current:not(.done) a:active .icon i.active {
+    display: block !important;
+    font-size: 20px;
+}
+.circle.wizard > .steps .current:not(.done) a .icon, .circle.wizard > .steps .current:not(.done) a:hover .icon, .circle.wizard > .steps .current:not(.done) a:active .icon {
+    border-color: #fff;
+    background-color: #3862f5;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+.circle.wizard > .steps ul li.current:not(.done)::after, .circle.wizard > .steps ul li.current:not(.done)::before {
+    content: '';
+    z-index: 9;
+    display: block;
+    position: absolute;
+    top: 35px;
+    width: 235%;
+    height: 3px;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #3862f5;
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.circle.wizard > .steps .done a,
+.circle.wizard > .steps .done a:hover,
+.circle.wizard > .steps .done a:active {
+    border: none;
+    background-color: transparent;
+    color: #343f55;
+}
+.circle.wizard > .steps .done a .icon {
+    border-color: #fff;
+    background-color: #6156ce;
+}
+.circle.wizard > .steps .done a .icon i.done  {
+	display: block !important;
+    color: #fff;
+    font-size: 20px;
+}
+.circle.wizard > .steps ul li.done::after,
+.circle.wizard > .steps ul li.done::before {
+    background-color: #6156ce;
+}
+.circle.wizard > .steps .last.current.done a,
+.circle.wizard > .steps .last.current.done a:hover,
+.circle.wizard > .steps .last.current.done a:active {
+    border: none;
+    background-color: transparent;
+    color: #343f55;
+}
+
+
+/*
+	Form Style
+*/
+
+.wizard > .content { background: transparent; }
+.wizard > .content > .body {
+	position: unset;
+	float: none;
+	height: auto;
+	width: auto;
+}
+.wizard > .content > .body ul { list-style: none!important; }
+.wizard > .content > .body input {
+	border: none;
+	border-bottom: 1px solid #d5dae2;
+	border-radius: 0;
+    width: 80%;
+    margin: 0 auto;
+    font-size: .9rem;
+}
+.wizard > .content > .body input:focus { border-bottom: 1px solid #6156ce; }
+.wizard > .content > .body input::-webkit-input-placeholder {
+    color: #00d1c1;
+    font-weight: normal;
+}
+.wizard > .content > .body input::-ms-input-placeholder {
+    color: #00d1c1;
+    font-weight: normal;
+}
+.wizard > .content > .body input::-moz-placeholder {
+    color: #00d1c1;
+    font-weight: normal;
+}
+.wizard > .content > .body input:focus::-webkit-input-placeholder {
+    color: #000;
+    font-weight: normal;
+}
+.wizard > .content > .body input:focus::-ms-input-placeholder {
+    color: #000;
+    font-weight: normal;
+}
+.wizard > .content > .body input:focus::-moz-placeholder {
+    color: #000;
+    font-weight: normal;
+}
+
+
+/*
+    Total Amount
+*/
+
+.wizard > .content > .body .total-amount {
+	padding: 80px 0;
+	background-color: #fff;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px 1px rgba(211, 211, 211, 0.43);
+}
+.wizard > .content > .body .total-amount i { font-size: 30px; }
+.wizard > .content > .body .total-amount h6 {
+	font-size: .85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #515365;
+    margin-bottom: 0;
+}
+.wizard > .content > .body .total-amount p.t-amount {
+	font-size: 33px;
+    font-weight: 600;
+    color: #3b3f5c;
+}
+.wizard > .content > .body .total-amount p.t-amount:before {
+	content: '$';
+    font-size: 16px;
+    position: relative;
+    top: -17px;
+    left: 0px;
+}
+.wizard > .content > .body .total-amount p.t-product {
+    font-weight: 600;
+    color: #3232b7;
+}
+
+
+/*
+    Order Product List
+*/
+
+.wizard > .content > .body .order-product-list {
+    background-color: #fff;
+    padding: 20px;
+}
+.wizard > .content > .body .order-product-list .table td,
+.wizard > .content > .body .order-product-list .table th {
+    vertical-align: middle;
+    text-align: center;
+    border: none;
+    border-bottom: solid 1px #e6e6e6;
+    color: #3b3f5c;
+    text-transform: uppercase;
+}
+.wizard > .content > .body .order-product-list .table td span,
+.wizard > .content > .body .order-product-list .table th span {
+	color: #6156ce;
+    font-size: 14px;
+    font-weight: 600;
+}
+.wizard > .content > .body .order-product-list .table td p,
+.wizard > .content > .body .order-product-list .table th p {
+	color: #888ea8;
+    font-size: 13px;
+    font-weight: normal;
+}
+.wizard > .content > .body .order-product-list .table td i { cursor: pointer; }
+.wizard > .content > .body .order-product-list .table td.pricing { color: #6156ce; }
+
+
+/*
+    Tab Section for checkout  ( Payment methods )
+*/
+
+.rounded-pills-icon .nav-pills li a {
+    -webkit-border-radius: 0.625rem !important;
+    -moz-border-radius: 0.625rem !important;
+    -ms-border-radius: 0.625rem !important;
+    -o-border-radius: 0.625rem !important;
+    border-radius: 0.625rem !important;
+    background-color: #f1f3f1;
+    border-radius: 10px !important;
+    background-color: #ffffff;
+    width: 200px;
+    padding: 28px;
+    color: #888ea8;
+    font-size: 18px;
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 15px 1px rgba(211, 211, 211, 0.47);
+
+}
+.rounded-pills-icon .nav-pills li a i {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.rounded-pills-icon .nav-pills .nav-link.active,
+.rounded-pills-icon .nav-pills .show>.nav-link {
+    box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    color: #6156ce;
+    font-weight: 600;
+}
+.rounded-pills-icon .tab-content>.tab-pane { padding: 25px 18px 29px 25px; }
+
+
+/*
+    Checkout Method
+*/
+
+.checkout-method i { font-size: 25px; }
+.checkout-method .place-order-cash {
+    background-color: #fff;
+    padding: 20px;
+}
+.checkout-method .place-order-cash i {
+   font-size: 42px;
+    color: #3862f5;
+}
+.checkout-method .place-order-cash p {
+    color: #3b3f5c;
+    font-weight: 600;
+}
+.checkout-method .tab-content .p-methods-title {
+    color: #e9ecef;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+@media (max-width: 575px) {
+    .circle.wizard .steps > ul[role="tablist"] { display: block; }
+}

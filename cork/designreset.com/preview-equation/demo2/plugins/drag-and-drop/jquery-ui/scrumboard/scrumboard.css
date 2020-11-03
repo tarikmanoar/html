@@ -1,0 +1,149 @@
+/*
+	=======================
+		Scrumboard Style
+	=======================
+*/
+.progress {
+	height: 2px;
+}
+.scrumboard [data-section="s-new"] .s-heading h6 {
+    color: #1a73e9;
+    font-size: 14px;
+    font-weight: 600;
+}
+.scrumboard [data-section="s-new"] .s-heading h6 i {
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+
+.scrumboard [data-section="s-in-progress"] .s-heading h6 {
+    color: #f58b22;
+    font-size: 14px;
+    font-weight: 600;
+}
+.scrumboard [data-section="s-in-progress"] .s-heading h6 i {
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+
+
+.scrumboard [data-section="s-on-review"] .s-heading h6 {
+    color: #805dca;
+    font-size: 14px;
+    font-weight: 600;
+}
+.scrumboard [data-section="s-on-review"] .s-heading h6 i {
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+
+.scrumboard [data-section="s-approved"] .s-heading h6 {
+    color: #1abc9c;
+    font-size: 14px;
+    font-weight: 600;
+}
+.scrumboard [data-section="s-approved"] .s-heading h6 i {
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+
+
+.scrumboard .card {   
+	position: relative;
+	border: none;
+}
+.scrumboard .card .card-body {
+	position: relative;
+    cursor: move;
+}
+.scrumboard .card .card-body i {
+    cursor: pointer;
+    color: #989ebf;
+    font-size: 16px;
+}
+.scrumboard .card .card-body h6 {
+    font-weight: 600;
+    color: #e95f2b;
+    font-size: 15px;
+}
+.scrumboard .card .card-body .task-quantity {
+    color: #888ea8;
+}
+
+.scrumboard .card .card-body .new-control.new-checkbox {
+    color: #3b3f5c;
+}
+.scrumboard .card .card-body .deadline {
+    color: #515365;
+    font-size: 13px;
+}
+.scrumboard .card .status-badge {
+	position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 4px;
+    font-size: 12px;
+    border-bottom-right-radius: 6px;
+}
+.scrumboard .card .status-badge i {
+    font-size: 15px;
+    vertical-align: middle;
+}
+.scrumboard [data-section="s-new"] .card .status-badge {
+    background-color: #c2d5ff;
+    color: #1a73e9;
+}
+.scrumboard [data-section="s-in-progress"] .card .status-badge {
+    background-color: #ffeccb;
+    color: #e9b02b;
+}
+.scrumboard [data-section="s-on-review"] .card .status-badge {
+    background-color: #dccff7;
+    color: #6f51ea;
+}
+.scrumboard [data-section="s-approved"] .card .status-badge {
+    background-color: #b6fff1;
+    color: #2ea37d;
+}
+
+/*
+	=========================
+		On Sorting Style
+	=========================
+*/
+.scrumboard-on-sort-change {
+	background:#4f5163!important;
+    border-radius: 100%;
+    width: 40px!important;
+    height: 40px!important;
+    cursor: move;
+}
+.scrumboard-on-sort-change:before {
+	content: "E";
+    font-size: 15px;
+    position: relative;
+    left: 15px;
+    color: #fff;
+    top: 9px;
+}
+.ui-state-highlight {
+    position: relative;
+    border-color: #1a73e9;
+    height: 33px;
+    background-color: #1a73e9;
+}
+.ui-state-highlight:before {
+    content: 'Drop';
+    position: absolute;
+    left: 41%;
+    font-size: 19px;
+    color: #fff;
+}

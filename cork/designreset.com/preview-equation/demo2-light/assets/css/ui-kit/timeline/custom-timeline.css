@@ -1,0 +1,103 @@
+.modern-timeline {
+    list-style: none;
+    position: relative;
+    padding: 50px 0 50px;
+    margin: 0;
+}
+.modern-timeline:before {
+    position: absolute;
+    background: #e9ecef;
+    bottom: 0;
+    left: 50%;
+    top: 0;
+    content: "";
+    width: 3px;
+    margin-left: -1.5px;
+}
+.modern-timeline > li {
+    margin-bottom: 50px;
+    position: relative;
+}
+.modern-timeline > li:after, .modern-timeline > li:before {
+    display: table;
+    content: "";
+}
+.modern-timeline > li > .modern-timeline-badge {
+    position: absolute;
+    background: #fff;
+    border: 3px solid #e9ecef;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    margin-left: -10px;
+    text-align: center;
+    z-index: 1;
+    left: 50%;
+    top: 32px;
+}
+.modern-timeline > li > .modern-timeline-panel {
+    position: relative;
+    border: 1px solid #e9ecef;
+    background: #fff;
+    border-radius: .1875rem;
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, .07);
+    transition: .3s ease-in-out;
+    float: left;
+    width: 46%;
+}
+.modern-timeline > li > .modern-timeline-panel:before {
+    position: absolute;
+    background: #e9ecef;
+    right: -37px;
+    top: 40px;
+    transition: .3s ease-in-out;
+    content: " ";
+    width: 37px;
+    height: 3px;
+    display: block;
+}
+.modern-timeline > li:nth-child(even) > .modern-timeline-panel:before {
+    right: auto;
+    left: -37px;
+    width: 37px;
+}
+.modern-timeline > li:after { clear: both; }
+.modern-timeline > li > .modern-timeline-panel .modern-timeline-preview img { width: 100%; }
+.modern-timeline > li > .modern-timeline-panel *:last-child { margin-bottom: 0; }
+.modern-timeline > li:nth-child(even) > .modern-timeline-panel {
+    border: 1px solid #e9ecef;
+    float: right;
+}
+.modern-timeline > li > .modern-timeline-panel *:last-child { margin-bottom: 0; }
+.modern-timeline > li > .modern-timeline-panel .modern-timeline-body { padding: 40px 45px; }
+.modern-timeline > li > .modern-timeline-panel .modern-timeline-body h4 {
+    color: #e95f2b;
+    margin-bottom: 20px;
+    font-size: 1.125rem;
+}
+.modern-timeline > li > .modern-timeline-panel .modern-timeline-body p {
+    color: #3b3f5c;
+    margin-bottom: 25px;
+}
+.modern-timeline > li > .modern-timeline-panel .modern-timeline-body p a { color: #000; }
+.modern-timeline > li > .modern-timeline-panel *:last-child { margin-bottom: 0; }
+.modern-timeline-top:before, .modern-timeline-bottom:before {
+    background: #e9ecef;
+    position: absolute;
+    height: 3px;
+    width: 50px;
+    display: block;
+    content: "";
+    bottom: 0;
+    left: 50%;
+    margin-left: -25px;
+}
+.modern-timeline-top:before { top: 0; }
+@media (max-width: 767px) {
+    ul.modern-timeline > li > .modern-timeline-panel {
+        border: 1px solid #e9ecef;
+        float: right;
+        width: 100%;
+    }
+    ul.modern-timeline > li > .modern-timeline-badge, .modern-timeline > li > .modern-timeline-panel:before { display: none; }
+}

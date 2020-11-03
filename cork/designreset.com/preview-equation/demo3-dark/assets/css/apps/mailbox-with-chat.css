@@ -1,0 +1,473 @@
+/*  Tab section     */
+
+h4 {
+    font-size: 1.125rem;
+}
+.tab-title {
+    background-color: #fff;
+    padding: 20px;
+}
+.tab-title .nav-pills .nav-item .dropdown-menu {
+    box-shadow: 0px 0px 15px 1px rgba(113, 106, 202, 0.2);
+}
+.tab-title .nav-pills .nav-link.active, .tab-title .nav-pills .show>.nav-link {
+    background-color: transparent;
+    color: #3862f5;
+    font-weight: 600;
+}
+.tab-title .nav-pills a.nav-link i {
+    font-weight: 600;
+    font-size: 15px;
+    color: #4f5163;
+} 
+
+
+/*Mail Labels*/
+
+.tab-title li.mail-labels a.dropdown-item:hover {
+    background-color: #fff;
+    color: #3862f5;
+}
+.tab-title li.mail-labels .label:after {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    right: 15px;
+    top: 43%;
+}
+.tab-title li.mail-labels .label-personal:after {
+    background-color: #816cfd;
+}
+.tab-title li.mail-labels .label-work:after {
+    background-color: #f8538d;
+}
+.tab-title li.mail-labels .label-account:after {
+    background-color: #00b1f4;
+}
+.tab-title li.mail-labels .label-social:after {
+    background-color: #e95f2b;
+}
+
+
+/*
+    =========================
+        Inbox Section
+    ==========================
+*/
+
+.mail-section {
+    padding: 20px 20px 20px 20px;
+    position: relative;
+    background-color: #fff;
+}
+.inbox-section .search input {
+    border-radius: 20px;
+    height: 30px;
+    border-color: #e9ecef;
+}
+.inbox-section .heading-title {
+    margin: 0;
+    font-weight: 600;
+    color: #3b3f5c;
+}
+.inbox-section .inbox-options ul.list-inline li {
+    cursor: pointer;
+}
+.inbox-section .inbox-options ul.list-inline li div.dropdown:hover {
+    color: #494949;
+}
+.inbox-section .inbox-options ul.list-inline li .chk-all .dropdown .dropdown-item:focus,
+.inbox-section .inbox-options ul.list-inline li .chk-all .dropdown .dropdown-item:hover {
+    background-color: #fff;
+    color: #3862f5;
+}
+.inbox-section .inbox-options ul.list-inline li .dropdown .d-icon-none.dropdown-toggle:after {
+    display: none;
+}
+.d-icon-none.dropdown-toggle:after {
+    display: none;
+}
+.inbox-section .inbox-options ul.list-inline li i {
+    font-size: 17px;
+    vertical-align: super;
+    margin-right: 5px;
+}
+.inbox-section .inbox-options ul.list-inline li:hover i {
+    color: #494949;
+}
+.inbox-section nav.mail-pagination ul.pagination {
+    margin: 0
+}
+ul.pagination li.non-hover a {
+    padding-left: 0
+}
+ul.pagination li.non-hover a:hover:not(.active) {
+    background-color: transparent;
+    color: #3862f5;
+}
+ul.pagination li a.page-link:focus {
+    box-shadow: none;
+}
+.inbox-section .messages-section .media {
+    cursor: pointer;
+}
+.inbox-section .messages-section .media:not(:last-child) {
+    border-bottom: 1px solid #f1f2f1;
+}
+.inbox-section .messages-section .media img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: solid 2px #fd6e69;
+}
+.inbox-section .messages-section .media .media-body h5.message-usr-name {
+    font-weight: 600;
+    color: #ee3d50;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.inbox-section .messages-section .media:hover .media-body h5.message-usr-name {
+    color: #3862f5;
+}
+.inbox-section .messages-section .media .media-body h6.message-meta-time {
+    font-weight: 600;
+    color: #888ea8;
+    margin-bottom: 17px;
+    font-size: 12px;
+}
+.inbox-section .messages-section .media .media-body h5.message-title {
+    font-weight: 600;
+    color: #3b3f5c;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.inbox-section .messages-section .media:hover .media-body h5.message-title {
+    color: #3862f5;
+}
+.inbox-section .messages-section .media .media-body p.message-body {
+    color: #888ea8;
+    font-size: 13px;
+}
+.inbox-section .messages-section div.mark-star .custom-control-label::before {
+    font-family: flaticon;
+    content: "\f2ba";
+    top: 0;
+    left: 17px;
+    background-color: transparent;
+    color: #ffbb44;
+    font-size: 13px;
+    font-weight: 600;
+}
+.inbox-section .messages-section div.mark-star.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    font-family: flaticon;
+    content: "\f2c8";
+    background-color: transparent;
+    left: 17px;
+    color: #ffbb44;
+}
+.inbox-section .messages-section div.mark-star.custom-checkbox .custom-control-label::after {
+    background-image: none;
+    left: 17px;
+}
+.custom-control.mark-star {
+    padding-left: 0; 
+}
+.mark-star label.custom-control-label {
+    display: block
+}
+
+
+/*
+    =====================
+        Read Section
+    =====================
+*/
+
+.read-section {
+    position: relative;
+    padding: 20px 20px 0 20px;
+    border-left: 1px solid #f1f3f1;
+    border-right: 1px solid #f1f3f1;
+    background-color: #fff;
+}
+.read-section .read-options {
+    color: #3862f5;
+    cursor: pointer;
+}
+.read-section .read-options i {
+    font-size: 18px;
+    padding-left: 18px;
+}
+.read-section .read-options i:hover {
+    color: #494949;
+}
+.read-section .read-options .dropdown .dropdown-menu {
+    box-shadow: 0px 0px 15px 1px rgba(113, 106, 202, 0.2);
+}
+.read-section .read-options .dropdown .dropdown-menu a.dropdown-item:hover {
+    background-color: #fff;
+    color: #3862f5;
+}
+.d-icon-none.dropdown-toggle:after {
+    display: none;
+}
+
+
+/*      Message Timeline    */
+
+
+.read-section .messages-timeline .messages .media {
+    border-bottom: 1px solid #f1f3f1;
+    color: #3d3f5c;
+}
+.read-section .messages-timeline .messages .media img {
+    width: 52px;
+    height: 52px;
+}
+.read-section .messages-timeline .messages .media h5 {
+    font-size: 14px;
+    margin-bottom: 3px;
+    color: #3862f5;
+}
+.read-section .messages-timeline .messages .media .media-body .messages-meta-date {
+    margin-bottom: 2px;
+    font-size: 13px;
+}
+.read-section .messages-timeline .messages .media .media-body .messages-to {
+    font-size: 13px;
+}
+.read-section .messages-timeline .messages .message-body .strong {
+    color: #3232b7;
+}
+.read-section .messages-timeline .messages .message-body p {
+    color: #3d3f5c;
+    font-size: 13px;
+}
+
+
+/*
+    ======================
+        Chat Section
+    ======================
+*/
+
+.chat-section .chat-status h4 {
+    margin: 0;
+    margin-bottom: 30px;
+    font-weight: 600;
+    color: #3b3f5c;
+}
+.chat-section .chat-status ul {
+    padding-bottom: 20px;
+}
+.chat-section .chat-status ul li {
+    position: relative;
+}
+.chat-section .chat-status ul li.chat-online-usr:before {
+    content: "";
+    position: absolute;
+    background-color: #1abc9c;
+    height: 10px;
+    content: attr(alt);
+    position: absolute;
+    display: block;
+    right: 7px;
+    top: 7px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    z-index: 5;
+}
+.chat-section .chat-status ul li i {
+    color: #989ebf;
+    vertical-align: sub;
+    cursor: pointer;
+}
+.chat-section .chat-status ul li:hover i {
+    color: #494949;
+}
+.chat-section .chat-status ul li.chat-online-usr img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    box-shadow: 0px 0px 15px 1px rgba(113, 106, 202, 0.4);
+    margin-left: -21px;
+    margin-top: 6px;
+}
+
+
+/*      Chat  */
+
+.mail-chat-system {
+
+}
+.mail-chat-system .top_menu {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    border-bottom: solid 1px #f1f3f1;
+}
+.mail-chat-system .top_menu .title {
+    color: #ee3d50;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.mail-chat-system .chat-messages {
+    position: relative;
+    height: 575px;
+    overflow-y: scroll;
+    list-style: none;
+    padding: 20px 10px 0px;
+    margin: 0px;
+}
+.mail-chat-system .chat-messages .message.left {
+    position: relative;
+}
+.mail-chat-system .chat-messages .message.left .text {
+    margin-left: 38px;
+    background-color: #f1f3f9;
+    color: #000;
+    border-radius: 1.875rem !important;
+    border-top-left-radius: 0px !important;
+    padding: 12px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    box-shadow: 0px 0px 15px 1px rgba(113, 106, 202, 0.2);
+}
+.mail-chat-system .chat-messages .message.left .avatar {
+    position: absolute;
+    top: -50px;
+    left: 12px;
+    border-radius: 50%;
+    background-image: url(../../../assets/img/profile-1.jpeg);
+    float: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 44px;
+    width: 44px;
+}
+.mail-chat-system .chat-messages .message.right {
+    position: relative;
+}
+.mail-chat-system .chat-messages .message.right .text {
+    margin-right: 38px;
+    background-color: #c2d5ff;
+    color: #1a73e9;
+    border-radius: 1.875rem !important;
+    border-top-right-radius: 0px !important;
+    padding: 12px;
+    margin-top: 65px;
+    margin-bottom: 65px;
+    box-shadow: 0px 0px 15px 1px rgba(113, 106, 202, 0.2);
+}
+.mail-chat-system .chat-messages .message.right .avatar {
+    position: absolute;
+    float: right;
+    background-image: url(../../../assets/img/profile-16.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    right: 22px;
+    top: -50px;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+}
+.mail-chat-system .chat-bottom-section {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    bottom: 0px;
+    margin-top: 75px;
+}
+.mail-chat-system .chat-bottom-section .message_input_wrapper {
+    background-color: #fff;
+    box-shadow: 0px 0px 7px 0px #e9ecef;
+}
+.mail-chat-system .chat-bottom-section .message_input_wrapper .input-group-prepend>.input-group-text {
+    background-color: transparent;
+    padding: 4px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.mail-chat-system .chat-bottom-section .message_input_wrapper .input-group-prepend>.input-group-text i {
+    color: #888ea8;
+    font-size: 18px;
+}
+.mail-chat-system .chat-bottom-section .message_input_wrapper .input-group-append>.input-group-text {
+    background-color: #3862f5;
+    padding: 12px;
+    border: none;
+    color: #fff;
+    border-bottom-right-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+}
+.mail-chat-system .chat-bottom-section .message_input_wrapper .message_input {
+    border: none;
+    background-color: transparent;
+}
+.mail-chat-system .chat-messages::-moz-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.mail-chat-system .chat-messages::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.mail-chat-system .chat-messages::-moz-scrollbar-button:start:decrement,
+.mail-chat-system .chat-messages::-moz-scrollbar-button:start:decrement {
+    height: 0px;
+    display: block;
+    background-color: #e9ecef;
+}
+.mail-chat-system .chat-messages::-webkit-scrollbar-button:start:decrement,
+.mail-chat-system .chat-messages::-webkit-scrollbar-button:end:increment {
+    height: 0px;
+    display: block;
+    background-color: #e9ecef;
+}
+.mail-chat-system .chat-messages::-moz-scrollbar-track-piece {
+    background-color: transparent;          /*Global Track Peice(the slider noob.)*/
+}
+.mail-chat-system .chat-messages::-webkit-scrollbar-track-piece {
+    background-color: transparent;          /*Global Track Peice(the slider noob.)*/
+    -webkit-border-radius: 6px;
+}
+.mail-chat-system .chat-messages::-moz-scrollbar-thumb:vertical {
+    height: 6px;
+    background-color: #e9ecef;            /* Up/Down slider background*/
+    -webkit-border-radius: 6px;
+}    
+.mail-chat-system .chat-messages::-webkit-scrollbar-thumb:vertical {
+    height: 6px;
+    background-color: #e9ecef;            /* Up/Down slider background*/
+    -webkit-border-radius: 6px;
+}
+.mail-chat-system .chat-messages::-moz-scrollbar-thumb:horizontal {
+    width: 6px;
+    background-color: #e9ecef;            /* Side/Side slider background*/
+    -webkit-border-radius: 3px;
+}    
+.mail-chat-system .chat-messages::-webkit-scrollbar-thumb:horizontal {
+    width: 6px;
+    background-color: #e9ecef;            /* Side/Side slider background*/
+    -webkit-border-radius: 3px;
+}
+
+@media (max-width: 767px) {
+    .read-section {
+        border: none;
+    }
+}
+@media (max-width: 1652px) {
+    .mail-chat-system .chat-messages {
+        height: 1120px;
+    }
+}
+@media (min-width: 1653px) {
+    .mail-chat-system .chat-messages {
+        height: 822px;
+    }
+}

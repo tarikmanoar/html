@@ -1,0 +1,57 @@
+.icon-list:before { content: none; }
+.pos-rel {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+h4 {
+    color: #ee3d50;
+    font-weight: 600;
+    margin: 0;
+    padding: 16px 15px;
+    font-size: 1.3rem;
+}
+.d-menu { top: 30px; }
+.icon-list li {
+    width: 24%;
+    padding: 10px;
+    margin-right: 0rem;
+    vertical-align: baseline;
+    text-align: center;
+    height: 130px;
+    display: inline-block;
+    list-style: none;
+}
+.example ul.icon-list li span {
+    border: 1px solid #f1f3f1;
+    padding: 20px 0px 0px 0px;
+    border-radius: 10px;
+    width: 65px;
+    height: 65px;
+    transition: .3s;
+    font-size: 22px;
+    color: #888ea8;
+    box-shadow: 0px 3px 25px 0px rgba(113, 106, 202, 0.2);
+}
+.example ul.icon-list li span:hover {
+    border: 1px solid #f1f3f1;
+    color: #3862f5;
+}
+.example ul.icon-list li p {
+    font-size: 15px;
+    margin: 10px 0 0 0;
+    transition: .3s;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.example ul.icon-list li span:hover + p { color: #3862f5; }
+@media(max-width: 768px) {
+    .icon-list li {
+        width: 48%;
+        padding: 4px;
+        height: 110px;
+    }
+    .example ul.icon-list li span {
+        width: 50px;
+        height: 60px;
+    }
+    .example ul.icon-list li p { font-size: 14px; }
+}

@@ -1,0 +1,48 @@
+textarea { resize: none; }
+.copy, .del {
+    line-height: 0.8;
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin-right: 3px;
+}
+.btn { margin-bottom: 15px; }
+form { margin: 0 0px; }
+.form-control{
+    color: #888ea8;
+    border: 1px solid #d5dae2;
+    border-radius: 2px;
+}
+.form-control:focus { color: #3b3f5c; border-color: #3b3f5c; }
+.yellow-paragraph { background: #24ccda !important; color: #fff; }
+.clipboard-copy-input { height: auto; }
+.clipboard-copy-textarea { height: auto; }
+.clipboard-copy-para { height: auto; }
+.paragraph-advance { height: auto; }
+
+@media(max-width: 991px) {
+    .btn { padding: 8px 5px; font-size: 12px; }
+    .copy, .del { line-height: 0.5; font-size: 22px; }
+    .clipboard-copy-input { height: auto; }
+    .clipboard-copy-textarea { height: auto; }
+}
+
+@media(min-width: 992px) and (max-width: 1280px) {
+    .btn {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+    .copy, .del { line-height: 0.6; font-size: 22px; }
+    .clipboard-copy-input { height: 250px; }
+    .clipboard-copy-textarea { height: 250px; }
+    .clipboard-copy-para { height: 340px; }
+    .paragraph-advance { height: 340px; }
+}
+
+@media(min-width: 1281px) and (max-width: 1920px) {
+    .clipboard-copy-input { height: 250px; }
+    .clipboard-copy-textarea { height: 250px; }
+    .clipboard-copy-para { height: 340px; }
+    .paragraph-advance { height: 340px; }
+}

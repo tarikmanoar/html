@@ -1,0 +1,76 @@
+
+/*
+	=======================================
+			charts global effected				Note: These effect will globally effect the charts ;
+	=======================================
+
+*/
+
+.column-chart {
+    height: 300px;		
+}
+.stacked li {
+    list-style: none;
+}
+
+.column-chart .chart-column, .bar-chart .chart-row, .column-chart [data-cp-size], .bar-chart [data-cp-size] {
+    background: #6156ce;
+}
+
+.group-by-number [data-group="5"] {
+    background: #f8538d;
+    color: #fff;
+}
+
+
+
+
+/*
+	=================================
+			bar charts
+	=================================
+
+*/
+
+.bar-chart .chart-row, .bar-chart [data-cp-size] {
+    min-height: 59px;
+}
+
+.custom-bar-chart.bar-chart ul li {
+    padding-top: 18px;
+    padding-left: 20px;
+}
+
+
+
+/*
+	======================================
+			stacked bar chart
+	======================================
+
+*/
+
+.custom-stacked-bar-chart.bar-chart ul li div {
+    padding-top: 15px;
+    padding-left: 20px;
+}
+
+
+/*
+	====================================
+			scatter plot	
+	====================================
+*/
+
+
+.scatter-plot .chart-dot, .scatter-plot .chart-dot, .scatter-plot [data-cp-x], .scatter-plot [data-cp-y] {
+    border: 6px solid #ff6f00;
+}
+
+
+
+@media (max-width: 575px) {
+	.column-chart .plot-container {
+		font-size: 13px;
+	}
+}

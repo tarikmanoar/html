@@ -1,0 +1,101 @@
+/*
+===================
+
+     Invoice
+
+===================
+*/
+
+.invoice .widget-content-area.head-section { padding: 20px 40px 20px 40px; }
+.invoice h3.in-heading {
+    font-size: 24px;
+    font-weight: 500;
+    color: #323332;
+    margin: 0;
+    line-height: 1;
+}
+.invoice .widget-content-area { padding: 40px; }
+.invoice .invoice-top-section { border-bottom: 1px solid #e9ecef; }
+.invoice h5.invoice-info-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #000;
+    margin: 0 0 5px;
+    line-height: 1;
+}
+.invoice .invoice-serial-number {
+    font-size: 17px;
+    color: #816cfd;
+}
+.invoice .invoice-order-status, .invoice .invoice-order-date {
+    font-size: 14px;
+    color: #515365;
+    margin: 0 0 5px;
+}
+
+/*    invoice-form    */
+
+.invoice .invoice-from { font-size: 14px; margin: 0 0 5px; }
+.invoice .invoice-from .invoice-from-title {
+    font-size: 15px;
+    font-size: 19px;
+    color: #3b3f5c;
+}
+.invoice .invoice-from p {
+    margin-bottom: 0;
+    color: #515365;
+    font-size: 14px;
+}
+
+
+/*    invoice-to    */
+
+.invoice .invoice-to {
+    font-size: 14px;
+    margin: 0 0 5px;
+}
+.invoice .invoice-to .invoice-to-title {
+    font-size: 15px;
+    font-size: 19px;
+    color: #3b3f5c;
+    margin: 0 0 5px;
+}
+.invoice .invoice-to p {
+    margin-bottom: 0;
+    color: #515365;
+    font-size: 14px;
+}
+.invoice .table .thead-light th {
+    font-size: 17px;
+    background-color: #e7ebf3;
+    border-color: #f1f3f1;
+    color: #6156ce;
+    font-weight: normal;
+}
+.invoice .table > tbody > tr > td {
+    font-size: 15px;
+    color: #515365;
+    border-top: none;
+    border-bottom: solid 1px #e9ecef;
+    padding: 17px;
+}
+.invoice .invoice-total-amounts p {
+    font-size: 16px;
+    color: #515365;
+    margin-right: 5px;
+}
+.invoice .invoice-total-amounts h4 {
+    font-size: 18px;
+    color: #323332;
+    font-weight: 600;
+}
+
+
+@media print {
+    .crumbs, .page-header, #sidebar, .invoice .buttons { display: none }
+    #content {
+        margin-left: 0!important;
+        margin-right: 0!important;
+        width: 100%!important
+    }
+}

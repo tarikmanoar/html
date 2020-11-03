@@ -1,0 +1,77 @@
+.btn-fill {
+    padding: 0.4375rem 1.25rem;
+    border: 1px solid #304FFE;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.btn-fill:hover { color: #ffffff; }
+.btn-fill:after {
+    content: '';
+    width: 100%;
+    height: 0;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -2;
+    -webkit-transition: linear 0.3s all;
+    -moz-transition: linear 0.3s all;
+    -ms-transition: linear 0.3s all;
+    -o-transition: linear 0.3s all;
+    transition: linear 0.3s all;
+}
+.btn-fill:hover:after { background: #304FFE; height: 100%; }
+.btn-fill[class*="btn-fill-"] { background-color: transparent; }
+.btn-fill-default {
+	border: 1px solid #e9ecef !important;
+    color: #3b3f5c !important;
+    box-shadow: none;
+}
+.btn-fill-default:hover:after { background-color: #e9ecef; }
+.btn-fill-primary {
+	border: 1px solid #1a73e9 !important;
+    color: #1a73e9 !important;
+    box-shadow: none;
+}
+.btn-fill-primary:hover:after { background-color: #1a73e9; }
+.btn-fill-info {
+	border: 1px solid #00b1f4 !important;
+    color: #00b1f4 !important;
+    box-shadow: none;
+}
+.btn-fill-info:hover:after { background-color: #00b1f4; }
+.btn-fill-success {
+	border: 1px solid #1abc9c !important;
+    color: #1abc9c !important;
+    box-shadow: none;
+}
+.btn-fill-success:hover:after { background-color: #1abc9c; }
+.btn-fill-danger {
+	border: 1px solid #e7515a !important;
+    color: #e7515a !important;
+    box-shadow: none;
+}
+.btn-fill-danger:hover:after { background-color: #e7515a; }
+.btn-fill-warning {
+	border: 1px solid #e9b02b !important;
+    color: #e9b02b !important;
+    box-shadow: none;
+}
+.btn-fill-warning:hover:after { background-color: #e9b02b; }
+.btn-fill-secondary {
+	border: 1px solid #805dca !important;
+    color: #805dca !important;
+    box-shadow: none;
+}
+.btn-fill-secondary:hover:after { background-color: #805dca; }
+.btn-fill-dark {
+	border: 1px solid #4f5163 !important;
+    color: #4f5163 !important;
+    box-shadow: none;
+}
+.btn-fill-dark:hover:after { background-color: #4f5163; }
+.btn-fill-default:hover { color: #3b3f5c !important; }
+.btn-fill-primary:hover, .btn-fill-info:hover, .btn-fill-success:hover,
+.btn-fill-danger:hover, .btn-fill-warning:hover,
+.btn-fill-secondary:hover, .btn-fill-dark:hover { color: #fff !important; }

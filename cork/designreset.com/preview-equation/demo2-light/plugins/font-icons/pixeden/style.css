@@ -1,0 +1,90 @@
+@charset "UTF-8";
+/********************
+*** Icon font details ***
+*********************/
+input[readonly] {
+    background-color: #fff;
+}
+
+.font-icon-list {
+    padding: 10px;
+    /*margin-bottom: 20px; */
+}
+
+.font-icon-list:hover {
+    cursor: pointer; 
+}
+
+.font-icon-detail {
+    text-align: center; 
+}
+
+.font-icon-detail span:first-child {
+    display: inline-block;
+    transition: color 150ms linear, background 150ms linear, font-size 150ms linear, width 150ms;
+    padding: 10px 0px;
+    width: 70px;
+    font-size: 45px;
+    color: #888ea8;
+    border: 1px solid #f1f3f1;
+    border-radius: 10px;
+    box-shadow: 0px 3px 25px 0px rgba(113, 106, 202, 0.2);
+}
+
+.font-icon-name {
+    font-size: 14px;
+    margin-top: 15px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    color: #888ea8; 
+}
+
+.font-icon-name:focus, .font-icon-name:active {
+    outline: none; 
+}
+
+.font-icon-code {
+    /*max-height: 0;*/
+    overflow: hidden;
+    text-align: center;
+    /*opacity: 0;*/
+    transition: max-height 200ms linear, opacity 200ms linear; 
+}
+
+.font-icon-code.show {
+    max-height: 200px;
+    opacity: 1; 
+}
+
+.code-value, .unicode-text {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: none;
+}
+
+.unicode-text:focus,
+.unicode-text:active {
+    outline: none; 
+}
+
+.font-icon-list:hover .font-icon-name,
+.font-icon-list:hover .code-value,
+.font-icon-list:hover .unicode-text,
+.font-icon-detail.zeroclipboard-is-hover .font-icon-name,
+.font-icon-detail.zeroclipboard-is-hover + .font-icon-code .code-value,
+.font-icon-detail.zeroclipboard-is-hover + .font-icon-code .unicode,
+.font-icon-detail.zeroclipboard-is-hover + .font-icon-code .unicode-text {
+    cursor: text;
+    color: #3862f5; 
+}
+
+.font-icon-list:hover .font-icon-detail span:first-child,
+.font-icon-detail.zeroclipboard-is-hover span:first-child {
+    color: #3862f5;
+    background: #fff;
+    border: solid 1px #f1f3f1;
+}
