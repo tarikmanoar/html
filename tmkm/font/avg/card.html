@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fff;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .wrap {
+            padding-bottom: 30px;
+            background-image: linear-gradient(180deg, #9990 20%, #fff 0%);
+            border-radius: 30px;
+            box-shadow: 0px 1px 14px 0px hsla(0, 0%, 0%, 0.41);
+            box-shadow: 0px 1px 14px 0px #000000ab;
+            transition: 0.5s;
+        }
+
+        .image-cover {
+            height: 278px;
+            position: relative;
+            padding-top: 30px;
+            border-radius: 30px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            background-color: #162A76;
+        }
+
+        .profile {
+            max-width: 200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            height: 200px;
+        }
+
+        .wrap .profile .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.4);
+            object-fit: cover;
+        }
+
+        .wrap .profile-name {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .wrap .profile-name h2 {
+            font-weight: 500;
+            color: #31354e;
+            font-size: 24px;
+            line-height: 1;
+            text-transform: capitalize;
+        }
+
+        .wrap .profile-name .light {
+            font-size: 11px;
+            color: #8c8e93;
+            text-transform: capitalize;
+
+        }
+
+        .wrap .profile-name p {
+            margin: 8px 0px;
+            color: #31354e;
+            font-size: 13px;
+            text-transform: capitalize;
+        }
+
+        .wrap .social-media {
+            text-align: center;
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .wrap .social-media a {
+
+            color: #fff;
+            background: linear-gradient(to right, #00c5ff, #0073ff);
+            border-radius: 35%;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            box-shadow: 0px 0px 10px 0px hsla(0, 0%, 0%, 0.41);
+            box-shadow: 0px 0px 10px 0px #00000085;
+            transition: 0.1s;
+        }
+
+        .wrap .social-media a:hover {
+            transform: scale(1.09);
+        }
+
+
+        .profile::before {
+            content: "";
+            height: 160%;
+            width: 40px;
+            background: rgba(255, 255, 255, 0.50);
+            position: absolute;
+            top: -43px;
+            transform: translateX(-80px) rotate(24deg);
+            transition: all .5s;
+            left: -20px;
+        }
+
+
+        .wrap:hover .profile::before {
+            transform: translateX(640px) rotate(20deg);
+
+        }
+
+        .wrap:hover {
+            transform: translateY(-7px);
+        }
+
+        .wave {
+            position: absolute;
+            bottom: -0.04px;
+        }
+
+        .wave img {
+            width: 100%;
+        }
+
+        .formargin {
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+
+
+
+     
+.loader {
+	text-align: center;
+	font-size: 38px;
+	color: #162E76;
+	letter-spacing: 0.01em;
+	font-weight: bold;
+}
+.loader span {
+	text-shadow: -1px 5px 4px #162E76;
+	animation: loading 0.85s ease-in-out infinite alternate;
+}
+
+@keyframes loading {
+	to {text-shadow:
+    0 0 2px rgba(204, 208, 212,0.2),
+    0 0 3px rgba(0, 0, 0, 0.02),
+    0 0 0 rgba(0, 0, 0, 0),
+    0 0 0 rgba(255, 255, 255, 0),
+    0 0 0 rgba(0, 0, 0, 0),
+    0 0 0 rgba(255, 255, 255, 0),
+    0 0 0 rgba(255, 255, 255, 0);}
+}
+
+.loader span:nth-child(2) {
+    
+  animation-delay:0.15s;
+}
+
+.loader span:nth-child(3) {
+  animation-delay:0.30s;
+}
+
+.loader span:nth-child(4) {
+  animation-delay:0.45s;
+}
+
+.loader span:nth-child(5) {
+  animation-delay:0.60s;
+}
+
+.loader span:nth-child(6) {
+  animation-delay:0.75s;
+}
+
+.loader span:nth-child(7) {
+  animation-delay:0.90s;
+}
+    .loader span:nth-child(8) {
+  animation-delay:0.95s;
+}
+    .loader span:nth-child(9) {
+  animation-delay:0.97s;
+}
+    .loader span:nth-child(10) {
+  animation-delay:0.99s;
+}
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+  
+<h1 class="loader">
+  <span>P</span>
+  <span>r</span>
+  <span>o</span>
+  <span>u</span>
+  <span>d</span>
+  <span> </span>
+  <span>T</span>
+  <span>o</span>
+</h1>
+ <h1 class="loader">
+  <span>B</span>
+  <span>e</span>
+
+</h1>
+ 
+ 
+ <h1 class="loader">
+  <span>M</span>
+  <span>I</span>
+  <span>L</span>
+  <span>L</span>
+  <span>A</span>
+  <span>T</span>
+  <span>i</span>
+  <span>a</span>
+  <span>n</span>
+  <span>s</span>
+</h1>
+        <div class="row">
+
+
+
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="wrap">
+                    <div class="image-cover">
+                        <div class="wave">
+                            <img src="img/banner-waves-2.png" alt="">
+                        </div>
+                        <div class="profile">
+                            <img class="profile-img" src="img/maun.png" alt="">
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        <h2>abdullah al mamun</h2>
+                        <p>graphics desinger</p>
+                        <p class="light">work here as a graphics desinger</p>
+                        <p>team: <a href="https://bit.ly/3cEaO0U" target="_blank">Le Codesign</a>
+                        </p>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/vasilisoap" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="wrap">
+                    <div class="image-cover">
+                        <div class="wave">
+                            <img src="img/banner-waves-2.png" alt="">
+                        </div>
+                        <div class="profile">
+                            <img class="profile-img" src="img/yasin.png" alt="">
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        <h2>yasin arafath</h2>
+                        <p>front end developer</p>
+                        <p class="light">work here as a front end developer</p>
+                        <p>team: <a href="https://bit.ly/3cEaO0U" target="_blank">Le Codesign</a>
+                        </p>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/profile.php?id=100006822645909&ref=br_rs" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-5">
+                <div class="wrap">
+                    <div class="image-cover">
+                        <div class="wave">
+                            <img src="img/banner-waves-2.png" alt="">
+                        </div>
+                        <div class="profile">
+                            <img class="profile-img" src="img/munir.png" alt="">
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        <h2>sirajum munir</h2>
+                        <p>back end developer</p>
+                        <p class="light">work here as a back end developer</p>
+                        <p>team: <a href="https://www.facebook.com/nezent/" target="_blank">nezent</a>
+                        </p>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/sirajum.munir.30/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 formargin">
+                <div class="wrap">
+                    <div class="image-cover">
+                        <div class="wave">
+                            <img src="img/banner-waves-2.png" alt="">
+                        </div>
+                        <div class="profile">
+                            <img class="profile-img" src="img/faisal.png" alt="">
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        <h2>faisel Hawlader</h2>
+                        <p>back end developer</p>
+                        <p class="light">work here as a back end developer</p>
+                        <p>team: <a href="https://www.facebook.com/nezent/" target="_blank">nezent</a>
+                        </p>
+                    </div>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/faisal.walker.28787" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+</body>
+
+</html>
