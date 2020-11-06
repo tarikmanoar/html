@@ -1,0 +1,204 @@
+*,
+*:after,
+*::before {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: auto;
+}
+
+.st-container,
+.st-pusher,
+.st-content {
+	height: 100%;
+}
+
+.st-content {
+	overflow-y: visible;
+}
+
+.st-content,
+.st-content-inner {
+	position: relative;
+	z-index: -1;
+}
+
+.st-container {
+	position: relative;
+	overflow: hidden;
+}
+.st-pusher {
+	position: relative;
+	left: 0;
+	z-index: 99;
+	height: 100%;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.st-pusher::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+	height: 0;
+	background: rgba(0,0,0,0.2);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+}
+
+
+/* Effect 2: Reveal */
+.st-effect-2.st-menu-open .st-pusher {
+	-webkit-transform: translate3d(300px, 0, 0);
+	transform: translate3d(300px, 0, 0);
+}
+
+.st-effect-2.st-menu {
+	z-index: 1;
+}
+
+.st-effect-2.st-menu-open .st-effect-2.st-menu {
+	visibility: visible;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.st-effect-2.st-menu::after {
+	display: none;
+}
+/* Sidebar */
+
+.st-sidebar-container,
+.st-sidebar-pusher,
+.st-sidebar-content {
+	height: 100%;
+}
+
+.st-sidebar-content {
+	overflow-y: visible;
+}
+
+.st-sidebar-content,
+.st-sidebar-content-inner {
+	position: relative;
+	z-index: -1;
+}
+
+.st-sidebar-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.st-sidebar-pusher {
+	position: relative;
+	right: 0;
+	z-index: 99;
+	height: 100%;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.st-sidebar-pusher::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	background: rgba(0,0,0,0.2);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+}
+
+.st-sidebar-menu-open .st-sidebar-pusher::after {
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.st-sidebar-menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 100;
+	visibility: hidden;
+	width: 400px;
+	height: 100%;
+	overflow-y: visible;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.st-sidebar-menu::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.2);
+	content: '';
+	opacity: 1;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+}
+
+.st-sidebar-menu-open .st-sidebar-menu::after {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+}
+
+/* Effect 2: Reveal */
+.st-sidebar-effect-2.st-sidebar-menu-open .st-sidebar-pusher {
+	-webkit-transform: translate3d(-400px, 0, 0);
+	transform: translate3d(-400px, 0, 0);
+}
+
+.st-sidebar-effect-2.st-sidebar-menu {
+	z-index: 1;
+}
+
+.st-sidebar-effect-2.st-sidebar-menu-open .st-sidebar-effect-2.st-sidebar-menu {
+	visibility: visible;
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+}
+
+.st-sidebar-effect-2.st-menu::after {
+	display: none;
+}
+
+/* Fallback example for browsers that don't support 3D transforms (and no JS fallback) */
+.no-csstransforms3d .st-pusher,
+.no-js .st-pusher {
+	padding-left: 300px;
+}
+.no-csstransforms3d .st-sidebar-pusher,
+.no-js .st-sidebar-pusher {
+	padding-right: 300px;
+}
+
+/* Fixed menu *//*
+.st-sidebar-effect-2.st-sidebar-menu-open .st-sidebar-pusher {
+    padding-right: 400px;
+    transform: translate3d(0px, 0px, 0px);
+}
+.st-sidebar-menu-open .st-sidebar-pusher:after {
+	display: none;
+}
+.st-sidebar-menu-open .st-sidebar-content .container {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: auto;
+}*/

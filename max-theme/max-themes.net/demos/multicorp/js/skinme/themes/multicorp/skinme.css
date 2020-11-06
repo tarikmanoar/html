@@ -1,0 +1,211 @@
+/*
+ * Main wrapper
+ */
+.skinme {
+	position: fixed;
+	left: -335px;
+/*	left: -30px;*/
+	top: 32px;
+	z-index: 9998;
+	background: #fff;
+	width: 236px;
+	padding: 20px 20px 20px 40px;
+	-moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+	font-family: "Open Sans", Arial, sans-serif !important;
+	font-size: 11px !important;
+	color: #333;
+
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 5px solid #efefef;
+}
+
+.skinme p, .skinme ul, .skinme ol, .skinme div {
+	font-size: 13px;
+	font-style: normal;
+	line-height: 20px;
+}
+
+.skinme, .skinme * {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+	.skinme section {
+		margin: 0 0 20px;
+	}
+
+		.skinme select {
+			width: 198px;
+			padding: 5px;
+			margin: 5px 0 10px 0;
+		}
+
+		.skinme .headline {
+			font-size: 17px;
+			margin: 0 0 10px;
+			font-weight: 300;
+			letter-spacing: -1px;
+			border-top: 1px dotted #ccc;
+			padding: 10px 0 0 0;
+			margin-top: -8px;
+		}
+
+		.skinme .headline.first {
+			border: none;
+			padding: 0;
+		}
+
+		.skinme a {
+			color: #333;
+			margin: 10px 0 0 0;
+			display: block;
+		}
+
+		.skinme-btn {
+			position: absolute;
+			top: -5px;
+			right: 0;
+			width: 50px;
+			height: 50px;
+			/*background: #fff url('btnicon.jpg') center center no-repeat;*/
+			background: #fff;
+			-moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+			-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+			box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+			cursor: pointer;
+
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			border-radius: 10px;
+			border: 5px solid #efefef;
+
+			-webkit-transition-duration: .25s;
+			-moz-transition-duration: .25s;
+			-ms-transition-duration: .25s;
+			-o-transition-duration: .25s;
+			transition-duration: .25s;
+		}
+
+        .skinme-btn:before{
+            width: 50px;
+            height: 50px;
+            display: block;
+            line-height: 50px !important;
+            font-size: 27px;
+	        margin-left: 10px !important;
+        }
+
+	.skinme .predefined,
+    .skinme .layout,
+    .skinme .bg-images {
+		padding: 0;
+		margin: 0 -10px 0 0;
+	}
+
+	.skinme .bg-images {
+		margin-bottom: -10px;
+	}
+
+        .skinme li:before {
+            display: none;
+        }
+
+		.skinme .predefined li,
+		.skinme .layout li,
+		.skinme .bg-images li {
+			float: left;
+			list-style: none;
+		}
+
+			.skinme .predefined li a,
+			.skinme .bg-images li a {
+				width: 33px;
+				height: 33px;
+				display: block;
+				margin: 0 6px 10px 0;
+				border: 1px solid #999;
+			}
+            .skinme .predefined li a {
+                width: 74px;
+				height: 59px;
+                margin: 0 6px 6px 0;
+            }
+
+				.skinme .predefined li a img {
+					width: 74px;
+					height: auto;
+				}
+
+            .skinme .layout li a {
+                display: block;
+                margin: 0 6px 10px 0;
+                border: 1px solid #ccc;
+            }
+
+			.skinme .predefined li a.selected,
+			.skinme .layout li a.selected,
+			.skinme .bg-images li a.selected {
+				border-style: dashed;
+				border-color: #666;
+			}
+
+.skinme-close, .skinme-reset {
+	text-decoration: none;
+	font-size: 20px;
+	position: absolute;
+	top: 2px;
+	right: 15px;
+	color: #ccc !important;
+	-webkit-transition-duration: .25s;
+	-moz-transition-duration: .25s;
+	-ms-transition-duration: .25s;
+	-o-transition-duration: .25s;
+	transition-duration: .25s;
+}
+
+.skinme-reset {
+	top: 2px;
+	right: 40px;
+	font-size: 16px;
+}
+
+.skinme-close:hover, .skinme-reset:hover {
+	color: #999 !important;
+}
+
+/* Clearfix */
+.skinme .clearfix:before,
+.skinme .clearfix:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.skinme .clearfix:after {
+	clear: both;
+}
+
+.skinme .clearfix {
+	*zoom: 1;
+}
+
+@media all and ( max-width: 768px ) {
+
+	.skinme-content section:first-child,
+	.skinme-content section:last-child{
+		display: none;
+	}
+
+	.skinme .headline{
+		border: none;
+		padding: 0;
+	}
+
+	.skinme section{
+	    margin-bottom: 0;
+    }
+}

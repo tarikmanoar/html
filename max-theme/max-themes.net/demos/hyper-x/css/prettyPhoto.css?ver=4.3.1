@@ -1,0 +1,337 @@
+
+/* ------------------------------------------------------------------------
+ - prettyPhoto
+ - Author: Stephane Caron (http://www.no-margin-for-errors.com)
+ - Version: 3.1.5
+ - Modified by Royal-Flush
+------------------------------------------------------------------------- */
+
+div.pp_pic_holder a:focus { outline:none; }
+
+div.pp_overlay {
+	display: none;
+	position: absolute;
+	z-index: 9500;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background: #000;
+}
+
+div.pp_pic_holder {
+	display: none;
+	position: absolute;
+	width: 100px;
+	z-index: 10000;
+	padding-top: 10px;
+}
+
+
+.pp_top {
+	height: 20px;
+	position: relative;
+}
+
+* html .pp_top { padding: 0 20px; }
+
+.pp_top .pp_left {
+	height: 20px;
+	left: 0;
+	position: absolute;
+	width: 20px;
+}
+.pp_top .pp_middle {
+	height: 20px;
+	left: 20px;
+	position: absolute;
+	right: 20px;
+}
+	* html .pp_top .pp_middle {
+		left: 0;
+		position: static;
+	}
+
+.pp_top .pp_right {
+	height: 20px;
+	left: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20px;
+}
+
+.pp_content { height: 40px; min-width: 40px; }
+
+* html .pp_content { width: 40px; }
+
+.pp_fade { display: none; }
+
+.pp_content_container {
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+#pp_full_res {
+	transition: transform 0.6s ease;
+}
+
+.pp_content_container .pp_left { padding-left: 15px; }
+.pp_content_container .pp_right { padding-right: 0px; }
+
+.pp_content_container .pp_details {
+	float: left;
+	margin: 10px 0 2px 0;
+}
+
+.currentTextHolder {
+	position: absolute;
+	top: -37px;
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+.ppt-new-title,
+.pp_rf_more_info {
+	color: white;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+.pp_rf_more_info {
+	float: right;
+}
+
+.pp_description {
+	display: none;
+	margin: 0;
+}
+
+.pp_social { float: left; margin: 0; }
+.pp_social .facebook { float: left; margin-left: 5px; width: 55px; overflow: hidden; }
+.pp_social .twitter { float: left; }
+
+.pp_nav {
+	clear: right;
+	float: left;
+}
+
+.pp_nav p {
+	float: left;
+	margin: 2px 4px;
+	white-space: nowrap;
+}
+
+.pp_nav .pp_play,
+.pp_nav .pp_pause {
+	float: left;
+	margin-right: 4px;
+	text-indent: -10000px;
+}
+
+a.pp_arrow_previous,
+a.pp_arrow_next {
+	display: block;
+	position: fixed;
+	top: 50%;
+	margin-top: -30px;
+	height: 50px;
+	width: 50px;
+	transition: all 0.2s ease;
+}
+
+a.pp_arrow_previous:hover,
+a.pp_arrow_next:hover {
+	transform: scale(1.1);
+	top: 50.1%;
+}
+
+a.pp_arrow_previous i,
+a.pp_arrow_next i {
+	font-size: 40px;
+	color: #fff;
+}
+
+a.pp_arrow_previous {
+	left: 25px;
+	text-indent: -6px !important;
+}
+
+a.pp_arrow_next {
+	right: 25px;
+}
+
+.pp_hoverContainer {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 2000;
+}
+
+.pp_gallery {
+	display: none;
+	left: 50%;
+	margin-top: -50px;
+	position: absolute;
+	z-index: 10000;
+}
+
+.pp_gallery div {
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+
+.pp_gallery ul {
+	float: left;
+	height: 35px;
+	margin: 0 0 0 5px;
+	padding: 0;
+	position: relative;
+	white-space: nowrap;
+}
+
+.pp_gallery ul a {
+	border: 1px #000 solid;
+	border: 1px rgba(0,0,0,0.5) solid;
+	display: block;
+	float: left;
+	height: 33px;
+	overflow: hidden;
+}
+
+.pp_gallery ul a:hover,
+.pp_gallery li.selected a { border-color: #fff; }
+
+.pp_gallery ul a img { border: 0; }
+
+.pp_gallery li {
+	display: block;
+	float: left;
+	margin: 0 5px 0 0;
+	padding: 0;
+}
+
+.pp_gallery li.default a {
+	display: block;
+	height: 33px;
+	width: 50px;
+}
+
+.pp_gallery li.default a img { display: none; }
+
+.pp_gallery .pp_arrow_previous,
+.pp_gallery .pp_arrow_next {
+	margin-top: 7px !important;
+}
+
+a.pp_next {
+	display: block;
+	float: right;
+	height: 100%;
+	text-indent: -10000px;
+	width: 49%;
+}
+	
+a.pp_previous {
+	display: block;
+	float: left;
+	height: 100%;
+	text-indent: -10000px;
+	width: 49%;
+}
+
+a.pp_expand,
+a.pp_contract {
+	cursor: pointer;
+	display: none;
+	height: 20px;	
+	position: absolute;
+	right: 30px;
+	top: 10px;
+	width: 20px;
+	z-index: 20000;
+}
+	
+a.pp_close {
+	display: block;
+	position: absolute;
+	top: -45px;
+	right: 6px;
+	width: 35px;
+	height: 35px;
+	line-height: 32px;
+	text-align: center;
+	border-radius: 50%;
+	border: 2px solid transparent;
+	transition: all 0.3s ease;
+}
+
+a.pp_close i {
+	font-size: 25px;
+	color: #fff;
+}
+
+a.pp_close:hover {
+	border: 2px solid #fff;
+}
+
+.pp_bottom {
+	height: 20px;
+	position: relative;
+}
+
+* html .pp_bottom { padding: 0 20px; }
+
+.pp_bottom .pp_left {
+	height: 20px;
+	left: 0;
+	position: absolute;
+	width: 20px;
+}
+.pp_bottom .pp_middle {
+	height: 20px;
+	left: 20px;
+	position: absolute;
+	right: 20px;
+}
+	* html .pp_bottom .pp_middle {
+		left: 0;
+		position: static;
+	}
+	
+.pp_bottom .pp_right {
+	height: 20px;
+	left: auto;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20px;
+}
+
+.pp_loaderIcon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 24px;
+	height: 24px;
+	margin: -12px 0 0 -12px;
+	color: #fff;
+	font-size: 17px;
+}
+
+#pp_full_res {
+	line-height: 1 !important;
+}
+
+#pp_full_res .pp_inline {
+	text-align: left;
+}
+
+#pp_full_res .pp_inline p { margin: 0 0 15px 0; }
+
+div.ppt {
+	display: none;
+	margin: 0 0 5px 15px;
+}

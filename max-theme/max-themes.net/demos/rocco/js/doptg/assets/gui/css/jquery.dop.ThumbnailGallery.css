@@ -1,0 +1,472 @@
+@charset "utf-8";
+
+/*
+* Title                   : Thumbnail Gallery (WordPress Plugin)
+* Version                 : 2.3
+* File                    : jquery.dop.ThumbnailGallery.css
+* File Version            : 1.5
+* Created / Last Modified : 29 March 2013
+* Author                  : Dot on Paper
+* Copyright               : © 2012 Dot on Paper
+* Website                 : http://www.dotonpaper.net
+* Description             : Stylesheet.
+*/
+
+/* Container */
+.DOP_ThumbnailGallery_Container{
+    direction: ltr;
+    display: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+.DOP_ThumbnailGallery_Container img, .DOP_ThumbnailGallery_LightboxWrapper img{
+    background: none !important;
+    border: none !important;
+    margin: 0;
+    max-height: none !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+}
+
+.DOP_ThumbnailGallery_Clear{
+    clear: both;
+}
+
+/* Background */
+.DOP_ThumbnailGallery_Background{
+    background-color: #000000;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 100;
+}
+
+/* Thumbnails */
+.DOP_ThumbnailGallery_ThumbnailsContainer{
+    background: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    z-index: 300;
+}
+
+.DOP_ThumbnailGallery_ThumbnailsBg{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 100;
+}
+
+.DOP_ThumbnailGallery_ThumbnailsWrapper{
+    background: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    z-index: 200;
+}
+
+.DOP_ThumbnailGallery_Thumbnails{
+    background: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+.DOP_ThumbnailGallery_ThumbContainer{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.DOP_ThumbnailGallery_Thumb{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: static;
+}
+
+.DOP_ThumbnailGallery_ThumbLoader{
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+}
+
+/* Thumbnails Navigation */
+.DOP_ThumbnailGallery_ThumbnailsNavigationLeft{
+    cursor: pointer;
+    display: none;
+    line-height: 1em !important;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 500;
+}
+
+.DOP_ThumbnailGallery_ThumbnailsNavigationLeft .hover{    
+    display: none;
+}
+
+.DOP_ThumbnailGallery_ThumbnailsNavigationRight{
+    cursor: pointer;
+    display: none;
+    line-height: 1em !important;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: 600;
+}
+
+.DOP_ThumbnailGallery_ThumbnailsNavigationRight .hover{    
+    display: none;
+}
+
+/* Image */
+.DOP_ThumbnailGallery_ImageWrapper{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    z-index: 200;
+}
+
+.DOP_ThumbnailGallery_ImageBg{
+    background-color: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 100px;
+}
+
+.DOP_ThumbnailGallery_Image{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+.DOP_ThumbnailGallery_Image img{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.DOP_ThumbnailGallery_ImageLoader{
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+}
+
+/* Navigation */
+.DOP_ThumbnailGallery_NavigationButtons{
+    height: 0px;
+    position: absolute;
+    z-index: 500;    
+}
+
+.DOP_ThumbnailGallery_NavigationLeft{
+    cursor: pointer;
+    float: left;
+    line-height: 1em !important;
+    margin: 0 0 0 10px;
+    padding: 0;
+}
+
+.DOP_ThumbnailGallery_NavigationLeft .hover{    
+    display: none;
+}
+
+.DOP_ThumbnailGallery_NavigationRight{
+    cursor: pointer;
+    float: right;
+    line-height: 1em !important;
+    margin: 0 10px 0 0;
+    padding: 0;
+}
+
+.DOP_ThumbnailGallery_NavigationRight .hover{    
+    display: none;
+}
+
+.DOP_ThumbnailGallery_NavigationButtons.outside .DOP_ThumbnailGallery_NavigationLeft,
+.DOP_ThumbnailGallery_NavigationButtons.outside .DOP_ThumbnailGallery_NavigationRight{
+    margin: 0;
+}
+
+.DOP_ThumbnailGallery_NavigationExtraButtons{
+    height: 0px;
+    position: absolute;
+    z-index: 600;    
+}
+
+.DOP_ThumbnailGallery_NavigationLightbox{
+    cursor: pointer;
+    float: right;
+    line-height: 1em !important;
+    margin: 0 10px 0 0;
+    padding: 0;
+    position: relative;
+    z-index: 600;
+}
+
+.DOP_ThumbnailGallery_NavigationLightbox .hover{    
+    display: none;
+}
+
+.DOP_ThumbnailGallery_NavigationPlay{
+    cursor: pointer;
+    float: right;
+    line-height: 1em !important;
+    margin: 0 10px 0 0;
+    padding: 0;
+    position: relative;
+    z-index: 600;
+}
+
+.DOP_ThumbnailGallery_NavigationPlay .hover{    
+    display: none;
+}
+
+.DOP_ThumbnailGallery_NavigationPause{
+    cursor: pointer;
+    float: right;
+    line-height: 1em !important;
+    margin: 0 10px 0 0;
+    padding: 0;
+    position: relative;
+    z-index: 600;
+}
+
+.DOP_ThumbnailGallery_NavigationPause .hover{    
+    display: none;
+}
+
+.DOP_ThumbnailGallery_SocialShare{
+    float: right;
+    margin: 0 10px 0 0;
+    padding: 0;
+    position: relative;
+    z-index: 700;    
+}
+
+.DOP_ThumbnailGallery_NavigationExtraButtons.outside .DOP_ThumbnailGallery_NavigationLightbox{
+    margin: 0;    
+}
+
+/* Caption */
+.DOP_ThumbnailGallery_Caption{
+    background: none;
+    display: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+.DOP_ThumbnailGallery_CaptionBg{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+.DOP_ThumbnailGallery_CaptionTextWrapper{
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+.DOP_ThumbnailGallery_CaptionTitle{
+    color: #ffffff;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+}
+
+.DOP_ThumbnailGallery_CaptionTextContainer{
+    margin: 5px 0 0 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.DOP_ThumbnailGallery_CaptionText{
+    color: #ffffff;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    font-size: 12px;
+    line-height: 1em;
+    position: relative;
+}
+
+/* Lightbox */
+.DOP_ThumbnailGallery_LightboxWrapper{
+    direction: ltr;
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 900000;
+}
+
+.DOP_ThumbnailGallery_LightboxWindow{
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.DOP_ThumbnailGallery_LightboxLoader{
+    display: none;
+    position: fixed;
+}
+
+.DOP_ThumbnailGallery_LightboxContainer{
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;    
+}
+
+.DOP_ThumbnailGallery_LightboxBg{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.DOP_ThumbnailGallery_Lightbox{
+    position: absolute;
+}
+
+.DOP_ThumbnailGallery_Lightbox img{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* Lightbox Navigation*/
+.DOP_ThumbnailGallery_LightboxNavigation{
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+}
+
+.DOP_ThumbnailGallery_LightboxNavigation .hover{
+    display: none;
+}
+
+.DOP_ThumbnailGallery_LightboxNavigationButtons, .DOP_ThumbnailGallery_LightboxNavigationExtraButtons{
+    height: 0px;
+    position: absolute;
+}
+
+.DOP_ThumbnailGallery_LightboxNavigation_PrevBtn{
+    cursor: pointer;
+    float: left;
+    margin: 0 0 0 10px;
+    padding: 0;
+}
+
+.DOP_ThumbnailGallery_LightboxNavigation_NextBtn{
+    cursor: pointer;
+    float: right;
+    margin: 0;
+    padding: 0 10px 0 0;
+}
+
+.DOP_ThumbnailGallery_LightboxNavigation_CloseBtn{
+    cursor: pointer;
+    float: right;
+    margin: 0 10px 0 0;
+    padding: 0;
+}
+
+.DOP_ThumbnailGallery_LightboxSocialShare{
+    cursor: pointer;
+    float: right;
+    margin: 0 10px 0 0;
+    padding: 0;
+}
+
+.DOP_ThumbnailGallery_LightboxNavigation_Info{
+    background: #000000;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #ffffff;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2em;
+    margin: 0;
+    padding: 0 10px 0 10px;
+    position: absolute;
+    text-align: center;
+    width: 60px;
+}
+
+/* Tooltip */
+.DOP_ThumbnailGallery_Tooltip{
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    display: none;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    font-size: 10px;
+    font-weight: normal;
+    padding: 0 5px 1px 5px;
+    position: absolute;
+    text-align: center;
+    text-transform: none;
+    z-index: 700;
+}
+
+.DOP_ThumbnailGallery_Tooltip_ArrowBorder{
+    border-color: #000000 transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    bottom: -10px;
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+
+.DOP_ThumbnailGallery_Tooltip_Arrow{
+    border-color: #ffffff transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    bottom: -9px;
+    height: 0;
+    position: absolute;
+    width: 0;
+}

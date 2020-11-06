@@ -1,0 +1,819 @@
+/***************************************
+ * Quform Reponsive Ajax Contact Form
+ *
+ * Base Stylesheet
+ *
+ * Copyright (c) ThemeCatcher 2015
+ * http://www.themecatcher.net
+ ***************************************/
+/*Border-box*/
+.quform-outer, .quform-outer * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*Clearfix*/
+.quform-cf:before,
+.quform-cf:after,
+.quform-elements:before,
+.quform-elements:after,
+.quform-element:before,
+.quform-element:after,
+.quform-options:before,
+.quform-options:after,
+.quform-captcha:before,
+.quform-captcha:after,
+.quform-submit:before,
+.quform-submit:after,
+.quform-group-wrap:before,
+.quform-group-wrap:after,
+.quform-group-row:before,
+.quform-group-row:after,
+.quform-group-title-description-wrap:before,
+.quform-group-title-description-wrap:after,
+.quform-error-wrap:before,
+.quform-error-wrap:after,
+.quform-select-replaced .quform-input:before,
+.quform-select-replaced .quform-input:after {
+	content: " ";
+	display: table;
+}
+.quform-cf:after,
+.quform-elements:after,
+.quform-element:after,
+.quform-options:after,
+.quform-captcha:after,
+.quform-submit:after,
+.quform-group-wrap:after,
+.quform-group-row:after,
+.quform-group-title-description-wrap:after,
+.quform-error-wrap:after,
+.quform-select-replaced .quform-input:after {
+	clear: both;
+}
+.quform-cf,
+.quform-elements,
+.quform-element,
+.quform-options,
+.quform-captcha,
+.quform-submit,
+.quform-group-wrap,
+.quform-group-row,
+.quform-group-title-description-wrap,
+.quform-error-wrap,
+.quform-select-replaced .quform-input {
+	zoom: 1;
+} /* IE < 8 */
+
+/*Cross browser fixes*/
+.quform-inner input[type="checkbox"], .quform-inner input[type="radio"] {
+	vertical-align: middle;
+}
+.quform-element > .quform-spacer > label, .quform-option label {
+	vertical-align: middle;
+	display: inline-block;
+	min-height: 20px;
+}
+.quform-inner button::-moz-focus-inner {border: 0;}
+.quform-inner :focus, .quform-inner a:focus{outline: 0}/* removes gray dotted outline */
+.quform-inner input.middle:focus, .quform-inner select.middle:focus, .quform-inner textarea.middle:focus {outline-width: 0;}
+.quform-inner input:focus, .quform-inner select:focus, .quform-inner textarea:focus {outline: none;}
+
+.quform-inner textarea { overflow: auto; vertical-align:top; } /* IE7 + Chrome spacing fix */
+.quform-inner button, .quform-inner input{ /* IE7 extra spacing fix */
+	width: auto;
+}
+.quform-inner input[type="file"] {max-width: 100%;}
+
+/*Main Wrappers*/
+.quform-inner .quform-elements {
+	margin: 0;
+	padding: 0;
+}
+.quform-spacer {
+	padding-bottom: 10px;
+	height: 1px;
+	height: auto;
+	min-height: 1px;
+}
+.quform-element {
+	height: 1px;
+	height: auto;
+	min-height: 1px;
+}
+/*Hidden*/
+.quform-hidden {
+	display: none
+}
+/*Required*/
+.quform-element label span.quform-required {
+	color: #cc0101;
+	font-size: 10px;
+}
+
+/*Default input, selects and textareas*/
+.quform-elements .quform-element-text input,
+.quform-elements .quform-element-captcha input,
+.quform-elements .quform-element-password input,
+.quform-elements .quform-element select,
+.quform-elements .quform-element textarea {
+	margin: 0;
+	margin-bottom: 3px;
+	padding: 2px;
+	min-width: 10px;
+	max-width: 100%;
+}
+.quform-elements .quform-element-text input:hover,
+.quform-elements .quform-element-captcha input:hover,
+.quform-elements .quform-element-password input:hover,
+.quform-elements .quform-element select:hover,
+.quform-elements .quform-element textarea:hover,
+.quform-elements .quform-element-text input:active,
+.quform-elements .quform-element-captcha input:active,
+.quform-elements .quform-element-password input:active,
+.quform-elements .quform-element select:active,
+.quform-elements .quform-element textarea:active,
+.quform-elements .quform-element-text input:focus,
+.quform-elements .quform-element-captcha input:focus,
+.quform-elements .quform-element-password input:focus,
+.quform-elements .quform-element select:focus,
+.quform-elements .quform-element textarea:focus
+{color: #000;}
+
+/* Default Label*/
+.quform-element > label {
+	font-weight: bold;
+	padding-bottom: 10px;
+	position: relative;
+	display: inline-block;
+	float: none;
+	width: auto;
+}
+
+/*Element Description*/
+.quform-element p.quform-description {
+	padding: 2px 0 0;
+	font-size: 11px;
+	line-height: 15px;
+	font-style: italic;
+}
+
+/*Headings*/
+h3.quform-title {
+	font-size: 22px;
+	font-weight: bold;
+	margin: 0;
+	padding-bottom: 8px;
+}
+
+/*Form Description*/
+p.quform-description {
+	font-size: 12px;
+	margin: 0;
+	padding-bottom: 20px;
+}
+
+/*Check box and radio buttons*/
+.quform-element .quform-options {
+	margin: 0;
+	padding: 0;
+}
+.quform-element .quform-options .quform-option {
+	margin: 0;
+	padding: 0;
+	height: 25px;
+	height: auto;
+	min-height: 25px;
+}
+.quform-element .quform-options .quform-option label {
+	position: relative;
+}
+.quform-elements .quform-element .quform-options .quform-option input {
+	border: none;
+}
+.quform-options .quform-option label { line-height: 23px; }
+
+/*Radio and checkboxes inline option*/
+.quform-element .quform-options-inline > .quform-option {
+	display: inline;
+	padding: 0 15px 5px 0;
+	float: left;
+}
+.quform-options-inline .quform-option label {white-space: nowrap;}
+
+/*Captcha*/
+.quform-captcha-inner {
+   position: relative;
+   float: left;
+}
+.quform-captcha-inner {
+	position: relative;
+	float: left;
+	background: url(../images/captcha-refresh-icon.png) no-repeat center center;
+}
+.quform-captcha-inner img {
+	max-width: 100%;
+	display: block;
+}
+/*Groups*/
+.quform-group-title-description-wrap {
+	margin: 0 0 10px 0;
+}
+.quform-group-title {
+	font-size: 17px;
+	line-height: 25px;
+	font-weight: bold;
+	margin: 0;
+	padding-bottom: 2px;
+}
+p.quform-group-description {
+	font-size: 13px;
+	line-height: 20px;
+	margin: 0;
+	padding-bottom: 0;
+}
+.quform-group-style-bordered > .quform-group-elements {
+	border: solid 1px #CCC;
+	padding: 10px 10px 0;
+}
+.quform-group-row {
+	padding: 0;
+	margin: 0;
+}
+.quform-group-row > .quform-element,
+.quform-group-row > .quform-group-wrap,
+.quform-group-row > .quform-submit {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	min-height: 1px;
+	float: left;
+	padding: 0;
+	vertical-align: top;
+}
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-1cols > .quform-element,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-1cols > .quform-group-wrap,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-1cols > .quform-submit {
+	width: 100%;
+}
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-2cols > .quform-element,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-2cols > .quform-group-wrap,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-2cols > .quform-submit  {
+	width: 50%;
+	*width: 49.9%;
+}
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-3cols  > .quform-element,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-3cols > .quform-group-wrap,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-3cols > .quform-submit  {
+	width: 33.3%;
+}
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-4cols > .quform-element,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-4cols > .quform-group-wrap,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-4cols > .quform-submit {
+	width: 25%;
+	*width: 24.9%;
+}
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-5cols > .quform-element,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-5cols > .quform-group-wrap,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row-5cols > .quform-submit {
+	width: 20%;
+	*width: 19.9%;
+}
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-element,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-group-wrap,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-submit {
+	float: none;
+	width: auto;
+}
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-group-alignment-proportional {
+	width: 100%;
+	clear: both;
+}
+/*Spacing in groups*/
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row > .quform-element .quform-spacer,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row > .quform-submit .quform-submit-inner,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-element .quform-spacer,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-submit .quform-submit-inner {
+	padding: 0 5px 10px 5px;
+}
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row > .quform-element:first-child .quform-spacer,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row > .quform-submit:first-child .quform-submit-inner,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-element:first-child .quform-spacer,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-submit:first-child .quform-submit-inner {
+	padding-left: 0;
+}
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row > .quform-element:last-child .quform-spacer,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row > .quform-submit:last-child .quform-submit-inner,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-element:last-child .quform-spacer,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row > .quform-submit:last-child .quform-submit-inner {
+	padding-right: 0;
+}
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row.quform-group-row-1cols > .quform-element .quform-spacer,
+.quform-group-alignment-proportional > .quform-group-elements > .quform-group-row.quform-group-row-1cols > .quform-submit .quform-submit-inner,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row.quform-group-row-1cols > .quform-element .quform-spacer,
+.quform-group-alignment-left > .quform-group-elements > .quform-group-row.quform-group-row-1cols > .quform-submit .quform-submit-inner {
+	padding: 0 5px 10px 5px;
+}
+.quform-group-wrap > .quform-group-elements .quform-group-wrap > .quform-group-elements {
+	margin: 0 5px;
+}
+.quform-group-style-bordered.quform-group-wrap {
+	margin-bottom: 15px;
+}
+.quform-group-wrap > .quform-group-elements .quform-group-row .quform-group-style-bordered.quform-group-wrap {
+	margin-bottom: 0;
+}
+.quform-group-style-plain.quform-group-wrap {
+	margin: 0;
+}
+.quform-group-wrap .quform-group-row > .quform-group-style-plain.quform-group-wrap {
+	margin: 0;
+}
+.quform-group-wrap .quform-group-row > .quform-group-style-bordered.quform-group-wrap {
+	padding: 0 0 10px 0;
+	float: left;
+}
+.quform-group-wrap .quform-group-row.quform-group-row-1cols > .quform-group-style-bordered.quform-group-wrap {
+	padding: 0 0 10px 0;
+	float: none;
+	clear: both;
+}
+
+/*LABEL / INPUT POSITION OPTIONS*/
+
+/*label left*/
+.quform-labels-left .quform-spacer > label {
+	width: 150px;
+	position: relative;
+	float: left;
+	padding-bottom: 10px;
+}
+/*label above*/
+.quform-labels-above .quform-spacer > label {
+	width: auto;
+	float: none;
+}
+/*input left*/
+.quform-labels-left .quform-input,
+.quform-labels-left .quform-captcha {
+	margin-left: 150px;
+	padding-left: 10px;
+}
+
+/*input above - override*/
+.quform-labels-left .quform-labels-above.quform-element .quform-input,
+.quform-labels-left .quform-labels-above.quform-element .quform-captcha,
+.quform-labels-left .quform-labels-above.quform-group-wrap .quform-input,
+.quform-labels-left .quform-labels-above.quform-group-wrap .quform-captcha,
+
+.quform-labels-above .quform-labels-left .quform-labels-above.quform-element .quform-input,
+.quform-labels-above .quform-labels-left .quform-labels-above.quform-element .quform-captcha,
+.quform-labels-above .quform-labels-left .quform-labels-above.quform-group-wrap .quform-input,
+.quform-labels-above .quform-labels-left .quform-labels-above.quform-group-wrap .quform-captcha {
+	margin-left: 0;
+	padding-left: 0;
+}
+/*input left - override*/
+.quform-labels-above .quform-labels-left.quform-element .quform-input,
+.quform-labels-above .quform-labels-left.quform-element .quform-captcha,
+.quform-labels-above .quform-labels-left.quform-group-wrap .quform-input,
+.quform-labels-above .quform-labels-left.quform-group-wrap .quform-captcha,
+
+.quform-labels-left .quform-labels-above .quform-labels-left.quform-element .quform-input,
+.quform-labels-left .quform-labels-above .quform-labels-left.quform-element .quform-captcha,
+.quform-labels-left .quform-labels-above .quform-labels-left.quform-group-wrap .quform-input,
+.quform-labels-left .quform-labels-above .quform-labels-left.quform-group-wrap .quform-captcha {
+	margin-left: 150px;
+	padding-left: 10px;
+}
+/*label above- override*/
+.quform-labels-left .quform-labels-above.quform-element .quform-spacer > label,
+.quform-labels-left .quform-labels-above.quform-group-wrap .quform-spacer > label,
+
+.quform-labels-above .quform-labels-left .quform-labels-above.quform-element .quform-spacer > label,
+.quform-labels-above .quform-labels-left .quform-labels-above.quform-group-wrap .quform-spacer > label {
+	width: auto;
+	float: none;
+	padding-bottom: 8px;
+}
+/*label left- override*/
+.quform-labels-above .quform-labels-left.quform-element .quform-spacer > label,
+.quform-labels-above .quform-labels-left.quform-group-wrap .quform-spacer > label,
+
+.quform-labels-left .quform-labels-above .quform-labels-left.quform-element .quform-spacer > label,
+.quform-labels-left .quform-labels-above .quform-labels-left.quform-group-wrap .quform-spacer > label {
+	width: 150px;
+	position: relative;
+	float: left;
+	padding-bottom: 10px;
+}
+
+/*Fix multi elements*/
+.quform-labels-left .quform-input .quform-input-file {
+	margin-left: 0 !important;
+	padding-left: 0;
+}
+
+/*Submit button*/
+.quform-submit {margin: 10px 0}
+.quform-submit-inner {
+	float: left;
+}
+.quform-submit button {
+	margin: 0;
+	cursor: pointer;
+}
+.quform-submit button span, .quform-submit button em {
+	display: block;
+	margin: 0;
+	cursor: pointer;
+}
+
+/*Default*/
+/*inner*/
+.quform-submit button span {
+	padding: 7px 20px;
+}
+/*outer*/
+.quform-submit button em {
+	font-style: normal;
+}
+/*Hover*/
+/*outer*/
+.quform-submit button:hover span {
+}
+/*inner*/
+.quform-submit button:hover em {
+}
+
+/*Active*/
+/*outer*/
+.quform-submit button:active span {
+}
+/*inner*/
+.quform-submit button:active em {
+}
+
+/*Loading the submit*/
+.quform-loading-wrap {
+	display: none;
+	float: left;
+	height: 10px;
+	line-height: 10px;
+	text-align: center;
+	margin-top: 12px;
+	margin-left: 5px;
+}
+.quform-loading-wrap .quform-loading {
+	display: block;
+	width: 30px;
+	height: 10px;
+	text-indent: -9999px;
+	background: transparent url('../images/default-loading.gif') no-repeat center center;
+}
+
+/*Errors*/
+.quform-errors {
+	display: none;
+}
+.quform-errors {
+	margin: 0;
+	padding: 3px 0 6px 0;
+}
+.quform-errors > .quform-error, .quform-outer-no-js .quform-error {
+	padding: 3px 10px 3px 25px;
+	margin: 0;
+	line-height: 16px;
+	background: #F3CAC7 url('../images/error.png') no-repeat 3px center;
+	color: #000;
+	font-size: 12px;
+	font-weight: normal;
+	display: inline-block;
+	border: 1px solid #fa8b83;
+	float: left;
+}
+.quform-labels-left > .quform-spacer > .quform-errors-wrap {margin-left: 150px;}
+.quform-labels-left > .quform-spacer > .quform-errors-wrap .quform-errors > .quform-error {margin-left: 10px !important;}
+.quform-labels-above > .quform-spacer > .quform-errors-wrap .quform-errors .quform-error {margin-left: 0 !important;}
+
+/*Success message*/
+.quform-success-message, .quform-outer-no-js .quform-success-message {
+	background: #cef4a9 url('../images/success.png') no-repeat 14px center;
+	padding: 8px 20px 8px 45px;
+	line-height: 18px;
+	margin: 10px 0;
+	border: 1px solid #80bb48;
+	font-weight: normal;
+	color: #000;
+}
+
+/*Fixes for consistent browsing*/
+.quform-input .selector select {margin: 0!important; width: auto!important; height: 30px;}
+.quform-input .quform-element-file-inner input[type="file"] {text-shadow: none !important;}
+*:first-child+html .quform-input select {background: transparent !important; color:#000 !important;}
+*:first-child+html .quform-input select option {background: #fff !important; color:#000 !important;}
+.quform-element-radio input[type="radio"] {background: transparent !important; border: none transparent !important;}
+.quform-element-checkbox input[type="checkbox"] {background: transparent !important; border: none transparent !important;}
+
+/*Hide FOUC*/
+.quform-js .quform-element-file .quform-input {
+	display: none;
+}
+/*Tooltip icons*/
+.quform-tooltip-icon {
+	width: 15px;
+	height: 15px;
+	background: url('../images/help-icon.png') no-repeat right bottom;
+	display: inline-block;
+	cursor: pointer;
+}
+.quform-element-text.quform-labels-inside > .quform-spacer > label .quform-tooltip-icon,
+.quform-element-textarea.quform-labels-inside > .quform-spacer > label .quform-tooltip-icon,
+.quform-element-password.quform-labels-inside > .quform-spacer > label .quform-tooltip-icon,
+.quform-element-captcha.quform-labels-inside > .quform-spacer > label .quform-tooltip-icon {
+	position: absolute;
+	right: -20px;
+	top: 0;
+}
+.quform-tooltip-icon-content {
+	display: none;
+}
+
+/* Quform PHP Specific */
+
+/*Preset element sizes - full width*/
+.quform-elements .quform-full-width.quform-element-text input,
+.quform-elements .quform-full-width.quform-element-captcha input,
+.quform-elements .quform-full-width.quform-element-password input,
+.quform-elements .quform-full-width.quform-element select,
+.quform-elements .quform-full-width.quform-element textarea {width: 100%; *width: 98%;}
+
+/*Preset element sizes - small*/
+.quform-elements .quform-small.quform-element-text input,
+.quform-elements .quform-small.quform-element-captcha input,
+.quform-elements .quform-small.quform-element-password input,
+.quform-elements .quform-small.quform-element select,
+.quform-elements .quform-small.quform-element textarea {width: 90px;}
+
+/*Preset element sizes - medium*/
+.quform-elements .quform-med.quform-element-text input,
+.quform-elements .quform-med.quform-element-captcha input,
+.quform-elements .quform-med.quform-element-password input,
+.quform-elements .quform-med.quform-element select,
+.quform-elements .quform-med.quform-element textarea {width: 130px;}
+
+/*Preset element sizes - large*/
+.quform-elements .quform-large.quform-element-text input,
+.quform-elements .quform-large.quform-element-captcha input,
+.quform-elements .quform-large.quform-element-password input,
+.quform-elements .quform-large.quform-element select,
+.quform-elements .quform-large.quform-element textarea {width: 200px;}
+
+/*Preset element sizes - huge*/
+.quform-elements .quform-huge.quform-element-text input,
+.quform-elements .quform-huge.quform-element-captcha input,
+.quform-elements .quform-huge.quform-element-password input,
+.quform-elements .quform-huge.quform-element select,
+.quform-elements .quform-huge.quform-element textarea {width: 360px;}
+
+/*Preset element sizes - fat*/
+.quform-elements .quform-fat.quform-element-text input,
+.quform-elements .quform-fat.quform-element-captcha input,
+.quform-elements .quform-fat.quform-element-password input,
+.quform-elements .quform-fat.quform-element select,
+.quform-elements .quform-fat.quform-element textarea {padding-top: 10px !important; padding-bottom: 10px !important;}
+
+/*Preset button sizes - fat*/
+.quform-button-fat.quform-submit .quform-submit-inner button span {padding: 15px 40px;}
+/*Preset button sizes - small*/
+.quform-button-small.quform-submit .quform-submit-inner button span {width: 90px;}
+/*Preset button sizes - med*/
+.quform-button-med.quform-submit .quform-submit-inner button span {width: 200px;}
+/*Preset button sizes - large*/
+.quform-button-large.quform-submit .quform-submit-inner button span {width: 400px;}
+/*Preset button sizes - full width*/
+.quform-button-full-width.quform-submit .quform-submit-inner,
+.quform-button-full-width.quform-submit .quform-submit-inner button {width: 100%; max-width: 100%; float: none; display: block;}
+.quform-button-full-width.quform-submit .quform-submit-inner {*width: 87%;} /*IE 7 fix*/
+.quform-button-full-width.quform-submit .quform-submit-inner button span {width: 100%;}
+
+/* Form processing error  */
+.quform-error-title {
+	font-size: 13px;
+	font-weight: bold;
+	color: #CC0000;
+	margin-bottom: 8px;
+}
+.quform-error-message {
+	margin-bottom: 10px;
+	background: #F3CAC7;
+	border: 1px solid #fa8b83;
+	color: #111;
+	padding: 8px;
+}
+.quform-error-message pre {
+	margin: 3px 0 0 3px;
+	font-style: italic;
+	overflow: auto;
+}
+/* Replaced select menu text input */
+.quform-select-replaced .quform-input input {
+	float: left;
+}
+.quform-outer a.quform-cancel-button {
+	background-image: url('../images/close.png');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	float: left;
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin-top: 5px;
+	margin-left: 2px;
+}
+/* Incase the image doesn't load - show refresh icon */
+.quform-captcha-inner {
+	min-height: 25px;
+	min-width: 25px;
+}
+/* Grouped file upload spacing */
+.quform-input-file {
+	margin-top: 3px;
+}
+.quform-input-file:first-child {
+	margin-top: 0;
+}
+/* No JS page */
+.quform-outer-no-js {
+	font-family: Arial, Helvetica, sans-serif;
+	width: 80%;
+	margin: 40px auto 0 auto;
+}
+.quform-outer-no-js .quform-success-message {
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	margin: 15px 0 15px 0;
+}
+.quform-outer-no-js .quform-wrapper {
+	padding: 0 20px;
+	border: 1px solid #ddd;
+	background: #F8F8F8;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+.quform-outer-no-js .quform-errors {
+	display: block;
+}
+.quform-outer-no-js .quform-errors-outer {
+	padding-bottom: 10px;
+}
+.quform-outer-no-js .quform-error-wrap {
+	float: left;
+	padding: 10px 10px 10px 0;
+}
+.quform-outer-no-js .quform-error-label {
+	font-weight: bold;
+	font-size: 12px;
+	margin-bottom: 2px;
+}
+.quform-outer-no-js .quform-title {
+	font-size: 18px;
+	margin: 10px 0 10px 0;
+	padding: 10px 0 10px 0;
+	border-bottom: 1px solid #ddd;
+}
+
+/* Tooltip styles */
+/* qTip2 v2.2.1 | Plugins: tips viewport | Styles: core basic css3 | qtip2.com | Licensed MIT | Sat Sep 06 2014 21:55:19 */
+
+.qtip{position:absolute;left:-28000px;top:-28000px;display:none;max-width:280px;min-width:50px;font-size:10.5px;line-height:12px;direction:ltr;box-shadow:none;padding:0}.qtip-content{position:relative;padding:5px 9px;overflow:hidden;text-align:left;word-wrap:break-word}.qtip-titlebar{position:relative;padding:5px 35px 5px 10px;overflow:hidden;border-width:0 0 1px;font-weight:700}.qtip-titlebar+.qtip-content{border-top-width:0!important}.qtip-close{position:absolute;right:-9px;top:-9px;z-index:11;cursor:pointer;outline:0;border:1px solid transparent}.qtip-titlebar .qtip-close{right:4px;top:50%;margin-top:-9px}* html .qtip-titlebar .qtip-close{top:16px}.qtip-icon .ui-icon,.qtip-titlebar .ui-icon{display:block;text-indent:-1000em;direction:ltr}.qtip-icon,.qtip-icon .ui-icon{-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;text-decoration:none}.qtip-icon .ui-icon{width:18px;height:14px;line-height:14px;text-align:center;text-indent:0;font:400 bold 10px/13px Tahoma,sans-serif;color:inherit;background:-100em -100em no-repeat}.qtip-default{border:1px solid #F1D031;background-color:#FFFFA3;color:#555}.qtip-default .qtip-titlebar{background-color:#FFEF93}.qtip-default .qtip-icon{border-color:#CCC;background:#F1F1F1;color:#777}.qtip-default .qtip-titlebar .qtip-close{border-color:#AAA;color:#111}.qtip-light{background-color:#fff;border-color:#E2E2E2;color:#454545}.qtip-light .qtip-titlebar{background-color:#f1f1f1}.qtip-dark{background-color:#505050;border-color:#303030;color:#f3f3f3}.qtip-dark .qtip-titlebar{background-color:404.html040}.qtip-dark .qtip-icon{border-color:#444}.qtip-dark .qtip-titlebar .ui-state-hover{border-color:#303030}.qtip-cream{background-color:#FBF7AA;border-color:#F9E98E;color:#A27D35}.qtip-cream .qtip-titlebar{background-color:#F0DE7D}.qtip-cream .qtip-close .qtip-icon{background-position:-82px 0}.qtip-red{background-color:#F78B83;border-color:#D95252;color:#912323}.qtip-red .qtip-titlebar{background-color:#F06D65}.qtip-red .qtip-close .qtip-icon{background-position:-102px 0}.qtip-red .qtip-icon,.qtip-red .qtip-titlebar .ui-state-hover{border-color:#D95252}.qtip-green{background-color:#CAED9E;border-color:#90D93F;color:#3F6219}.qtip-green .qtip-titlebar{background-color:#B0DE78}.qtip-green .qtip-close .qtip-icon{background-position:-42px 0}.qtip-blue{background-color:#E5F6FE;border-color:#ADD9ED;color:#5E99BD}.qtip-blue .qtip-titlebar{background-color:#D0E9F5}.qtip-blue .qtip-close .qtip-icon{background-position:-2px 0}.qtip-shadow{-webkit-box-shadow:1px 1px 3px 1px rgba(0,0,0,.15);-moz-box-shadow:1px 1px 3px 1px rgba(0,0,0,.15);box-shadow:1px 1px 3px 1px rgba(0,0,0,.15)}.qtip-bootstrap,.qtip-rounded,.qtip-tipsy{-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px}.qtip-rounded .qtip-titlebar{-moz-border-radius:4px 4px 0 0;-webkit-border-radius:4px 4px 0 0;border-radius:4px 4px 0 0}.qtip-youtube{-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-webkit-box-shadow:0 0 3px #333;-moz-box-shadow:0 0 3px #333;box-shadow:0 0 3px #333;color:#fff;border:0 solid transparent;background:#4A4A4A;background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#4A4A4A),color-stop(100%,#000));background-image:-webkit-linear-gradient(top,#4A4A4A 0,#000 100%);background-image:-moz-linear-gradient(top,#4A4A4A 0,#000 100%);background-image:-ms-linear-gradient(top,#4A4A4A 0,#000 100%);background-image:-o-linear-gradient(top,#4A4A4A 0,#000 100%)}.qtip-youtube .qtip-titlebar{background-color:transparent}.qtip-youtube .qtip-content{padding:.75em;font:12px arial,sans-serif;filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#4a4a4a, EndColorStr=#000000);-ms-filter:"progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#4a4a4a,EndColorStr=#000000);"}.qtip-youtube .qtip-icon{border-color:#222}.qtip-youtube .qtip-titlebar .ui-state-hover{border-color:#303030}.qtip-jtools{background:#232323;background:rgba(0,0,0,.7);background-image:-webkit-gradient(linear,left top,left bottom,from(#717171),to(#232323));background-image:-moz-linear-gradient(top,#717171,#232323);background-image:-webkit-linear-gradient(top,#717171,#232323);background-image:-ms-linear-gradient(top,#717171,#232323);background-image:-o-linear-gradient(top,#717171,#232323);border:2px solid #ddd;border:2px solid rgba(241,241,241,1);-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-webkit-box-shadow:0 0 12px #333;-moz-box-shadow:0 0 12px #333;box-shadow:0 0 12px #333}.qtip-jtools .qtip-titlebar{filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#717171, endColorstr=#4A4A4A);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#717171,endColorstr=#4A4A4A)"}.qtip-jtools .qtip-content{filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4A4A4A, endColorstr=#232323);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#4A4A4A,endColorstr=#232323)"}.qtip-jtools .qtip-content,.qtip-jtools .qtip-titlebar{background:0 0;color:#fff;border:0 dashed transparent}.qtip-jtools .qtip-icon{border-color:#555}.qtip-jtools .qtip-titlebar .ui-state-hover{border-color:#333}.qtip-cluetip{-webkit-box-shadow:4px 4px 5px rgba(0,0,0,.4);-moz-box-shadow:4px 4px 5px rgba(0,0,0,.4);box-shadow:4px 4px 5px rgba(0,0,0,.4);background-color:#D9D9C2;color:#111;border:0 dashed transparent}.qtip-cluetip .qtip-titlebar{background-color:#87876A;color:#fff;border:0 dashed transparent}.qtip-cluetip .qtip-icon{border-color:#808064}.qtip-cluetip .qtip-titlebar .ui-state-hover{border-color:#696952;color:#696952}.qtip-tipsy{background:#000;background:rgba(0,0,0,.87);color:#fff;border:0 solid transparent;font-size:11px;font-family:'Lucida Grande',sans-serif;font-weight:700;line-height:16px;text-shadow:0 1px #000}.qtip-tipsy .qtip-titlebar{padding:6px 35px 0 10px;background-color:transparent}.qtip-tipsy .qtip-content{padding:6px 10px}.qtip-tipsy .qtip-icon{border-color:#222;text-shadow:none}.qtip-tipsy .qtip-titlebar .ui-state-hover{border-color:#303030}.qtip-tipped{border:3px solid #959FA9;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;background-color:#F9F9F9;color:#454545;font-weight:400;font-family:serif}.qtip-tipped .qtip-titlebar{border-bottom-width:0;color:#fff;background:#3A79B8;background-image:-webkit-gradient(linear,left top,left bottom,from(#3A79B8),to(#2E629D));background-image:-webkit-linear-gradient(top,#3A79B8,#2E629D);background-image:-moz-linear-gradient(top,#3A79B8,#2E629D);background-image:-ms-linear-gradient(top,#3A79B8,#2E629D);background-image:-o-linear-gradient(top,#3A79B8,#2E629D);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#3A79B8, endColorstr=#2E629D);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#3A79B8,endColorstr=#2E629D)"}.qtip-tipped .qtip-icon{border:2px solid #285589;background:#285589}.qtip-tipped .qtip-icon .ui-icon{background-color:#FBFBFB;color:#555}.qtip-bootstrap{font-size:14px;line-height:20px;color:#333;padding:1px;background-color:#fff;border:1px solid #ccc;border:1px solid rgba(0,0,0,.2);-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 5px 10px rgba(0,0,0,.2);-moz-box-shadow:0 5px 10px rgba(0,0,0,.2);box-shadow:0 5px 10px rgba(0,0,0,.2);-webkit-background-clip:padding-box;-moz-background-clip:padding;background-clip:padding-box}.qtip-bootstrap .qtip-titlebar{padding:8px 14px;margin:0;font-size:14px;font-weight:400;line-height:18px;background-color:#f7f7f7;border-bottom:1px solid #ebebeb;-webkit-border-radius:5px 5px 0 0;-moz-border-radius:5px 5px 0 0;border-radius:5px 5px 0 0}.qtip-bootstrap .qtip-titlebar .qtip-close{right:11px;top:45%;border-style:none}.qtip-bootstrap .qtip-content{padding:9px 14px}.qtip-bootstrap .qtip-icon{background:0 0}.qtip-bootstrap .qtip-icon .ui-icon{width:auto;height:auto;float:right;font-size:20px;font-weight:700;line-height:18px;color:#000;text-shadow:0 1px 0 #fff;opacity:.2;filter:alpha(opacity=20)}.qtip-bootstrap .qtip-icon .ui-icon:hover{color:#000;text-decoration:none;cursor:pointer;opacity:.4;filter:alpha(opacity=40)}.qtip:not(.ie9haxors) div.qtip-content,.qtip:not(.ie9haxors) div.qtip-titlebar{filter:none;-ms-filter:none}.qtip .qtip-tip{margin:0 auto;overflow:hidden;z-index:10}.qtip .qtip-tip,x:-o-prefocus{visibility:hidden}.qtip .qtip-tip,.qtip .qtip-tip .qtip-vml,.qtip .qtip-tip canvas{position:absolute;color:#123456;background:0 0;border:0 dashed transparent}.qtip .qtip-tip canvas{top:0;left:0}.qtip .qtip-tip .qtip-vml{behavior:url(#default#VML);display:inline-block;visibility:visible}
+
+.quform-tt {
+	font-size: 13px;
+	line-height: 15px;
+}
+
+/* Quform Responsive - Add your styles here */
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+
+}
+
+/* Tablet Portrait and below (devices and browser) */
+@media only screen and (max-width: 768px) {
+	/* Groups columns become stacked */
+	.quform-group-row .quform-element, .quform-group-row .quform-group-wrap, .quform-group-row .quform-submit  {
+		float: none;
+		width: 100% !important;
+		display: block;
+	}
+	.quform-group-row {margin: 0;}
+	/* Elements become full width */
+	.quform-elements .quform-element-text input, .quform-elements .quform-element-captcha input, .quform-elements .quform-element-password input, .quform-elements .quform-element select, .quform-elements .quform-element textarea {
+		width: 100% !important;
+		min-width: 100px;
+	}
+	/* keep date and time elements inline a bit longer */
+	.quform-element-date select {
+		width: 30% !important;
+	}
+	.quform-element-time select {
+		width: 48% !important;
+	}
+	.quform-errors > .quform-error {
+		float: none;
+		display: block;
+	}
+	/* There is no elements to the right so no need for this right padding/margin */
+	.quform-spacer, .quform-submit-inner {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+	.quform-group-elements {
+		margin-right: 0 !important;
+		margin-left: 0 !important;
+	}
+	/* Make radio and checkboxes a bit easier to select on touch devices */
+	.quform-options .quform-option {
+		background: rgba(0,0,0, 0.03); /*background color on phones*/
+		margin-bottom: 5px !important;
+	}
+	.quform-options .quform-option label {
+		display: block;
+		padding: 5px;
+	}
+	.quform-options .quform-option label input[type=checkbox], .quform-options .quform-option label input[type=radio] {
+		float: right !important;
+		margin-top: 5px;
+	}
+	.quform-options-inline > .quform-option {
+		display: block;
+		padding: 0 !important;
+		width: 32%;
+		margin: 0 1% 2px 0 !important;
+	}
+	.quform-options-inline > .quform-option label {
+		display: block;
+	}
+	.quform-submit button span {
+		padding: 9px 20px;
+	}
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	/* Button is larger for easy clicking on small devices. */
+	.quform-submit-inner {
+		width: 100%;
+		float: none;
+	}
+	.quform-submit button {
+		margin: 0;
+		width: 100% !important;
+	}
+	.quform-submit button span, .quform-submit button em {
+		width: auto !important;
+	}
+	/* There is not enough room for left labels - so move them above */
+	.quform-labels-left > .quform-spacer > label {
+		float: none;
+		width: auto;
+	}
+	.quform-labels-left.quform-element .quform-input, .quform-labels-left.quform-element .quform-captcha {
+		margin-left: 0;
+		padding-left: 0;
+	}
+	/* Less radio/check inputs per line on phones */
+	.quform-options-inline > .quform-option {
+		width: 49%;
+	}
+	/* Force all pre-sized elements full width */
+	.quform-elements .quform-element-text input, .quform-elements .quform-element-captcha input, .quform-elements .quform-element-password input, .quform-elements .quform-element select, .quform-elements .quform-element textarea {
+		width: 100% !important;
+	}
+	/* No JS page */
+	.quform-outer-no-js {
+		width: auto;
+		margin: 10px;
+	}
+	.quform-outer-no-js .quform-wrapper {
+		padding: 0 10px;
+	}
+	.quform-outer-no-js .quform-error-wrap {
+		float: none;
+		display: block;
+		padding-right: 0;
+	}
+}

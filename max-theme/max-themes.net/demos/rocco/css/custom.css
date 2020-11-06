@@ -1,0 +1,99 @@
+/* If you want to add your own CSS code, please do it in this file */
+
+/************************* demo *************************/
+
+.the-icons .span3 { float:left; width: 25%; font-size: 13px; line-height:18px; padding-bottom:10px;}
+.the-icons .span3 .muted { color:#ccc;}
+.the-icons .span3 [class^="icon-"], .span3 [class*=" icon-"] { color: #3E3E3E; font-size: 18px; width:23px; display:inline-block;}
+
+@media only screen and (min-width: 768px) and (max-width: 959px){
+	.the-icons .span3 { width:33.333%;}
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){
+	.the-icons .span3 { width:50%;}
+}
+@media only screen and (max-width: 479px){
+	.the-icons .span3 { width:100%;}
+}
+
+.color-blue .tp-caption.boxed_medium_green,
+.color-blue .tp-caption.boxed_large_green { background:#06D0B9;}
+.color-orange .tp-caption.boxed_medium_green,
+.color-orange .tp-caption.boxed_large_green { background:#FFA04E;}
+.color-red .tp-caption.boxed_medium_green,
+.color-red .tp-caption.boxed_large_green { background:#EF4036;}
+
+#configurator { color:#213442 !important; background:#f9f9f9; width: 190px; position: fixed; left: -192px; top: 178px; z-index: 9000; color: #515E6C; line-height: 21px; font-size: 12px; text-transform:uppercase;}
+#configurator form { margin-bottom:0; text-align:center;}
+#configurator select { background:none; box-shadow:0 0 0; margin-bottom:10px; padding: 3px; color:#213442;}
+#configurator .control { display:block; width:51px; height:51px; position:absolute; top:37px; right:-51px; background:#f9f9f9 url(../images/configurator/ico.png) no-repeat center; text-indent:-9999px;}
+#configurator .inside { padding:10px;}
+#configurator .header { text-align:center; padding-bottom:5px; margin-bottom:5px; border-bottom:1px solid #eee; font-size:18px;}
+
+#configurator ul.image-select { margin-bottom:5px;}
+#configurator ul.image-select li { display:block; float:left; }
+#configurator ul.image-select li a { display:block; width:32px; height:32px; float:left; text-indent:-9999px; margin:5px;}
+#configurator ul.image-select li:hover { border-color:#ccc;}
+
+#configurator ul.select-image li a { text-indent:0;}
+
+#configurator ul.text-select { margin-bottom:15px; }
+#configurator ul.text-select li { float:left; width:50%; font-size:14px; }
+#configurator ul.text-select li:not(.active) a { color:#515E6C; }
+
+#configurator p { line-height:16px; margin-bottom:5px;}
+
+
+/* Vertical tabs */
+@media only screen and (min-width: 768px) {
+	.tabs_vertical .ui-tabs {}
+	.tabs_vertical .ui-widget-content { border: 0px; }
+	.tabs_vertical .ui-tabs .ui-tabs-nav { width: 25%; float: left; }
+	.tabs_vertical .ui-tabs .ui-tabs-nav li { float: none; width: 100%; margin-bottom: 1px; border-right: 0; }
+	.tabs_vertical .ui-tabs .ui-tabs-nav li a { float: none; }
+	.ui-tabs .ui-tabs-nav li.ui-state-active a { margin-right: -1px; }
+	.tabs_vertical .ui-tabs .ui-tabs-panel { width: 70.5%; padding: 2%; float: left; border: 1px solid #EBEFF2; border-top-width: 3px; min-height: 137px; }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.tabs_vertical .ui-tabs .ui-tabs-nav { width: 30%; }
+	.tabs_vertical .ui-tabs .ui-tabs-panel { width: 65.5%;}
+}
+
+/* mobile only */
+@media only screen and (max-width: 768px){
+	#configurator { display:none;}
+}
+
+.contactsubheader {
+	background-image:url(../upload/subheader_contact.jpg);
+}
+.portfoliosubheader {
+	background-image:url(../upload/subheader_portfolio.jpg);
+}
+.blogsubheader {
+	background-image:url(../upload/subheader_blog.jpg);
+}
+
+#gallery-1 .gallery-item {
+  float: left;
+  margin-top: 10px;
+  text-align: center;
+  width: 25%;
+}
+
+.fontawesome-icon-list .fa-hover {
+  float: left;
+  width: 25%;
+  font-size: 13px;
+  line-height: 18px;
+  padding-bottom: 10px;
+}
+
+
+.user img {
+	display: none !important;
+}
+
+.interact {
+	display: none !important;
+}

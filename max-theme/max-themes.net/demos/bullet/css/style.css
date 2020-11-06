@@ -1,0 +1,256 @@
+/*
+Theme Name: WP Bullet
+Theme URI: http://cmssuperheroes.com
+Author: CMSSuperHeroes
+Author URI: http://themeforest.net/user/CMSSuperHeroes
+Description: The 2015 theme for WordPress is a fully responsive theme that looks great on any device. Features include a front page template with its own widgets, an optional display font, styling for post formats on both index and single views, and an optional no-sidebar page template. Make it yours with a custom menu, header image, and background.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, fluid-layout, responsive-layout, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, accessibility-ready
+Text Domain: wp_bullet
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* =Notes
+--------------------------------------------------------------
+This stylesheet uses rem values with a pixel fallback. The rem
+values (and line heights) are calculated using two variables:
+
+$rembase:     14;
+$line-height: 24;
+
+---------- Examples
+
+* Use a pixel value with a rem fallback for font-size, padding, margins, etc.
+	padding: 5px 0;
+	padding: 0.357142857rem 0; (5 / $rembase)
+
+* Set a font-size and then set a line-height based on the font-size
+	font-size: 16px
+	font-size: 1.142857143rem; (16 / $rembase)
+	line-height: 1.5; ($line-height / 16)
+
+---------- Vertical spacing
+
+Vertical spacing between most elements should use 24px or 48px
+to maintain vertical rhythm:
+
+.my-new-div {
+	margin: 24px 0;
+	margin: 1.714285714rem 0; ( 24 / $rembase )
+}
+
+---------- Further reading
+
+http://snook.ca/archives/html_and_css/font-size-with-rem
+http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/
+
+
+/* =Reset
+-------------------------------------------------------------- */
+
+.page-title #breadcrumb-text,.page-title #breadcrumb-text ul li a{font-family:Vollkorn;line-height:22px;font-weight:400;font-style:italic;color:#696969;font-size:15px;}body{background-color:#dfdfdf;}footer #footer-top{background-color:#ffffff;}footer #footer-bottom{background-color:#ffffff;}body{font-family:Vollkorn;line-height:21px;font-weight:400;font-style:normal;color:#696969;font-size:13px;}h1{font-family:Montserrat;line-height:46.5px;font-weight:700;font-style:normal;color:#000000;font-size:21px;}h2{font-family:Montserrat;line-height:22px;font-weight:700;font-style:normal;color:#000000;font-size:17px;}h3{font-family:Montserrat;line-height:22px;font-weight:400;font-style:normal;color:#000000;font-size:15px;}h4{font-family:Vollkorn;line-height:17px;font-weight:400;font-style:normal;color:#343434;font-size:13px;}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1435363434421{margin-bottom: 20px !important;padding-right: -15px !important;padding-left: -15px !important;}.vc_custom_1433332738536{margin-bottom: 20px !important;padding-top: 30px !important;padding-right: 15px !important;padding-bottom: 10px !important;padding-left: 15px !important;}.vc_custom_1432886493583{margin-bottom: 20px !important;padding-right: 15px !important;padding-left: 15px !important;}.vc_custom_1432886500341{margin-bottom: 20px !important;padding-right: 15px !important;padding-left: 15px !important;}.vc_custom_1437452879315{margin-bottom: 20px !important;padding-top: 73px !important;padding-right: 15px !important;padding-bottom: 75px !important;padding-left: 15px !important;background-image: url(../upload/Home-buyers-negotiating4780.jpg) !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1432886519758{padding-right: 15px !important;padding-left: 15px !important;}.vc_custom_1432886530789{padding-right: 15px !important;padding-left: 15px !important;}.vc_custom_1432886537231{margin-bottom: 20px !important;padding-right: 15px !important;padding-left: 15px !important;}.vc_custom_1432886547313{margin-bottom: 20px !important;padding-right: 15px !important;padding-left: 15px !important;}.vc_custom_1440465106532{margin-bottom: 20px !important;padding-top: 225px !important;padding-right: 15px !important;padding-bottom: 225px !important;padding-left: 15px !important;}.vc_custom_1432886561504{margin-bottom: 20px !important;padding-right: 15px !important;padding-left: 15px !important;}.vc_custom_1432944508035{margin-bottom: 20px !important;padding-left: 15px !important;background-image: url(../upload/statistic-numbers-bg.jpg) !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1432886574737{margin-bottom: 20px !important;padding-right: 15px !important;padding-left: 15px !important;}.vc_custom_1432886583047{margin-bottom: 20px !important;padding-right: 15px !important;padding-left: 15px !important;}.vc_custom_1435045782600{padding-top: 20px !important;padding-right: 15px !important;padding-bottom: 20px !important;padding-left: 15px !important;background-color: #252525 !important;}.vc_custom_1431074894292{padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1433301495660{margin-top: 25px !important;}.vc_custom_1433301510670{margin-top: 25px !important;}.vc_custom_1431336901728{padding-bottom: 30px !important;}.vc_custom_1433301518958{margin-top: 25px !important;}.vc_custom_1432540196109{margin-bottom: 19px !important;}.vc_custom_1433301526264{margin-top: 25px !important;}.vc_custom_1433301533033{margin-top: 25px !important;}.vc_custom_1431336296144{margin-bottom: 0px !important;}.vc_custom_1433301540215{margin-top: 25px !important;}.vc_custom_1433301548047{margin-top: 25px !important;}.vc_custom_1433301553576{margin-top: 25px !important;}.vc_custom_1433301559967{margin-top: 25px !important;}.vc_custom_1435794947151{margin-top: -50px !important;margin-right: -15px !important;}.vc_custom_1433301565721{margin-top: 25px !important;}.vc_custom_1433301571396{margin-top: 25px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }
+
+
+body.photography-bg{background:url(../upload/03_Home-v2-Photography.jpg) repeat center top !important}
+
+
+
+.pt0 {
+  padding-top: 0 !important;
+}
+.pb0 {
+  padding-bottom: 0 !important;
+}
+
+.mb0 {margin-bottom: 0px !important; }
+.mb10 {margin-bottom: 10px !important; }
+.mb15 {margin-bottom: 15px !important; }
+.mb20 {margin-bottom: 20px !important; }
+.mb25 {margin-bottom: 25px !important; }
+.mb28 {margin-bottom: 28px !important; }
+.mb30 {margin-bottom: 30px !important; }
+.mb50 {margin-bottom: 50px !important; }
+.mt10 {margin-top: 10px !important; }
+.mt15 {margin-top: 15px !important; }
+.mt20 {margin-top: 20px !important; }
+.mt25 {margin-top: 25px !important; }
+.mt28 {margin-top: 28px !important; }
+.mt30 {margin-top: 30px !important; }
+.mt50 {margin-top: 50px !important; }
+.pt10 {padding-top: 10px !important; }
+.pt15 {padding-top: 15px !important; }
+.pt20 {padding-top: 20px !important; }
+.pt25 {padding-top: 25px !important; }
+.pt28 {padding-top: 28px !important; }
+.pt30 {padding-top: 30px !important; }
+.pb10 {padding-bottom: 10px !important; }
+.pb15 {padding-bottom: 15px !important; }
+.pb20 {padding-bottom: 20px !important; }
+.pb25 {padding-bottom: 25px !important; }
+.pb28 {padding-bottom: 28px !important; }
+.pb30 {padding-bottom: 30px !important; }
+.ml0 {margin-left: 0 !important; }
+.b0 { border: 0 !important;}
+
+
+.vc_custom_1435167894216 {
+    padding-top: 20px !important;
+    padding-right: 15px !important;
+    padding-bottom: 20px !important;
+    padding-left: 15px !important;
+    margin-top: 20px;
+    background-color: #ffffff !important;
+}
+
+.vc_custom_1437461697125 {
+    margin-bottom: 20px !important;
+    padding-top: 73px !important;
+    padding-right: 15px !important;
+    padding-bottom: 75px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/Auto-Mechanic-image-1.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.vc_custom_1437462093278 {
+    margin-bottom: 20px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/Auto-Mechanic-image-4.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.architect-test {
+    margin-bottom: 20px !important;
+    padding-top: 73px !important;
+    padding-right: 15px !important;
+    padding-bottom: 75px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/177629849-1505x10006d61.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.vc_custom_1437460441212 {
+    margin-bottom: 20px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/photodune-1232401-construction-m.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.medic-test {
+    margin-bottom: 20px !important;
+    padding-top: 73px !important;
+    padding-right: 15px !important;
+    padding-bottom: 75px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/Medical-image-110d4.png) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.vc_custom_1437463568210 {
+    margin-bottom: 20px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/Medical-image-5.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.bg-darkmode {
+    background: #000!important;
+}
+.pattern1 {
+    background: url(../upload/20_Home-Pattern-1.jpg) repeat center top !important;
+}
+.pattern2{
+    background: url(../upload/21_Home-Pattern-2.jpg) repeat center top !important;
+}
+.pattern3 {
+    background: url(../upload/Home-Pattern-3.jpg) repeat center top !important;
+}
+.pattern4 {
+    background: url(../upload/Home-Pattern-4.jpg) repeat center top !important;
+}
+
+.vc_custom_1435191340287 {
+    margin-bottom: 20px !important;
+    padding-top: 73px !important;
+    padding-right: 15px !important;
+    padding-bottom: 75px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/image-6.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.vc_custom_1435889581630 {
+    margin-bottom: 20px !important;
+    padding-top: 0px !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/services-2-testimonial666a.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.vc_custom_1437468591778 {
+    margin-right: -15px !important;
+    margin-left: -15px !important;
+    padding-top: 20px !important;
+    padding-right: 15px !important;
+    padding-bottom: 20px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/Home-buyers-negotiating4780.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.vc_custom_1433475367406 {
+    margin-bottom: 20px !important;
+    padding-top: 20px !important;
+    padding-right: 15px !important;
+    padding-bottom: 20px !important;
+    padding-left: 15px !important;
+    background-image: url(../upload/clients-image-2fbef.jpg) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.textwidget img {
+    margin-bottom: 20px;
+}
+
+.page-blog .page-wrapper .post-item .post-item-inner .post-media .post-media-extra {
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    width: 90% !important;
+    left: 0;
+    bottom: -4%;
+}
+
+#ul_e266_0{width:200px;}
+#ul_e266_1{width:200px;}
+#ul_e266_2{width:200px;}
+#ul_e266_3{width:200px;}
+#ul_e266_4{width:200px;}
+#ul_e266_5{width:200px;}
+#div_93ba_0{position:relative;}
+#div_93ba_1{position:absolute; top:0; left:0; right:0; bottom:0;background:rgba(0,0,0,0.5);}

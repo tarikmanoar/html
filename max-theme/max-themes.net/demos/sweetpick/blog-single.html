@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>SweetPick</title>
+
+	<meta charset="utf-8">
+
+	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,800,900,200,100' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700,400,200,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="screen">	
+
+    <!-- REVOLUTION BANNER CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="css/fullwidth.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/settings.css" media="screen" />
+
+	<link rel="stylesheet" type="text/css" href="css/flexslider.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen">
+	
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+	<link rel="icon" href="images/favicon.png" type="image/x-icon">
+
+	<!-- Style Switch -->
+	<link rel="alternate stylesheet" type="text/css" href="css/colors/yellow-black.css" title="yellow" media="screen" />
+   	<link rel="alternate stylesheet" type="text/css" href="css/colors/violet-black.css" title="black" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="css/colors/orange-black.css" title="orange" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="css/colors/blue-black.css" title="blue" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/colors/red-black.css" title="red" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="css/colors/green-black.css" title="green" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="css/colors/pink-black.css" title="pink" media="screen" />
+	<link rel="alternate stylesheet" type="text/css" href="css/colors/pale-green-black.css" title="pale-green" media="screen" />
+
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">&nbsp;</div>
+</div>
+
+	<!-- Container -->
+	<div id="container">
+		<!-- Header
+		    ================================================== -->
+		<header class="clearfix">
+
+			<div class="top-line">
+				<div class="container">
+					<div class="left-line">
+						<ul class="lang clearfix">
+							<li><span>Language: </span> <a href="#">Eng <i class="fa fa-angle-down"></i></a>
+								<ul class="drop-down2">
+									<li><a href="#">Fra</a></li>
+									<li><a href="#">Rus</a></li>
+								</ul>
+							</li>
+						</ul>
+						<ul class="curr clearfix">
+							<li><span>Currency: </span><a href="#">Usd <i class="fa fa-angle-down"></i></a>
+								<ul class="drop-down2">
+									<li><a href="#">GPB</a></li>
+									<li><a href="#">Eur</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<div class="mobile-a">
+							<a href="#login-box" class="login-window"><i class="fa fa-user"></i></a>
+							<a href="#"><i class="fa fa-heart"></i></a>
+						</div>
+					</div>
+					<div class="right-line clearfix">
+						<ul>
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">My Wishlist</a></li>
+							<li><a href="#">Checkout</a></li>
+							<li><a href="#login-box" class="login-window">Login</a></li>
+						</ul>
+						<div class="mobile-version">
+							<div class="cart-icon">
+								<a href="#"><img src="images/cart-white.png" alt="">
+								<span>8 Items</span></a>	
+							</div>
+						</div>
+
+				        <div id="login-box" class="login-popup">
+				        	<a href="#" class="close"><img src="images/delete.png" class="btn_close" title="Close Window" alt="Close" /></a>
+				         	<form method="post" class="signin" action="#">
+				                <fieldset class="textbox">
+					                <h4 class="login-title">LOGIN </h4>
+
+					                <input placeholder="Email*">				                
+					                <input placeholder="Password*">
+					                
+					                <input type="checkbox" name="signed" value="Stayin"> <span class="signed">Remember Me</span>
+
+					                <button class="submit button" type="button">Login</button>
+					                <p>
+						                <a class="recover" href="#">Sign up</a>
+						                <a href="#" class="forgot2">Forgot password?</a>
+					                </p>
+					                <div class="clear"></div>
+				                	
+				                	<div class="log-socials">
+				                		<h6>LOGIN WITH</h6>
+				                		<ul>
+				                			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				                			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				                			<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				                		</ul>
+
+				                		<div class="clear"></div>
+				                	</div>
+				                </fieldset>
+				          </form>
+						</div>
+
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<!-- end topline -->
+			<div class="upper-header">
+				<div class="container">
+
+					<div class="search-input">
+						<form action="#">
+							<input type="text" placeholder="Type and Search">
+							<input type="submit" value="">
+						</form>
+					</div>
+
+					<div class="logo">
+						<a href="index.html"><img src="images/logo.png" alt=""></a>
+					</div>
+					
+					<div class="cart">
+						<a href="#" class="cartmain"> Cart  /  $ 1 199.00</a>
+						<div class="card-icon">
+							<img src="images/cart.png" alt="">
+							<div class="shop-items">10</div>
+						</div>
+						<div class="hover-cart">
+
+							<div class="hover-box">
+
+								<a href="#"><img src="images/hover1.png" alt="" class="left-hover"></a>
+								<div class="hover-details">
+									<p>Grey California Dress</p>
+									<span>$ 3 199.00</span>
+									<div class="quantity">Quantity: 1</div>
+								</div>
+								
+								<a href="#" class="right-hover"><img src="images/delete.png" alt=""></a>
+
+								<div class="clear"></div>
+
+							</div>
+
+							<div class="hover-box bd0">
+
+								<img src="images/hover2.png" alt="" class="left-hover">
+								<div class="hover-details">
+									<p>Grey California Dress</p>
+									<span>$ 3 199.00</span>
+									<div class="quantity">Quantity: 1</div>
+								</div>
+
+								<a href="#" class="right-hover"><img src="images/delete.png" alt=""></a>
+
+								<div class="clear"></div>
+
+							</div>
+
+							<div class="subtotal">
+								Cart Subtotal: <span>$ 4 372</span>
+							</div>
+
+							<button class="viewcard"> View Cart</button>
+							<button class="proceedcard"> Proceed</button>
+
+						</div>
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+				<!-- End container -->	
+			</div>
+			<!-- End Upper-header -->		
+			<div class="nav-border"></div>
+			<div class="container">
+				<!-- Navigation -->
+				<nav id="nav">
+					<ul id="navlist" class="sf-menu clearfix">
+						<li><a href="index.html">Home</a>
+							<ul class="sub-menu">
+								<li><a href="home-boxed.html"><span>--</span>Home Boxed</a></li>
+								<li><a href="home-transparent.html"><span>--</span>Home Transparent</a></li>
+								<li><a href="home-leftmenu.html"><span>--</span>Home Left Menu</a></li>
+								<li><a href="home-bannerboxed.html"><span>--</span>Home Banner</a></li>
+								<li><a href="home-banner.html"><span>--</span>Home Banner Fullwidth</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Shop</a>
+							<ul class="sub-menu">
+								<li><a href="shop-single.html"><span>--</span>Single Product</a></li>
+								<li><a href="shop-list.html"><span>--</span>Products List</a></li>
+								<li><a href="shop-grid.html"><span>--</span>Products Grid</a></li>
+								<li><a href="cart.html"><span>--</span>Shopping Cart</a></li>
+								<li><a href="checkout.html"><span>--</span>Checkout</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Women</a></li>
+						<li><a href="#">Men</a></li>
+						<li><a href="#">Accesories</a></li>
+						<li><a href="#">Pages</a>
+							<ul class="sub-menu">
+								<li><a href="about.html"><span>--</span>About</a></li>
+								<li><a href="shortcodes.html"><span>--</span>Shortcodes</a></li>
+								<li><a href="typography.html"><span>--</span>Typography</a></li>
+								<li><a href="404.html"><span>--</span>404</a></li>
+							</ul>
+						</li>
+						<li class="current"><a href="#">Blog</a>
+							<ul class="sub-menu">
+								<li><a href="blog.html"><span>--</span>Blog</a></li>
+								<li><a href="blog-single.html"><span>--</span>Blog Single</a></li>
+							</ul>
+						</li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</nav>
+		    	<!-- Navigation -->
+			</div>
+		
+
+		</header>
+		<!-- End Header -->
+
+
+
+		<!-- content 
+			================================================== -->
+		<div id="content">
+
+			<div class="blog-container">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="blog-single clearfix">
+
+								<div class="flexslider">
+									<ul class="slides">
+										<li>
+											<img alt="" src="upload/blog/blog4.jpg" />
+										</li>
+										<li>
+											<img alt="" src="upload/blog/blog4.jpg" />
+										</li>
+									</ul>
+								</div>
+
+								<div class="blogsingle-inner">
+
+									<h1>This is gallery post with imaget</h1>
+
+									<div class="post-meta">
+										<a href="#"><i class="fa fa-user"></i> Joeby Ragpa</a>
+										<a href="#"><i class="fa fa-bookmark"></i> Design</a>
+										<a href="#"><i class="fa fa-comment"></i> 15 Comments</a>
+									</div>
+
+									<p>We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power and complexity that it literally staggers the imagination.</p>
+
+									<h2>We poccess within us two minds. So far I have written only</h2>
+									<p>The dream mentioned previously in this chapter, and the dreams in the chapter on the subconscious, are all fairly easy to understand and I used them because they clearly illustrate how dreams can guide us. However, because they are so easily decipherable, they are the exceptions. Ninety percent of your dreams will make little or no sense whatsoever. They will seem like nonsense, like a foreign language that you don't understand.Your dreams are messages sent from your subconscious to you, and as such they are showing you something about yourself. Dreams are always about you and your circumstances—where you are stuck, what you're avoiding, what you're missing, what you're ignoring, where you need to go.</p>
+									<img src="upload/single1.jpg" alt="" id="single1">
+									<p>Ninety-five percent of the time all the characters, creatures, monsters and strangers in your dreams represent aspects of yourself. When you go about interpreting a dream assume that all the people in the dream are you (except when you recognize the characters—children, spouse, parents, co-workers, and so forth—and even then they are sometimes you).</p>
+									<p>Interpreting the dream subjectively, you would first of all assume that you are both the burglar and yourself in the dream. You begin asking yourself questions. What part of me is harming the children? Maybe you feel you're working too hard and not spending enough time with them. Is your dedication to working long hours perhaps stealing your children from you? </p>
+									<img src="upload/single2.jpg" alt="" id="single2">
+									<p>Another interpretation might be that your children are the carefree and innocent part of you, and the burglar is your serious and logical side. Is the "adult" part of you suppressing your natural, easy-going, more spontaneous nature? Perhaps your dream is telling you something is being taken from you by living too much this way. Get the idea?</p>
+									<p>Remember to avoid translating your dreams too literally. Say you dream you are driving a fast sports car at ninety miles per hour around dangerous curves. You lose control, crash and die. Does this mean you're going to have a car crash and die? Highly unlikely. It is far more probable that the dream is telling you something much less literal about yourself. </p>
+
+
+
+									<blockquote>Remember to avoid translating your dreams too literally. Say you dream you are driving a fast sports car at ninety miles per hour around dangerous curves. You lose control, crash and die. Does this mean you're going to have a car crash and die? Highly unlikely. It is far more probable that the dream is telling you something much less literal about yourself.
+									<span>Elizabeth Gilbert</span>
+									</blockquote>
+
+									<div class="blog-tags">
+										<i class="fa fa-tags"></i>
+										<a href="#">Creative</a>, <a href="#">Elegant</a>,<a href="#"> Clothing</a>, <a href="#">Fashion</a>, <a href="#">Beauty</a>
+									</div>
+
+									<div class="blog-share">
+									<p>Share</p>			
+										<ul>
+											<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+											<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+											<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+											<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+											<li><a href="#"><i class="fa fa-envelope"></i></a></li>
+										</ul>
+										<div class="clear"></div>
+									</div>
+									<!-- End Share -->
+									<div class="clear"></div>
+
+									<div class="about-author">
+										<img src="upload/author.jpg" alt="">
+										<div class="author-text">
+											<h4>camille ragpa <span> | Fashion Designer</span></h4>
+											<p>We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. We possess within us two minds.</p>
+										</div>
+										<div class="clear"></div>
+									</div>
+
+
+									<div class="related mb50">
+										<h1 class="main-title">Related Articles</h1>
+										<div class="main-border"></div>
+
+										<div class="row">
+											<div class="col-md-4">
+												<div class="related-item">
+													<img src="upload/relatedp1.jpg" alt="">
+													<a href="#"><h4>We possess within us two minds</h4></a>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="related-item">
+													<img src="upload/relatedp2.jpg" alt="">
+													<a href="#"><h4>Your subconscious mind is like fertile soil</h4></a>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="related-item">
+													<img src="upload/relatedp3.jpg" alt="">
+													<a href="#"><h4>Remember, the conscious mind is the gardener.</h4></a>
+												</div>
+											</div>
+										</div>
+
+										
+									</div>
+									<!-- end related -->
+
+									<div class="comment-tree">
+										<h1 class="main-title">5 Comments</h1>
+										<ul>
+											<li>
+												<img src="upload/user1.jpg" alt="">
+												<div class="comment-text">
+													<div class="user-spec">
+														<h5>Mary Jane</h5>
+														<span>July 15, 2014 at 11:27 pm</span>
+														<div class="clear"></div>
+													</div>
+													<p>So, I thing this is a good Html theme and I want to use it for my travel blog. Thank you for the good design and coding. You are awesome guys ;)</p>
+													<a href="#" class="reply">Reply <i class="fa fa-comments"></i></a>
+												</div>
+												<div class="clear"></div>
+											</li>
+											<li>
+												<img src="upload/user2.jpg" alt="">
+												<div class="comment-text">
+													<div class="user-spec">
+														<h5>Mary Jane</h5>
+														<span>July 15, 2014 at 11:27 pm</span>
+														<div class="clear"></div>
+													</div>
+													<p>So, I thing this is a good Html theme and I want to use it for my travel blog. Thank you for the good design and coding. You are awesome guys ;)</p>
+													<a href="#" class="reply">Reply <i class="fa fa-comments"></i></a>
+												</div>
+												<div class="clear"></div>
+											</li>
+											<li>
+												<ul class="depth">
+													<li>
+														<img src="upload/user3.jpg" alt="">
+														<div class="comment-text">
+															<div class="user-spec">
+																<h5>Mary Jane</h5>
+																<span>July 15, 2014 at 11:27 pm</span>
+																<div class="clear"></div>
+															</div>
+															<p>So, I thing this is a good Html theme and I want to use it for my travel blog. Thank you for the good design and coding.</p>
+															<a href="#" class="reply">Reply <i class="fa fa-comments"></i></a>
+														</div>
+														<div class="clear"></div>
+													</li>
+												</ul>
+											</li>
+											<li>
+												<img src="upload/user4.jpg" alt="">
+												<div class="comment-text">
+													<div class="user-spec">
+														<h5>Mary Jane</h5>
+														<span>July 15, 2014 at 11:27 pm</span>
+														<div class="clear"></div>
+													</div>
+													<p>So, I thing this is a good Html theme and I want to use it for my travel blog. Thank you for the good design and coding. You are awesome guys ;)</p>
+													<a href="#" class="reply">Reply <i class="fa fa-comments"></i></a>
+												</div>
+												<div class="clear"></div>
+											</li>
+											<li>
+												<img src="upload/user5.jpg" alt="">
+												<div class="comment-text">
+													<div class="user-spec">
+														<h5>Mary Jane</h5>
+														<span>July 15, 2014 at 11:27 pm</span>
+														<div class="clear"></div>
+													</div>
+													<p>So, I thing this is a good Html theme and I want to use it for my travel blog. Thank you for the good design and coding. You are awesome guys ;)</p>
+													<a href="#" class="reply">Reply <i class="fa fa-comments"></i></a>
+												</div>
+												<div class="clear"></div>
+											</li>
+										</ul>
+									</div>
+
+									<div class="leave-comment clearfix">
+										<h1 class="main-title">Leave a comment</h1>
+										<div class="main-border"></div>
+										<form action="#">
+											<div class="row">
+												<div class="col-md-4">
+													<label>Name <span>*</span></label>
+													<input type="text">
+												</div>
+												<div class="col-md-4">
+													<label>Email <span>*</span></label>
+													<input type="text">
+												</div>
+												<div class="col-md-4">
+													<label>Website</label>
+													<input type="text">
+												</div>
+											</div>
+											<label>Your Comment <span>*</span></label>
+											<textarea></textarea>
+
+											<input type="submit" value="Post A Comment" class="medium-button button-red">
+
+										</form>
+									</div>
+
+									<div class="nextpages">
+										<a href="#" class="prevpage"><i class="fa fa-angle-left"></i> Previous Post</a>
+										<a href="#" class="nextpage">Next Post <i class="fa fa-angle-right"></i></a>
+										<div class="clear"></div>
+									</div>
+
+								</div>
+								<!-- end signle inner -->
+
+							</div>
+							<!-- End Signle Blog -->
+						</div>
+						<!-- End Main Blog -->
+
+						<div class="col-lg-4">
+							<aside>
+
+								<div class="blog-search mb30">
+									<input type="text" placeholder="Search">
+									<input type="submit" value="">
+								</div>
+
+								<div class="shop-categories mb30">
+									<h1 class="asidetitle">Categories</h1>
+
+									<ul>
+										<li><a href="#">Design	<span>(25)</span></a></li>
+										<li><a href="#">Typography	<span>(235)</span></a></li>
+										<li><a href="#">Business	<span>(89)</span></a></li>
+										<li><a href="#">Photography	<span>(109)</span></a></li>
+										<li><a href="#">Fashion	<span>(129)</span></a></li>
+										<li><a href="#">Hot Trends	<span>(123)</span></a></li>
+									</ul>
+								</div>
+
+								<div class="normal-tabs left-widget mb30">
+									<div class="tabs-widget clearfix">
+							    		<ul class="tab-links clearfix">
+							    			<li class="active"><a href="#description">Popular Posts</a></li>
+							    			<li class=""><a href="#clean">Latest Posts</a></li>
+							    		</ul>
+
+							    		<div id="description" style="display: block;">
+							    			<ul>
+							    				<li><a href="#">
+							    					<img src="upload/tabswidget1.jpg" alt="">
+							    					<p>Sweet Pick lorem ipsum is a simple and elegant</p>
+							    					<span><i class="fa fa-clock-o"></i> 15 June, 2014</span>
+							    				</a></li>
+
+							    				<li><a href="#">
+							    					<img src="upload/tabswidget2.jpg" alt="">
+							    					<p>Sweet Pick lorem ipsum is a simple and elegant</p>
+							    					<span><i class="fa fa-clock-o"></i> 15 June, 2014</span>
+							    				</a></li>
+							    			</ul>
+							    		</div>
+
+							    		<div id="clean" style="display: none;">
+							    			<ul>
+							    				<li><a href="#">
+							    					<img src="upload/tabswidget1.jpg" alt="">
+							    					<p>Sweet Pick lorem ipsum is a simple and elegant</p>
+							    					<span><i class="fa fa-clock-o"></i> 15 June, 2014</span>
+							    				</a></li>
+
+							    				<li><a href="#">
+							    					<img src="upload/tabswidget2.jpg" alt="">
+							    					<p>Sweet Pick lorem ipsum is a simple and elegant</p>
+							    					<span><i class="fa fa-clock-o"></i> 15 June, 2014</span>
+							    				</a></li>
+							    			</ul>
+							    		</div>
+
+
+									</div>
+									<!-- End Tabs -->
+								</div>
+								<!-- End Normal Tabs -->
+
+								
+
+								<div class="flickr mb30">
+									<h1 class="asidetitle">Flickr</h1>
+									
+									<div class="row mb20">
+										<div class="col-sm-4">
+											<a href="#"><img src="upload/gallery1.jpg" alt=""></a>
+										</div>
+										<div class="col-sm-4">
+											<a href="#"><img src="upload/gallery2.jpg" alt=""></a>
+										</div>
+										<div class="col-sm-4">
+											<a href="#"><img src="upload/gallery3.jpg" alt=""></a>
+										</div>
+									</div>
+									
+									<div class="row mb20">
+										<div class="col-sm-4">
+											<a href="#"><img src="upload/gallery4.jpg" alt=""></a>
+										</div>
+										<div class="col-sm-4">
+											<a href="#"><img src="upload/gallery5.jpg" alt=""></a>
+										</div>
+										<div class="col-sm-4">
+											<a href="#"><img src="upload/gallery1.jpg" alt=""></a>
+										</div>
+									</div>
+									
+								</div>
+
+
+								<div class="tags mb10">
+									<h1 class="asidetitle">Tags</h1>
+									
+									<ul>
+										<li><a href="#">E-commerce</a></li>
+										<li><a href="#">Elegant</a></li>
+										<li><a href="#">Store</a></li>
+										<li><a href="#">Clean</a></li>
+										<li><a href="#">Modern</a></li>
+										<li><a href="#">Fashion</a></li>
+										<li><a href="#">Classic</a></li>
+										<li><a href="#">Beauty</a></li>
+										<li><a href="#">Jeans</a></li>
+										<li><a href="#">Clothing</a></li>
+									</ul>
+									<div class="clear"></div>
+									
+								</div>
+
+							</aside>
+							<!-- End aside -->
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="partners">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-2">
+							<a href="#"><img src="upload/partners1.png" alt=""></a>
+						</div>
+						<div class="col-sm-2">
+							<a href="#"><img src="upload/partners2.png" alt=""></a>
+						</div>
+						<div class="col-sm-2">
+							<a href="#"><img src="upload/partners3.png" alt=""></a>
+						</div>
+						<div class="col-sm-2">
+							<a href="#"><img src="upload/partners4.png" alt=""></a>
+						</div>
+						<div class="col-sm-2">
+							<a href="#"><img src="upload/partners5.png" alt=""></a>
+						</div>
+						<div class="col-sm-2">
+							<a href="#"><img src="upload/partners6.png" alt=""></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<!-- End content -->
+
+		<!-- footer 
+			================================================== -->
+		<footer>
+			<div class="inner-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="f-about">
+								<h1>ABOUT SHOP</h1>
+								<p class="mb20">We possess within us two minds. So far I have written only of the conscious mind.We further know that the subconscious has recorded every event. This is just perfect theme.</p>
+								<h1>NEWSLETTER</h1>
+								<form action="#">
+									<input type="text" placeholder="Your e-mail">
+									<input type="submit" value="">
+								</form>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="infos">
+								<h1>Information</h1>
+								<ul>
+									<li><a href="#">• Our Stores</a></li>
+									<li><a href="#">• Delivery Information</a></li>
+									<li><a href="#">• About Us</a></li>
+									<li><a href="#">• Terms and Conditions</a></li>
+									<li><a href="#">• Privacy Policy</a></li>
+									<li><a href="#">• Contact Us</a></li>
+									<li><a href="#">• Returns</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="account">
+								<h1>My Account</h1>
+								<ul>
+									<li><a href="#">• My Account</a></li>
+									<li><a href="#">• Order History</a></li>
+									<li><a href="#">• My Wishlist</a></li>
+									<li><a href="#">• Specials</a></li>
+									<li><a href="#">• Track Order</a></li>
+									<li><a href="#">• Gift Vouchers</a></li>
+									<li><a href="#">• My Credit Slips</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="gettouch">
+								<h1>Get in Touch with us</h1>
+								<p><i class="fa fa-home"></i> Philippines, PO Box 6200 Talay st. 65, SweetPick inc.</p>
+								<p><i class="fa fa-phone"></i> +63 918 4084 694</p>
+								<p class="mb20"><i class="fa fa-envelope"></i> samokhinteam@gmail.com</p>
+								<h1>FIND US ON</h1>
+								<ul class="footer-socials">
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+									<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+									<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+									<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div id="back-to-top">
+	          <a href="#top">Back to Top</a>
+	        </div>
+			</div>
+			<!-- end contanir & inner-footer -->
+			<div class="container">
+				<div class="last-div">
+					<div class="row">
+						<div class="copyright">
+							© 2014 SweetPick Elegant Shop  |  <a href="#">Designed by Alexander Samokhin</a>
+						</div>
+						<div class="payment">
+							<a href="#"><img src="upload/payments.png" alt=""></a>
+						</div>
+						<div class="clear"></div>
+					</div>
+
+				</div>
+			</div>
+
+
+
+	        
+		</footer>
+		<!-- End footer -->
+
+
+
+        <!-- Style Switch -->
+		<div id="customizer" class="s-close">
+			<span class="corner"><span class="cog"></span></span>
+			<div id="options" class="visible">
+				<div class="options-head">
+					Style Switcher
+				</div>	
+
+				<div class="options-segment clearfix colors-sel">
+					<h6 class="color-head">Color Scheme</h6>
+					<ul class="color-scheme clearfix">
+						<li class="yellow"><a href="css/colors/yellow-black" data-rel="yellow" class="styleswitch"></a></li>
+						<li class="green"><a href="css/colors/green-black" data-rel="green" class="styleswitch"></a></li>
+						<li class="red"><a href="css/colors/red-black" data-rel="red" class="styleswitch"></a></li>
+						<li class="blue"><a href="css/colors/blue-black" data-rel="blue" class="styleswitch"></a></li>
+						<li class="fblack"><a href="css/colors/violet-black" data-rel="black" class="styleswitch"></a></li>
+						<li class="orange"><a href="css/colors/orange-black" data-rel="orange" class="styleswitch"></a></li>
+						<li class="violet"><a href="css/colors/pink-black" data-rel="pink" class="styleswitch"></a></li>
+						<li class="pale-green"><a href="css/colors/pale-green-black" data-rel="pale-green" class="styleswitch"></a></li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+		<!-- Style Switch -->
+
+		</div>
+
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.superfish.js"></script>
+	<script type="text/javascript" src="js/jquery.bxslider.js"></script>
+	<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/retina-1.1.0.min.js"></script>
+	<script type="text/javascript" src="js/jquery.flexslider.js"></script>
+	<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="js/plugins-scroll.js"></script>
+  	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="js/jquery.imagesloaded.min.js"></script>
+	<script type="text/javascript" src="js/jquery.appear.js"></script>
+	<script type="text/javascript" src="js/jquery.countTo.js"></script>
+	<script src="js/jquery.parallax.js"></script>
+     <!-- jQuery KenBurn Slider  -->
+    <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+
+
+    <!-- Style Switcher -->
+	<script src="js/styleswitch.js"></script>
+	<script src="js/style_switch_custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+.jspContainer{
+    overflow: hidden;
+    position: relative;
+}
+
+.jspPane{
+    position: absolute;
+}
+
+.jspVerticalBar{
+    background: none;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4px;    
+}
+
+.jspHorizontalBar{
+    background: none;
+    bottom: 0;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.jspVerticalBar *, .jspHorizontalBar *{
+    margin: 0;
+    padding: 0;
+}
+
+.jspCap{
+    display: none;
+}
+
+.jspHorizontalBar .jspCap{
+    float: left;
+}
+
+.jspTrack{
+    background: #e0e0e0;
+    position: relative;
+}
+
+.jspDrag{
+    background: #777777;
+    cursor: pointer;
+    left: 0;    
+    position: relative;
+    top: 0;
+}
+
+.jspHorizontalBar .jspTrack, .jspHorizontalBar .jspDrag{
+    float: left; 
+    height: 100%;
+}
+
+.jspArrow{
+    background: #50506d; 
+    cursor: pointer;
+    display: block;
+    text-indent: -20000px; 
+}
+
+.jspArrow.jspDisabled{
+    background: #80808d;
+    cursor: default; 
+}
+
+.jspVerticalBar .jspArrow{
+    height: 10px;
+}
+
+.jspHorizontalBar .jspArrow{
+    float:left; 
+    height: 100%;
+    width: 10px;
+}
+
+.jspVerticalBar .jspArrow:focus{
+    outline: none;
+}
+
+.jspCorner{
+    background: #eeeef4; 
+    display: none;
+    float: left; 
+    height: 100%;    
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner{
+    margin:0 -3px 0 0;
+}

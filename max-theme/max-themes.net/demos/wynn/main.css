@@ -1,0 +1,204 @@
+body{
+	background-color: #efefef;
+}
+
+.container{
+	position:relative;
+	margin:0 auto;
+}
+
+#logo { text-align: center; padding: 20px 0; background: #000; }
+#main-title { 
+    text-align: center;
+    background: #41CAA4;
+    color: #fff;   
+    padding: 20px 0; 
+}
+#main-title h3 {
+    font-weight: 400;
+    font-size: 18px;
+    font-family: "Noto Sans", 'Arial', sans-serif; 
+    line-height: 35px;   
+    -webkit-font-smoothing: antialiased; 
+}
+#main-title .container {
+    width: 70%;
+}
+.highlight {
+    color: #4A635D;
+}
+.previews{
+	float:left;
+	width: 30%;
+    padding: 30px 1.5%;
+    text-align: center;
+}
+.container img {
+    max-width: 100%;
+}
+#layouts .container {
+    width: 95%;
+}
+#layouts h3{
+	font-size:20px;
+	font-weight: 400;
+	font-family: "Noto Sans","PT Sans Narrow", Arial, sans-serif;
+	text-align:center;
+	margin-bottom:35px;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.small-font {
+    font-size: 11px;
+}
+#layouts .preview_title { margin-bottom: 10px; }
+
+@media only screen and (max-width: 959px) {
+    #layouts .container {
+        width: 100%;
+    }
+    .previews {
+        width: 96%;
+        padding: 30px 2%;
+    }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+.last{
+    margin-right: 0 !important;
+}
+.clear{ clear: both; }
+.margin-15{
+    margin-bottom: 15px;
+}
+.margin-20{
+    margin-bottom: 20px;
+}
+p, .margin-30{
+    margin-bottom: 30px;
+}
+.no-margin{
+    margin-bottom: 0;
+}
+.margin-60{
+    margin-bottom: 60px;
+}
+.margin-40{
+    margin-bottom: 40px;
+}
+.truncate {
+    height: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.no-list-style{
+    list-style: none;
+}
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}

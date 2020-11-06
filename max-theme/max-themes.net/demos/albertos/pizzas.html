@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- for mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-ico" />
+    <title>ALBERTOS - Pizza & Restaurant HTML Template</title>
+
+    <link rel='stylesheet' href='rs-slider/css/settings.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/animsition.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/font-awesome.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/simple-line-icons.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/pe-icon-7-stroke.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/flaticon.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/owl.carousel.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/jquery.easy-pie-chart.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/owl.transitions.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/media.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/custom_script.css' type='text/css' media='all' />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Merriweather%3A%2C400%7CPatua+One%3A400&amp;ver=1.0.0' type='text/css' media='all' />
+    <link href="http://fonts.googleapis.com/css?family=Patua+One:400" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+
+
+</head>
+
+<body class="home page-template page-template-template-home page-template-template-home-php page page-id-7">
+    <div class="animsition global-wrapper">
+        <div id="header" class="header-wrapper">
+            <div class="logo">
+                <a href="index.html" title="ALBERTOS - Pizza HTML Theme"><img class="logoImage" src="images/logo.png" alt="ALBERTOS - Pizza HTML Theme" /><img class="logoImageRetina" src="images/logo-retina.png" alt="ALBERTOS - Pizza HTML Theme" /></a>
+                <div class="clear"></div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="main-menu">
+                    <div class="menu-main-nav-menu-container">
+                        <ul id="menu-main-nav-menu" class="sf-menu">
+                            <li class="menu-item menu-item-home"><a href="index.html">Home</a></li>
+                            <li class="menu-item"><a href="menu.html">Menu</a></li>
+                            <li class="menu-item current-menu-items current_page_item"><a href="pizzas.html">Pizzas</a></li>
+                            <li class="menu-item"><a href="about.html">About us</a></li>
+                            <li class="menu-item"><a href="contact.html">Contact</a></li>
+                            <li class="menu-item"><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-icons-inside">
+                    <div class="menu-icon menu-icon-mobile"><span class="menu-icon-create"></span></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="footer">
+                <div class="footer-socials">
+                    <ul class="socials-sh">
+                        <li>
+                            <a class="fa sh-socials-url fa-twitter" href="#" title="Twitter" target="_blank"></a>
+                        </li>
+                        <li>
+                            <a class="fa sh-socials-url fa-facebook" href="#" title="Facebook" target="_blank"></a>
+                        </li>
+                        <li>
+                            <a class="fa sh-socials-url fa-linkedin" href="#" title="LinkedIn" target="_blank"></a>
+                        </li>
+                        <li>
+                            <a class="fa sh-socials-url fa-google-plus" href="#" title="Google Plus" target="_blank"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-content">
+                    @ 2017 Alberto's. Made by <a href="http://themeforest.net/user/max-themes/portfolio" title="Pego HTML Themes">Max-Themes</a>.</div>
+            </div>
+        </div>
+
+        <div class="mobile-menu-wrapper">
+            <div class="menu-main-nav-menu-container">
+                <ul id="menu-main-nav-menu-1" class="mobile-menu">
+                    <li class="menu-item menu-item-home "><a href="index.html">Home</a></li>
+                    <li class="menu-item"><a href="menu.html">Menu</a></li>
+                    <li class="menu-item current-menu-items current_page_item"><a href="pizzas.html">Pizzas</a></li>
+                    <li class="menu-item"><a href="about.html">About us</a></li>
+                    <li class="menu-item"><a href="contact.html">Contact</a></li>
+                    <li class="menu-item"><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container-wrapper">
+            <div class="page-bg" style=" background-image: url(upload/bg-pizza.jpg); "></div>
+            <div id="fullwidth-container">
+                <!-- start container -->
+                <div class="page-title-wrapper">
+                    <div class="page-title-outher">
+                        <div class="page-title-inner">
+                            <span class="page-title-icon flaticon-pizza-slice"></span>
+                            <h1 class="page-title">Pizzas</h1>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="page-wrapper">
+                    <div class="offer-menu2-wrapper">
+                        <div class="offer-menu2-items">
+                            <div class="offer-menu2-item-single">
+                                <img class="offer-menu2-frame" src="images/frame.png" />
+                                <div class="offer-menu2-shadow"></div>
+                                <div class="offer-menu2-thumb">
+                                    <img class="offer-menu2-inner-frame" src="images/inner-shadow.png" />
+                                </div>
+                                <div class="offer-menu2-thumb-image"><img src="upload/hawaii-313x220.jpg" width="313" height="220" alt="hawaii" /></div>
+                                <div class="clear"></div>
+                                <span class="offer-menu2-icon flaticon-pizza-slice"></span>
+                                <div class="offer-menu2-details">
+                                    <div class="single-offer-menu2-title">Hawaii</div>
+                                    <div class="single-offer-menu2-content">
+                                        <p>Pineapple, mushrooms, black olives, tomato sauce</p>
+                                    </div>
+                                    <div class="single-offer-menu2-price">$5.50</div>
+                                </div>
+                            </div>
+                            <div class="offer-menu2-item-single">
+                                <img class="offer-menu2-frame" src="images/frame.png" />
+                                <div class="offer-menu2-shadow"></div>
+                                <div class="offer-menu2-thumb">
+                                    <img class="offer-menu2-inner-frame" src="images/inner-shadow.png" />
+                                </div>
+                                <div class="offer-menu2-thumb-image"><img src="upload/freshness-313x220.jpg" width="313" height="220" alt="freshness" /></div>
+                                <div class="clear"></div>
+                                <span class="offer-menu2-icon flaticon-pizza-slice"></span>
+                                <div class="offer-menu2-details">
+                                    <div class="single-offer-menu2-title">Freshness</div>
+                                    <div class="single-offer-menu2-content">
+                                        <p>Fresh tomatoes, garlic, red onion, cheese, minced meat, dandelion, olives</p>
+                                    </div>
+                                    <div class="single-offer-menu2-price">$8.40</div>
+                                </div>
+                            </div>
+                            <div class="offer-menu2-item-single">
+                                <img class="offer-menu2-frame" src="images/frame.png" />
+                                <div class="offer-menu2-shadow"></div>
+                                <div class="offer-menu2-thumb">
+                                    <img class="offer-menu2-inner-frame" src="images/inner-shadow.png" />
+                                </div>
+                                <div class="offer-menu2-thumb-image"><img src="upload/sea-313x220.jpg" width="313" height="220" alt="sea" /></div>
+                                <div class="clear"></div>
+                                <span class="offer-menu2-icon flaticon-pizza-slice"></span>
+                                <div class="offer-menu2-details">
+                                    <div class="single-offer-menu2-title">From sea</div>
+                                    <div class="single-offer-menu2-content">
+                                        <p>Olive, meta, squid, shrimps, fresh mushrooms, fresh red tomatoes, cheese</p>
+                                    </div>
+                                    <div class="single-offer-menu2-price">$6.40</div>
+                                </div>
+                            </div>
+                            <div class="offer-menu2-item-single">
+                                <img class="offer-menu2-frame" src="images/frame.png" />
+                                <div class="offer-menu2-shadow"></div>
+                                <div class="offer-menu2-thumb">
+                                    <img class="offer-menu2-inner-frame" src="images/inner-shadow.png" />
+                                </div>
+                                <div class="offer-menu2-thumb-image"><img src="upload/calzone-313x220.jpg" width="313" height="220" alt="calzone" /></div>
+                                <div class="clear"></div>
+                                <span class="offer-menu2-icon flaticon-pizza-slice"></span>
+                                <div class="offer-menu2-details">
+                                    <div class="single-offer-menu2-title">Calzone</div>
+                                    <div class="single-offer-menu2-content">
+                                        <p>Cup fresh ricotta, parmesan, chopped basil, pepper, tomato sauce, fresh mozzarella</p>
+                                    </div>
+                                    <div class="single-offer-menu2-price">$7.10</div>
+                                </div>
+                            </div>
+                            <div class="offer-menu2-item-single">
+                                <img class="offer-menu2-frame" src="images/frame.png" />
+                                <div class="offer-menu2-shadow"></div>
+                                <div class="offer-menu2-thumb">
+                                    <img class="offer-menu2-inner-frame" src="images/inner-shadow.png" />
+                                </div>
+                                <div class="offer-menu2-thumb-image"><img src="upload/classic-313x220.jpg" width="313" height="220" alt="classic" /></div>
+                                <div class="clear"></div>
+                                <span class="offer-menu2-icon flaticon-pizza-slice"></span>
+                                <div class="offer-menu2-details">
+                                    <div class="single-offer-menu2-title">Classic</div>
+                                    <div class="single-offer-menu2-content">
+                                        <p>Pepperoni, cheese, black olives, tomatoe sauce, mushrooms, meat, onion, salad</p>
+                                    </div>
+                                    <div class="single-offer-menu2-price">$6.10</div>
+                                </div>
+                            </div>
+                            <div class="offer-menu2-item-single">
+                                <img class="offer-menu2-frame" src="images/frame.png" />
+                                <div class="offer-menu2-shadow"></div>
+                                <div class="offer-menu2-thumb">
+                                    <img class="offer-menu2-inner-frame" src="images/inner-shadow.png" />
+                                </div>
+                                <div class="offer-menu2-thumb-image"><img src="upload/neapolitan.jpg" width="313" height="220" alt="neapolitan" /></div>
+                                <div class="clear"></div>
+                                <span class="offer-menu2-icon flaticon-pizza-slice"></span>
+                                <div class="offer-menu2-details">
+                                    <div class="single-offer-menu2-title">Neapolitan</div>
+                                    <div class="single-offer-menu2-content">
+                                        <p>Tomato, oregano, garlic, extra virgin olive oil, pepperoni, cheese, red onion, sauce, mushrooms</p>
+                                    </div>
+                                    <div class="single-offer-menu2-price">$6.20</div>
+                                </div>
+                            </div>
+                            <div class="offer-menu2-item-single">
+                                <img class="offer-menu2-frame" src="images/frame.png" />
+                                <div class="offer-menu2-shadow"></div>
+                                <div class="offer-menu2-thumb">
+                                    <img class="offer-menu2-inner-frame" src="images/inner-shadow.png" />
+                                </div>
+                                <div class="offer-menu2-thumb-image"><img src="upload/farmer.jpg" width="313" height="220" alt="farmer" /></div>
+                                <div class="clear"></div>
+                                <span class="offer-menu2-icon flaticon-pizza-slice"></span>
+                                <div class="offer-menu2-details">
+                                    <div class="single-offer-menu2-title">Farmer</div>
+                                    <div class="single-offer-menu2-content">
+                                        <p>Fresh mushrooms, fresh green bell peppers, tomatoes, black olives, meat, sausages</p>
+                                    </div>
+                                    <div class="single-offer-menu2-price">$7.40</div>
+                                </div>
+                            </div>
+                            <div class="offer-menu2-item-single">
+                                <img class="offer-menu2-frame" src="images/frame.png" />
+                                <div class="offer-menu2-shadow"></div>
+                                <div class="offer-menu2-thumb">
+                                    <img class="offer-menu2-inner-frame" src="images/inner-shadow.png" />
+                                </div>
+                                <div class="offer-menu2-thumb-image"><img src="upload/slide1-313x220.jpg" width="313" height="220" alt="slide1" /></div>
+                                <div class="clear"></div>
+                                <span class="offer-menu2-icon flaticon-pizza-slice"></span>
+                                <div class="offer-menu2-details">
+                                    <div class="single-offer-menu2-title">Mexican</div>
+                                    <div class="single-offer-menu2-content">
+                                        <p>Refried beans, red enchilada sauce, blend cheese, nacho, corn, onion, salsa, chorizo</p>
+                                    </div>
+                                    <div class="single-offer-menu2-price">$6.50</div>
+                                </div>
+                            </div>
+                            <div class="offer-menu2-item-single">
+                                <img class="offer-menu2-frame" src="images/frame.png" />
+                                <div class="offer-menu2-shadow"></div>
+                                <div class="offer-menu2-thumb">
+                                    <img class="offer-menu2-inner-frame" src="images/inner-shadow.png" />
+                                </div>
+                                <div class="offer-menu2-thumb-image"><img src="upload/bg-pizza-313x220.jpg" width="313" height="220" alt="bg-pizza" /></div>
+                                <div class="clear"></div>
+                                <span class="offer-menu2-icon flaticon-pizza-slice"></span>
+                                <div class="offer-menu2-details">
+                                    <div class="single-offer-menu2-title">Margherita</div>
+                                    <div class="single-offer-menu2-content">
+                                        <p>Pepperoni, cheese, black olives, tomatoe sause, mushrooms, onion</p>
+                                    </div>
+                                    <div class="single-offer-menu2-price">$6.90</div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- end page wrapper -->
+            </div>
+            <!-- end container -->
+            <div class="clear"></div>
+        </div>
+        <!-- end container-wrapper -->
+
+
+        <div class="footer2">
+            <div class="footer-socials">
+                <ul class="socials-sh">
+                    <li>
+                        <a class="fa sh-socials-url fa-twitter" href="#" title="Twitter" target="_blank"></a>
+                    </li>
+                    <li>
+                        <a class="fa sh-socials-url fa-facebook" href="#" title="Facebook" target="_blank"></a>
+                    </li>
+                    <li>
+                        <a class="fa sh-socials-url fa-linkedin" href="#" title="LinkedIn" target="_blank"></a>
+                    </li>
+                    <li>
+                        <a class="fa sh-socials-url fa-google-plus" href="#" title="Google Plus" target="_blank"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                @ 2017 Alberto's. Made by <a href="http://themeforest.net/user/max-themes/portfolio" title="Pego HTML Themes">Pego</a> &amp; <a href="https://HTML.org/" title="HTML Themes">HTML</a>. </div>
+        </div>
+    </div>
+
+    <script type='text/javascript' src='js/jquery/jquery.js'></script>
+    <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
+    <script type='text/javascript' src='rs-slider/js/jquery.themepunch.tools.min.js'></script>
+    <script type='text/javascript' src='rs-slider/js/jquery.themepunch.revolution.min.js'></script>
+    <script type='text/javascript' src='http://maps.google.com/maps/api/js?key=AIzaSyD3rVzWhxb6EGiqAD9HSrKb22gTo2HTqoA&amp;ver=1.0'></script>
+
+    <script type='text/javascript' src='js/modernizr.custom.js'></script>
+    <script type='text/javascript' src='js/jquery.animsition.min.js'></script>
+    <script type='text/javascript' src='js/superfish.js'></script>
+    <script type='text/javascript' src='js/waypoints.min.js'></script>
+    <script type='text/javascript' src='js/jquery.mobilemenu.js'></script>
+    <script type='text/javascript' src='js/custom.js'></script>
+    <script type='text/javascript' src='js/custom-inline-js.js'></script>
+    <script type='text/javascript' src='js/jquery.isotope.min.js'></script>
+
+
+</body>
+</html>

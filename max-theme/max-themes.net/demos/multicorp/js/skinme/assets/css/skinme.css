@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'skinme';
+  src: url('../font/skinmec5ee.eot?1913189');
+  src: url('../font/skinmec5ee.eot?1913189#iefix') format('embedded-opentype'),
+       url('../font/skinmec5ee.woff?1913189') format('woff'),
+       url('../font/skinmec5ee.ttf?1913189') format('truetype'),
+       url('../font/skinmec5ee.svg?1913189#skinme') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'skinme';
+    src: url('../font/skinme.svg?1913189#skinme') format('svg');
+  }
+}
+*/
+ 
+ [class^="ish-skinme-icon-"]:before, [class*=" ish-skinme-icon-"]:before {
+  font-family: "skinme";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.ish-skinme-icon-cog-alt:before { content: '\e801'; } /* '' */
+.ish-skinme-icon-arrows-cw-1:before { content: '\e800'; } /* '' */
+.ish-skinme-icon-cancel:before { content: '\e802'; } /* '' */

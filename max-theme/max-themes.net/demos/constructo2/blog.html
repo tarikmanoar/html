@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+
+
+    <link rel="shortcut icon" href="upload/TG-Thumb.png">
+
+    <title>Constructor | Construction HTML Template</title>
+
+    <link rel='stylesheet' href='revslider/public/assets/css/rs6.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/font-awesome.min.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/custom-css.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/responsive-css.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/jquery.circliful.css' type='text/css' media='all'>
+
+
+    <link rel='stylesheet' href='https:/fonts.googleapis.com/css?family=Karla%3A600%2C600%2C600%2C600%2Cregular%2Citalic%2C700%2C700italic%7CMontserrat%3A600%2C600%2C600%2C600%2C100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&subset' type='text/css' media='all'>
+    <link rel='stylesheet' href='https:/fonts.googleapis.com/css?family=Playfair+Display%3A400%2C700%2C400italic&subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic' type='text/css' media='all'>
+    <link rel='stylesheet' href='https:/fonts.googleapis.com/css?family=Montserrat%3A400%2C700%2C400italic&subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic' type='text/css' media='all'>
+
+</head>
+
+<body data-rsssl="1" class="page-template page-template-project-2-grid page-template-project-2-grid-php page page-id-2910 page-child parent-pageid-2890 theme-tgconstructor woocommerce-no-js">
+
+    <input type="hidden" id="pp_menu_layout" name="pp_menu_layout" value="topmenu">
+    <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="">
+    <input type="hidden" id="pp_enable_dragging" name="pp_enable_dragging" value="">
+    <input type="hidden" id="pp_image_path" name="pp_image_path" value="https:/themes.themegoods.com/constructor/demo/wp-content/themes/tgconstructor/images/">
+    <input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value="index.html">
+    <input type="hidden" id="pp_ajax_search" name="pp_ajax_search" value="1">
+    <input type="hidden" id="pp_fixed_menu" name="pp_fixed_menu" value="1">
+    <input type="hidden" id="pp_topbar" name="pp_topbar" value="">
+    <input type="hidden" id="post_client_column" name="post_client_column" value="4">
+    <input type="hidden" id="pp_back" name="pp_back" value="Back">
+    <input type="hidden" id="pp_page_title_img_blur" name="pp_page_title_img_blur" value="1">
+    <input type="hidden" id="tg_project_filterable_link" name="tg_project_filterable_link" value="">
+
+    <input type="hidden" id="pp_footer_style" name="pp_footer_style" value="4">
+
+    <!-- Begin mobile menu -->
+    <div class="mobile_menu_wrapper">
+        <a id="close_mobile_menu" href="javascript:;"><i class="fa fa-close"></i></a>
+
+        <form role="search" method="get" name="searchform" id="searchform" action="#">
+            <div>
+                <input type="text" value="" name="s" id="s" autocomplete="off" placeholder="Search...">
+                <button>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div id="autocomplete"></div>
+        </form>
+
+        <div class="menu-side-mobile-menu-container">
+            <ul id="mobile_main_menu" class="mobile_main_nav">
+                <li class="menu-item menu-item-home current-menu-item "><a href="index.html" aria-current="page">Home</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="index.html" aria-current="page">Home 1 &#8211; Landing Page</a></li>
+                        <li class="menu-item"><a href="home-2.html">Home 2 &#8211; Classic Style</a></li>
+                        <li class="menu-item"><a href="home-3.html">Home 3 &#8211; Fullscreen Slider</a></li>
+                        <li class="menu-item"><a href="home-4.html">Home 4 &#8211; One Page</a></li>
+                    </ul>
+                </li>
+                <li class="megamenu col4 menu-item menu-item-has-children"><a href="projects-page.html">Projects</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item menu-item-has-children"><a href="project-grid-fullwidth.html">Projects Fullwidth</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="project-grid-fullwidth.html">Grid Fullwidth</a></li>
+                                <li class="menu-item"><a href="project-masonry-fullwidth.html">Masonry Fullwidth</a></li>
+                                <li class="menu-item"><a href="project-classic-fullwidth.html">Classic Fullwidth</a></li>
+                                <li class="menu-item"><a href="project-classic-masonry-fullwidth.html">Classic Masonry Fullwidth</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children"><a href="project-grid-2-columns.html">Projects Grid</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="project-grid-2-columns.html">2 Columns</a></li>
+                                <li class="menu-item"><a href="project-grid-3-columns.html">3 Columns</a></li>
+                                <li class="menu-item"><a href="project-grid-4-columns.html">4 Columns</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children"><a href="project-classic-2-columns.html">Project Classic</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="project-classic-2-columns.html">2 Columns</a></li>
+                                <li class="menu-item"><a href="project-classic-3-columns.html">3 Columns</a></li>
+                                <li class="menu-item"><a href="project-classic-4-columns.html">4 Columns</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children"><a href="project-grid-with-sidebar.html">Project With Sidebar</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="project-grid-with-sidebar.html">Grid With Sidebar</a></li>
+                                <li class="menu-item"><a href="project-masonry-with-sidebar.html">Masonry With Sidebar</a></li>
+                                <li class="menu-item"><a href="project-classic-with-sidebar.html">Classic With Sidebar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children"><a href="all-services.html">Services</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="all-services.html">All Services</a></li>
+                        <li class="menu-item"><a href="construction-planning.html">Construction Planning</a></li>
+                        <li class="menu-item"><a href="house-renovation.html">House Renovation</a></li>
+                        <li class="menu-item"><a href="office-renovation.html">Office Renovation</a></li>
+                        <li class="menu-item"><a href="darfting-design.html">Darfting &#038; Design</a></li>
+                        <li class="menu-item"><a href="site-inspection.html">Site Inspection</a></li>
+                        <li class="menu-item"><a href="system-integration.html">System Integration</a></li>
+                    </ul>
+                </li>
+                <li class="megamenu col4 menu-item menu-item-has-children"><a href="about-us-1.html">Pages</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item menu-item-has-children"><a href="about-us-1.html">General Pages</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="about-us-1.html">About Us 1</a></li>
+                                <li class="menu-item"><a href="about-us-2.html">About Us 2</a></li>
+                                <li class="menu-item"><a href="about-us-3.html">About Us 3</a></li>
+                                <li class="menu-item"><a href="testimonials.html">Testimonials</a></li>
+                                <li class="menu-item"><a href="meet-the-team.html">Meet The Team</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children"><a href="contact-with-sidebar.html">Specials Pages</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="contact-with-sidebar.html">Contact With Sidebar</a></li>
+                                <li class="menu-item"><a href="contact-with-map.html">Contact With Map</a></li>
+                                <li class="menu-item"><a href="404.html">404 Page</a></li>
+                                <li class="menu-item"><a href="single-port.html">Single Project Page</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children"><a href="blog.html">Blog</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                        <li class="menu-item"><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                        <li class="menu-item"><a href="blog-fullwidth.html">Blog Fullwidth</a></li>
+                        <li class="menu-item"><a href="blog-grid.html">Blog Grid</a></li>
+                        <li class="menu-item"><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
+                        <li class="menu-item"><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
+                    </ul>
+                </li>
+                <li class="megamenu col4 menu-item menu-item-has-children"><a href="accordion-toggles.html">Shortcodes</a>
+                    <ul class="sub-menu">
+                        <li class="hidden menu-item menu-item-has-children"><a href="accordion-toggles.html">Columns One</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="accordion-toggles.html">Accordion &#038; Toggles</a></li>
+                                <li class="menu-item"><a href="alert-boxes.html">Alert Boxes</a></li>
+                                <li class="menu-item"><a href="animated-content.html">Animated Content</a></li>
+                                <li class="menu-item"><a href="buttons-social-icons.html">Buttons &#038; Social Icons</a></li>
+                            </ul>
+                        </li>
+                        <li class="hidden menu-item menu-item-has-children"><a href="columns.html">Columns Two</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="columns.html">Columns</a></li>
+                                <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+                                <li class="menu-item"><a href="masonry-gallery.html">Masonry Gallery</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Begin side menu sidebar -->
+        <div class="page_content_wrapper">
+            <div class="sidebar_wrapper">
+                <div class="sidebar">
+
+                    <div class="content">
+
+                        <ul class="sidebar_widget">
+                            <li id="nav_menu-4" class="widget widget_nav_menu">
+                                <h2 class="widgettitle">Our Services</h2>
+                                <div class="menu-service-menu-container">
+                                    <ul id="menu-service-menu" class="menu">
+                                        <li class="menu-item"><a href="all-services.html">All Services</a></li>
+                                        <li class="menu-item"><a href="construction-planning.html">Construction Planning</a></li>
+                                        <li class="menu-item"><a href="house-renovation.html">House Renovation</a></li>
+                                        <li class="menu-item"><a href="office-renovation.html">Office Renovation</a></li>
+                                        <li class="menu-item"><a href="darfting-design.html">Darfting &#038; Design</a></li>
+                                        <li class="menu-item"><a href="site-inspection.html">Site Inspection</a></li>
+                                        <li class="menu-item"><a href="system-integration.html">System Integration</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End side menu sidebar -->
+
+        <br class="clear">
+        <div class="social_wrapper">
+            <ul>
+                <li class="facebook"><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li class="twitter"><a target="_blank" href="http:/twitter.com/#"><i class="fa fa-twitter"></i></a></li>
+                <li class="youtube"><a target="_blank" title="Youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+                <li class="google"><a target="_blank" title="Google+" href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li class="pinterest"><a target="_blank" title="Pinterest" href="http:/pinterest.com/#"><i class="fa fa-pinterest"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End mobile menu -->
+
+    <!-- Begin template wrapper -->
+    <div id="wrapper">
+
+        <div class="header_style_wrapper">
+            <!-- End top bar -->
+
+            <div class="top_bar">
+
+                <div id="menu_wrapper">
+
+                    <!-- Begin logo -->
+                    <div id="logo_normal" class="logo_container">
+                        <div class="logo_align">
+                            <a id="custom_logo" class="logo_wrapper hidden" href="index.html">
+                                <img src="upload/logo@2x.png" alt="" width="63" height="55">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="logo_transparent" class="logo_container">
+                        <div class="logo_align">
+                            <a id="custom_logo_transparent" class="logo_wrapper default" href="index.html">
+                                <img src="upload/logo@2x.png" alt="" width="63" height="55">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End logo -->
+
+                    <!-- Begin main nav -->
+
+                    <div id="nav_wrapper">
+                        <div class="nav_wrapper_inner">
+                            <div id="menu_border_wrapper">
+                                <div class="menu-main-menu-container">
+                                    <ul id="main_menu" class="nav">
+                                        <li class="megamenu col4 menu-item  menu-item-has-children arrow"><a href="about-us-1.html">Pages</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-homemenu-item-has-children arrow"><a href="index.html" aria-current="page">Home</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="index.html">Home 1 &#8211; Landing Page</a></li>
+                                                        <li class="menu-item"><a href="home-2.html">Home 2 &#8211; Classic Style</a></li>
+                                                        <li class="menu-item"><a href="home-3.html">Home 3 &#8211; Fullscreen Slider</a></li>
+                                                        <li class="menu-item"><a href="home-4.html">Home 4 &#8211; One Page</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow"><a href="about-us-1.html">General Pages</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="about-us-1.html">About Us 1</a></li>
+                                                        <li class="menu-item"><a href="about-us-2.html">About Us 2</a></li>
+                                                        <li class="menu-item"><a href="about-us-3.html">About Us 3</a></li>
+                                                        <li class="menu-item"><a href="testimonials.html">Testimonials</a></li>
+                                                        <li class="menu-item"><a href="meet-the-team.html">Meet The Team</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow"><a href="all-services.html">Services</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="all-services.html">All Services</a></li>
+                                                        <li class="menu-item"><a href="construction-planning.html">Construction Planning</a></li>
+                                                        <li class="menu-item"><a href="house-renovation.html">House Renovation</a></li>
+                                                        <li class="menu-item"><a href="office-renovation.html">Office Renovation</a></li>
+                                                        <li class="menu-item"><a href="darfting-design.html">Darfting &#038; Design</a></li>
+                                                        <li class="menu-item"><a href="site-inspection.html">Site Inspection</a></li>
+                                                        <li class="menu-item"><a href="system-integration.html">System Integration</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow"><a href="contact-with-sidebar.html">Specials Pages</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="contact-with-sidebar.html">Contact With Sidebar</a></li>
+                                                        <li class="menu-item"><a href="contact-with-map.html">Contact With Map</a></li>
+                                                        <li class="menu-item"><a href="404.html">404 Page</a></li>
+                                                        <li class="menu-item"><a href="single-port.html">Single Project Page</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="megamenu col4 menu-item menu-item-has-children arrow"><a href="projects-page.html">Projects</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-has-children arrow"><a href="project-grid-fullwidth.html">Projects Fullwidth</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="project-grid-fullwidth.html">Grid Fullwidth</a></li>
+                                                        <li class="menu-item"><a href="project-masonry-fullwidth.html">Masonry Fullwidth</a></li>
+                                                        <li class="menu-item"><a href="project-classic-fullwidth.html">Classic Fullwidth</a></li>
+                                                        <li class="menu-item"><a href="project-classic-masonry-fullwidth.html">Classic Masonry Fullwidth</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow"><a href="project-grid-2-columns.html">Projects Grid</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="project-grid-2-columns.html">2 Columns</a></li>
+                                                        <li class="menu-item"><a href="project-grid-3-columns.html">3 Columns</a></li>
+                                                        <li class="menu-item"><a href="project-grid-4-columns.html">4 Columns</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow"><a href="project-classic-2-columns.html">Project Classic</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="project-classic-2-columns.html">2 Columns</a></li>
+                                                        <li class="menu-item"><a href="project-classic-3-columns.html">3 Columns</a></li>
+                                                        <li class="menu-item"><a href="project-classic-4-columns.html">4 Columns</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow"><a href="project-grid-with-sidebar.html">Project With Sidebar</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="project-grid-with-sidebar.html">Grid With Sidebar</a></li>
+                                                        <li class="menu-item"><a href="project-masonry-with-sidebar.html">Masonry With Sidebar</a></li>
+                                                        <li class="menu-item"><a href="project-classic-with-sidebar.html">Classic With Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item  current-menu-item menu-item-has-children arrow"><a href="blog.html">Blog</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item"><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                                                <li class="menu-item"><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                                <li class="menu-item"><a href="blog-fullwidth.html">Blog Fullwidth</a></li>
+                                                <li class="menu-item"><a href="blog-grid.html">Blog Grid</a></li>
+                                                <li class="menu-item"><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
+                                                <li class="menu-item"><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="megamenu col2 menu-item menu-item-has-children arrow"><a href="accordion-toggles.html">Features</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-has-children arrow"><a href="accordion-toggles.html">General Shortcodes</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="accordion-toggles.html">Accordion &#038; Toggles</a></li>
+                                                        <li class="menu-item"><a href="alert-boxes.html">Alert Boxes</a></li>
+                                                        <li class="menu-item"><a href="animated-content.html">Animated Content</a></li>
+                                                        <li class="menu-item"><a href="buttons-social-icons.html">Buttons &#038; Social Icons</a></li>
+                                                        <li class="menu-item"><a href="columns.html">Columns</a></li>
+                                                    </ul>
+                                                </li>
+    
+                                                <li class="menu-item menu-item-has-children arrow"><a href="accordion-toggles.html">Content Shortcodes</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="masonry-gallery.html">Masonry Gallery</a></li>
+                                                        <li class="menu-item"><a href="pricing-tables.html">Pricing Tables</a></li>
+                                                        <li class="menu-item"><a href="promo-boxes.html">Promo Boxes</a></li>
+                                                        <li class="menu-item"><a href="tabs.html">Tabs</a></li>
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End main nav -->
+
+                    <!-- Begin main contact info -->
+
+                    <div class="top_contact_info_container">
+                        <div class="top_contact_info">
+                            <span id="top_contact_hours"><i class="fa fa-clock-o"></i>09.00 - 17.00</span>
+                            <span id="top_contact_number"><a href="tel:+65.4566743"><i class="fa fa-phone"></i>+65.4566743</a></span>
+
+                            <!-- Begin side menu -->
+                            <a href="#" id="mobile_nav_icon"></a>
+                            <!-- End side menu -->
+                        </div>
+                    </div>
+                    <!-- End main contact info -->
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Begin content -->
+        <div id="page_content_wrapper" class="">
+            <div class="inner">
+                <!-- Begin main content -->
+                <div class="inner_wrapper">
+                    <div class="page_content_wrapper">
+                    </div>
+                    <div class="sidebar_content">
+                        <!-- Begin each blog post -->
+                        <div id="post-490" class="post-490 post type-post status-publish format-standard has-post-thumbnail hentry category-business tag-architect tag-brain-storm tag-planning">
+                            <div class="post_wrapper">
+                                <div class="post_content_wrapper">
+                                    <div class="post_img static">
+                                        <a href="blog-single.html">
+                                        <img src="upload/shutterstock_157412990-960x365.jpg" alt="" class="" style="width:960px;height:365px;">
+                                        </a>
+                                    </div>
+                                    <div class="post_header">
+                                        <div class="post_header_title">
+                                            <h5><a href="blog-single.html" title="The road to success is always under construction">The road to success is always under construction</a></h5>
+                                            <div class="post_detail">
+                                                <span class="post_info_date">
+                                                April 20, 2015 </span>
+                                                <span class="post_info_cat">
+                                                In <a href="blog-single.html">Business</a>
+                                                </span>
+                                                <span class="post_info_comment">
+                                                <a href="blog-single.html">No Comment</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <br class="clear">
+                                        <p>
+                                            Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis.
+                                        </p>
+                                        <div class="post_button_wrapper">
+                                            <a class="readmore" href="blog-single.html">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br class="clear">
+                        <!-- End each blog post -->
+                        <!-- Begin each blog post -->
+                        <div id="post-489" class="post-489 post type-post status-publish format-standard has-post-thumbnail hentry category-renovation tag-architect tag-model tag-planning tag-project">
+                            <div class="post_wrapper">
+                                <div class="post_content_wrapper">
+                                    <div class="post_img static">
+                                        <a href="blog-single.html">
+                                        <img src="upload/harbord-diggers-feature-960x365.jpg" alt="" class="" style="width:960px;height:365px;">
+                                        </a>
+                                    </div>
+                                    <div class="post_header">
+                                        <div class="post_header_title">
+                                            <h5><a href="blog-single.html" title="The construction of europe a sequence of art">The construction of europe a sequence of art</a></h5>
+                                            <div class="post_detail">
+                                                <span class="post_info_date">
+                                                April 18, 2015 </span>
+                                                <span class="post_info_cat">
+                                                In <a href="blog-single.html">Renovation</a>
+                                                </span>
+                                                <span class="post_info_comment">
+                                                <a href="blog-single.html">No Comment</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <br class="clear">
+                                        <p>
+                                            Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis.
+                                        </p>
+                                        <div class="post_button_wrapper">
+                                            <a class="readmore" href="blog-single.html">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br class="clear">
+                        <!-- End each blog post -->
+                        <!-- Begin each blog post -->
+                        <div id="post-1133" class="post-1133 post type-post status-publish format-standard has-post-thumbnail hentry category-renovation tag-brain-storm tag-construction tag-planning tag-project">
+                            <div class="post_wrapper">
+                                <div class="post_content_wrapper">
+                                    <div class="post_img static">
+                                        <a href="blog-single.html">
+                                        <img src="upload/shutterstock_101523742-960x365.jpg" alt="" class="" style="width:960px;height:365px;">
+                                        </a>
+                                    </div>
+                                    <div class="post_header">
+                                        <div class="post_header_title">
+                                            <h5><a href="blog-single.html" title="Design is to continue telling the amazing story">Design is to continue telling the amazing story</a></h5>
+                                            <div class="post_detail">
+                                                <span class="post_info_date">
+                                                April 17, 2015 </span>
+                                                <span class="post_info_cat">
+                                                In <a href="blog-single.html">Renovation</a>
+                                                </span>
+                                                <span class="post_info_comment">
+                                                <a href="blog-single.html">No Comment</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <br class="clear">
+                                        <p>
+                                            Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis.
+                                        </p>
+                                        <div class="post_button_wrapper">
+                                            <a class="readmore" href="blog-single.html">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br class="clear">
+                        <!-- End each blog post -->
+                        <!-- Begin each blog post -->
+                        <div id="post-1131" class="post-1131 post type-post status-publish format-standard has-post-thumbnail hentry category-architecture tag-architect tag-construction tag-interior-design tag-model">
+                            <div class="post_wrapper">
+                                <div class="post_content_wrapper">
+                                    <div class="post_img static">
+                                        <a href="blog-single.html">
+                                        <img src="upload/project17-960x365.jpg" alt="" class="" style="width:960px;height:365px;">
+                                        </a>
+                                    </div>
+                                    <div class="post_header">
+                                        <div class="post_header_title">
+                                            <h5><a href="blog-single.html" title="Program construction consists of a refinement steps">Program construction consists of a refinement steps</a></h5>
+                                            <div class="post_detail">
+                                                <span class="post_info_date">
+                                                April 16, 2015 </span>
+                                                <span class="post_info_cat">
+                                                In <a href="blog-single.html">Architecture</a>
+                                                </span>
+                                                <span class="post_info_comment">
+                                                <a href="blog-single.html">No Comment</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <br class="clear">
+                                        <p>
+                                            Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis.
+                                        </p>
+                                        <div class="post_button_wrapper">
+                                            <a class="readmore" href="blog-single.html">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br class="clear">
+                        <!-- End each blog post -->
+                        <!-- Begin each blog post -->
+                        <div id="post-2769" class="post-2769 post type-post status-publish format-standard has-post-thumbnail hentry category-consulting tag-architect tag-construction tag-landscape-2 tag-project">
+                            <div class="post_wrapper">
+                                <div class="post_content_wrapper">
+                                    <div class="post_img static">
+                                        <a href="blog-single.html">
+                                        <img src="upload/portfolio-2-960x365.jpg" alt="" class="" style="width:960px;height:365px;">
+                                        </a>
+                                    </div>
+                                    <div class="post_header">
+                                        <div class="post_header_title">
+                                            <h5><a href="blog-single.html" title="When the image is new, the world is new">When the image is new, the world is new</a></h5>
+                                            <div class="post_detail">
+                                                <span class="post_info_date">
+                                                April 9, 2015 </span>
+                                                <span class="post_info_cat">
+                                                In <a href="blog-single.html">Consulting</a>
+                                                </span>
+                                                <span class="post_info_comment">
+                                                <a href="blog-single.html">No Comment</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <br class="clear">
+                                        <p>
+                                            Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis.
+                                        </p>
+                                        <div class="post_button_wrapper">
+                                            <a class="readmore" href="blog-single.html">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br class="clear">
+                        <!-- End each blog post -->
+                        <!-- Begin each blog post -->
+                        <div id="post-1135" class="last_post post-1135 post type-post status-publish format-standard has-post-thumbnail hentry category-architecture tag-construction tag-planning tag-project tag-workers">
+                            <div class="post_wrapper">
+                                <div class="post_content_wrapper">
+                                    <div class="post_img static">
+                                        <a href="blog-single.html">
+                                        <img src="upload/shutterstock_76123048-960x365.jpg" alt="" class="" style="width:960px;height:365px;">
+                                        </a>
+                                    </div>
+                                    <div class="post_header">
+                                        <div class="post_header_title">
+                                            <h5><a href="blog-single.html" title="If the acting don&#8217;t work out, I&#8217;ll have a future in construction">If the acting don&#8217;t work out, I&#8217;ll have a future in construction</a></h5>
+                                            <div class="post_detail">
+                                                <span class="post_info_date">
+                                                April 5, 2015 </span>
+                                                <span class="post_info_cat">
+                                                In <a href="blog-single.html">Architecture</a>
+                                                </span>
+                                                <span class="post_info_comment">
+                                                <a href="blog-single.html">No Comment</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <br class="clear">
+                                        <p>
+                                            Lorem ipsum dosectetur adipisicing elit, sed do.Lorem ipsum dolor sit amet, consectetur Nulla fringilla purus at leo dignissim congue. Mauris elementum accumsan leo vel tempor. Sit amet cursus nisl aliquam. Aliquam et elit eu nunc rhoncus viverra quis at felis.
+                                        </p>
+                                        <div class="post_button_wrapper">
+                                            <a class="readmore" href="blog-single.html">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br class="clear">
+                        <!-- End each blog post -->
+                        <br class="clear">
+                        <div class="pagination">
+                            <span class="current">1</span><a href='blog-single.html' class="inactive">2</a>
+                        </div>
+                        <div class="pagination_detail">
+                             Page 1 of 2
+                        </div>
+                    </div>
+                    <div class="sidebar_wrapper">
+                        <div class="sidebar_top">
+                        </div>
+                        <div class="sidebar">
+                            <div class="content">
+                                <ul class="sidebar_widget">
+                                    <li id="text-3" class="widget widget_text">
+                                    <h2 class="widgettitle">About Us</h2>
+                                    <div class="textwidget">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel.
+                                        </p>
+                                    </div>
+                                    </li>
+                                    <li id="categories-4" class="widget widget_categories">
+                                    <h2 class="widgettitle">Categories</h2>
+                                    <ul>
+                                        <li class="cat-item cat-item-16"><a href="blog-single.html">Architecture</a> (3) </li>
+                                        <li class="cat-item cat-item-10"><a href="blog-single.html">Business</a> (2) </li>
+                                        <li class="cat-item cat-item-15"><a href="blog-single.html">Construciton</a> (1) </li>
+                                        <li class="cat-item cat-item-18"><a href="blog-single.html">Consulting</a> (1) </li>
+                                        <li class="cat-item cat-item-8"><a href="blog-single.html">Renovation</a> (2) </li>
+                                    </ul>
+                                    </li>
+                                    <li id="archives-3" class="widget widget_archive">
+                                    <h2 class="widgettitle">Archives</h2>
+                                    <ul>
+                                        <li><a href='blog-single.html'>April 2015</a>&nbsp;(6)</li>
+                                        <li><a href='blog-single.html'>March 2015</a>&nbsp;(3)</li>
+                                    </ul>
+                                    </li>
+                                    <li id="tag_cloud-3" class="widget widget_tag_cloud">
+                                    <h2 class="widgettitle">Tags</h2>
+                                    <div class="tagcloud">
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-20 tag-link-position-1" style="font-size: 13px;">architect</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-21 tag-link-position-2" style="font-size: 13px;">brain storm</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-23 tag-link-position-3" style="font-size: 13px;">construction</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-7 tag-link-position-4" style="font-size: 13px;">Design</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-24 tag-link-position-5" style="font-size: 13px;">interior design</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-11 tag-link-position-6" style="font-size: 13px;">landscape</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-9 tag-link-position-7" style="font-size: 13px;">model</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-19 tag-link-position-8" style="font-size: 13px;">planning</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-22 tag-link-position-9" style="font-size: 13px;">project</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-26 tag-link-position-10" style="font-size: 13px;">renovation</a>
+                                        <a href="blog-single.html" class="tag-cloud-link tag-link-25 tag-link-position-11" style="font-size: 13px;">workers</a>
+                                    </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <br class="clear">
+                        <div class="sidebar_bottom">
+                        </div>
+                    </div>
+                </div>
+                <!-- End main content -->
+            </div>
+            <br class="clear">
+            <br>
+        </div>
+
+
+        <div class="footer_bar ">
+            <div class="footer_before_widget">
+                <a href="index.html" class="logo_wrapper footer_logo">
+                    <img src="upload/footer_logo@2x_white.png" alt="" width="166" height="146">
+                </a>
+            </div>
+
+            <div id="footer_before_widget_text">Ready to take it a step further
+                <br> Let’s start purchasing constructor theme
+                <br> and find out how it can help create your business website
+                <br>
+                <br>
+                <a href="https:/themeforest.net/user/max-themes/portfolio" class="button" target="_blank">Buy On Themeforest</a></div>
+
+            <div id="footer" class="">
+                <ul class="sidebar_widget four">
+                    <li id="text-9" class="widget widget_text">
+                        <h2 class="widgettitle">Contact</h2>
+                        <div class="textwidget">
+                            <p>732/21 Second Street, Manchester, King Street, Kingston United Kingdom</p>
+                            <p>(65)323-678-567
+                                <br> info@constructor.com
+                            </p>
+                        </div>
+                    </li>
+                    <li id="custom_recent_posts-3" class="widget Custom_Recent_Posts">
+                        <h2 class="widgettitle">Recent Posts</h2>
+                        <ul class="posts blog ">
+                            <li><a href="the-road-to-success.html">The road to success is always under construction</a>
+                                <div class="post_attribute">20 Apr</div>
+                            </li>
+                            <li><a href="the-construction-of-europe-is-art.html">The construction of europe a sequence of art</a>
+                                <div class="post_attribute">18 Apr</div>
+                            </li>
+                            <li><a href="design-is-an-opportunity-to-continue-telling-story.html">Design is to continue telling the amazing story</a>
+                                <div class="post_attribute">17 Apr</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="nav_menu-6" class="widget widget_nav_menu">
+                        <h2 class="widgettitle">Our Services</h2>
+                        <div class="menu-service-menu-container">
+                            <ul id="menu-service-menu-1" class="menu">
+                                <li class="menu-item"><a href="index.html">All Services</a></li>
+                                <li class="menu-item"><a href="construction-planning.html">Construction Planning</a></li>
+                                <li class="menu-item"><a href="house-renovation.html">House Renovation</a></li>
+                                <li class="menu-item"><a href="office-renovation.html">Office Renovation</a></li>
+                                <li class="menu-item"><a href="darfting-design.html">Darfting &#038; Design</a></li>
+                                <li class="menu-item"><a href="site-inspection.html">Site Inspection</a></li>
+                                <li class="menu-item"><a href="system-integration.html">System Integration</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="text-10" class="widget widget_text">
+                        <h2 class="widgettitle">Business Hours</h2>
+                        <div class="textwidget">
+                            <p>Our support hours are available 24 Hours a day: (+67) 234 890 7765</p>
+                            <p><strong>Monday to Friday</strong>: 8am to 6pm
+                                <br>
+                                <strong>Saturday</strong>: 9am to 4pm
+                                <br>
+                                <strong>Sunday</strong>: Closed</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br class="clear">
+
+            <div class="footer_bar_wrapper ">
+                <div class="social_wrapper">
+                    <ul>
+                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter"><a href="http:/twitter.com/#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="youtube"><a title="Youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li class="google"><a title="Google+" href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="pinterest"><a title="Pinterest" href="http:/pinterest.com/#"><i class="fa fa-pinterest"></i></a></li>
+                    </ul>
+                </div>
+                <div id="copyright">© Copyright Constructor Demo - by Max Themes</div>
+                <br class="clear">
+                <a id="toTop"><i class="fa fa-angle-up"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="overlay_background"></div>
+
+    <script type='text/javascript' src='js/jquery.js'></script>
+    <script type='text/javascript' src='js/jquery-migrate.min.js'></script>
+    <script type='text/javascript' src='revslider/public/assets/js/revolution.tools.min.js'></script>
+    <script type='text/javascript' src='revslider/public/assets/js/rs6.min.js'></script>
+    <script type='text/javascript' src='js/plugins/constructor/combined.js'></script>
+    <script type='text/javascript' src='js/plugins/custom_onepage.js'></script>
+    <script type='text/javascript' src='js/plugins/flexslider/jquery.flexslider-min.js'></script>
+    <script type='text/javascript' src='js/plugins/jquery.circliful.min.js'></script>
+    <script type='text/javascript' src='js/plugins/script-plugins.js'></script>
+    <script type="text/javascript" src="js/plugins/quform/js/plugins.js"></script>
+    <script type="text/javascript" src="js/plugins/quform/js/scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="shortcut icon" href="upload/TG-Thumb.png">
+
+    <title>Constructor | Construction HTML Template</title>
+
+    <link rel='stylesheet' href='revslider/public/assets/css/rs6.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/font-awesome.min.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/custom-css.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/responsive-css.css' type='text/css' media='all'>
+    <link rel='stylesheet' href='css/jquery.circliful.css' type='text/css' media='all'>
+
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Karla%3A600%2C600%2C600%2C600%2Cregular%2Citalic%2C700%2C700italic%7CMontserrat%3A600%2C600%2C600%2C600%2C100%2C100italic%2C200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&subset' type='text/css' media='all'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display%3A400%2C700%2C400italic&subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic' type='text/css' media='all'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat%3A400%2C700%2C400italic&subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic' type='text/css' media='all'>
+
+</head>
+
+<body data-rsssl="1" class="home page-template-default page page-id-3267 page-child parent-pageid-2 theme-tgconstructor woocommerce-no-js">
+
+    <input type="hidden" id="pp_menu_layout" name="pp_menu_layout" value="topmenu">
+    <input type="hidden" id="pp_enable_right_click" name="pp_enable_right_click" value="">
+    <input type="hidden" id="pp_enable_dragging" name="pp_enable_dragging" value="">
+    <input type="hidden" id="pp_image_path" name="pp_image_path" value="https://themes.themegoods.com/constructor/demo/wp-content/themes/tgconstructor/images/">
+    <input type="hidden" id="pp_homepage_url" name="pp_homepage_url" value="index.html">
+    <input type="hidden" id="pp_ajax_search" name="pp_ajax_search" value="1">
+    <input type="hidden" id="pp_fixed_menu" name="pp_fixed_menu" value="1">
+    <input type="hidden" id="pp_topbar" name="pp_topbar" value="">
+    <input type="hidden" id="post_client_column" name="post_client_column" value="4">
+    <input type="hidden" id="pp_back" name="pp_back" value="Back">
+    <input type="hidden" id="pp_page_title_img_blur" name="pp_page_title_img_blur" value="1">
+    <input type="hidden" id="tg_project_filterable_link" name="tg_project_filterable_link" value="">
+
+    <input type="hidden" id="pp_footer_style" name="pp_footer_style" value="4">
+
+    <!-- Begin mobile menu -->
+    <div class="mobile_menu_wrapper">
+        <a id="close_mobile_menu" href="javascript:;"><i class="fa fa-close"></i></a>
+
+        <form role="search" method="get" name="searchform" id="searchform" action="#">
+            <div>
+                <input type="text" value="" name="s" id="s" autocomplete="off" placeholder="Search...">
+                <button>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div id="autocomplete"></div>
+        </form>
+
+        <div class="menu-side-mobile-menu-container">
+            <ul id="mobile_main_menu" class="mobile_main_nav">
+                <li class="menu-item menu-item-home current-menu-item "><a href="index.html" aria-current="page">Home</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="index.html" aria-current="page">Home 1 &#8211; Landing Page</a></li>
+                        <li class="menu-item"><a href="home-2.html">Home 2 &#8211; Classic Style</a></li>
+                        <li class="menu-item"><a href="home-3.html">Home 3 &#8211; Fullscreen Slider</a></li>
+                        <li class="menu-item"><a href="home-4.html">Home 4 &#8211; One Page</a></li>
+                    </ul>
+                </li>
+                <li class="megamenu col4 menu-item menu-item-has-children"><a href="projects-page.html">Projects</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item menu-item-has-children"><a href="project-grid-fullwidth.html">Projects Fullwidth</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="project-grid-fullwidth.html">Grid Fullwidth</a></li>
+                                <li class="menu-item"><a href="project-masonry-fullwidth.html">Masonry Fullwidth</a></li>
+                                <li class="menu-item"><a href="project-classic-fullwidth.html">Classic Fullwidth</a></li>
+                                <li class="menu-item"><a href="project-classic-masonry-fullwidth.html">Classic Masonry Fullwidth</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children"><a href="project-grid-2-columns.html">Projects Grid</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="project-grid-2-columns.html">2 Columns</a></li>
+                                <li class="menu-item"><a href="project-grid-3-columns.html">3 Columns</a></li>
+                                <li class="menu-item"><a href="project-grid-4-columns.html">4 Columns</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children"><a href="project-classic-2-columns.html">Project Classic</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="project-classic-2-columns.html">2 Columns</a></li>
+                                <li class="menu-item"><a href="project-classic-3-columns.html">3 Columns</a></li>
+                                <li class="menu-item"><a href="project-classic-4-columns.html">4 Columns</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children"><a href="project-grid-with-sidebar.html">Project With Sidebar</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="project-grid-with-sidebar.html">Grid With Sidebar</a></li>
+                                <li class="menu-item"><a href="project-masonry-with-sidebar.html">Masonry With Sidebar</a></li>
+                                <li class="menu-item"><a href="project-classic-with-sidebar.html">Classic With Sidebar</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children"><a href="all-services.html">Services</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="all-services.html">All Services</a></li>
+                        <li class="menu-item"><a href="construction-planning.html">Construction Planning</a></li>
+                        <li class="menu-item"><a href="house-renovation.html">House Renovation</a></li>
+                        <li class="menu-item"><a href="office-renovation.html">Office Renovation</a></li>
+                        <li class="menu-item"><a href="darfting-design.html">Darfting &#038; Design</a></li>
+                        <li class="menu-item"><a href="site-inspection.html">Site Inspection</a></li>
+                        <li class="menu-item"><a href="system-integration.html">System Integration</a></li>
+                    </ul>
+                </li>
+                <li class="megamenu col4 menu-item menu-item-has-children"><a href="about-us-1.html">Pages</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item menu-item-has-children"><a href="about-us-1.html">General Pages</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="about-us-1.html">About Us 1</a></li>
+                                <li class="menu-item"><a href="about-us-2.html">About Us 2</a></li>
+                                <li class="menu-item"><a href="about-us-3.html">About Us 3</a></li>
+                                <li class="menu-item"><a href="testimonials.html">Testimonials</a></li>
+                                <li class="menu-item"><a href="meet-the-team.html">Meet The Team</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children"><a href="contact-with-sidebar.html">Specials Pages</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="contact-with-sidebar.html">Contact With Sidebar</a></li>
+                                <li class="menu-item"><a href="contact-with-map.html">Contact With Map</a></li>
+                                <li class="menu-item"><a href="404.html">404 Page</a></li>
+                                <li class="menu-item"><a href="single-port.html">Single Project Page</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children"><a href="blog.html">Blog</a>
+                    <ul class="sub-menu">
+                        <li class="menu-item"><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                        <li class="menu-item"><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                        <li class="menu-item"><a href="blog-fullwidth.html">Blog Fullwidth</a></li>
+                        <li class="menu-item"><a href="blog-grid.html">Blog Grid</a></li>
+                        <li class="menu-item"><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
+                        <li class="menu-item"><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
+                    </ul>
+                </li>
+                <li class="megamenu col4 menu-item menu-item-has-children"><a href="accordion-toggles.html">Shortcodes</a>
+                    <ul class="sub-menu">
+                        <li class="hidden menu-item menu-item-has-children"><a href="accordion-toggles.html">Columns One</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="accordion-toggles.html">Accordion &#038; Toggles</a></li>
+                                <li class="menu-item"><a href="alert-boxes.html">Alert Boxes</a></li>
+                                <li class="menu-item"><a href="animated-content.html">Animated Content</a></li>
+                                <li class="menu-item"><a href="buttons-social-icons.html">Buttons &#038; Social Icons</a></li>
+                            </ul>
+                        </li>
+                        <li class="hidden menu-item menu-item-has-children"><a href="columns.html">Columns Two</a>
+                            <ul class="sub-menu">
+                                <li class="menu-item"><a href="columns.html">Columns</a></li>
+                                <li class="menu-item"><a href="gallery.html">Gallery</a></li>
+                                <li class="menu-item"><a href="masonry-gallery.html">Masonry Gallery</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Begin side menu sidebar -->
+        <div class="page_content_wrapper">
+            <div class="sidebar_wrapper">
+                <div class="sidebar">
+
+                    <div class="content">
+
+                        <ul class="sidebar_widget">
+                            <li id="nav_menu-4" class="widget widget_nav_menu">
+                                <h2 class="widgettitle">Our Services</h2>
+                                <div class="menu-service-menu-container">
+                                    <ul id="menu-service-menu" class="menu">
+                                        <li class="menu-item"><a href="all-services.html">All Services</a></li>
+                                        <li class="menu-item"><a href="construction-planning.html">Construction Planning</a></li>
+                                        <li class="menu-item"><a href="house-renovation.html">House Renovation</a></li>
+                                        <li class="menu-item"><a href="office-renovation.html">Office Renovation</a></li>
+                                        <li class="menu-item"><a href="darfting-design.html">Darfting &#038; Design</a></li>
+                                        <li class="menu-item"><a href="site-inspection.html">Site Inspection</a></li>
+                                        <li class="menu-item"><a href="system-integration.html">System Integration</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End side menu sidebar -->
+
+        <br class="clear">
+        <div class="social_wrapper">
+            <ul>
+                <li class="facebook"><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li class="twitter"><a target="_blank" href="http://twitter.com/#"><i class="fa fa-twitter"></i></a></li>
+                <li class="youtube"><a target="_blank" title="Youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+                <li class="google"><a target="_blank" title="Google+" href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li class="pinterest"><a target="_blank" title="Pinterest" href="http://pinterest.com/#"><i class="fa fa-pinterest"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End mobile menu -->
+
+    <!-- Begin template wrapper -->
+    <div id="wrapper" class="hasbg">
+
+        <div class="header_style_wrapper">
+            <!-- End top bar -->
+
+            <div class="top_bar  hasbg">
+
+                <div id="menu_wrapper">
+
+                    <!-- Begin logo -->
+                    <div id="logo_normal" class="logo_container">
+                        <div class="logo_align">
+                            <a id="custom_logo" class="logo_wrapper hidden" href="index.html">
+                                <img src="upload/logo@2x.png" alt="" width="63" height="55">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="logo_transparent" class="logo_container">
+                        <div class="logo_align">
+                            <a id="custom_logo_transparent" class="logo_wrapper default" href="index.html">
+                                <img src="upload/logo@2x_white.png" alt="" width="63" height="55">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End logo -->
+
+                    <!-- Begin main nav -->
+
+                    <div id="nav_wrapper">
+                        <div class="nav_wrapper_inner">
+                            <div id="menu_border_wrapper">
+                                <div class="menu-main-menu-container">
+                                    <ul id="main_menu" class="nav">
+                                        <li class="megamenu col4 menu-item  current-menu-item  menu-item-has-children arrow"><a href="about-us-1.html">Pages</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-homemenu-item-has-children arrow"><a href="index.html" aria-current="page">Home</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="index.html">Home 1 &#8211; Landing Page</a></li>
+                                                        <li class="menu-item"><a href="home-2.html">Home 2 &#8211; Classic Style</a></li>
+                                                        <li class="menu-item"><a href="home-3.html">Home 3 &#8211; Fullscreen Slider</a></li>
+                                                        <li class="menu-item"><a href="home-4.html">Home 4 &#8211; One Page</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow"><a href="about-us-1.html">General Pages</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="about-us-1.html">About Us 1</a></li>
+                                                        <li class="menu-item"><a href="about-us-2.html">About Us 2</a></li>
+                                                        <li class="menu-item"><a href="about-us-3.html">About Us 3</a></li>
+                                                        <li class="menu-item"><a href="testimonials.html">Testimonials</a></li>
+                                                        <li class="menu-item"><a href="meet-the-team.html">Meet The Team</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow"><a href="all-services.html">Services</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="all-services.html">All Services</a></li>
+                                                        <li class="menu-item"><a href="construction-planning.html">Construction Planning</a></li>
+                                                        <li class="menu-item"><a href="house-renovation.html">House Renovation</a></li>
+                                                        <li class="menu-item"><a href="office-renovation.html">Office Renovation</a></li>
+                                                        <li class="menu-item"><a href="darfting-design.html">Darfting &#038; Design</a></li>
+                                                        <li class="menu-item"><a href="site-inspection.html">Site Inspection</a></li>
+                                                        <li class="menu-item"><a href="system-integration.html">System Integration</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow"><a href="contact-with-sidebar.html">Specials Pages</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="contact-with-sidebar.html">Contact With Sidebar</a></li>
+                                                        <li class="menu-item"><a href="contact-with-map.html">Contact With Map</a></li>
+                                                        <li class="menu-item"><a href="404.html">404 Page</a></li>
+                                                        <li class="menu-item"><a href="single-port.html">Single Project Page</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="megamenu col4 menu-item menu-item-has-children arrow menu-item-2892"><a href="projects-page.html">Projects</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-has-children arrow menu-item-2895"><a href="project-grid-fullwidth.html">Projects Fullwidth</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item menu-item-2896"><a href="project-grid-fullwidth.html">Grid Fullwidth</a></li>
+                                                        <li class="menu-item menu-item-2899"><a href="project-masonry-fullwidth.html">Masonry Fullwidth</a></li>
+                                                        <li class="menu-item menu-item-2906"><a href="project-classic-fullwidth.html">Classic Fullwidth</a></li>
+                                                        <li class="menu-item menu-item-2909"><a href="project-classic-masonry-fullwidth.html">Classic Masonry Fullwidth</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow menu-item-2912"><a href="project-grid-2-columns.html">Projects Grid</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item menu-item-2913"><a href="project-grid-2-columns.html">2 Columns</a></li>
+                                                        <li class="menu-item menu-item-2916"><a href="project-grid-3-columns.html">3 Columns</a></li>
+                                                        <li class="menu-item menu-item-2919"><a href="project-grid-4-columns.html">4 Columns</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow menu-item-2922"><a href="project-classic-2-columns.html">Project Classic</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item menu-item-2923"><a href="project-classic-2-columns.html">2 Columns</a></li>
+                                                        <li class="menu-item menu-item-2928"><a href="project-classic-3-columns.html">3 Columns</a></li>
+                                                        <li class="menu-item menu-item-2931"><a href="project-classic-4-columns.html">4 Columns</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="menu-item menu-item-has-children arrow menu-item-2934"><a href="project-grid-with-sidebar.html">Project With Sidebar</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item menu-item-2935"><a href="project-grid-with-sidebar.html">Grid With Sidebar</a></li>
+                                                        <li class="menu-item menu-item-2949"><a href="project-masonry-with-sidebar.html">Masonry With Sidebar</a></li>
+                                                        <li class="menu-item menu-item-2952"><a href="project-classic-with-sidebar.html">Classic With Sidebar</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children arrow menu-item-2813"><a href="blog.html">Blog</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-2814"><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
+                                                <li class="menu-item menu-item-2817"><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                                <li class="menu-item menu-item-2820"><a href="blog-fullwidth.html">Blog Fullwidth</a></li>
+                                                <li class="menu-item menu-item-2823"><a href="blog-grid.html">Blog Grid</a></li>
+                                                <li class="menu-item menu-item-2826"><a href="blog-grid-right-sidebar.html">Blog Grid Right Sidebar</a></li>
+                                                <li class="menu-item menu-item-2829"><a href="blog-grid-left-sidebar.html">Blog Grid Left Sidebar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="megamenu col2 menu-item menu-item-has-children arrow"><a href="accordion-toggles.html">Features</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item menu-item-has-children arrow"><a href="accordion-toggles.html">General Shortcodes</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="accordion-toggles.html">Accordion &#038; Toggles</a></li>
+                                                        <li class="menu-item"><a href="alert-boxes.html">Alert Boxes</a></li>
+                                                        <li class="menu-item"><a href="animated-content.html">Animated Content</a></li>
+                                                        <li class="menu-item"><a href="buttons-social-icons.html">Buttons &#038; Social Icons</a></li>
+                                                        <li class="menu-item"><a href="columns.html">Columns</a></li>
+                                                    </ul>
+                                                </li>
+
+                                                <li class="menu-item menu-item-has-children arrow"><a href="accordion-toggles.html">Content Shortcodes</a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item"><a href="masonry-gallery.html">Masonry Gallery</a></li>
+                                                        <li class="menu-item"><a href="pricing-tables.html">Pricing Tables</a></li>
+                                                        <li class="menu-item"><a href="promo-boxes.html">Promo Boxes</a></li>
+                                                        <li class="menu-item"><a href="tabs.html">Tabs</a></li>
+                                                    </ul>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End main nav -->
+
+                    <!-- Begin main contact info -->
+
+                    <div class="top_contact_info_container">
+                        <div class="top_contact_info">
+                            <span id="top_contact_hours"><i class="fa fa-clock-o"></i>09.00 - 17.00</span>
+                            <span id="top_contact_number"><a href="tel:+65.4566743"><i class="fa fa-phone"></i>+65.4566743</a></span>
+
+                            <!-- Begin side menu -->
+                            <a href="#" id="mobile_nav_icon"></a>
+                            <!-- End side menu -->
+                        </div>
+                    </div>
+                    <!-- End main contact info -->
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ppb_wrapper  ">
+            <div class="one fullwidth">
+                <!-- START Home 2 Slider REVOLUTION SLIDER 6.0.9 -->
+                <p class="rs-p-wp-fix"></p>
+                <rs-module-wrap id="rev_slider_3_1_wrapper" data-source="gallery" style="background:#efc337;padding:0;">
+                    <rs-module id="rev_slider_3_1" style="display:none;" data-version="6.0.9">
+                        <rs-slides>
+                            <rs-slide data-key="rs-8" data-title="Slide 1" data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:7;">
+                                <img src="upload/home3_slide_bg.jpg" title="Home 3" data-bg="p:center top;" class="rev-slidebg" data-no-retina="">
+                                <!--
+                            -->
+                                <rs-layer id="slider-3-slide-8-layer-1" data-type="image" data-rsp_ch="on" data-xy="x:c;y:c;yo:-100px;" data-text="l:22;" data-dim="w:83;h:73;" data-frame_0="y:50px;tp:600;" data-frame_1="tp:600;st:500;" data-frame_999="o:0;tp:600;e:nothing;st:w;" style="z-index:5;"><img src="upload/home3_slide_logo.png" width="83" height="73" data-no-retina="">
+                                </rs-layer>
+                                <!--
+
+                            -->
+                                <rs-layer id="slider-3-slide-8-layer-2" class="fulltitle" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:c;y:c;yo:20px;" data-text="s:40;l:55;" data-frame_0="y:50px;tp:600;" data-frame_1="tp:600;st:600;" data-frame_999="o:0;tp:600;e:nothing;st:w;" style="z-index:6;font-family:Montserrat;text-shadow:none;">We help customers built World Class
+                                    <br> Construction Projects Since 1970
+                                </rs-layer>
+                                <!--                            -->
+                                <rs-layer id="slider-3-slide-8-layer-3" class="secondtitle" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:c;y:c;yo:130px;" data-text="s:60;" data-frame_0="y:50px;tp:600;" data-frame_1="tp:600;st:700;" data-frame_999="o:0;tp:600;e:nothing;st:w;" style="z-index:7;font-family:Montserrat;text-shadow:none;text-transform:uppercase;"><a href="project-grid-fullwidth.html" class="button medium white">View Projects</a>
+                                </rs-layer>
+                                <!---->
+                            </rs-slide>
+                            <rs-slide data-key="rs-81" data-title="Slide 1" data-anim="ei:d;eo:d;s:600;r:0;t:fade;sl:7;">
+                                <img src="upload/home3_slide_bg.jpg" title="Home 3" data-bg="p:center top;" class="rev-slidebg" data-no-retina="">
+                                <!--                            -->
+                                <rs-layer id="slider-3-slide-81-layer-1" data-type="image" data-rsp_ch="on" data-xy="x:c;y:c;yo:-100px;" data-text="l:22;" data-dim="w:83;h:73;" data-frame_0="y:50px;tp:600;" data-frame_1="tp:600;st:500;" data-frame_999="o:0;tp:600;e:nothing;st:w;" style="z-index:5;"><img src="upload/home3_slide_logo.png" width="83" height="73" data-no-retina="">
+                                </rs-layer>
+                                <!--
+                            -->
+                                <rs-layer id="slider-3-slide-81-layer-2" class="fulltitle" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:c;y:c;yo:20px;" data-text="s:40;l:55;" data-frame_0="y:50px;tp:600;" data-frame_1="tp:600;st:600;" data-frame_999="o:0;tp:600;e:nothing;st:w;" style="z-index:6;font-family:Montserrat;text-shadow:none;">We help customers built World Class
+                                    <br> Construction Projects Since 1970
+                                </rs-layer>
+                                <!--
+
+                            -->
+                                <rs-layer id="slider-3-slide-81-layer-3" class="secondtitle" data-type="text" data-color="rgba(255,255,255,1)" data-rsp_ch="on" data-xy="x:c;y:c;yo:130px;" data-text="s:60;" data-frame_0="y:50px;tp:600;" data-frame_1="tp:600;st:700;" data-frame_999="o:0;tp:600;e:nothing;st:w;" style="z-index:7;font-family:Montserrat;text-shadow:none;text-transform:uppercase;"><a href="project-grid-fullwidth.html" class="button medium white">View Projects</a>
+                                </rs-layer>
+                                <!---->
+                            </rs-slide>
+                        </rs-slides>
+                        <rs-progress class="rs-bottom" style="visibility: hidden !important;"></rs-progress>
+                    </rs-module>
+
+                </rs-module-wrap>
+                <!-- END REVOLUTION SLIDER -->
+            </div>
+            <div class="one withsmallpadding ppb_text" style="text-align:center;padding-bottom:0 !important;padding:40px 0 40px 0;">
+                <div class="standard_wrapper">
+                    <div class="page_content_wrapper">
+                        <div class="inner">
+                            <div style="margin:auto;width:100%">
+                                <div class="googlefont" style="font-family:Playfair Display;font-size:34px;font-style:italic;">We help customers built World Class
+                                    <br>Construction Projects Since 1970</div>
+                                <div class="page_header_sep"></div>
+                                <p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_fourth withsmallpadding ppb_text" style="text-align:center;padding:0px 0 0px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <h2 class="number">01</h2>
+                                    <p>
+                                        <div class="googlefont" style="font-family:Playfair Display;font-size:28px;">Planning</div>
+                                        <br>Aenean commodo ligula eget dolor. Aeneane penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_fourth withsmallpadding ppb_text" style="text-align:center;padding:0px 0 0px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <h2 class="number">02</h2>
+                                    <p>
+                                        <div class="googlefont" style="font-family:Playfair Display;font-size:28px;">Design</div>
+                                        <br>Aenean commodo ligula eget dolor. Aeneane penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_fourth withsmallpadding ppb_text" style="text-align:center;padding:0px 0 0px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <h2 class="number">03</h2>
+                                    <p>
+                                        <div class="googlefont" style="font-family:Playfair Display;font-size:28px;">Building</div>
+                                        <br>Aenean commodo ligula eget dolor. Aeneane penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_fourth last withsmallpadding ppb_text" style="text-align:center;padding:0px 0 0px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <h2 class="number">04</h2>
+                                    <p>
+                                        <div class="googlefont" style="font-family:Playfair Display;font-size:28px;">Testing</div>
+                                        <br>Aenean commodo ligula eget dolor. Aeneane penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider one">&nbsp;</div>
+            <div class="ppb_portfolio one nopadding ">
+                <div class="slider_wrapper portfolio">
+                    <div class="flexslider tg_gallery" data-height="750">
+                        <ul class="slides">
+                            <li>
+                                <a href="single-port.html">
+                                    <div class="portfolio_slider_overlay"></div><img src="upload/hillside-residence-21.jpg" alt="">
+                                    <div id="portfolio_desc_2887" class="portfolio_slider_desc">
+                                        <h3>Warm Sweet Home</h3>
+                                        <div class="post_detail">Birmingham, England</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single-port.html">
+                                    <div class="portfolio_slider_overlay"></div><img src="upload/portfolio-13.jpg" alt="">
+                                    <div id="portfolio_desc_2859" class="portfolio_slider_desc">
+                                        <h3>Boxed Modern House</h3>
+                                        <div class="post_detail">California, USA</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single-port.html">
+                                    <div class="portfolio_slider_overlay"></div><img src="upload/portfolio-2.jpg" alt="">
+                                    <div id="portfolio_desc_2862" class="portfolio_slider_desc">
+                                        <h3>Moutain View Pool Villa</h3>
+                                        <div class="post_detail">Lake Como, Switzerland</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single-port.html">
+                                    <div class="portfolio_slider_overlay"></div><img src="upload/img-slider-top-2.jpg" alt="">
+                                    <div id="portfolio_desc_2864" class="portfolio_slider_desc">
+                                        <h3>Contemporary Home</h3>
+                                        <div class="post_detail">Longdon, England</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="single-port.html">
+                                    <div class="portfolio_slider_overlay"></div><img src="upload/norwegian-opera-feature.jpg" alt="">
+                                    <div id="portfolio_desc_2868" class="portfolio_slider_desc">
+                                        <h3>Floating Opera House</h3>
+                                        <div class="post_detail">Sydney, Australia</div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="one withsmallpadding ppb_header " style="padding-bottom:0px !important;text-align:center;padding:30px 0 30px 0;">
+                <div class="standard_wrapper">
+                    <div class="page_content_wrapper">
+                        <div class="inner">
+                            <div style="margin:auto;width:100%">
+                                <h2 class="ppb_title" style=""><span class="ppb_title_first">Our</span>Customers</h2>
+                                <div class="page_header_sep center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="one withsmallpadding " style="margin-top:-30px;">
+                <div class="standard_wrapper">
+                    <div class="page_content_wrapper" style="text-align:center">
+                        <div class="inner">
+                            <div class="testimonial_slider_wrapper">
+                                <div class="flexslider" data-height="750">
+                                    <ul class="slides">
+                                        <li>
+                                            <div class="testimonial_slider_wrapper">Vivamus aliquet felis eu diam ultricies congue. Morbi porta lorem nec consectetur porta. Sed quis dui elit. Pellentesque habitant morbi tristique senectus et netus et male Sed vestibulum orci
+                                                <div class="testimonial_slider_meta">
+                                                    <div class="testimonial_image animated" data-animation="bigEntrance"><img class="team_pic" src="upload/5-150x150.jpg" alt="Mark Anthony"></div>
+                                                    <h6>Mark Anthony</h6></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="testimonial_slider_wrapper">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vestibulum orci quam. Pellentesque habitant morbi tristique senectus et netus et male.
+                                                <div class="testimonial_slider_meta">
+                                                    <div class="testimonial_image animated" data-animation="bigEntrance"><img class="team_pic" src="upload/6-150x150.jpg" alt="Christina Hardy"></div>
+                                                    <h6>Christina Hardy</h6></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="testimonial_slider_wrapper">In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Pellentesque habitant morbi tristique senectus et netus et male.
+                                                <div class="testimonial_slider_meta">
+                                                    <div class="testimonial_image animated" data-animation="bigEntrance"><img class="team_pic" src="upload/1-150x150.jpg" alt="Jane Bennett"></div>
+                                                    <h6>Jane Bennett</h6></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="one withsmallpadding ppb_content_half_bg withbg " style="background-image:url(upload/shutterstock_157412990.jpg);background-position: center center;padding:50px 0 50px 0;">
+                <div class="standard_wrapper">
+                    <div class="page_content_wrapper">
+                        <div class="inner">
+                            <div class="one_half_bg floatright" style="background:#ffffff;background:rgb(255,255,255,0.9);background:rgba(255,255,255,0.9);">
+                                <h2 class="ppb_title" style=""><span class="ppb_title_first">Our</span>Philosophy</h2>
+                                <div class="page_header_sep left"></div>
+                                <p>Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+                                <p><a href="project-grid-fullwidth.html" class="button">View Projects</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider one">&nbsp;</div>
+            <div class="one withsmallpadding ppb_header " style="text-align:center;padding:30px 0 30px 0;">
+                <div class="standard_wrapper">
+                    <div class="page_content_wrapper">
+                        <div class="inner">
+                            <div style="margin:auto;width:100%">
+                                <h2 class="ppb_title" style=""><span class="ppb_title_first">Our</span>Services</h2>
+                                <div class="page_header_sep center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_third withsmallpadding ppb_text" style="text-align:center;padding:0px 0 0px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <p>
+                                        <a href="construction-planning.html"><img src="upload/service_1.jpg" alt=""></a>
+                                    </p>
+                                    <h5>Construction Planning</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_third withsmallpadding ppb_text" style="text-align:center;padding:0px 0 0px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <p>
+                                        <a href="house-renovation.html"><img src="upload/service_2.jpg" alt=""></a>
+                                    </p>
+                                    <h5>House Renovation</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_third last withsmallpadding ppb_text" style="text-align:center;padding:0px 0 0px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <p>
+                                        <a href="office-renovation.html"><img src="upload/service3.jpg" alt=""></a>
+                                    </p>
+                                    <h5>Office Renovation</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_third withsmallpadding ppb_text" style="text-align:center;padding:30px 0 30px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <p>
+                                        <a href="darfting-design.html"><img src="upload/service_4.jpg" alt=""></a>
+                                    </p>
+                                    <h5>Drafting &#038; Design</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_third withsmallpadding ppb_text" style="text-align:center;padding:30px 0 30px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <p>
+                                        <a href="site-inspection.html"><img src="upload/service_5.jpg" alt=""></a>
+                                    </p>
+                                    <h5>Site Inspection</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="standard_wrapper">
+                <div class="one_third last withsmallpadding ppb_text" style="text-align:center;padding:30px 0 30px 0;">
+                    <div class="standard_wrapper">
+                        <div class="page_content_wrapper">
+                            <div class="inner">
+                                <div style="margin:auto;width:100%">
+                                    <p>
+                                        <a href="system-integration.html"><img src="upload/service_6.jpg" alt=""></a>
+                                    </p>
+                                    <h5>System Installation</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider one">&nbsp;</div>
+        </div>
+
+
+
+        <div class="footer_bar ">
+            <div class="footer_before_widget">
+                <a href="index.html" class="logo_wrapper footer_logo">
+                    <img src="upload/footer_logo@2x_white.png" alt="" width="166" height="146">
+                </a>
+            </div>
+
+            <div id="footer_before_widget_text">Ready to take it a step further
+                <br> Let’s start purchasing constructor theme
+                <br> and find out how it can help create your business website
+                <br>
+                <br>
+                <a href="https://themeforest.net/user/max-themes/portfolio" class="button" target="_blank">Buy On Themeforest</a></div>
+
+            <div id="footer" class="">
+                <ul class="sidebar_widget four">
+                    <li id="text-9" class="widget widget_text">
+                        <h2 class="widgettitle">Contact</h2>
+                        <div class="textwidget">
+                            <p>732/21 Second Street, Manchester, King Street, Kingston United Kingdom</p>
+                            <p>(65)323-678-567
+                                <br> info@constructor.com
+                            </p>
+                        </div>
+                    </li>
+                    <li id="custom_recent_posts-3" class="widget Custom_Recent_Posts">
+                        <h2 class="widgettitle">Recent Posts</h2>
+                        <ul class="posts blog ">
+                            <li><a href="the-road-to-success.html">The road to success is always under construction</a>
+                                <div class="post_attribute">20 Apr</div>
+                            </li>
+                            <li><a href="the-construction-of-europe-is-art.html">The construction of europe a sequence of art</a>
+                                <div class="post_attribute">18 Apr</div>
+                            </li>
+                            <li><a href="design-is-an-opportunity-to-continue-telling-story.html">Design is to continue telling the amazing story</a>
+                                <div class="post_attribute">17 Apr</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="nav_menu-6" class="widget widget_nav_menu">
+                        <h2 class="widgettitle">Our Services</h2>
+                        <div class="menu-service-menu-container">
+                            <ul id="menu-service-menu-1" class="menu">
+                                <li class="menu-item"><a href="index.html">All Services</a></li>
+                                <li class="menu-item"><a href="construction-planning.html">Construction Planning</a></li>
+                                <li class="menu-item"><a href="house-renovation.html">House Renovation</a></li>
+                                <li class="menu-item"><a href="office-renovation.html">Office Renovation</a></li>
+                                <li class="menu-item"><a href="darfting-design.html">Darfting &#038; Design</a></li>
+                                <li class="menu-item"><a href="site-inspection.html">Site Inspection</a></li>
+                                <li class="menu-item"><a href="system-integration.html">System Integration</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="text-10" class="widget widget_text">
+                        <h2 class="widgettitle">Business Hours</h2>
+                        <div class="textwidget">
+                            <p>Our support hours are available 24 Hours a day: (+67) 234 890 7765</p>
+                            <p><strong>Monday to Friday</strong>: 8am to 6pm
+                                <br>
+                                <strong>Saturday</strong>: 9am to 4pm
+                                <br>
+                                <strong>Sunday</strong>: Closed</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br class="clear">
+
+            <div class="footer_bar_wrapper ">
+                <div class="social_wrapper">
+                    <ul>
+                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="twitter"><a href="http://twitter.com/#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="youtube"><a title="Youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li class="google"><a title="Google+" href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="pinterest"><a title="Pinterest" href="http://pinterest.com/#"><i class="fa fa-pinterest"></i></a></li>
+                    </ul>
+                </div>
+                <div id="copyright">© Copyright Constructor Demo - by Max Themes</div>
+                <br class="clear">
+                <a id="toTop"><i class="fa fa-angle-up"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="overlay_background"></div>
+
+    <script type='text/javascript' src='js/jquery.js'></script>
+    <script type='text/javascript' src='js/jquery-migrate.min.js'></script>
+    <script type='text/javascript' src='revslider/public/assets/js/revolution.tools.min.js'></script>
+    <script type='text/javascript' src='revslider/public/assets/js/rs6.min.js'></script>
+    <script type='text/javascript' src='js/plugins/constructor/combined.js'></script>
+    <script type='text/javascript' src='js/plugins/custom_onepage.js'></script>
+    <script type='text/javascript' src='js/plugins/flexslider/jquery.flexslider-min.js'></script>
+    <script type='text/javascript' src='js/plugins/jquery.circliful.min.js'></script>
+    <script type='text/javascript' src='js/plugins/script-plugins.js'></script>
+
+    <script type="text/javascript">
+        function setREVStartSize(a) {
+            try {
+                var b, c = document.getElementById(a.c).parentNode.offsetWidth;
+                if (c = 0 === c || isNaN(c) ? window.innerWidth : c, a.tabw = void 0 === a.tabw ? 0 : parseInt(a.tabw), a.thumbw = void 0 === a.thumbw ? 0 : parseInt(a.thumbw), a.tabh = void 0 === a.tabh ? 0 : parseInt(a.tabh), a.thumbh = void 0 === a.thumbh ? 0 : parseInt(a.thumbh), a.tabhide = void 0 === a.tabhide ? 0 : parseInt(a.tabhide), a.thumbhide = void 0 === a.thumbhide ? 0 : parseInt(a.thumbhide), a.mh = void 0 === a.mh || "" == a.mh ? 0 : a.mh, "fullscreen" === a.layout || "fullscreen" === a.l) b = Math.max(a.mh, window.innerHeight);
+                else {
+                    for (var d in a.gw = Array.isArray(a.gw) ? a.gw : [a.gw], a.rl)(void 0 === a.gw[d] || 0 === a.gw[d]) && (a.gw[d] = a.gw[d - 1]);
+                    for (var d in a.gh = void 0 === a.el || "" === a.el || Array.isArray(a.el) && 0 == a.el.length ? a.gh : a.el, a.gh = Array.isArray(a.gh) ? a.gh : [a.gh], a.rl)(void 0 === a.gh[d] || 0 === a.gh[d]) && (a.gh[d] = a.gh[d - 1]);
+                    var e, f = Array(a.rl.length),
+                        g = 0;
+                    for (var d in a.tabw = a.tabhide >= c ? 0 : a.tabw, a.thumbw = a.thumbhide >= c ? 0 : a.thumbw, a.tabh = a.tabhide >= c ? 0 : a.tabh, a.thumbh = a.thumbhide >= c ? 0 : a.thumbh, a.rl) f[d] = a.rl[d] < window.innerWidth ? 0 : a.rl[d];
+                    for (var d in e = f[0], f) e > f[d] && 0 < f[d] && (e = f[d], g = d);
+                    var h = c > a.gw[g] + a.tabw + a.thumbw ? 1 : (c - (a.tabw + a.thumbw)) / a.gw[g];
+                    b = a.gh[g] * h + (a.tabh + a.thumbh)
+                }
+                void 0 === window.rs_init_css && (window.rs_init_css = document.head.appendChild(document.createElement("style"))), document.getElementById(a.c).height = b, window.rs_init_css.innerHTML += "#" + a.c + "_wrapper { height: " + b + "px }"
+            } catch (a) {
+                console.log("Failure at Presize of Slider:" + a)
+            }
+        };
+    </script>
+    <script type="text/javascript">
+        setREVStartSize({
+            c: 'rev_slider_3_1',
+            rl: [1240, 1024, 768, 480],
+            el: [],
+            gw: [1425],
+            gh: [650],
+            layout: 'fullscreen',
+            offsetContainer: '',
+            offset: '',
+            mh: "0"
+        });
+        var revapi3,
+            tpj;
+        jQuery(function() {
+            tpj = jQuery;
+            tpj.noConflict();
+            if (tpj("#rev_slider_3_1").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider_3_1");
+            } else {
+                revapi3 = tpj("#rev_slider_3_1").show().revolution({
+                    jsFileLocation: "revslider/public/assets/js/",
+                    sliderLayout: "fullscreen",
+                    duration: 7000,
+                    visibilityLevels: "1240,1024,768,480",
+                    gridwidth: 1425,
+                    gridheight: 650,
+                    minHeight: "",
+                    spinner: "spinner3",
+                    debugMode: "",
+                    responsiveLevels: "1240,1024,768,480",
+                    stopAtSlide: 2,
+                    stopAfterLoops: 0,
+                    navigation: {
+                        keyboardNavigation: true,
+                        mouseScrollNavigation: false,
+                        touch: {
+                            touchenabled: true
+                        }
+                    },
+                    fallbacks: {
+                        ignoreHeightChanges: "",
+                        allowHTML5AutoPlayOnAndroid: true
+                    },
+                });
+            }
+
+        });
+    </script>
+    <script>
+        var htmlDivCss = '  #rev_slider_3_1_wrapper rs-loader.spinner3 div { background-color: #ffffff !important; } ';
+        var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');
+        if (htmlDiv) {
+            htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+        } else {
+            var htmlDiv = document.createElement('div');
+            htmlDiv.innerHTML = '<style>' + htmlDivCss + '</style>';
+            document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
+        }
+    </script>
+    <script type="text/javascript">
+        if (typeof revslider_showDoubleJqueryError === "undefined") {
+            function revslider_showDoubleJqueryError(sliderID) {
+                var err = "<div class='rs_error_message_box'>";
+                err += "<div class='rs_error_message_oops'>Oops...</div>";
+                err += "<div class='rs_error_message_content'>";
+                err += "You have some jquery.js library include that comes after the Slider Revolution files js inclusion.<br>";
+                err += "To fix this, you can:<br>&nbsp;&nbsp;&nbsp; 1. Set 'Module General Options' ->  'jQuery & OutPut Filters' -> 'Put JS to Body' to on";
+                err += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jQuery.js inclusion and remove it";
+                err += "</div>";
+                err += "</div>";
+                jQuery(sliderID).show().html(err);
+            }
+        }
+    </script>
+</body>
+
+</html>

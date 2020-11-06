@@ -1,0 +1,345 @@
+/*
+***************************************************************
+* This file makes theme responsive
+***************************************************************
+*/
+
+
+/* ----------------- Retina Logo ----------------- */
+
+@media 
+(-webkit-min-device-pixel-ratio: 1.25) {
+
+	.logo-img img:first-child {
+		display: none;
+	}
+
+   .logo-img img:last-child {
+		display: inline-block;
+   }
+
+}
+
+@media screen and ( max-width: 1050px ) {
+
+	/* ----------------- Portfolio Single Page ----------------- */
+	.portfolio-single .single-wrap,
+	.portfolio-single .single-header,
+	.portfolio-single .single-content-wrap  {
+		float: none !important;
+		width: 100% !important;
+	}
+
+	.project-info {
+		width: 100% !important;
+		margin-top: 0 !important;
+		margin-left: 0 !important;
+		min-height: 0 !important;
+	}
+	
+	.project-description-wrap,
+	.project-details-wrap {
+		float: none !important;
+		width: 100% !important;
+	}
+
+	.no-project-desc {
+		float: none !important;
+		width: 100% !important;
+	}
+
+	.project-info .previous-post {
+		float: left !important;
+	}
+
+	.project-info .previous-post.back-link {
+		float: none !important;
+	}
+
+	.project-info .next-post {
+		float: right !important;
+	}
+
+}
+
+@media screen and ( min-width: 950px ) {
+	.p-single-back-link.sharing-nxt-prev-p .back-link {
+		margin-right: 0 !important;
+	}
+}
+
+@media screen and ( max-width: 950px ) {
+
+	#page-wrap {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	
+	/* ----------------- Sidebar & Main Content ----------------- */
+	#sidebar,
+	#sidebar-top,
+	.sidebar-fold-btn,
+	.sidebar-top .filters {
+		display: none !important;
+	}
+
+	.sidebar-top-fixed .royal-revslider > div {
+		margin-top: 0 !important;
+	}
+
+   .logo-img img {
+		display: inline-block;
+   }
+
+	#main-wrap {
+		height: auto !important;
+		margin-top: 0 !important;
+	}
+
+	#main-wrap,
+	.royal-revslider,
+	.copy-and-soc {
+		margin-left: 0 !important;
+	}
+
+	.top-widgets-wrap {
+		position: absolute;
+		top: 0;
+	}
+
+	/* ----------------- Blog & Portfolio Posts ----------------- */
+	#blog-container article,
+	#portfolio-container article {
+		min-height: 0 !important;
+	}
+	 
+	/* ----------------- Mobile Navigation, Logo & Tagline ----------------- */
+	.m-nav-and-logo {
+		display: block;
+	}
+
+	.logo-img {
+		float: none;
+		margin: 0 auto;
+	}
+
+	.logo-img img {
+		max-height: none !important;
+	}
+
+	.logo-text,
+	.site-tagline {
+		text-align: center;
+	}
+
+	/* ----------------- Blog & Portfolio Single Pages ----------------- */
+	.single-header-below-p.header-nxt-prev-p .nxt-prev-post,
+	.single-header-below-b.header-nxt-prev-b .nxt-prev-post {
+		padding-bottom: 20px;
+	}
+
+	.side-nxt-prev-p .portfolio-single > .previous-post,
+	.side-nxt-prev-p .portfolio-single > .next-post {
+		display: none;
+	}
+
+	.title-and-meta,
+	.nxt-prev-post {
+		float: none;
+		width: 100%;
+		text-align: center !important;
+	}
+
+	/* ----------------- Sharing Box ----------------- */
+	.single-post-sharing {
+		text-align: center !important;
+	}
+
+	.single-post-sharing a {
+		position: static !important;
+	}
+
+	.single-post-sharing .single-socials-wrap {
+	 	width: 100% !important;
+	}
+
+	/* ----------------- Contact Page ----------------- */
+	.contact-form,
+	.contact-info {
+		float: none !important;
+		width: 100% !important;
+		margin-right: 0 !important;
+		margin-bottom: 30px;
+	}
+
+	/* ----------------- Inputs ----------------- */
+	.rf-input,
+	.submit-btn {
+		width: 100% !important;
+	}
+
+	.top-nav-search-wrap {
+		display: none !important;
+	}
+
+	/* ----------------- Copyright & socials ----------------- */
+	.copy-fixed .copy-and-soc {
+		display: block !important;
+		position: static !important;
+		width: auto !important;
+	}
+
+	.socials-wrap,
+	.copyright-wrap {
+		float: none;
+		width: 100%;
+		text-align: center !important;
+	}
+
+	.copyright-wrap p {
+		text-align: center !important;
+	}
+
+	.sidebar-top.copy-fixed .footer-fold-btn {
+		display: none !important;
+	}
+	
+
+	/* ----------------- WooCommerce ----------------- */
+	#woocommerce-container-header .woocommerce-result-count {
+		float: none !important;
+		display: block !important;
+	}
+
+	.responsive-mini-cart {
+		display: inline-block !important;
+	}
+
+	#woocommerce-container-header .orderby.rf-input {
+		margin-top: 15px !important;
+	}
+
+	#woocommerce-container-header .orderby.rf-input,
+	#woocommerce-container-header .woocommerce-ordering {
+		float: none !important;
+		clear: both;
+	}
+
+	.woocommerce-widgets {
+		float: none !important;
+		width: 100% !important;
+	}
+
+	.woocommerce-widgets + #container {
+		margin-left: 0 !important;
+	}
+
+	.woopost-single-summary,
+	.woopost-single-images {
+		width: 100% !important;
+		float: none !important;
+		margin-left: 0 !important;
+	}
+
+	.woopost-single-summary .single_add_to_cart_button {
+		width: auto !important;
+	}
+
+	.woocommerce .cart.shop_table .actions .coupon #coupon_code {
+		margin-bottom: 10px !important;
+	}
+
+	.woocommerce .col-1.address,
+	.woocommerce .col-2.address,
+	.woocommerce .checkout .col2-set,
+	.woocommerce .checkout .col3-set,
+	.woocommerce .checkout .col2-set > div,
+	.woocommerce .checkout .col2-set > div:first-child {
+		float: none !important;
+		width: 100% !important;
+		margin-right: 0 !important;
+	}
+
+	.woocommerce .col-1.address {
+		margin-bottom: 20px;
+	}
+
+	.woocommerce .cart.shop_table .product-price {
+		display: none;
+	}
+
+	.woocommerce .cart.shop_table .product-thumbnail {
+		padding-left: 0 !important;
+		padding-right: 10px !important;
+	}
+
+	.woocommerce .cart.shop_table .product-thumbnail img {
+		width: 42px	!important;
+		max-width: 42px	!important;
+	}
+
+	.woocommerce .cart.shop_table .actions .coupon {
+		float: none !important;
+	}
+
+}
+
+@media screen and ( max-width: 782px ) {
+
+	/* fix top widgets position if admin is logged in */
+	.admin-bar .top-widgets-wrap {
+		top: 46px;
+	}
+
+	.single-post .link-and-quote p {
+		padding: 14px 17px;
+	}
+	
+}
+
+
+@media screen and ( max-width: 480px ) { 
+
+	.previous-post {
+		margin-right: 2px !important;
+	}
+
+	/* ----------------- Comments ----------------- */
+	.children {
+		margin-left: 0 !important;
+	}
+	
+    /* ----------------- wp core classes ----------------- */
+	.alignnone {
+		width: 100%;
+		float: none;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.alignleft {
+		display: block;
+		width: 100%;
+		float: none;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.alignright {
+		display: block;
+		width: 100%;
+		float: none;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.aligncenter {
+		width: 100%;
+	}
+
+	.back-to-top {
+		right: 20px !important;
+		bottom: 20px !important;
+	}
+
+}

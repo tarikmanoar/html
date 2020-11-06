@@ -1,0 +1,2372 @@
+/* SAVING STATES, ETC */
+body .calendarSavingState,
+body #data-ajax-url { display:none; }
+
+#wp-admin-bar-booked .ab-icon:before { content: "\f508"; top:1px; }
+body.booked-noScroll { width:100%; overflow:hidden; position:relative; }
+
+/* GENERAL STYLES */
+body .bookedClearFix:after { content: ""; display: table; clear: both; }
+body table.booked-calendar th,
+body table.booked-calendar td { font-weight:400; }
+
+/* BUTTON STYLES */
+body #booked-profile-page input[type=submit],
+body #booked-profile-page button,
+body .booked-list-view input[type=submit],
+body .booked-list-view button,
+body table.booked-calendar input[type=submit],
+body table.booked-calendar button,
+body .booked-modal input[type=submit],
+body .booked-modal button
+{ -webkit-appearance:none; height:auto; font-size:12px; display:inline-block; padding:0 12px; background:#eee; color:#333; line-height: 30px; text-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; border:1px solid #ccc;; }
+
+body #booked-profile-page input[type=submit].bb-small,
+body #booked-profile-page button.bb-small,
+body .booked-list-view input[type=submit].bb-small,
+body .booked-list-view button.bb-small,
+body table.booked-calendar input[type=submit].bb-small,
+body table.booked-calendar button.bb-small,
+body .booked-modal input[type=submit].bb-small,
+body .booked-modal button.bb-small
+{ line-height:24px; padding:0 8px; }
+
+body #booked-profile-page input[type=submit].button-primary,
+body table.booked-calendar input[type=submit].button-primary,
+body .booked-list-view input[type=submit].button-primary,
+body .booked-modal input[type=submit].button-primary
+{ -webkit-appearance:none; height:auto; color:#fff; border-width:1px; border-style:solid; }
+
+body #booked-profile-page input[type=submit]:hover,
+body #booked-profile-page button:hover,
+body .booked-list-view input[type=submit]:hover,
+body .booked-list-view button:hover,
+body table.booked-calendar input[type=submit]:hover,
+body table.booked-calendar button:hover,
+body .booked-modal input[type=submit]:hover,
+body .booked-modal button:hover
+{ background:#ddd; color:#000; height:auto; text-shadow: none; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; border:1px solid #ccc }
+
+body .booked-modal button.cancel { background:#eee !important; color:#333 !important; }
+body .booked-modal button.cancel:hover { background:#ddd !important; color:#000 !important; }
+
+body #booked-profile-page input[type=submit].button-primary:hover,
+body table.booked-calendar input[type=submit].button-primary:hover,
+body .booked-list-view input[type=submit].button-primary:hover,
+body .booked-modal input[type=submit].button-primary:hover
+{ color:#fff; height:auto; border:1px solid }
+
+/* Some required table color resets */
+body table.booked-calendar { box-sizing:border-box; text-shadow:none !important; box-shadow:none !important; }
+body table.booked-calendar thead th .page-right,
+body table.booked-calendar thead th .page-left { color:#fff !important; }
+body table.booked-calendar thead th { text-align:center !important; color:#fff !important; }
+body table.booked-calendar thead th .monthName { display:inline-block; }
+body table.booked-calendar tbody td { padding:0; text-align:center; }
+
+/* CALENDAR STYLES */
+body .booked-calendar-wrap { margin:0 0 30px; }
+body .widget_booked_calendar .booked-calendar-wrap { margin:0; }
+body table.booked-calendar { margin:0; padding:0; background:#F1F1F1; border-spacing:0; width:100%; border:none; border-bottom:1px solid #ddd; }
+body table.booked-calendar thead { color:#fff; text-transform:uppercase; }
+body table.booked-calendar thead tr:first-child th { height:1.12rem; }
+body table.booked-calendar thead .calendarSavingState { font-size:1rem; }
+body table.booked-calendar th { text-align:center; position:relative; width:14.285%; border-width:1px; border-style:solid; padding:1.4rem 0 !important; line-height:1; }
+body table.booked-calendar tr.days { color:#fff; text-transform:uppercase; }
+body table.booked-calendar tr.days th { padding:0.8rem 0 !important; border-width:1px; border-style:solid; font-size:0.8rem; letter-spacing:0.03rem; }
+body table.booked-calendar th .monthName { letter-spacing:0.03rem; font-size:1.05rem; line-height:1rem; height:1.05rem; }
+body table.booked-calendar th .monthName a { font-size:0.8rem; position:relative; top:-0.05rem; padding-left:10px; text-decoration:none; text-transform:none; color:#fff; color:rgba(255,255,255,0.25); }
+body table.booked-calendar th .monthName a:hover { color:rgba(255,255,255,0.50); }
+body table.booked-calendar th .page-left { font-size:1.3rem; color:#fff; position:absolute; left:20px; top:50%; margin-top:-0.65rem; }
+body table.booked-calendar th .page-right { font-size:1.3rem; color:#fff; position:absolute; right:20px; top:50%; margin-top:-0.65rem; }
+body table.booked-calendar th .page-left:hover { left:19px; }
+body table.booked-calendar th .page-right:hover { right:19px; }
+body table.booked-calendar td { text-align:center; overflow:hidden; position:relative; font-size:20px; color:#333; padding:0 !important; margin:0 !important; border-right:1px solid #e5e5e5; }
+body table.booked-calendar td:first-child { border-left:1px solid #ddd; }
+body table.booked-calendar td:last-child { border-right:1px solid #ddd; }
+body table.booked-calendar td .date { background:#fff; display:block; width:100%; height:100%; }
+body table.booked-calendar td .date .number { display:inline-block; -moz-border-radius:30px; -webkit-border-radius:30px; border-radius:30px; width: 50px; height: 50px; line-height:49px; }
+
+body table.booked-calendar td:hover .date { cursor:pointer; background:#fafafa; }
+body table.booked-calendar td:hover .date span { color:#fff; }
+body table.booked-calendar tr.week td.active { border-bottom-color:#ddd; }
+body table.booked-calendar tr.week td.active .date { background:#ddd; color:#555; }
+body table.booked-calendar tr.week td.active .date .number { border:none; background:#fff; color:#000; }
+body table.booked-calendar tr.week td.active { background:#ddd; }
+body table.booked-calendar tr.entryBlock { color:#fff; }
+body table.booked-calendar tr.entryBlock td { padding:2% !important; text-align:left; color:#fff; border-bottom-color:#ddd; }
+body table.booked-calendar tr.entryBlock.booked-loading td { height:132px; }
+
+body table.booked-calendar td.prev-date .date,
+body table.booked-calendar td.prev-date:hover .date,
+body table.booked-calendar td.prev-date:hover .date span { cursor:not-allowed; background:#f5f5f5 !important; color:#ccc !important; }
+body table.booked-calendar td.blur .date,
+body table.booked-calendar td.blur:hover .date,
+body table.booked-calendar td.blur:hover .date span { cursor:not-allowed; background:#f5f5f5 !important; color:#ccc !important; }
+body table.booked-calendar td.next-month .date span,
+body table.booked-calendar td.prev-month .date span { color:#ccc; }
+body table.booked-calendar td.next-month:hover .date span,
+body table.booked-calendar td.prev-month:hover .date span { color:#fff; }
+body table.booked-calendar td.booked .date,
+body table.booked-calendar td.booked:hover .date,
+body table.booked-calendar td.booked .date span,
+body table.booked-calendar td.booked:hover .date span { cursor:not-allowed; background:#FFF9F8 !important; color:#FFA790 !important; }
+body table.booked-calendar td.active:hover .date span { background:#fff; }
+
+body table.booked-calendar.booked-pa-active td.booked .date,
+body table.booked-calendar.booked-pa-active td.booked:hover .date,
+body table.booked-calendar.booked-pa-active td.booked .date span,
+body table.booked-calendar.booked-pa-active td.booked:hover .date span { cursor:pointer; }
+body table.booked-calendar.booked-pa-active td.booked:hover .date span { background:#E35656 !important; color:#fff !important; }
+body table.booked-calendar.booked-pa-active tr.week td.booked.active .date,
+body table.booked-calendar.booked-pa-active tr.week td.booked.active .date:hover { background:#ddd !important; color:#555 !important; }
+body table.booked-calendar.booked-pa-active tr.week td.booked.active .date span,
+body table.booked-calendar.booked-pa-active tr.week td.booked.active .date span:hover { background:#fff !important; color:#555 !important; }
+
+body table.booked-calendar td.next-month .date,
+body table.booked-calendar td.prev-month .date { background:#fafafa }
+
+body table.booked-calendar td.today .date { color:#000; }
+body table.booked-calendar td.today .date span { border:2px solid #31afea; color:#000 !important; }
+body table.booked-calendar td.today.prev-date .date span { color:#ccc !important; }
+body table.booked-calendar td.today:hover .date { color:#000 !important; }
+body table.booked-calendar td.today:hover .date span { background:#31afea !important; color:#fff !important; }
+body table.booked-calendar td.today.active:hover .date span { background:#fff !important; color:#000 !important }
+body table.booked-calendar td.today.prev-date:hover .date span { background:none !important; color:#ccc !important; }
+
+body table.booked-calendar tr.week td.active .date, body table.booked-calendar tr.week td.active:hover .date, body table.booked-calendar tr.entryBlock { background:#ddd; }
+
+body .booked-calendar-wrap .booked-appt-list { font-size:15px; line-height:1.7; }
+body table.booked-calendar .booked-appt-list { color:#000; background:#fff; transform:scale(0.95); padding:30px 35px 10px; display:none; -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.20); -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.20); box-shadow: 0 1px 5px rgba(0,0,0,0.20); -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+body .booked-calendar-wrap .booked-appt-list.shown { transform:scale(1); }
+body .booked-calendar-wrap .booked-appt-list h2 { text-align:center; color:#555; font-size:20px; margin:0 0 30px; line-height:1.4; }
+body .booked-list-view .booked-appt-list h2.booked-no-prev { text-align:left; }
+body .booked-calendar-wrap .booked-appt-list p { color:#888; font-weight:400; margin:0 0 20px; }
+body .booked-calendar-wrap .booked-appt-list .timeslot { box-sizing:border-box; line-height:1.8; color:#888; border-top:1px solid #ddd; }
+body .booked-calendar-wrap .booked-appt-list .timeslot.faded { opacity:0.25; }
+body .booked-calendar-wrap .booked-appt-list .timeslot:hover { background:#f9f9f9; }
+body .booked-list-view .booked-appt-list .timeslot:hover { background:none; }
+body .booked-calendar-wrap .booked-appt-list .timeslot:last-child { margin:0 0 10px; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-title { margin: 0 0 10px 0; display: block; color: #4DC574; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-time { height:71px; padding:17px 0 0 0; box-sizing:border-box; float:left; }
+body .booked-calendar-wrap .booked-appt-list .timeslot.has-title .timeslot-time { height: auto; min-height:71px; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-time i.booked-icon { color:#555; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people { height:71px; padding:18px 0 0 0; box-sizing:border-box; float:right; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-time { line-height:1; width:60%; font-weight: 600; color: #555; font-size: 16px; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .spots-available { font-weight:400; text-transform:uppercase; font-size:0.7rem; display:block; line-height:2.7; color:#aaa; padding-bottom:8px; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .spots-available.empty { color:#aaa; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people { width:40%; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people button { float:right; margin:0 0 0 10px }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people button .button-timeslot { display:none; }
+body .booked-calendar-wrap .booked-appt-list .timeslot a { font-weight:600; text-decoration:none; }
+
+body table.booked-calendar .booked-appt-list .timeslot button .spots-available,
+body .booked-calendar-wrap .booked-appt-list .timeslot button .spots-available { display:none; }
+
+body table.booked-calendar .booked-appt-list .timeslot button .spots-available,
+body .booked-calendar-wrap .booked-appt-list .timeslot button .spots-available { color:#fff; color:rgba(255,255,255,0.75); padding:5px 0 3px; line-height:1em; }
+
+body .booked-calendar-wrap .booked-appt-list .timeslot.has-title.booked-hide-time .timeslot-time { min-height:auto; }
+body .booked-calendar-wrap .booked-appt-list .timeslot.has-title.booked-hide-time .timeslot-time .timeslot-title { margin:0; }
+body .booked-calendar-wrap .booked-appt-list .timeslot.has-title.booked-hide-time .timeslot-time .timeslot-range { display:none; }
+
+body table.booked-calendar .booked-appt-list .timeslot.has-title.booked-hide-time .timeslot-time { min-height:auto; }
+body table.booked-calendar .booked-appt-list .timeslot.has-title.booked-hide-time .timeslot-time .timeslot-title { margin:0; }
+body table.booked-calendar .booked-appt-list .timeslot.has-title.booked-hide-time .timeslot-time .timeslot-range { display:none; }
+
+body .booked-calendar-wrap .booked-appt-list .timeslot.timeslot-count-hidden .timeslot-time { height:60px; }
+body .booked-calendar-wrap .booked-appt-list .timeslot.timeslot-count-hidden .timeslot-people { height:60px; padding-top:13px; padding-right:13px; }
+body .booked-calendar-wrap .booked-appt-list .timeslot.timeslot-count-hidden .timeslot-time { padding-top:22px; }
+
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-time { padding-left:15px; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people { padding-right:16px; }
+
+body .booked-list-view .booked-appt-list .timeslot .timeslot-time { padding-left:0; }
+body .booked-list-view .booked-appt-list .timeslot .timeslot-people,
+body .booked-list-view .booked-appt-list .timeslot.timeslot-count-hidden .timeslot-people { padding-right:0; }
+
+body .booked-calendar-wrap.small table.booked-calendar .booked-appt-list .timeslot:hover .timeslot-people { padding-right:0; }
+
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people button { color:#fff; border-width:1px; border-style:solid; white-space:nowrap; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people button:hover { border-width:1px; border-style:solid; }
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people button[disabled],
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people button[disabled]:hover { cursor:default !important; background:#eee !important; border-color:#ddd !important; color:#aaa !important; }
+
+body .booked-list-view { position:relative; }
+body .booked-list-view .booked-appt-list .timeslot .timeslot-time { width:50%; }
+body .booked-list-view .booked-appt-list .timeslot .timeslot-people { width:50%; }
+
+body .booked-list-view.small .booked-appt-list h2,
+body .booked-list-view.booked-tight .booked-appt-list h2 { text-align:center; margin:5px 0 20px; font-size:15px; letter-spacing:0.03em; }
+body .booked-list-view.small .booked-list-view-nav,
+body .booked-list-view.booked-tight .booked-list-view-nav { display:block; margin:-5px 0 30px; position:relative; text-align:center; }
+body .booked-list-view.small .booked-list-view-nav .booked-list-view-date-next,
+body .booked-list-view.small .booked-list-view-nav .booked-list-view-date-prev,
+body .booked-list-view.booked-tight .booked-list-view-nav .booked-list-view-date-next,
+body .booked-list-view.booked-tight .booked-list-view-nav .booked-list-view-date-prev { margin:0 3px 5px; position:relative; display:inline-block; top:0; }
+
+body table.booked-calendar .timeslot-count strong { display:block; text-transform:uppercase; margin:20px 0 10px; }
+body table.booked-calendar .appt-block { width:80%; border-top:1px solid #ddd; display:block; padding:10px 0; }
+body table.booked-calendar .timeslot-count button { float:right; margin:0 0 0 10px; }
+body table.booked-calendar .timeslot-count a.delete { float:left; margin:0 10px 0 0; font-size:20px; line-height:1.3; color:#F59E9E; }
+body table.booked-calendar .timeslot-count a.delete:hover { color:#E35656; }
+body table.booked-calendar tr.week td.active:hover .count { top:-40px; }
+body table.booked-calendar .booked-appt-list .timeslot .timeslot-mobile-title,
+body .booked-calendar-wrap .booked-appt-list .timeslot .timeslot-people button .timeslot-mobile-title { display: none; }
+
+body .booked-calendar-wrap.small .booked-appt-list .timeslot .timeslot-people button .timeslot-mobile-title { display:block; }
+
+body .booked-calendarSwitcher.calendar { box-sizing:border-box; display:inline-block; margin:0; padding:8px 10px 9px 12px; color:#fff; -moz-border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0; border-radius:5px 5px 0 0; }
+body .booked-calendarSwitcher.calendar p { position:relative; line-height:1rem !important; margin:0 !important; padding:0 !important; }
+body .booked-calendarSwitcher.calendar p i.booked-icon { font-size:14px; margin:0 10px 0 0; position:relative; color:#fff; }
+body .booked-calendarSwitcher.calendar select { position:relative; cursor:pointer; background:transparent; font-size:14px; min-width:200px; border:none; color:#fff; -webkit-appearance:none; }
+body .booked-calendarSwitcher.calendar select:active, body .booked-calendarSwitcher.calendar select:focus { -moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none; outline:none; }
+body .booked-calendarSwitcher.calendar p:before { position:absolute; top:1px; right:3px; color:#fff; font-family:"BookedIcons"; content:"\f01b"; }
+
+body .booked-calendarSwitcher.list { box-sizing:border-box; display:inline-block; margin:0 0 20px; padding:0; }
+body .booked-calendarSwitcher.list p { line-height:1; margin:0; }
+body .booked-calendarSwitcher.list p i.booked-icon { display:none; }
+body .booked-calendarSwitcher.list select { font-size:14px; min-width:200px; border:1px solid #ddd; background:#f9f9f9; height:30px; }
+body .booked-calendarSwitcher.list select:active, body .booked-calendarSwitcher.list select:focus { -moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none; outline:none; }
+
+/* SMALL CALENDAR */
+body .booked-calendar-wrap.small table.booked-calendar thead th { font-size:1rem; padding:1.15rem 0 !important; height:1rem; }
+body .booked-calendar-wrap.small table.booked-calendar thead tr.days th { font-size:0.7rem; padding:0.5rem 0 !important; height:auto; }
+body .booked-calendar-wrap.small table.booked-calendar td { font-size:13px; }
+body .booked-calendar-wrap.small table.booked-calendar thead th .page-left { left:20px; top:50%; font-size:1rem; margin-top:-0.5rem; }
+body .booked-calendar-wrap.small table.booked-calendar thead th .page-right { right:20px; top:50%; font-size:1rem; margin-top:-0.5rem; }
+body .booked-calendar-wrap.small table.booked-calendar thead th .page-left:hover { left:19px; }
+body .booked-calendar-wrap.small table.booked-calendar thead th .page-right:hover { right:19px; }
+body .booked-calendar-wrap.small table.booked-calendar th .monthName { height:auto; display:inline-block; font-size:1rem; }
+body .booked-calendar-wrap.small table.booked-calendar th .monthName a { top:-2px; font-size:10px; }
+
+body .booked-calendar-wrap.small table.booked-calendar td .count { display:none; }
+body .booked-calendar-wrap.small table.booked-calendar td .date { height:100%; }
+
+body .booked-calendar-wrap.small table.booked-calendar td .date .number { border:none; display:block; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; transform:scale(1); width:100%; height:100%; vertical-align: middle; }
+body .booked-calendar-wrap.small table.booked-calendar td.blur .date,
+body .booked-calendar-wrap.small table.booked-calendar td.blur:hover .date { cursor:default; background:#EEEEEE; color:#ccc; }
+body .booked-calendar-wrap.small table.booked-calendar td.booked .date,
+body .booked-calendar-wrap.small table.booked-calendar td.booked:hover .date { cursor:default; background:#FFE4DF; color:#F15934; }
+body .booked-calendar-wrap.small table.booked-calendar td.today .date { background:#e3f2f9; color:#555; }
+body .booked-calendar-wrap.small table.booked-calendar td.today:hover .date { background:#eff7fb; color:#555; }
+body .booked-calendar-wrap.small table.booked-calendar td:hover .date { background:#f9f9f9; cursor:pointer; color:#000; }
+body .booked-calendar-wrap.small table.booked-calendar tr.week td.active .date .number { border:none; transform:scale(1.5); background:none; color:#000; }
+
+body .booked-calendar-wrap.small table.booked-calendar tr.entryBlock td { padding:5%; }
+body .booked-calendar-wrap.small .booked-appt-list { max-height:300px; overflow-y:auto; overflow-x:hidden; padding:15px 20px 10px; }
+body .booked-calendar-wrap.small .booked-appt-list h2 { text-align:center; margin:5px 0 20px; font-size:15px; letter-spacing:0.03em; }
+body .booked-calendar-wrap.small .booked-appt-list h2 span { display:none; }
+body .booked-calendar-wrap.small .booked-appt-list .timeslot { border-top:0; margin:0 0 10px;  }
+body .booked-calendar-wrap.small .booked-appt-list .timeslot .timeslot-time,
+body .booked-calendar-wrap.small .booked-appt-list .timeslot .timeslot-count { display:none; }
+body .booked-calendar-wrap.small .booked-appt-list .timeslot .timeslot-people { width:100%; padding:0; height:auto; }
+body .booked-calendar-wrap.small .booked-appt-list .timeslot .timeslot-people button { white-space:normal; float:none; margin:0; width:100%; height:auto; padding:7px 0; line-height:1.5; text-align:center; }
+
+body .booked-calendar-wrap.small .booked-appt-list .timeslot .timeslot-people button .button-timeslot { letter-spacing:0.01rem; display:block; font-weight:600; font-size:0.8rem; }
+body .booked-calendar-wrap.small .booked-appt-list .timeslot .timeslot-people button .button-text { display:none; }
+body .booked-calendar-wrap.small .booked-appt-list .timeslot .timeslot-people button .spots-available { display:block; }
+
+body .booked-calendar-wrap.small .booked-appt-list .timeslot.has-title.booked-hide-time .timeslot-people button .button-timeslot { display:none; }
+
+body .booked-calendar-wrap.small table.booked-calendar td.prev-date .date,
+body .booked-calendar-wrap.small table.booked-calendar td.prev-date:hover .date { cursor:default; background:#f9f9f9; color:#bbb; }
+body .booked-calendar-wrap.small table.booked-calendar td.blur .date,
+body .booked-calendar-wrap.small table.booked-calendar td.blur:hover .date { cursor:default; background:#eee; color:#ddd; }
+body .booked-calendar-wrap.small table.booked-calendar td.booked .date,
+body .booked-calendar-wrap.small table.booked-calendar td.booked:hover .date { cursor:default; background:#ffeae7; color:#f0b1a1; }
+body .booked-calendar-wrap.small table.booked-calendar tr.week td.active .date,
+body .booked-calendar-wrap.small table.booked-calendar td.today.active:hover .date span { background:#ddd !important; }
+
+/* List View Styles */
+body .booked-list-view.small .booked-appt-list h2 { color:#555; font-size:20px; margin:0 0 30px; }
+body .booked-list-view.small .booked-appt-list { max-height:none; padding:0; }
+body .booked-list-view .booked-appt-list { opacity:1; position:relative; }
+body .booked-list-view.booked-loading .booked-appt-list { opacity:0.15; }
+body .booked-list-view.booked-loading .booked-appt-list > h2 { opacity:0; }
+body .booked-list-view.booked-loading .booked_list_date_picker_trigger { /* opacity:0.15; */ }
+body .booked-list-view .booked-list-view-nav { position:absolute; top:0; left:0; width:100%; }
+body .booked-list-view .booked-list-view-nav .booked-list-view-date-next { position:absolute; top:1px; right:35px; font-weight:400; }
+body .booked-list-view .booked-list-view-nav .booked-list-view-date-prev { position:absolute; top:1px; left:0; font-weight:400; }
+
+body .booked-list-view span.booked-datepicker-wrap { position:absolute; top:2px; right:0; }
+body .booked-list-view a.booked_list_date_picker_trigger { text-align:center; transform:scale(1); background:#eee; border:1px solid #ccc; box-sizing:content-box; color:#333; display:inline-block; position:relative; top:-2px; margin:0; font-size:13px; width:24px; height:24px; line-height:23px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+body .booked-list-view a.booked_list_date_picker_trigger:hover { background:#ddd; color:#000; border-color:#ccc; }
+body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active,
+body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active:hover { transform:scale(1.23); color:#fff; }
+
+.booked-appt-list .booked-public-appointment-title { display:block; font-weight:600; font-size:15px; padding:0 0 5px; }
+.booked-appt-list ul.booked-public-appointment-list, .booked-appt-list ul.booked-public-appointment-list li { display:block; font-weight:400; list-style:none; margin:0 0 14px; padding:0; }
+.booked-appt-list ul.booked-public-appointment-list li { padding:0; margin:0; }
+.booked-appt-list .booked-public-pending { color:#aaa; }
+.timeslot-time.booked-public-appointments { height:auto !important; }
+
+/* MODAL FORM */
+body .booked-form { padding-top:5px; }
+body .booked-form .field { margin:5px 0 7px; }
+body .booked-form .field.booked-text-content { margin-bottom:0; margin-top:20px; }
+body .booked-form .field.booked-text-content *:last-child { margin-bottom:0; }
+body .booked-form .field:after { content: ""; display: table; clear: both; }
+body .booked-form input[type=radio],
+body .booked-form input[type=checkbox] { position:relative; top:2px; }
+body .booked-form .field select,
+body .booked-form .field input[type=text],
+body .booked-form .field input[type=password],
+body .booked-form .field input[type=tel],
+body .booked-form .field input[type=email],
+body .booked-form .field textarea { background:#fff; border:1px solid #ccc; box-sizing:border-box; margin:0 1.5% 0 0; width:49.2%; float:left; }
+body .booked-form .field input:last-child { margin-right:0; }
+body .booked-form .field input[type=text],
+body .booked-form .field input[type=password],
+body .booked-form .field input[type=tel],
+body .booked-form .field input[type=email],
+body .booked-form .field textarea { font-size:13px; padding:7px 10px; color:#aaa; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+body .booked-form .field textarea,
+body .booked-form .field input.hasContent { color:#555; }
+body .booked-form .field input.large,
+body .booked-form .field select.large { width:100%; margin-right:1px; width:99.8%; }
+body .booked-form .spacer { padding:5px 0 0 0; margin:0; display:block; }
+body .booked-form .spacer.big { padding:25px 0 0; }
+body .booked-form hr { border:none; border-top:1px solid #ddd; padding:10px 0 0 0; margin:20px 0 0 0; }
+body .booked-form .condition-block { display:none; }
+body .booked-form .condition-block.default { display:block; }
+body .booked-form input[type=submit],
+body .booked-form button { float:left; margin:0 10px 0 0; }
+body .booked-form .field label { cursor:pointer; }
+body .booked-form .field label.field-label { cursor:default; display:block; font-weight:bold; padding:10px 0 8px; margin:0; }
+body .booked-form .field textarea { height:100px; width:100%; box-sizing:border-box; line-height:1.6; }
+body .booked-form .field .checkbox-radio-block { display:block; padding:0 0 3px 10px; }
+body .booked-form .field .checkbox-radio-block label { font-size:13px; display:inline-block; padding-left:7px; margin:0; position:relative; top:3px; }
+body .booked-form .cf-block { margin: 0 0 25px; }
+body .booked-form .cf-block select { font-size:13px; width:100%; height:33px; margin-right:0; padding:0 10px; float:none; }
+body .booked-form .cf-block ul, body .booked-form .cf-block ol { margin-left:30px; }
+body .booked-form .required-asterisk { color:#E35656; margin:-1px 0 0 7px; }
+body .booked-form #ajaxlogin { width:100%; }
+body .booked-form #ajaxlogin p.status { display:none; padding:15px 0 0; margin:0; font-size:15px; color:#888; }
+body .booked-form #newAppointmentForm p.status { display:none; padding:0 0 20px; margin:0; font-size:15px; color:#888; }
+body img.captcha-image { position:relative; top:5px; left:5px; }
+body #booked-page-form p.captcha, body .booked-modal .bm-window p.captcha { margin:-5px 0 15px; }
+body .booked-form .field p.field-small-p { font-size:14px; margin:-5px 0 5px; }
+body .booked-form input[type=submit].button:disabled { background:#ddd !important; border-color:#ddd !important; color:#aaa !important; cursor:not-allowed; }
+body .booked-form .booked-appointments { background:#fff; padding:10px 16px 13px; margin:0 0 15px; box-shadow:0 1px 3px rgba(0,0,0,0.15); -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+body .booked-form .booked-appointment-details { margin:0 0 10px; padding:0 0 7px; border-bottom:1px solid #ddd; }
+body .booked-form .booked-appointment-details:last-child { margin:0; padding:0; border:none; }
+body .booked-form .booked-appointment-details.has-error { color: #e35656; }
+
+
+#customerChoices { display:block; text-align:left; background:#fff; padding:20px 0 23px; text-align:center; margin:-26px -36px 15px; border-bottom:1px solid #ddd; }
+#customerChoices .field { display:inline-block; }
+#customerChoices .field .checkbox-radio-block { padding-left:0; }
+#customerChoices .field { margin:0 20px 0 0; }
+#customerChoices .field:last-child { margin:0; }
+#customerChoices .field .checkbox-radio-block label { font-weight:400; font-size:15px; }
+
+#ajaxforgot { display:none; }
+
+
+/* MODAL WINDOWS */
+body .booked-modal { margin-top:-84px; min-height:168px; position: fixed; z-index:9999999; top:50%; right: 0; bottom: 0; left: 0; }
+body .booked-modal hr { border-top:1px solid #ddd; background:none; }
+body .booked-modal .bm-overlay { animation: booked-fadein 0.2s; -webkit-animation: booked-fadein 0.2s; -moz-animation: booked-fadein 0.2s; -ms-animation: booked-fadein 0.2s; -o-animation: booked-fadein 0.2s; -webkit-backface-visibility: hidden; position: fixed; background:#000; background: rgba(0, 0, 0, 0.65); top: 0; right: 0; bottom: 0; left: 0; }
+body .booked-modal .bm-window { animation: booked-flyin 0.2s; -webkit-animation: booked-flyin 0.2s; -moz-animation: booked-flyin 0.2s; -ms-animation: booked-flyin 0.2s; -o-animation: booked-flyin 0.2s; -webkit-backface-visibility: hidden; padding:43px 0 25px; width:450px; position:relative; margin:0 auto; background:#fff; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; -moz-box-shadow:1px 1px 60px rgba(0,0,0,0.5); -webkit-box-shadow:1px 1px 60px rgba(0,0,0,0.5); box-shadow:1px 1px 60px rgba(0,0,0,0.5); }
+body .booked-modal.bm-loading .bm-window { background:none; -webkit-box-shadow:none; -moz-box-shadow:none; box-shadow:none; }
+body .booked-modal.bm-closing .bm-overlay { animation: booked-fadeout 0.2s; -webkit-animation: booked-fadeout 0.2s; -moz-animation: booked-fadeout 0.2s; -ms-animation: booked-fadeout 0.2s; -o-animation: booked-fadeout 0.2s; -webkit-backface-visibility: hidden; }
+body .booked-modal.bm-closing .bm-window { animation: booked-flyout 0.2s; -webkit-animation: booked-flyout 0.2s; -moz-animation: booked-flyout 0.2s; -ms-animation: booked-flyout 0.2s; -o-animation: booked-flyout 0.2s; -webkit-backface-visibility: hidden; }
+body .booked-modal .bm-window { background:#f5f5f5; max-height:100px; z-index:2000000000; }
+body .booked-modal .bm-window p { margin:0 0 15px; font-size:15px; }
+body .booked-modal .bm-window p small { display:block; margin:0 0 15px; text-transform:uppercase; font-size:13px; font-weight:600; }
+body .booked-modal .bm-window p.appointment-title { font-weight:600; margin-bottom:0; }
+body .booked-modal .bm-window p.calendar-name { font-weight:600; margin-bottom:0; }
+body .booked-modal .bm-window p.appointment-info { font-size:15px; margin:0; line-height:1.7; }
+body .booked-modal .bm-window p strong { font-size:13px; text-transform:uppercase; display:inline-block; padding-right:3px; font-weight:600; }
+body .booked-modal .bm-window a { text-decoration:none; }
+body .booked-modal .bm-window .close { line-height:1; color:#fff; color:rgba(255,255,255,0.5); font-size:20px; position:absolute; top:11px; right:14px; }
+body .booked-modal .bm-window .close:hover { color:#fff; }
+body .booked-modal .bm-window p i.booked-icon.booked-icon-clock { font-size: 18px; position: relative; top: 1px; }
+body .booked-modal .bm-window p.booked-calendar-name { font-weight:600; font-size:15px; }
+
+body .booked-modal .bm-window .booked-scrollable { max-height:100px; padding:25px 30px; overflow-y:auto; overflow-x:hidden; background:#f5f5f5; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; box-sizing:content-box; }
+body .booked-modal .bm-window p.booked-title-bar { box-sizing: border-box; font-size: 13px; position: absolute; top: 0; left: 0; line-height:1; width: 100%; color: #fff; border-radius: 4px 4px 0 0; padding: 15px 30px 15px 15px; }
+body .booked-modal .bm-window p.booked-title-bar small { margin:0; }
+
+/* Scrolling Fixes */
+body .booked-modal .bm-window .booked-scrollable { -webkit-overflow-scrolling:touch; }
+body .booked-modal .bm-window .booked-scrollable > * { -webkit-transform: translateZ(0px); -webkit-transform: translate3d(0,0,0); }
+
+/* PROFILE PAGE */
+body #booked-profile-page { position:relative; margin:0 0 30px; }
+body #booked-profile-page .booked-profile-header { border:1px solid #ddd; -moz-border-radius:3px 3px 0 0; -webkit-border-radius:3px 3px 0 0; border-radius:3px 3px 0 0; padding:15px; position:relative; }
+body #booked-profile-page .booked-profile-header .booked-logout-button { text-decoration:none; font-size:0.9rem; position:relative; top:-1px; color:rgba(255,255,255,0.5); }
+body #booked-profile-page .booked-profile-header .booked-logout-button:hover { color:#fff; }
+body #booked-profile-page .booked-user-avatar { width:35px; height:35px; position:relative; top:0; left:0; float:left; display:inline-block; }
+body #booked-profile-page .booked-user-avatar img { width:100%; height:auto; display:block; margin:0; -moz-border-radius:20px; -webkit-border-radius:20px; border-radius:20px; }
+body #booked-profile-page .booked-info { width:100%; }
+body #booked-profile-page .booked-user * { margin:0; padding:0; line-height:1.6; }
+body #booked-profile-page .booked-user h3 { color:#fff; margin:0; padding:4px 0 4px 12px; float:left; display:inline-block; font-size:1.25rem !important; letter-spacing:0.03rem !important; }
+body #booked-profile-page .booked-counts { float:right; width:25%; margin-left:5%; }
+body #booked-profile-page .booked-counts span { display:block; text-align:right; font-size:12px; line-height:2.1; }
+body #booked-profile-page .booked-counts i.booked-icon { display:inline-block; padding-right:7px; }
+body #booked-profile-page .booked-tabs { border-width:1px; border-style:solid; border-top:0; border-bottom:0; list-style:none; margin:0 !important; padding:0 !important; }
+body #booked-profile-page .booked-tabs li { float:left; display:inline-block; margin:0 !important; padding:0 !important; }
+body #booked-profile-page .booked-tabs li a { height:auto !important; font-size:14px; border-right-width:1px; border-right-style:solid; display:block; text-decoration:none; padding:0 15px; line-height:40px; }
+body #booked-profile-page .booked-tabs li a i.booked-icon { display:inline-block; padding-right:7px; }
+body #booked-profile-page .booked-tab-content { -moz-border-radius:0 0 3px 3px; -webkit-border-radius:0 0 3px 3px; border-radius:0 0 3px 3px; display:none; padding:30px 35px 30px 35px; border-width:1px; border-style:solid; border-top:none; }
+body #booked-profile-page .booked-tabs.login { border-top-width:1px; border-top-style:solid; }
+
+/* Profile Colors */
+body #booked-profile-page .booked-tabs li a { background:rgba(0,0,0,0.15); }
+body #booked-profile-page .booked-tabs li a:hover { background:rgba(0,0,0,0.25); }
+body #booked-profile-page .booked-tabs li a { color: #fff; }
+body #booked-profile-page .booked-tabs li a:hover { color: #fff; }
+body #booked-profile-page .booked-tab-content { border-color:#ddd; background:#fff; }
+body #booked-profile-page .booked-counts,
+body #booked-profile-page .booked-tabs li.active a,
+body #booked-profile-page .booked-tabs li.active a:hover { color: #fff; }
+body #booked-profile-page .booked-tabs li a { border:none; }
+
+body #booked-profile-page p.booked-no-margin { color:#888; margin:0; }
+
+body #booked-profile-page .booked-show-cf { outline:none; font-weight:600; }
+body #booked-profile-page .booked-show-cf.booked-cf-active { color:#000; }
+
+body #booked-profile-page .cf-meta-values-hidden { animation: booked-popdown 0.2s; -webkit-animation: booked-popdown 0.2s; -moz-animation: booked-popdown 0.2s; -ms-animation: booked-popdown 0.2s; -o-animation: booked-popdown 0.2s; display:none; border-left: 3px solid #ddd; margin: 10px 0 0 0px; padding: 0 0 0 20px; }
+body #booked-profile-page .cf-meta-values-hidden p { margin:0 0 10px; font-size:14px; font-weight:300; line-height: 1.5; }
+body #booked-profile-page .cf-meta-values-hidden p:last-child { margin-bottom:0; }
+body #booked-profile-page .cf-meta-values-hidden p strong { font-weight:600; }
+
+body #booked-profile-page .result-section.table-layout { margin:0; }
+body #booked-profile-page .result-section.table-layout .table-box { border:none; }
+body #booked-profile-page .result-section.table-layout .table-box .table-body .table-row { min-height:115px; }
+body #booked-profile-page .result-section.table-layout .table-box .table-body .cell-title { font-weight:normal; font-size:15px; line-height:1.6 }
+body #booked-profile-page .result-section.table-layout .table-box .table-body .cell-title p { margin:0; padding:10px 0 0 0; font-size:12px; }
+body #booked-profile-page .result-section.table-layout .table-box .table-body .cell-title small { display:block; padding-top:5px; }
+body #booked-profile-page .result-section.table-layout .table-box .table-body .cell-title a { font-weight:600; }
+body #booked-profile-page .result-section.table-layout .table-box .table-head-row { background:none !important; }
+body #booked-profile-page .result-section.table-layout .table-box .table-cell { padding:20px 0; }
+body #booked-profile-page .result-section.table-layout .table-box .cell-title { position:relative; width:55%; padding-right:25px; }
+body #booked-profile-page .result-section.table-layout .table-box .cell-title .compact-img img { width:65px; height:auto; position:absolute; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; top:26px; left:0; }
+body #booked-profile-page .result-section.table-layout .table-box .cell-title .cell-title-wrap { padding-left:85px; }
+body #booked-profile-page .result-section.table-layout .table-box .cell-rating { width:20%; }
+body #booked-profile-page .result-section.table-layout .table-box .cell-time { width:25%; }
+body #booked-profile-page .result-section.table-layout .table-box .cell-title.reviews { width:100%; padding-right:0; }
+body #booked-profile-page .result-section.table-layout .table-box .cell-title.reviews .rating { margin-top:10px; }
+body #booked-profile-page .result-section.table-layout .table-box .table-body .cell-title .booked-review p { font-size:14px; line-height:1.7; }
+
+/* BOOKED LOGIN */
+body #booked-page-form .booked-form-wrap { padding:10px 0; }
+body #booked-page-form input[type=submit] { margin:0; }
+body #booked-page-form input[type=text],
+body #booked-page-form input[type=password],
+body #booked-page-form input[type=email],
+body #booked-page-form textarea { margin:7px 0 0 0; border-width:1px; border-style:solid; padding:10px 12px; width:100%; -moz-box-sizing:border-box; box-sizing:border-box; }
+body #booked-page-form input:disabled,
+body #booked-page-form textarea:disabled { background:#f9f9f9; color:#bbb; border:1px dotted #ccc; }
+body #booked-page-form input[type=file]:disabled { background:#fff; border:none; }
+body #booked-page-form label .not-bold { font-weight:400; color:#ccc; padding:0 0 0 5px; }
+body #booked-page-form p { margin:0 0 15px; }
+body #booked-page-form .login-remember { float:left; margin:2px 0 0 0; }
+body #booked-page-form .login-remember input { margin: 0 4px 0 0; position: relative; top: -1px; }
+body #booked-page-form .login-submit { float:right; margin:0; }
+body #booked-page-form .login-submit input { margin:0; }
+
+body #profile-edit #booked-page-form { border-top:1px solid #ddd; padding-top:20px; }
+body #profile-edit #booked-page-form input[type=file] { display:inline-block; padding:0; }
+body #profile-edit #booked-page-form label { font-weight:600; }
+body #profile-edit #booked-page-form p.form-nickname,
+body #profile-edit #booked-page-form p.form-email,
+body #profile-edit #booked-page-form p.form-url { float:left; width:100%; margin:0 0 25px; }
+body #profile-edit #booked-page-form p.form-password { float:left; width:48%; margin:0 4% 25px 0; }
+body #profile-edit #booked-page-form p.form-password.last { margin:0 0 25px; }
+body #profile-edit #booked-page-form p.form-textarea,
+body #profile-edit #booked-page-form p.form-avatar,
+body #profile-edit #booked-page-form p.form-submit { float:none; width:100%; margin:0 0 25px; }
+body #profile-edit #booked-page-form p.form-submit { margin:0 0 5px; }
+body #profile-edit #booked-page-form .hint-p { font-size: 12px; color: #aaa; padding-top: 5px; display: block; font-style: italic; }
+body #profile-login label, #profile-register label, #profile-forgot label { font-weight:600; }
+
+body .booked-upload-wrap,
+body .booked-upload-wrap input { background: #f5f5f5; border:1px solid #ddd; display:block; height: 35px; width:100%; cursor:pointer; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; position:relative; }
+body .booked-upload-wrap { width: 100%; margin:10px 0 4px; }
+body #booked-submit-recipe-form .booked-upload-wrap { width:100%; margin:0; }
+
+body .booked-upload-wrap:hover { background:#eee; }
+body .booked-upload-wrap span { color:#888; font-size:13px; text-align:center; height:24px; width:100%; position:absolute; left:0; top:50%; margin-top:-12px; display:block; z-index:1; }
+body .booked-upload-wrap input { z-index:2; opacity:0; }
+
+body .booked-upload-wrap.hasFile { background:#f9f9f9; border:1px solid #ccc; color:#666; }
+body #booked-submit-recipe-form .booked-upload-wrap.hasFile { width:100%; }
+
+body .booked-upload-wrap.hasFile span { color:#000; }
+
+body .booked-custom-error { display:none; margin:0 0 20px; padding:5px 10px; background:#fff0f0; border:1px solid #e3c3c3; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; }
+body .booked-custom-error.not-hidden { display:block; }
+
+body #booked-plugin-page p.booked-form-notice,
+body #booked-profile-page p.booked-form-notice { border:1px solid #E6DB55; border-radius:3px; background-color: #FFFBCC; margin:0 0 35px; padding: 10px 15px; }
+
+body #booked-profile-page .booked-profile-appt-list,
+body #booked-profile-page #profile-edit { box-sizing:border-box; }
+
+body #booked-profile-page h4 { margin:0 0 20px; padding:0; font-size:19px; font-weight:600; }
+body #booked-profile-page .booked-tabs li.edit-button { float:right; }
+
+body #booked-profile-page .booked-profile-appt-list .appt-block { color:#888; line-height:23px; padding:20px 0 25px; border-top:1px solid #ddd; display:block; }
+body #booked-profile-page .booked-profile-appt-list .appt-block > i.booked-icon { width:23px; color:#333; }
+body #booked-profile-page .booked-profile-appt-list .appt-block:last-child { padding-bottom:0; }
+body #booked-profile-page .booked-profile-appt-list .appt-block .status-block { -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; font-size:12px; text-transform:uppercase; font-weight:bold; float:right; padding:0 12px 1px; line-height:33px; margin:6px 0 0 0; background:#ccc; color:#fff; }
+body #booked-profile-page .booked-profile-appt-list .appt-block.approved { color:#000; }
+body #booked-profile-page .booked-profile-appt-list .appt-block button { float:right; margin:6px 0 0 0; }
+body #booked-profile-page .booked-profile-appt-list .appt-block .cancel { color:#aaa; font-size:12px; padding-left:10px; }
+body #booked-profile-page .booked-profile-appt-list .appt-block .booked-cal-buttons { display:block; padding:15px 0 0 0; }
+body #booked-profile-page .booked-profile-appt-list .appt-block .booked-cal-buttons a { text-decoration:none; display:inline-block; padding:0.5rem 0.75rem; margin:0 7px 0 0; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; line-height:1rem; font-size:0.9rem; font-weight:400; }
+body #booked-profile-page .booked-profile-appt-list .appt-block .booked-cal-buttons a:hover { text-decoration:none; }
+body #booked-profile-page .appt-block .booked-cal-buttons .google-cal-button { font-size:0.9rem; line-height:1rem; font-weight:400; letter-spacing:0.03rem; padding:0.5rem 0.65rem 0.5rem 40px; }
+body #booked-profile-page .appt-block .booked-cal-buttons .google-cal-button .addeventatc_dropdown { padding:0; }
+body #booked-profile-page .appt-block .booked-cal-buttons .google-cal-button .copyx { display:none; }
+body #booked-profile-page .appt-block .booked-cal-buttons .google-cal-button .addeventatc_icon { top:0.35rem; }
+body #booked-profile-page .appt-block .booked-cal-buttons a,
+body #booked-profile-page .appt-block .booked-cal-buttons > span,
+body #booked-profile-page .appt-block .booked-cal-buttons > div { float:left; display:inline-block; margin:0 0.5rem 0 0; }
+body #booked-profile-page .booked-profile-appt-list .appt-block .cancel { border:1px solid #ddd; background:#f5f5f5; color:#aaa; }
+body #booked-profile-page .booked-profile-appt-list .appt-block .cancel:hover { background:#eee; color:#888; border-color:#ccc; }
+body #booked-profile-page .booked-profile-appt-list .calendar-name { padding:0 0 5px; }
+
+/* CUSTOM DATE PICKER STYLING */
+.booked-list-date-picker-wrap { width:100%; position:absolute; text-align:center; top:30px; left:0; }
+#ui-datepicker-div.booked_custom_date_picker { animation: booked-popflyin 0.15s; -webkit-animation: booked-popflyin 0.15s; -moz-animation: booked-popflyin 0.15s; -ms-animation: booked-popflyin 0.15s; -o-animation: booked-popflyin 0.15s; background:#fff; margin-top:37px; margin-left:-107px; width:230px; border:1px solid #d5d5d5; padding:8px; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; box-shadow:0 1px 4px rgba(0,0,0,0.15); z-index:9999 !important; }
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header { position:relative; color:#fff; }
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-prev,
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-next { cursor:pointer; top:9px; font-size:16px; position:absolute; display: inline-block; font-family:"BookedIcons"; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; transform: translate(0, 0); color:#fff; }
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-prev .ui-icon,
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-next .ui-icon { display:none; }
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-prev { left:9px; }
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-next { right:9px; }
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-title { text-transform:uppercase; padding:9px 0 10px; text-align:center; }
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-prev:hover,
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-next:hover { opacity:0.7; }
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-prev:before { content: "\f017"; }
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header .ui-datepicker-next:before { content: "\f018"; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar { width:100%; border-collapse: collapse; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar thead, #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar thead th { font-size:11px; font-weight:normal; color:#fff; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar thead th { width:14.285%; text-align:center; padding:5px 0; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody { border-top:8px solid #fff; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody, #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td { font-size:12px; font-weight:normal; background:#fff; color:#888; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td { text-align:center; padding:0px; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td a { display:block; -moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px; line-height:33px; text-decoration:none; color:#333; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td a:hover { background:#eee; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td span { display:block; line-height:33px;  }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-unselectable span { color:#ddd; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-week-end a { color:#888; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-today a { color:#fff; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-today a:hover { color:#fff; }
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td a.ui-state-active, #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td a.ui-state-active:hover { color:#ffffff; }
+/* END CUSTOM DATE PICKER STYLING */
+
+/* Page Form Colors */
+body #booked-page-form input[type=email],
+body #booked-page-form input[type=text],
+body #booked-page-form input[type=password],
+body #booked-page-form textarea,
+body #booked-page-form { border-color: #ccc; color: #888; line-height: 1.5; font-size: 13px; }
+
+/* ANIMATION */
+body .booked-calendar-wrap {
+    -webkit-transition: height .15s ease-out;
+    -moz-transition: height .15s ease-out;
+    -o-transition: height .15s ease-out;
+    transition: height .15s ease-out;
+}
+
+body table.booked-calendar td .count,
+body table.booked-calendar thead th a,
+body .booked-appt-list .timeslot .timeslot-time,
+body .booked-appt-list .timeslot .timeslot-people,
+body .booked-appt-list .timeslot,
+body #booked-profile-page .booked-profile-appt-list .appt-block .booked-cal-buttons a,
+body #booked-profile-page .booked-show-cf,
+body .booked-list-view a.booked_list_date_picker_trigger {
+    -webkit-transition: all .1s ease-out;
+    -moz-transition: all .1s ease-out;
+    -o-transition: all .1s ease-out;
+    transition: all .1s ease-out;
+}
+
+body table.booked-calendar td .date,
+body table.booked-calendar td .date span {
+    -webkit-transition: background .15s ease-out, color .15s ease-out;
+    -moz-transition: background .15s ease-out, color .15s ease-out;
+    -o-transition: background .15s ease-out, color .15s ease-out;
+    transition: background .15s ease-out, color .15s ease-out;
+}
+
+body .booked-list-view .booked-appt-list {
+    -webkit-transition: opacity .2s ease-out;
+    -moz-transition: opacity .2s ease-out;
+    -o-transition: opacity .2s ease-out;
+    transition: opacity .2s ease-out;
+}
+
+body .booked-appt-list {
+    -webkit-transition: transform .4s ease-in-out;
+    -moz-transition: transform .4s ease-in-out;
+    -o-transition: transform .4s ease-in-out;
+    transition: transform .4s ease-in-out;
+}
+
+/*Tabbed Interface*/
+.booked-tabs { overflow: hidden; }
+.booked-tabs .booked-tabs-nav { margin-bottom: 20px; }
+.booked-tabs .booked-tabs-nav span { display: inline-block; padding: 0 5px; border: 1px solid #ccc; background: #eee; color: #000; font-size: 12px; line-height: 30px; text-transform: uppercase; cursor: pointer; box-sizing: border-box; }
+.booked-tabs .booked-tabs-nav span:hover,
+.booked-tabs .booked-tabs-nav span.active { background: #ddd; color: #fff; }
+.booked-tabs .booked-tabs-cnt {}
+.booked-tabs .booked-tabs-cnt > div { display: none; }
+.booked-tabs .booked-tabs-cnt > div.active { display: block; }
+
+
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td a.ui-state-active,
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td a.ui-state-active:hover,
+body #booked-profile-page input[type=submit].button-primary:hover,
+body .booked-list-view button.button:hover,
+body .booked-list-view input[type=submit].button-primary:hover,
+body table.booked-calendar input[type=submit].button-primary:hover,
+body .booked-modal input[type=submit].button-primary:hover,
+body table.booked-calendar th,
+body table.booked-calendar thead,
+body table.booked-calendar thead th,
+body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button:hover,
+body #booked-profile-page .booked-profile-header,
+body #booked-profile-page .booked-tabs li.active a,
+body #booked-profile-page .booked-tabs li.active a:hover,
+body #booked-profile-page .appt-block .google-cal-button > a:hover,
+#ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header {
+    background: #ff4a52 !important;
+}
+
+body #booked-profile-page input[type=submit].button-primary:hover,
+body table.booked-calendar input[type=submit].button-primary:hover,
+body .booked-list-view button.button:hover,
+body .booked-list-view input[type=submit].button-primary:hover,
+body .booked-modal input[type=submit].button-primary:hover,
+body table.booked-calendar th,
+body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button:hover,
+body #booked-profile-page .booked-profile-header,
+body #booked-profile-page .appt-block .google-cal-button > a:hover {
+    border-color: #ff4a52 !important;
+}
+
+body table.booked-calendar tr.days,
+body table.booked-calendar tr.days th,
+body .booked-calendarSwitcher.calendar,
+body #booked-profile-page .booked-tabs,
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar thead,
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar thead th {
+    background: #e04141 !important;
+}
+
+body table.booked-calendar tr.days th,
+body #booked-profile-page .booked-tabs {
+    border-color: #e04141 !important;
+}
+
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-today a,
+#ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-today a:hover,
+body #booked-profile-page input[type=submit].button-primary,
+body table.booked-calendar input[type=submit].button-primary,
+body .booked-list-view button.button,
+body .booked-list-view input[type=submit].button-primary,
+body .booked-list-view button.button,
+body .booked-list-view input[type=submit].button-primary,
+body .booked-modal input[type=submit].button-primary,
+body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button,
+body #booked-profile-page .booked-profile-appt-list .appt-block.approved .status-block,
+body #booked-profile-page .appt-block .google-cal-button > a,
+body .booked-modal p.booked-title-bar,
+body table.booked-calendar td:hover .date span,
+body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active,
+body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active:hover,
+.booked-ms-modal .booked-book-appt
+/* Multi-Slot Booking */
+
+{
+    background: #ff4a52;
+}
+
+body #booked-profile-page input[type=submit].button-primary,
+body table.booked-calendar input[type=submit].button-primary,
+body .booked-list-view button.button,
+body .booked-list-view input[type=submit].button-primary,
+body .booked-list-view button.button,
+body .booked-list-view input[type=submit].button-primary,
+body .booked-modal input[type=submit].button-primary,
+body #booked-profile-page .appt-block .google-cal-button > a,
+body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button,
+body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active,
+body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active:hover {
+    border-color: #ff4a52;
+}
+
+body .booked-modal .bm-window p i.fa,
+body .booked-modal .bm-window a,
+body .booked-appt-list .booked-public-appointment-title,
+body .booked-modal .bm-window p.appointment-title,
+.booked-ms-modal.visible:hover .booked-book-appt {
+    color: #ff4a52;
+}
+
+.booked-appt-list .timeslot.has-title .booked-public-appointment-title {
+    color: inherit;
+}
+
+body,
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=date],
+input[type=tel],
+input[type=number],
+input.wpcf7-text,
+.woocommerce table.cart td.actions .coupon .input-text,
+.woocommerce-page table.cart td.actions .coupon .input-text,
+.woocommerce #content table.cart td.actions .coupon .input-text,
+.woocommerce-page #content table.cart td.actions .coupon .input-text,
+select,
+textarea {
+    font-family: "Work Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+body,
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=date],
+input[type=tel],
+input[type=number],
+input.wpcf7-text,
+.woocommerce table.cart td.actions .coupon .input-text,
+.woocommerce-page table.cart td.actions .coupon .input-text,
+.woocommerce #content table.cart td.actions .coupon .input-text,
+.woocommerce-page #content table.cart td.actions .coupon .input-text,
+select,
+input[type=submit],
+input[type=button],
+a.button,
+.button {
+    font-size: 15px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+.post_quote_title,
+label,
+strong[itemprop="author"],
+#page_content_wrapper .posts.blog li a,
+.page_content_wrapper .posts.blog li a,
+.readmore,
+.post_detail.single_post,
+.page_tagline,
+#gallery_caption .tg_caption .tg_desc,
+#filter_selected,
+#autocomplete li strong,
+.post_detail.single_post a,
+.post_detail.single_post a:hover,
+.post_detail.single_post a:active,
+blockquote,
+.single_tour_price,
+.single_tour_departure_wrapper li .single_tour_departure_title,
+.comment_rating_wrapper .comment_rating_label,
+.tour_excerpt,
+.widget_post_views_counter_list_widget,
+.sidebar_widget li.widget_products,
+#copyright,
+#footer_menu li a,
+#footer ul.sidebar_widget li ul.posts.blog li a,
+.woocommerce-page table.cart th,
+table.shop_table thead tr th,
+.tour_price,
+p.price span.amount,
+.woocommerce-page div.product .woocommerce-tabs ul.tabs li a,
+.woocommerce ul.products li.product .price {
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+#autocomplete li strong {
+    font-weight: 700;
+    letter-spacing: 0px;
+}
+
+h1 {
+    font-size: 34px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+body,
+#wrapper,
+#page_content_wrapper.fixed,
+#gallery_lightbox h2,
+.slider_wrapper .gallery_image_caption h2,
+#body_loading_screen,
+h3#reply-title span,
+.overlay_gallery_wrapper,
+.pricing_wrapper_border,
+.pagination a,
+.pagination span,
+#captcha-wrap .text-box input,
+.flex-direction-nav a,
+.blog_promo_title h6,
+#supersized li,
+#gallery_caption .tg_caption,
+#horizontal_gallery_wrapper .image_caption,
+#tour_search_form,
+.tour_search_form {
+    background-color: #ffffff;
+}
+
+#gallery_expand {
+    border-bottom-color: #ffffff;
+}
+
+body,
+.pagination a,
+#gallery_lightbox h2,
+.slider_wrapper .gallery_image_caption h2,
+.post_info a,
+#page_content_wrapper.split #copyright,
+.page_content_wrapper.split #copyright,
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited,
+.readmore,
+#page_content_wrapper .inner .sidebar_wrapper .sidebar .single_tour_booking_wrapper label,
+.woocommerce-MyAccount-navigation ul a,
+.theme_link_color {
+    color: #222222;
+}
+
+::selection {
+    background-color: #222222;
+}
+
+::-webkit-input-placeholder {
+    color: #222222;
+}
+
+::-moz-placeholder {
+    color: #222222;
+}
+
+:-ms-input-placeholder {
+    color: #222222;
+}
+
+a,
+.post_detail.single_post {
+    color: #FF4A52;
+}
+
+.flex-control-paging li a.flex-active {
+    background-color: #FF4A52;
+    border-color: #FF4A52;
+}
+
+a:hover,
+a:active,
+.post_info_comment a i,
+{
+    color: #1EC6B6;
+}
+
+.post_excerpt.post_tag a:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+a.button:hover,
+.button:hover,
+.button.submit,
+a.button.white:hover,
+.button.white:hover,
+a.button.white:active,
+.button.white:active {
+    background: #1EC6B6;
+    border-color: #1EC6B6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+pre,
+code,
+tt,
+blockquote,
+.post_header h5 a,
+.post_header h3 a,
+.post_header.grid h6 a,
+.post_header.fullwidth h4 a,
+.post_header h5 a,
+blockquote,
+.site_loading_logo_item i,
+.ppb_subtitle,
+.woocommerce .woocommerce-ordering select,
+.woocommerce #page_content_wrapper a.button,
+.woocommerce.columns-4 ul.products li.product a.add_to_cart_button,
+.woocommerce.columns-4 ul.products li.product a.add_to_cart_button:hover,
+.ui-accordion .ui-accordion-header a,
+.tabs .ui-state-active a,
+body.woocommerce div.product .woocommerce-tabs ul.tabs li.active a,
+body.woocommerce-page div.product .woocommerce-tabs ul.tabs li.active a,
+body.woocommerce #content div.product .woocommerce-tabs ul.tabs li.active a,
+body.woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active a,
+.woocommerce div.product .woocommerce-tabs ul.tabs li a,
+.post_header h5 a,
+.post_header h6 a,
+.flex-direction-nav a:before,
+.social_share_button_wrapper .social_post_view .view_number,
+.social_share_button_wrapper .social_post_share_count .share_number,
+.portfolio_post_previous a,
+.portfolio_post_next a,
+#filter_selected,
+#autocomplete li strong,
+.post_detail.single_post a,
+.post_detail.single_post a:hover,
+.post_detail.single_post a:active,
+.single_tour_departure_wrapper li .single_tour_departure_title,
+.cart_item .product-name a,
+.single_tour_booking_wrapper .single_tour_view_desc,
+.single_tour_booking_wrapper .single_tour_view_icon,
+.tour_product_variable_title {
+    color: #000000;
+}
+
+body.page.page-template-gallery-archive-split-screen-php #fp-nav li .active span,
+body.tax-gallerycat #fp-nav li .active span,
+body.page.page-template-portfolio-fullscreen-split-screen-php #fp-nav li .active span,
+body.page.tax-portfolioset #fp-nav li .active span,
+body.page.page-template-gallery-archive-split-screen-php #fp-nav ul li a span,
+body.tax-gallerycat #fp-nav ul li a span,
+body.page.page-template-portfolio-fullscreen-split-screen-php #fp-nav ul li a span,
+body.page.tax-portfolioset #fp-nav ul li a span {
+    background-color: #000000;
+}
+
+#social_share_wrapper,
+hr,
+#social_share_wrapper,
+.post.type-post,
+#page_content_wrapper .sidebar .content .sidebar_widget li h2.widgettitle,
+h2.widgettitle,
+h5.widgettitle,
+.comment .right,
+.widget_tag_cloud div a,
+.meta-tags a,
+.tag_cloud a,
+#footer,
+#post_more_wrapper,
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product,
+.woocommerce ul.products li.product .price,
+.woocommerce-page ul.products li.product .price,
+#page_content_wrapper .inner .sidebar_content,
+#page_content_wrapper .inner .sidebar_content.left_sidebar,
+.ajax_close,
+.ajax_next,
+.ajax_prev,
+.portfolio_next,
+.portfolio_prev,
+.portfolio_next_prev_wrapper.video .portfolio_prev,
+.portfolio_next_prev_wrapper.video .portfolio_next,
+.separated,
+.blog_next_prev_wrapper,
+#post_more_wrapper h5,
+#ajax_portfolio_wrapper.hidding,
+#ajax_portfolio_wrapper.visible,
+.tabs.vertical .ui-tabs-panel,
+.ui-tabs.vertical.right .ui-tabs-nav li,
+.woocommerce div.product .woocommerce-tabs ul.tabs li,
+.woocommerce #content div.product .woocommerce-tabs ul.tabs li,
+.woocommerce-page div.product .woocommerce-tabs ul.tabs li,
+.woocommerce-page #content div.product .woocommerce-tabs ul.tabs li,
+.woocommerce div.product .woocommerce-tabs .panel,
+.woocommerce-page div.product .woocommerce-tabs .panel,
+.woocommerce #content div.product .woocommerce-tabs .panel,
+.woocommerce-page #content div.product .woocommerce-tabs .panel,
+.woocommerce table.shop_table,
+.woocommerce-page table.shop_table,
+table tr td,
+.woocommerce .cart-collaterals .cart_totals,
+.woocommerce-page .cart-collaterals .cart_totals,
+.woocommerce .cart-collaterals .shipping_calculator,
+.woocommerce-page .cart-collaterals .shipping_calculator,
+.woocommerce .cart-collaterals .cart_totals tr td,
+.woocommerce .cart-collaterals .cart_totals tr th,
+.woocommerce-page .cart-collaterals .cart_totals tr td,
+.woocommerce-page .cart-collaterals .cart_totals tr th,
+table tr th,
+.woocommerce #payment,
+.woocommerce-page #payment,
+.woocommerce #payment ul.payment_methods li,
+.woocommerce-page #payment ul.payment_methods li,
+.woocommerce #payment div.form-row,
+.woocommerce-page #payment div.form-row,
+.ui-tabs li:first-child,
+.ui-tabs .ui-tabs-nav li,
+.ui-tabs.vertical .ui-tabs-nav li,
+.ui-tabs.vertical.right .ui-tabs-nav li.ui-state-active,
+.ui-tabs.vertical .ui-tabs-nav li:last-child,
+#page_content_wrapper .inner .sidebar_wrapper ul.sidebar_widget li.widget_nav_menu ul.menu li.current-menu-item a,
+.page_content_wrapper .inner .sidebar_wrapper ul.sidebar_widget li.widget_nav_menu ul.menu li.current-menu-item a,
+.pricing_wrapper,
+.pricing_wrapper li,
+.ui-accordion .ui-accordion-header,
+.ui-accordion .ui-accordion-content,
+#page_content_wrapper .sidebar .content .sidebar_widget li h2.widgettitle:before,
+h2.widgettitle:before,
+#autocomplete,
+.ppb_blog_minimal .one_third_bg,
+#page_content_wrapper .sidebar .content .sidebar_widget li h2.widgettitle,
+h2.widgettitle,
+h5.event_title,
+.tabs .ui-tabs-panel,
+.ui-tabs .ui-tabs-nav li,
+.ui-tabs li:first-child,
+.ui-tabs.vertical .ui-tabs-nav li:last-child,
+.woocommerce .woocommerce-ordering select,
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active,
+.woocommerce-page div.product .woocommerce-tabs ul.tabs li.active,
+.woocommerce #content div.product .woocommerce-tabs ul.tabs li.active,
+.woocommerce-page #content div.product .woocommerce-tabs ul.tabs li.active,
+.woocommerce-page table.cart th,
+table.shop_table thead tr th,
+hr.title_break,
+.overlay_gallery_border,
+#page_content_wrapper.split #copyright,
+.page_content_wrapper.split #copyright,
+.post.type-post,
+.events.type-events,
+h5.event_title,
+.post_header h5.event_title,
+.client_archive_wrapper,
+#page_content_wrapper .sidebar .content .sidebar_widget li.widget,
+.page_content_wrapper .sidebar .content .sidebar_widget li.widget,
+hr.title_break.bold,
+blockquote,
+.social_share_button_wrapper,
+.social_share_button_wrapper,
+body:not(.single) .post_wrapper,
+.themeborder {
+    border-color: #dce0e0;
+}
+
+.br-theme-fontawesome-stars-o .br-widget a.br-selected:after,
+.woocommerce .star-rating span:before,
+.woocommerce-page .star-rating span:before,
+.woocommerce #review_form #respond p.stars a {
+    color: #1EC6B6;
+}
+
+#toTop,
+.single_tour_users_online_wrapper .single_tour_users_online_icon {
+    background: #1EC6B6;
+}
+
+.single_tour_attribute_wrapper .tour_label,
+a.tour_image .tour_label,
+.grid.portfolio_type .tour_label,
+.tour_label.sidebar {
+    background: #1EC6B6;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=tel],
+input[type=date],
+input[type=number],
+textarea,
+select {
+    background-color: #ffffff;
+    color: #555555;
+    border-color: #dce0e0;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=url]:focus,
+input[type=date]:focus,
+input[type=number]:focus,
+textarea:focus,
+#tour_search_form .one_fourth:not(.last):hover {
+    border-color: #999999;
+}
+
+input[type=submit],
+input[type=button],
+a.button,
+.button,
+.woocommerce .page_slider a.button,
+a.button.fullwidth,
+.woocommerce-page div.product form.cart .button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+    font-family: "Work Sans", Helvetica, Arial, sans-serif;
+}
+
+input[type=submit],
+input[type=button],
+a.button,
+.button,
+.pagination span,
+.pagination a:hover,
+.woocommerce .footer_bar .button,
+.woocommerce .footer_bar .button:hover,
+.woocommerce-page div.product form.cart .button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.post_type_icon,
+.filter li a:hover,
+.filter li a.active,
+#portfolio_wall_filters li a.active,
+#portfolio_wall_filters li a:hover,
+.comment_box,
+.one_half.gallery2 .portfolio_type_wrapper,
+.one_third.gallery3 .portfolio_type_wrapper,
+.one_fourth.gallery4 .portfolio_type_wrapper,
+.one_fifth.gallery5 .portfolio_type_wrapper,
+.portfolio_type_wrappe,
+.post_share_text,
+#close_share,
+.widget_tag_cloud div a:hover,
+a.tour_image .tour_price,
+.mobile_menu_wrapper #close_mobile_menu,
+a.tour_image .tour_price,
+.grid.portfolio_type .tour_price,
+.ui-accordion .ui-accordion-header .ui-icon,
+.mobile_menu_wrapper #mobile_menu_close.button,
+.header_cart_wrapper .cart_count {
+    background-color: #FF4A52;
+}
+
+.pagination span,
+.pagination a:hover,
+.button.ghost,
+.button.ghost:hover,
+.button.ghost:active,
+blockquote:after,
+.woocommerce-MyAccount-navigation ul li.is-active {
+    border-color: #FF4A52;
+}
+
+.comment_box:before,
+.comment_box:after {
+    border-top-color: #FF4A52;
+}
+
+.button.ghost,
+.button.ghost:hover,
+.button.ghost:active,
+.infinite_load_more,
+blockquote:before,
+.woocommerce-MyAccount-navigation ul li.is-active a {
+    color: #FF4A52;
+}
+
+input[type=submit],
+input[type=button],
+a.button,
+.button,
+.pagination a:hover,
+.woocommerce .footer_bar .button,
+.woocommerce .footer_bar .button:hover,
+.woocommerce-page div.product form.cart .button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.post_type_icon,
+.filter li a:hover,
+.filter li a.active,
+#portfolio_wall_filters li a.active,
+#portfolio_wall_filters li a:hover,
+.comment_box,
+.one_half.gallery2 .portfolio_type_wrapper,
+.one_third.gallery3 .portfolio_type_wrapper,
+.one_fourth.gallery4 .portfolio_type_wrapper,
+.one_fifth.gallery5 .portfolio_type_wrapper,
+.portfolio_type_wrapper,
+.post_share_text,
+#close_share,
+.widget_tag_cloud div a:hover,
+a.tour_image .tour_price,
+.mobile_menu_wrapper #close_mobile_menu,
+.ui-accordion .ui-accordion-header .ui-icon,
+.mobile_menu_wrapper #mobile_menu_close.button {
+    color: #ffffff;
+}
+
+input[type=submit],
+input[type=button],
+a.button,
+.button,
+.pagination a:hover,
+.woocommerce .footer_bar .button,
+.woocommerce .footer_bar .button:hover,
+.woocommerce-page div.product form.cart .button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.infinite_load_more,
+.post_share_text,
+#close_share,
+.widget_tag_cloud div a:hover,
+.mobile_menu_wrapper #close_mobile_menu,
+.mobile_menu_wrapper #mobile_menu_close.button {
+    border-color: #FF4A52;
+}
+
+.frame_top,
+.frame_bottom,
+.frame_left,
+.frame_right {
+    background: #FF4A52;
+}
+
+body.tg_boxed {
+    background-color: #F0F0F0;
+}
+
+#menu_wrapper .nav ul li a,
+#menu_wrapper div .nav li > a {
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0px;
+    text-transform: none;
+}
+
+#menu_wrapper .nav ul li a,
+#menu_wrapper div .nav li > a,
+.header_cart_wrapper i {
+    font-size: 13px;
+}
+
+#menu_wrapper .nav ul li a,
+#menu_wrapper div .nav li > a,
+html[data-menu=centeralogo] #logo_right_button {
+    padding-top: 26px;
+    padding-bottom: 26px;
+}
+
+.top_bar {
+    background-color: #ffffff;
+}
+
+#menu_wrapper .nav ul li a,
+#menu_wrapper div .nav li > a,
+#mobile_nav_icon,
+#logo_wrapper .social_wrapper ul li a,
+.header_cart_wrapper > a {
+    color: #000000;
+}
+
+#mobile_nav_icon {
+    border-color: #000000;
+}
+
+#menu_wrapper .nav ul li a.hover,
+#menu_wrapper .nav ul li a:hover,
+#menu_wrapper div .nav li a.hover,
+#menu_wrapper div .nav li a:hover,
+.header_cart_wrapper a:hover,
+#page_share:hover,
+#gallery_download:hover,
+.view_fullscreen_wrapper a:hover,
+#logo_wrapper .social_wrapper ul li a:hover {
+    color: #FF4A52;
+}
+
+#menu_wrapper div .nav > li.current-menu-item > a,
+#menu_wrapper div .nav > li.current-menu-parent > a,
+#menu_wrapper div .nav > li.current-menu-ancestor > a,
+#menu_wrapper div .nav li ul li.current-menu-item a,
+#menu_wrapper div .nav li.current-menu-parent ul li.current-menu-item a,
+#logo_wrapper .social_wrapper ul li a:active {
+    color: #FF4A52;
+}
+
+.top_bar,
+#page_caption,
+#nav_wrapper {
+    border-color: #dce0e0;
+}
+
+#menu_wrapper .nav ul li ul li a,
+#menu_wrapper div .nav li ul li a,
+#menu_wrapper div .nav li.current-menu-parent ul li a {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0px;
+    text-transform: none;
+}
+
+#menu_wrapper .nav ul li ul li a,
+#menu_wrapper div .nav li ul li a,
+#menu_wrapper div .nav li.current-menu-parent ul li a,
+#menu_wrapper div .nav li.current-menu-parent ul li.current-menu-item a,
+#menu_wrapper .nav ul li.megamenu ul li ul li a,
+#menu_wrapper div .nav li.megamenu ul li ul li a {
+    color: #000000;
+}
+
+#menu_wrapper .nav ul li ul li a:hover,
+#menu_wrapper div .nav li ul li a:hover,
+#menu_wrapper div .nav li.current-menu-parent ul li a:hover,
+#menu_wrapper .nav ul li.megamenu ul li ul li a:hover,
+#menu_wrapper div .nav li.megamenu ul li ul li a:hover,
+#menu_wrapper .nav ul li.megamenu ul li ul li a:active,
+#menu_wrapper div .nav li.megamenu ul li ul li a:active,
+#menu_wrapper div .nav li.current-menu-parent ul li.current-menu-item a:hover {
+    color: #FF4A52;
+}
+
+#menu_wrapper .nav ul li ul li a:hover,
+#menu_wrapper div .nav li ul li a:hover,
+#menu_wrapper div .nav li.current-menu-parent ul li a:hover,
+#menu_wrapper .nav ul li.megamenu ul li ul li a:hover,
+#menu_wrapper div .nav li.megamenu ul li ul li a:hover,
+#menu_wrapper .nav ul li.megamenu ul li ul li a:active,
+#menu_wrapper div .nav li.megamenu ul li ul li a:active {
+    background: #ffffff;
+}
+
+#menu_wrapper .nav ul li ul,
+#menu_wrapper div .nav li ul {
+    background: #ffffff;
+    border-color: #dce0e0;
+}
+
+#menu_wrapper div .nav li.megamenu ul li > a,
+#menu_wrapper div .nav li.megamenu ul li > a:hover,
+#menu_wrapper div .nav li.megamenu ul li > a:active,
+#menu_wrapper div .nav li.megamenu ul li.current-menu-item > a {
+    color: #000000;
+}
+
+#menu_wrapper div .nav li.megamenu ul li {
+    border-color: #dce0e0;
+}
+
+.above_top_bar {
+    background: #000000;
+}
+
+#top_menu li a,
+.top_contact_info,
+.top_contact_info i,
+.top_contact_info a,
+.top_contact_info a:hover,
+.top_contact_info a:active {
+    color: #FFFFFF;
+}
+
+.mobile_main_nav li a,
+#sub_menu li a {
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    line-height: 2em;
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0px;
+}
+
+.mobile_menu_wrapper,
+.mobile_menu_wrapper h2.widgettitle,
+.mobile_menu_wrapper .sidebar_widget {
+    text-align: left;
+}
+
+.mobile_menu_wrapper {
+    background-color: #ffffff;
+}
+
+.mobile_main_nav li a,
+#sub_menu li a,
+.mobile_menu_wrapper .sidebar_wrapper a,
+.mobile_menu_wrapper .sidebar_wrapper,
+#close_mobile_menu i,
+.mobile_menu_wrapper .social_wrapper ul li a,
+html[data-menu=hammenufull] #copyright {
+    color: #000000;
+}
+
+.mobile_main_nav li a:hover,
+.mobile_main_nav li a:active,
+#sub_menu li a:hover,
+#sub_menu li a:active,
+.mobile_menu_wrapper .sidebar_wrapper h2.widgettitle,
+.mobile_menu_wrapper .social_wrapper ul li a:hover {
+    color: #FF4A52;
+}
+
+.mobile_menu_wrapper #searchform input[type=text] {
+    background: #ffffff;
+}
+
+.mobile_menu_wrapper #searchform input[type=text],
+.mobile_menu_wrapper #searchform button i {
+    color: #222222;
+}
+
+.mobile_menu_wrapper #searchform::-webkit-input-placeholder {
+    color: #222222;
+}
+
+.mobile_menu_wrapper #searchform::-moz-placeholder {
+    color: #222222;
+}
+
+.mobile_menu_wrapper #searchform:-ms-input-placeholder {
+    color: #222222;
+}
+
+#page_caption.hasbg {
+    height: 550px;
+    margin-bottom: 40px;
+}
+
+#page_caption {
+    background-color: #f9f9f9;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#page_caption h1,
+.ppb_title {
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-size: 40px;
+}
+
+#page_caption h1,
+.ppb_title,
+.post_caption h1 {
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0px;
+    color: #000000;
+}
+
+#page_caption h1,
+.post_caption h1 {
+    line-height: 1.3em;
+}
+
+.ppb_title {
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+h2.ppb_title {
+    font-size: 36px;
+    text-transform: none;
+    letter-spacing: 0px;
+}
+
+.page_tagline,
+.thumb_content span,
+.portfolio_desc .portfolio_excerpt,
+.testimonial_customer_position,
+.testimonial_customer_company,
+.post_detail.single_post,
+#gallery_caption .tg_caption .tg_desc {
+    color: #8D9199;
+}
+
+.page_tagline,
+.post_detail,
+.thumb_content span,
+.portfolio_desc .portfolio_excerpt,
+.testimonial_customer_position,
+.testimonial_customer_company {
+    font-size: 15px;
+}
+
+.page_tagline {
+    font-weight: 500;
+}
+
+.page_tagline,
+.post_header .post_detail,
+.recent_post_detail,
+.post_detail,
+.thumb_content span,
+.portfolio_desc .portfolio_excerpt,
+.testimonial_customer_position,
+.testimonial_customer_company {
+    letter-spacing: 0px;
+    text-transform: none;
+}
+
+#page_content_wrapper .sidebar .content .sidebar_widget li h2.widgettitle,
+h2.widgettitle,
+h5.widgettitle {
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    text-transform: none;
+    color: #000000;
+}
+
+#page_content_wrapper .inner .sidebar_wrapper .sidebar .content,
+.page_content_wrapper .inner .sidebar_wrapper .sidebar .content {
+    color: #555555;
+}
+
+#page_content_wrapper .inner .sidebar_wrapper a:not(.button),
+.page_content_wrapper .inner .sidebar_wrapper a:not(.button) {
+    color: #222222;
+}
+
+#page_content_wrapper .inner .sidebar_wrapper a:hover:not(.button),
+#page_content_wrapper .inner .sidebar_wrapper a:active:not(.button),
+.page_content_wrapper .inner .sidebar_wrapper a:hover:not(.button),
+.page_content_wrapper .inner .sidebar_wrapper a:active:not(.button) {
+    color: #1EC6B6;
+}
+
+.footer_bar,
+#footer,
+.tour_recently_view {
+    background-color: #000000;
+}
+
+#footer,
+#copyright,
+#footer_menu li a,
+#footer_menu li a:hover,
+#footer_menu li a:active {
+    color: #cccccc;
+}
+
+#copyright a,
+#copyright a:active,
+#footer a,
+#footer a:active,
+#footer .sidebar_widget li h2.widgettitle,
+.tour_recently_view h3.sub_title {
+    color: #ffffff;
+}
+
+#copyright a:hover,
+#footer a:hover,
+.social_wrapper ul li a:hover {
+    color: #1EC6B6;
+}
+
+.footer_bar_wrapper,
+.footer_bar,
+.tour_recently_view h3.sub_title,
+.tour_recently_view {
+    border-color: #222222;
+}
+
+.footer_bar_wrapper .social_wrapper ul li a {
+    color: #ffffff;
+}
+
+#tour_search_form {
+    margin-top: 0px;
+}
+
+.woocommerce ul.products li.product .price ins,
+.woocommerce-page ul.products li.product .price ins,
+.woocommerce ul.products li.product .price,
+.woocommerce-page ul.products li.product .price,
+p.price ins span.amount,
+.woocommerce #content div.product p.price,
+.woocommerce #content div.product span.price,
+.woocommerce div.product p.price,
+.woocommerce div.product span.price,
+.woocommerce-page #content div.product p.price,
+.woocommerce-page #content div.product span.price,
+.woocommerce-page div.product p.price,
+.woocommerce-page div.product span.price {
+    color: #FF4A52;
+}
+
+
+
+.animated1{
+    -webkit-animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+.animated2{
+    -webkit-animation-delay: 0.2s;
+    -moz-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+.animated3{
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+.animated4{
+    -webkit-animation-delay: 0.4s;
+    -moz-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+.animated5{
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+.animated6{
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+.animated7{
+    -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+}
+.animated8{
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+}
+.animated9{
+    -webkit-animation-delay: 0.9s;
+    -moz-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+}
+.animated10{
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.animated11{
+    -webkit-animation-delay: 1.1s;
+    -moz-animation-delay: 1.1s;
+    animation-delay: 1.1s;
+}
+.animated12{
+    -webkit-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+}
+.animated13{
+    -webkit-animation-delay: 1.3s;
+    -moz-animation-delay: 1.3s;
+    animation-delay: 1.3s;
+}
+.animated14{
+    -webkit-animation-delay: 1.4s;
+    -moz-animation-delay: 1.4s;
+    animation-delay: 1.4s;
+}
+.animated15{
+    -webkit-animation-delay: 1.5s;
+    -moz-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+.animated16{
+    -webkit-animation-delay: 1.6s;
+    -moz-animation-delay: 1.6s;
+    animation-delay: 1.6s;
+}
+.animated17{
+    -webkit-animation-delay: 1.7s;
+    -moz-animation-delay: 1.7s;
+    animation-delay: 1.7s;
+}
+.animated18{
+    -webkit-animation-delay: 1.8s;
+    -moz-animation-delay: 1.8s;
+    animation-delay: 1.8s;
+}
+.animated19{
+    -webkit-animation-delay: 1.9s;
+    -moz-animation-delay: 1.9s;
+    animation-delay: 1.9s;
+}
+.animated20{
+    -webkit-animation-delay: 2s;
+    -moz-animation-delay: 2s;
+    animation-delay: 2s;
+}
+.animated21{
+    -webkit-animation-delay: 2.1s;
+    -moz-animation-delay: 2.1s;
+    animation-delay: 2.1s;
+}
+.animated22{
+    -webkit-animation-delay: 2.2s;
+    -moz-animation-delay: 2.2s;
+    animation-delay: 2.2s;
+}
+.animated23{
+    -webkit-animation-delay: 2.3s;
+    -moz-animation-delay: 2.3s;
+    animation-delay: 2.3s;
+}
+.animated24{
+    -webkit-animation-delay: 2.4s;
+    -moz-animation-delay: 2.4s;
+    animation-delay: 2.4s;
+}
+.animated25{
+    -webkit-animation-delay: 2.5s;
+    -moz-animation-delay: 2.5s;
+    animation-delay: 2.5s;
+}
+.animated26{
+    -webkit-animation-delay: 2.6s;
+    -moz-animation-delay: 2.6s;
+    animation-delay: 2.6s;
+}
+.animated27{
+    -webkit-animation-delay: 2.7s;
+    -moz-animation-delay: 2.7s;
+    animation-delay: 2.7s;
+}
+.animated28{
+    -webkit-animation-delay: 2.8s;
+    -moz-animation-delay: 2.8s;
+    animation-delay: 2.8s;
+}
+.animated29{
+    -webkit-animation-delay: 2.9s;
+    -moz-animation-delay: 2.9s;
+    animation-delay: 2.9s;
+}
+.animated30{
+    -webkit-animation-delay: 3s;
+    -moz-animation-delay: 3s;
+    animation-delay: 3s;
+}
+.animated31{
+    -webkit-animation-delay: 3.1s;
+    -moz-animation-delay: 3.1s;
+    animation-delay: 3.1s;
+}
+.animated32{
+    -webkit-animation-delay: 3.2s;
+    -moz-animation-delay: 3.2s;
+    animation-delay: 3.2s;
+}
+.animated33{
+    -webkit-animation-delay: 3.3s;
+    -moz-animation-delay: 3.3s;
+    animation-delay: 3.3s;
+}
+.animated34{
+    -webkit-animation-delay: 3.4s;
+    -moz-animation-delay: 3.4s;
+    animation-delay: 3.4s;
+}
+.animated35{
+    -webkit-animation-delay: 3.5s;
+    -moz-animation-delay: 3.5s;
+    animation-delay: 3.5s;
+}
+.animated36{
+    -webkit-animation-delay: 3.6s;
+    -moz-animation-delay: 3.6s;
+    animation-delay: 3.6s;
+}
+.animated37{
+    -webkit-animation-delay: 3.7s;
+    -moz-animation-delay: 3.7s;
+    animation-delay: 3.7s;
+}
+.animated38{
+    -webkit-animation-delay: 3.8s;
+    -moz-animation-delay: 3.8s;
+    animation-delay: 3.8s;
+}
+.animated39{
+    -webkit-animation-delay: 3.9s;
+    -moz-animation-delay: 3.9s;
+    animation-delay: 3.9s;
+}
+.animated40{
+    -webkit-animation-delay: 4s;
+    -moz-animation-delay: 4s;
+    animation-delay: 4s;
+}
+.animated41{
+    -webkit-animation-delay: 4.1s;
+    -moz-animation-delay: 4.1s;
+    animation-delay: 4.1s;
+}
+.animated42{
+    -webkit-animation-delay: 4.2s;
+    -moz-animation-delay: 4.2s;
+    animation-delay: 4.2s;
+}
+.animated43{
+    -webkit-animation-delay: 4.3s;
+    -moz-animation-delay: 4.3s;
+    animation-delay: 4.3s;
+}
+.animated44{
+    -webkit-animation-delay: 4.4s;
+    -moz-animation-delay: 4.4s;
+    animation-delay: 4.4s;
+}
+.animated45{
+    -webkit-animation-delay: 4.5s;
+    -moz-animation-delay: 4.5s;
+    animation-delay: 4.5s;
+}
+.animated46{
+    -webkit-animation-delay: 4.6s;
+    -moz-animation-delay: 4.6s;
+    animation-delay: 4.6s;
+}
+.animated47{
+    -webkit-animation-delay: 4.7s;
+    -moz-animation-delay: 4.7s;
+    animation-delay: 4.7s;
+}
+.animated48{
+    -webkit-animation-delay: 4.8s;
+    -moz-animation-delay: 4.8s;
+    animation-delay: 4.8s;
+}
+.animated49{
+    -webkit-animation-delay: 4.9s;
+    -moz-animation-delay: 4.9s;
+    animation-delay: 4.9s;
+}
+.animated50{
+    -webkit-animation-delay: 5s;
+    -moz-animation-delay: 5s;
+    animation-delay: 5s;
+}
+
+.portfolio_nav { display:none; }
+.top_bar.fixed
+{
+    position: fixed;
+    animation-name: slideDown;
+    -webkit-animation-name: slideDown;  
+    animation-duration: 0.5s;   
+    -webkit-animation-duration: 0.5s;
+    z-index: 999;
+    visibility: visible !important;
+    top: 0px;
+}
+
+.top_bar.fixed #menu_wrapper div .nav
+{
+    margin-top: 16px;
+}
+
+.top_bar.fixed #searchform
+{
+    margin-top: 8px;
+}
+
+.top_bar.fixed .header_cart_wrapper
+{
+    margin-top: 21px;
+}
+
+.top_bar.fixed #menu_wrapper div .nav > li > a
+{
+    padding-bottom: 24px;
+}
+
+.top_bar.fixed .logo_wrapper img
+{
+    max-height: 40px;
+    width: auto;
+}
+
+#option_btn
+{
+    position: fixed;
+    top: 150px;
+    right: -2px;
+    cursor:pointer;
+    z-index: 9;
+    background: #fff;
+    border-right: 0;
+    width: 40px;
+    height: 155px;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    border-radius: 5px 0px 0px 5px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    line-height: 1.4;
+    
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+    
+    -webkit-transition: -webkit-transform 600ms ease;
+    -moz-transition: transform 600ms ease;
+    -o-transition: -o-transform 600ms ease;
+    transition: transform 600ms ease;
+}
+
+#option_btn.open
+{
+    -webkit-transform: translate(-351px, 0px);
+    -moz-transform: translate(-351px, 0px);
+    transform: translate(-351px, 0px);
+}
+
+#option_btn span
+{
+    font-size: 15px;
+    line-height: 31px;
+    color: #222;
+}
+
+#option_wrapper
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    background: #fff;
+    z-index: 99999;
+    box-shadow: -1px 1px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    height: 100%;
+    color: #222;
+    line-height: 1.5;
+    font-size: 14px;
+    
+    -webkit-transform: translate(351px, 0px);
+    -moz-transform: translate(351px, 0px);
+    transform: translate(351px, 0px);
+    
+    -webkit-transition: -webkit-transform 600ms ease;
+    -moz-transition: transform 600ms ease;
+    -o-transition: -o-transform 600ms ease;
+    transition: transform 600ms ease;
+}
+
+#option_wrapper.open
+{
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+}
+
+#option_wrapper:hover
+{
+    overflow-y: auto;
+}
+
+#option_wrapper h6.demo_title
+{
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.demo_color_list
+{
+    list-style: none;
+    display: block;
+    margin: 30px 0 10px 0;
+}
+
+.demo_color_list > li
+{
+    display: inline-block;
+    position: relative;
+    width: 11%;
+    height: auto;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.demo_color_list > li .item_content_wrapper
+{1
+    width: 100%;
+}
+
+.demo_color_list > li .item_content_wrapper .item_content
+{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.demo_color_list > li .item_content_wrapper .item_content .item_thumb
+{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    line-height: 0;
+    border-radius: 250px;
+    margin: auto;
+}
+
+.demo_list
+{
+    list-style: none;
+    display: block;
+    margin: 30px 0 20px 0;
+    float: left;
+}
+
+.demo_list li
+{
+    display: block;
+    float: left;
+    position: relative;
+    margin-bottom: 15px;
+    margin-right: 14px;
+    width: calc(50% - 7px);
+    overflow: hidden;
+    line-height: 0;
+}
+
+.demo_list li:nth-child(2n)
+{
+    margin-right: 0;
+}
+
+.demo_list li img
+{
+    max-width: 100%;
+    height: auto;
+    line-height: 0;
+}
+
+.demo_list li:hover img
+{
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+    -moz-filter: blur(2px);
+}
+
+.demo_list li:hover .demo_thumb_hover_wrapper 
+{
+    opacity: 1;
+}
+
+.demo_thumb_hover_wrapper 
+{
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: opacity 0.4s ease-in-out;
+    -o-transition: opacity 0.4s ease-in-out;
+    -ms-transition: opacity 0.4s ease-in-out;
+    -moz-transition: opacity 0.4s ease-in-out;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    visibility: visible;
+    width: 100%;
+    line-height: normal;
+}
+
+.demo_thumb_hover_inner
+{
+    display: table;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.demo_thumb_desc
+{
+    display: table-cell;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    padding: 0 10% 0 10%;
+    box-sizing: border-box;
+}
+
+#option_wrapper .inner h6
+{
+    margin: 10px 0 0 0;
+}
+
+.demo_thumb_hover_inner h6
+{
+    color: #fff !important;
+    line-height: 20px;
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.demo_thumb_desc .button.white
+{
+    margin-top: 10px;
+    font-size: 12px !important;
+}
+
+.demo_thumb_desc .button.white:hover
+{
+    background: #fff !important;
+    color: #000 !important;
+    border-color: #fff !important;
+}
+
+#option_wrapper .inner
+{
+    padding: 25px 15px 0 15px;
+    box-sizing: border-box;
+}
+
+body.admin-bar #option_wrapper .inner
+{
+    padding-top: 70px;
+}
+
+#option_wrapper .demo_desc
+{
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 0 10px 0 10px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.demotip
+{
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    html[data-menu=leftmenu] .mobile_menu_wrapper
+    {
+        right: 0;
+        left: initial;
+        
+        -webkit-transform: translate(360px, 0px);
+        -ms-transform: translate(360px, 0px);
+        transform: translate(360px, 0px);
+        -o-transform: translate(360px, 0px);
+    }
+}
+
+
+body.postid-6282 .three_cols.gallery .element img, body.page-id-6352 .three_cols.gallery .element img
+{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+body.postid-6282 .three_cols.gallery .element a:hover img, body.page-id-6352 .three_cols.gallery .element a:hover img
+{
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+#sub_menu .sub-menu li a
+{
+    font-size: 22px;
+    line-height: 2em;
+}
+
+body .mobile_menu_wrapper
+{
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.mobile_menu_wrapper
+{
+    right: -10px;
+    left: auto;
+    -webkit-transform: translate(100%, 0px);
+    -moz-transform: translate(100%, 0px);
+    transform: translate(100%, 0px);
+}
+
+body.js_nav .mobile_menu_wrapper, html[data-menu=leftmenu] body.js_nav .mobile_menu_wrapper
+{
+    -webkit-transform: translate(calc(100% - 360px), 0px);
+    -ms-transform: translate(calc(100% - 360px), 0px);
+    transform: translate(calc(100% - 360px), 0px);
+    right: 0;
+    left: auto;
+}
+
+@media only screen and (max-width: 767px) {
+    body.js_nav .mobile_menu_wrapper, html[data-menu=leftmenu] body.js_nav .mobile_menu_wrapper
+    {
+        -webkit-transform: translate(calc(100% - 270px), 0px);
+        -ms-transform: translate(calc(100% - 270px), 0px);
+        transform: translate(calc(100% - 270px), 0px);
+    }
+}
+
+@media only screen and (min-width: 960px)
+{
+    .top_bar.scroll
+    {
+        -webkit-transform: translateY(-100px);
+        -moz-transform: translateY(-100px);
+        -o-transform: translateY(-100px);
+        -ms-transform: translateY(-100px);
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    .top_bar.scroll.scroll_up
+    {
+        -webkit-transform: translateY(00px);
+        -moz-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    .header_style_wrapper
+    {
+        -webkit-transition: opacity 0.5s;
+        -moz-transition: opacity 0.5s;
+        transition: opacity 0.5s;
+    }
+    .header_style_wrapper.scroll_down
+    {
+        opacity: 0;
+        z-index: 0;
+    }
+    
+    .header_style_wrapper.scroll_up
+    {
+        opacity: 1;
+    }
+    
+    body.page-template-gallery-archive-fullscreen-php .header_style_wrapper.scroll_down, 
+    body.page-template-gallery-archive-fullscreen-php .header_style_wrapper.scroll_down .top_bar.scroll, 
+    body.page-template-gallery-archive-split-screen-php .header_style_wrapper.scroll_down, 
+    body.page-template-gallery-archive-split-screen-php .header_style_wrapper.scroll_down .top_bar.scroll,
+    body.page-template-portfolio-fullscreen-php .header_style_wrapper.scroll_down, 
+    body.page-template-portfolio-fullscreen-php .header_style_wrapper.scroll_down .top_bar.scroll, 
+    body.page-template-portfolio-fullscreen-split-screen-php .header_style_wrapper.scroll_down, 
+    body.page-template-portfolio-fullscreen-split-screen-php .header_style_wrapper.scroll_down .top_bar.scroll
+    {
+        opacity: 1 !important;
+    }
+    
+    body.page-template-gallery-archive-fullscreen-php .header_style_wrapper.scroll_down .top_bar.scroll,
+    body.page-template-gallery-archive-split-screen-php .header_style_wrapper.scroll_down .top_bar.scroll,
+    body.page-template-portfolio-fullscreen-php .header_style_wrapper.scroll_down .top_bar.scroll,
+    body.page-template-portfolio-fullscreen-split-screen-php .header_style_wrapper.scroll_down .top_bar.scroll
+    {
+        -webkit-transform: translateY(00px);
+        -moz-transform: translateY(0px);
+        -o-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    
+    body.page-template-gallery-archive-fullscreen-php .header_style_wrapper.nofixed,
+    body.page-template-gallery-archive-split-screen-php .header_style_wrapper.nofixed,
+    body.page-template-portfolio-fullscreen-php .header_style_wrapper.nofixed,
+    body.page-template-portfolio-fullscreen-split-screen-php .header_style_wrapper.nofixed
+    {
+        display: block;
+    }
+}
+
+body.tg_boxed
+{
+    background-image: url('http://themes.themegoods.com/granddemo/wp-content/uploads/2016/12/1600x1200-4.jpg');
+}
+.frame_top, .frame_bottom, .frame_left, .frame_right
+{
+    background: #FF4A52;
+}
+
+
+
+.woocommerce ul.products li.product.post-143, .woocommerce-page ul.products li.product.post-143
+{
+   display: none; 
+}
+
+body.page-id-3144 .top_bar
+{
+  border-color: #fff; 
+}
+
+body .frame_right
+{
+   z-index: 2; 
+}
+
+body.page-id-3090 .tour_recently_view
+{
+  margin-top: 0; 
+}
+
+.woocommerce ul.products li.product h2, .woocommerce-page ul.products li.product h2
+{
+   font-size: 20px; 
+}
+
+#page_content_wrapper .posts.blog li a, .page_content_wrapper .posts.blog li a, #footer ul.sidebar_widget li ul.posts.blog li a
+{
+   font-weight: 700;
+  letter-spacing: 0;
+}
+
+.wp-caption img {width: 100%;}

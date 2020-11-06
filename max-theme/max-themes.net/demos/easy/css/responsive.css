@@ -1,0 +1,100 @@
+.visible-desktop {display: inherit }
+.visible-tablet {display: none }
+.visible-phablet {display: none }
+.visible-phone {display: none }
+.visible-desktab {display: inherit }
+.visible-phabphone {display: none }
+.hidden-desktop {display: none }
+.hidden-tablet {display: inherit }
+.hidden-phablet {display: inherit }
+.hidden-phone {display: inherit }
+.hidden-desktab {display: none }
+.hidden-phabphone {display: inherit }
+
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.visible-desktop {display: none }
+	.visible-tablet {display: inherit }
+	.visible-phablet {display: none }
+	.visible-phone {display: none }
+	.visible-desktab {display: inherit }
+	.visible-phabphone {display: none }
+	.hidden-desktop {display: inherit }
+	.hidden-tablet {display: none }
+	.hidden-phablet {display: inherit }
+	.hidden-phone {display: inherit }
+	.hidden-desktab {display: none }
+	.hidden-phabphone {display: inherit }
+}
+
+@media only screen and (max-width: 767px) {
+	.visible-desktab {display: none }
+	.visible-phabphone {display: inherit }
+	.hidden-desktab {display: inherit }
+	.hidden-phabphone {display: none }
+
+	.dnd_column_dd_span12,
+	.dnd_column_dd_span11,
+	.dnd_column_dd_span10,
+	.dnd_column_dd_span9,
+	.dnd_column_dd_span8,
+	.dnd_column_dd_span7,
+	.dnd_column_dd_span6,
+	.dnd_column_dd_span5,
+	.dnd_column_dd_span4,
+	.dnd_column_dd_span3,
+	.dnd_column_dd_span2,
+	.dnd_column_dd_span1{
+		width: 100%;
+		margin-left: 0;
+	}
+
+	.dnd_container [class*="column_dd_span"]{
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.dnd_pricing-table-1,
+	.dnd_pricing-table-2{
+		margin-bottom: 20px;
+	} 
+
+	.dnd_meter {
+		margin-left: 0px;
+	}
+
+	.dnd_meter_label{
+		float: none;
+		display: block;
+	}
+
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.visible-desktop {display: none }
+	.visible-tablet {display: none }
+	.visible-phablet {display: inherit }
+	.visible-phone {display: none }
+	.hidden-desktop {display: inherit }
+	.hidden-tablet {display: inherit }
+	.hidden-phablet {display: none }
+	.hidden-phone {display: inherit }
+	.tp-caption {
+		display: none !important;
+	}
+}
+
+@media only screen and (max-width: 479px) {	
+	.visible-desktop {display: none }
+	.visible-tablet {display: none }
+	.visible-phablet {display: none }
+	.visible-phone {display: inherit }
+	.hidden-desktop {display: inherit }
+	.hidden-tablet {display: inherit }
+	.hidden-phablet {display: inherit }
+	.hidden-phone {display: none }
+	.tp-caption {
+		display: none !important;
+	}
+
+}
