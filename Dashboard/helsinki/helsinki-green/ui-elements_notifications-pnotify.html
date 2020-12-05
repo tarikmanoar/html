@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en" class="fixed">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Helsinki</title>
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <script src="vendor/pace/pace.min.js"></script>
+    <link href="vendor/pace/pace-theme-minimal.css" rel="stylesheet" />
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="vendor/animate.css/animate.css">
+    <link rel="stylesheet" href="vendor/pnotify/pnotify.custom.css">
+    <link rel="stylesheet" href="stylesheets/css/style.css">
+</head>
+
+<body>
+<div class="wrap">
+    <div class="page-header">
+        <div class="leftside-header">
+            <div class="logo">
+                <a href="index.html" class="on-click">
+                    <img alt="logo" src="images/header-logo.png" />
+                </a>
+            </div>
+            <div id="menu-toggle" class="visible-xs toggle-left-sidebar" data-toggle-class="left-sidebar-open" data-target="html">
+                <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+            </div>
+        </div>
+        <div class="rightside-header">
+            <div class="header-middle"></div>
+            <div class="header-section" id="search-headerbox">
+                <input type="text" name="search" id="search" placeholder="Search...">
+                <i class="fa fa-search search" id="search-icon" aria-hidden="true"></i>
+                <div class="header-separator"></div>
+            </div>
+            <div class="header-section hidden-xs" id="notice-headerbox">
+                <div class="notice" id="checklist-notice">
+                    <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                    <div class="dropdown-box basic">
+                        <div class="drop-header">
+                            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i> To-Do List</h3>
+                        </div>
+                        <div class="drop-content">
+                            <div class="widget-list list-to-do">
+                                <ul>
+                                    <li>
+                                        <div class="checkbox-custom checkbox-primary">
+                                            <input type="checkbox" id="check-s1" value="option1">
+                                            <label class="check" for="check-s1">Accusantium eveniet ipsam neque</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox-custom checkbox-primary">
+                                            <input type="checkbox" id="check-s2" value="option1" checked>
+                                            <label class="check" for="check-s2">Lorem ipsum dolor sit</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox-custom checkbox-primary">
+                                            <input type="checkbox" id="check-s3" value="option1">
+                                            <label class="check" for="check-s3">Dolor eligendi in ipsum sapiente</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox-custom checkbox-primary">
+                                            <input type="checkbox" id="check-s4" value="option1">
+                                            <label class="check" for="check-s4">Natus recusandae vel</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="checkbox-custom checkbox-primary">
+                                            <input type="checkbox" id="check-s5" value="option1">
+                                            <label class="check" for="check-s5">Adipisci amet officia tempore ut</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="drop-footer">
+                            <a>See all Items</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="notice" id="messages-notice">
+                    <i class="fa fa-comments-o" aria-hidden="true"><span class="badge badge-xs badge-top-right x-danger"><i class="fa fa-exclamation"></i></span></i>
+                    <div class="dropdown-box basic">
+                        <div class="drop-header ">
+                            <h3><i class="fa fa-comments-o" aria-hidden="true"></i> Messages</h3>
+                            <span class="badge x-danger b-rounded">120</span>
+                        </div>
+                        <div class="drop-content">
+                            <div class="widget-list list-left-element">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><img alt="John Doe" src="images/avatar_1.jpg" /></div>
+                                            <div class="text">
+                                                <span class="title">John Doe</span>
+                                                <span class="subtitle">Lorem ipsum dolor sit.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><img alt="Alice Smith" src="images/avatar_2.jpg" /></div>
+                                            <div class="text">
+                                                <span class="title">Alice Smith</span>
+                                                <span class="subtitle">Deserunt, mollitia?</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><img alt="Klaus Wolf" src="images/avatar_3.jpg" /></div>
+                                            <div class="text">
+                                                <span class="title">Klaus Wolf</span>
+                                                <span class="subtitle">Consectetur adipisicing elit.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><img alt="Sun Li" src="images/avatar_4.jpg" /></div>
+                                            <div class="text">
+                                                <span class="title">Sun Li</span>
+                                                <span class="subtitle">Tenetur tempora?</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><img alt="Sonia Valera" src="images/avatar_5.jpg" /></div>
+                                            <div class="text">
+                                                <span class="title">Sonia Valera</span>
+                                                <span class="subtitle">Similique ad maxime.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="drop-footer">
+                            <a>See all messages</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="notice" id="alerts-notice">
+                    <i class="fa fa-bell-o" aria-hidden="true"><span class="badge badge-xs badge-top-right x-danger">7</span></i>
+                    <div class="dropdown-box basic">
+                        <div class="drop-header">
+                            <h3><i class="fa fa-bell-o" aria-hidden="true"></i> Notifications</h3>
+                            <span class="badge x-danger b-rounded">7</span>
+                        </div>
+                        <div class="drop-content">
+                            <div class="widget-list list-left-element list-sm">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><i class="fa fa-warning color-warning"></i></div>
+                                            <div class="text">
+                                                <span class="title">8 Bugs</span>
+                                                <span class="subtitle">reported today</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><i class="fa fa-flag color-danger"></i></div>
+                                            <div class="text">
+                                                <span class="title">Error</span>
+                                                <span class="subtitle">sevidor C down</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><i class="fa fa-cog color-dark"></i></div>
+                                            <div class="text">
+                                                <span class="title">New Configuration</span>
+                                                <span class="subtitle"></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><i class="fa fa-tasks color-success"></i></div>
+                                            <div class="text">
+                                                <span class="title">14 Task</span>
+                                                <span class="subtitle">completed</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="left-element"><i class="fa fa-envelope color-primary"></i></div>
+                                            <div class="text">
+                                                <span class="title">21 Menssage</span>
+                                                <span class="subtitle"> (see more)</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="drop-footer">
+                            <a>See all notifications</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-separator"></div>
+            </div>
+            <div class="header-section" id="user-headerbox">
+                <div class="user-header-wrap">
+                    <div class="user-photo">
+                        <img src="images/user-avatar.jpg" alt="Jane Doe" />
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">Jane Doe</span>
+                        <span class="user-profile">Admin</span>
+                    </div>
+                    <i class="fa fa-plus icon-open" aria-hidden="true"></i>
+                    <i class="fa fa-minus icon-close" aria-hidden="true"></i>
+                </div>
+                <div class="user-options dropdown-box">
+                    <div class="drop-content basic">
+                        <ul>
+                            <li> <a href="pages_user-profile.html"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></li>
+                            <li> <a href="pages_lock-screen.html"><i class="fa fa-lock" aria-hidden="true"></i> Lock Screen</a></li>
+                            <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Configurations</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header-separator"></div>
+            <div class="header-section">
+                <a href="pages_sign-in.html" data-toggle="tooltip" data-placement="left" title="Logout"><i class="fa fa-sign-out log-out" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-body">
+        <div class="left-sidebar">
+            <!-- left sidebar HEADER -->
+            <div class="left-sidebar-header">
+                <div class="left-sidebar-title">Navigation</div>
+                <div class="left-sidebar-toggle c-hamburger c-hamburger--htla hidden-xs" data-toggle-class="left-sidebar-collapsed" data-target="html">
+                    <span></span>
+                </div>
+            </div>
+            <!-- NAVIGATION -->
+            <!-- ========================================================= -->
+            <div id="left-nav" class="nano">
+                <div class="nano-content">
+                    <nav>
+                        <ul class="nav" id="main-nav">
+                            <!--HOME-->
+                            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i><span>Dashboard</span></a></li>
+                            <!--UI ELEMENTENTS-->
+                            <li class="has-child-item open-item active-item">
+                                <a><i class="fa fa-cubes" aria-hidden="true"></i><span>UI Elements</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="ui-elements_panels.html">Panels</a></li>
+                                    <li class="active-item"><a href="ui-elements_accordions.html">Accordions</a></li>
+                                    <li><a href="ui-elements_tabs.html">Tabs</a></li>
+                                    <li><a href="ui-elements_buttons.html">Buttons <span class="badge badge-xs x-warning b-rounded">update</span></a></li>
+                                    <li><a href="ui-elements_typography.html">Typography</a></li>
+                                    <li><a href="ui-elements_alerts.html">Alerts</a></li>
+                                    <li><a href="ui-elements_modals.html">Modals</a></li>
+                                    <li><a href="ui-elements_lightbox.html">Lightbox <span class="badge badge-xs x-success b-rounded">New</span></a></li>
+                                    <li class="has-child-item open-item">
+                                        <a>Notifications</a>
+                                        <ul class="nav child-nav level-2 ">
+                                            <li class="active-item"><a href="ui-elements_notifications-pnotify.html">PNotify</a></li>
+                                            <li><a href="ui-elements_notifications-toastr.html">Toastr</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="ui-elements_animations-appear.html">Animations <span class="badge badge-xs x-warning b-rounded">update</span></a></li>
+                                    <li><a href="ui-elements_badges-tags.html">Badge & Tags <span class="badge badge-xs x-success b-rounded">New</span></a></li>
+                                </ul>
+                            </li>
+                            <!--CHARTS-->
+                            <li class="has-child-item close-item">
+                                <a><i class="fa fa-pie-chart" aria-hidden="true"></i><span>Charts</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="charts_chart-js.html">CharJS</a></li>
+                                    <li><a href="charts_morris.html">Morris</a></li>
+                                    <li><a href="charts_peity.html">Peity <span class="badge badge-xs x-success b-rounded">New</span></a></li>
+                                </ul>
+                            </li>
+                            <!--FORMS-->
+                            <li class="has-child-item close-item">
+                                <a><i class="fa fa-columns" aria-hidden="true"></i><span>Forms</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="forms_layouts.html">Layouts</a></li>
+                                    <li><a href="forms_elements.html">Elements</a></li>
+                                    <li><a href="forms_advanced.html">Advanced</a></li>
+                                    <li><a href="forms_validation.html">Validation</a></li>
+                                    <li><a href="forms_wizard.html">Wizard <span class="badge badge-xs x-success b-rounded">New</span></a></li>
+                                </ul>
+                            </li>
+                            <!--TABLES-->
+                            <li class="has-child-item close-item">
+                                <a><i class="fa fa-table" aria-hidden="true"></i><span>Tables</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="tables_basic.html">Basic</a></li>
+                                    <li><a href="tables_data-tables.html">DataTable</a></li>
+                                    <li><a href="tables_responsive.html">Responsive</a></li>
+                                </ul>
+                            </li>
+                            <!--PAGES-->
+                            <li class="has-child-item close-item">
+                                <a><i class="fa fa-files-o" aria-hidden="true"></i><span>Pages</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="pages_sign-in.html">Sign in <span class="badge badge-xs x-warning b-rounded">Update</span></a></li>
+                                    <li><a href="pages_register.html">Register <span class="badge badge-xs x-success b-rounded">New</span></a></li>
+                                    <li><a href="pages_lock-screen.html">Lock screen</a></li>
+                                    <li><a href="pages_forgot-password.html">Forgot password</a></li>
+                                    <li class="has-child-item close-item">
+                                        <a>Error pages</a>
+                                        <ul class="nav child-nav level-2 ">
+                                            <li><a href="pages_error-404-content.html">Error 404 content</a></li>
+                                            <li><a href="pages_error-404.html">Error 404 page</a></li>
+                                            <li><a href="pages_error-500.html">Error 500</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="pages_faq.html">FAQ</a></li>
+                                    <li><a href="pages_user-profile.html">User profile</a></li>
+                                    <li class="has-child-item close-item">
+                                        <a>Search results <span class="badge badge-xs x-success b-rounded">New</span></a>
+                                        <ul class="nav child-nav level-2 ">
+                                            <li><a href="pages_search-results-list.html">List style</a></li>
+                                            <li><a href="pages_search-results-grid.html">Grid Style</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-child-item close-item">
+                                        <a>Projects <span class="badge badge-xs x-success b-rounded">New</span></a>
+                                        <ul class="nav child-nav level-2 ">
+                                            <li><a href="pages_project-list.html">List</a></li>
+                                            <li><a href="pages_project-detail.html">Detail</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <!--WIDGETS-->
+                            <li class="has-child-item close-item">
+                                <a><i class="fa fa-paper-plane" aria-hidden="true"></i><span>Widgets</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="widgets_boxes.html">Boxes</a></li>
+                                    <li><a href="widgets_lists.html">Lists</a></li>
+                                    <li><a href="widgets_posts.html">Posts</a></li>
+                                    <li><a href="widgets_timelines.html">Timelines</a></li>
+                                </ul>
+                            </li>
+                            <!--HELPERS-->
+                            <li class="has-child-item close-item">
+                                <a><i class="fa fa-magic" aria-hidden="true"></i><span>Helpers</span></a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a href="helpers_background-border.html">Background & Border</a></li>
+                                    <li><a href="helpers_margin-padding.html">Margin & Padding</a></li>
+                                </ul>
+                            </li>
+                            <!--MENU LEVELS-->
+                            <li class=" has-child-item close-item">
+                                <a>
+                                    <i class="fa fa-sitemap" aria-hidden="true"></i>
+                                    <span>Menu levels</span>
+                                </a>
+                                <ul class="nav child-nav level-1">
+                                    <li><a>First Item</a></li>
+                                    <li class="has-child-item close-item">
+                                        <a>Second Item</a>
+                                        <ul class="nav child-nav level-2 ">
+                                            <li><a href="#">Option 1</a></li>
+                                            <li><a href="#">Option 2</a></li>
+                                            <li class="has-child-item close-item">
+                                                <a>Option 3</a>
+                                                <ul class="nav child-nav level-3 ">
+                                                    <li><a href="#">Item 1</a></li>
+                                                    <li><a href="#">Item 2</a></li>
+                                                    <li><a href="#">Item 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a>Third Item</a></li>
+                                    <li class="has-child-item close-item">
+                                        <a>Fourth Item</a>
+                                        <ul class="nav child-nav level-2 ">
+                                            <li><a href="#">Option 1</a></li>
+                                            <li><a href="#">Option 2</a></li>
+                                            <li class="has-child-item close-item">
+                                                <a>Option 3</a>
+                                                <ul class="nav child-nav level-3 ">
+                                                    <li><a href="#">Item 1</a></li>
+                                                    <li><a href="#">Item 2</a></li>
+                                                    <li><a href="#">Item 3</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content-header">
+                <div class="leftside-content-header">
+                    <ul class="breadcrumbs">
+                        <li><i class="fa fa-home" aria-hidden="true"></i><a href="#">UI Elements</a></li>
+                        <li><a>Notifications</a></li>
+                        <li><a>PNotify</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row animated fadeInUp">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="section-subtitle text-center"><b>PNotify</b> - Is a JavaScript notification system</h4>
+                        <p class="section-text text-center"> Provide <span class="highlight">desktop notifications</span> and works on your <span class="highlight">phone and tablet</span>. For more <a href="http://sciactive.com/pnotify/">Info</a></p>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <h4 class="section-subtitle"><b>Default</b> Notifications</h4>
+                    <div class="panel">
+                        <div class="panel-content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><b>Basic</b> notifications</h5>
+                                    <button id="pnotify-basic-success" class="btn btn-wide btn-success">Success</button>
+                                    <button id="pnotify-basic-warning" class="btn btn-wide btn-warning">Warning</button>
+                                    <button id="pnotify-basic-error" class="btn btn-wide btn-danger">Error</button>
+                                    <button id="pnotify-basic-info" class="btn btn-wide btn-info">Info</button>
+                                    <button id="pnotify-basic-primary" class="btn btn-wide btn-primary">Primary</button>
+                                    <button id="pnotify-basic-dark" class="btn btn-wide ">Dark</button>
+                                    <button id="pnotify-basic-light" class="btn btn-wide ">Light</button>
+                                </div>
+                                <div class="col-md-12 mt-lg">
+                                    <h5><b>Position</b> of the notice</h5>
+                                    <p>You can specify where the notifications will show up</p>
+                                    <button id="pnotify-position-topLeft" class="btn btn-wide btn-o btn-primary">Top Left</button>
+                                    <button id="pnotify-position-topRight" class="btn btn-wide btn-o btn-primary">Top Right</button>
+                                    <button id="pnotify-position-bottomRight" class="btn btn-wide btn-o btn-primary">Bottom Right</button>
+                                    <button id="pnotify-position-bottomLeft" class="btn btn-wide btn-o btn-primary">Bottom Left</button>
+                                </div>
+                                <div class="col-md-12 mt-lg">
+                                    <h5><b>Style</b> of the notice</h5>
+                                    <p>You can remove the icon, sharp the borders and remove the shadow of the notifications</p>
+                                    <button id="pnotify-style-withouticon" class="btn btn-wide btn-o btn-primary">Without Icon</button>
+                                    <button id="pnotify-style-sharp" class="btn btn-wide btn-o btn-primary">Sharp borders</button>
+                                    <button id="pnotify-style-withoutshadow" class="btn btn-wide btn-o btn-primary">Without Shadow</button>
+                                </div>
+                                <div class="col-md-12 mt-lg">
+                                    <h5><b>Feature</b> of the notice</h5>
+                                    <p>You can set featured as non-blocking, sticky and click to close the notifications</p>
+                                    <button id="pnotify-feature-nonblocking" class="btn btn-wide btn-o btn-primary">Non-blocking</button>
+                                    <button id="pnotify-feature-sticky" class="btn btn-wide btn-o btn-primary">Sticky</button>
+                                    <button id="pnotify-feature-click" class="btn btn-wide btn-o btn-primary">Click to close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <h4 class="section-subtitle"><b>Bars</b> Notifications</h4>
+                    <div class="panel">
+                        <div class="panel-content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><b>Top Bar</b> notifications</h5>
+                                    <button id="pnotify-topbar-success" class="btn btn-wide btn-success">Success</button>
+                                    <button id="pnotify-topbar-error" class="btn btn-wide btn-danger">Error</button>
+                                    <button id="pnotify-topbar-primary" class="btn btn-wide btn-primary">Primary</button>
+                                    <button id="pnotify-topbar-dark" class="btn btn-wide btn-dark">Dark</button>
+                                </div>
+                                <div class="col-md-12 mt-lg">
+                                    <h5><b>Bottom Bar</b> notifications</h5>
+                                    <button id="pnotify-bottombar-success" class="btn btn-wide btn-success">Success</button>
+                                    <button id="pnotify-bottombar-error" class="btn btn-wide btn-danger">Error</button>
+                                    <button id="pnotify-bottombar-primary" class="btn btn-wide btn-primary">Primary</button>
+                                    <button id="pnotify-bottombar-dark" class="btn btn-wide btn-dark">Dark</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <h4 class="section-subtitle"><b>Modal</b> Notifications</h4>
+                    <div class="panel">
+                        <div class="panel-content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button id="pnotify-modal-success" class="btn btn-wide btn-success">Success</button>
+                                    <button id="pnotify-modal-warning" class="btn btn-wide btn-warning">Warning</button>
+                                    <button id="pnotify-modal-error" class="btn btn-wide btn-danger">Error</button>
+                                    <button id="pnotify-modal-info" class="btn btn-wide btn-info">Info</button>
+                                    <button id="pnotify-modal-primary" class="btn btn-wide btn-primary">Primary</button>
+                                    <button id="pnotify-modal-dark" class="btn btn-wide btn-dark">Dark</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-sidebar">
+            <div class="right-sidebar-toggle" data-toggle-class="right-sidebar-opened" data-target="html">
+                <i class="fa fa-cog fa-spin" aria-hidden="true"></i>
+            </div>
+            <div id="right-nav" class="nano">
+                <div class="nano-content">
+                    <div class="template-settings">
+                        <h4 class="text-center">Template Settings</h4>
+                        <ul class="toggle-settings pv-xlg">
+                            <li>
+                                <h6 class="text">Header fixed</h6>
+                                <label class="switch">
+                                    <input id="header-fixed" type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <h6 class="text">Left sidebar fixed</h6>
+                                <label class="switch">
+                                    <input id="left-sidebar-fixed" type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <h6 class="text">Left sidebar collapsed</h6>
+                                <label class="switch">
+                                    <input id="left-sidebar-collapsed" type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <h6 class="text">Content header fixed</h6>
+                                <label class="switch">
+                                    <input id="content-header-fixed" type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </li>
+                        </ul>
+                        <h4 class="text-center">Template Colors</h4>
+                        <ul class="toggle-colors">
+                            <li>
+                                <a href="/helsinki/helsinki-green/index.html" class="on-click"> <img alt="Helsinki-green" src="images/helsinki-green.png" /></a>
+                            </li>
+                            <li>
+                                <a href="/helsinki/helsinki-light/index.html" class="on-click"> <img alt="Helsinki-light" src="images/helsinki-light.png" /></a>
+                            </li>
+                            <li>
+                                <a href="/helsinki/helsinki-blue/index.html" class="on-click"> <img alt="Helsinki-blue" src="images/helsinki-blue.png" /></a>
+                            </li>
+                            <li>
+                                <a href="/helsinki/helsinki-red/index.html" class="on-click"> <img alt="Helsinki-red" src="images/helsinki-red.png" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="scroll-to-top"><i class="fa fa-angle-double-up"></i></a>
+    </div>
+</div>
+<script src="vendor/jquery/jquery-1.12.3.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/nano-scroller/nano-scroller.js"></script>
+<script src="javascripts/template-script.min.js"></script>
+<script src="javascripts/template-init.min.js"></script>
+<script src="vendor/pnotify/pnotify.custom.js"></script>
+<script src="javascripts/examples/ui-elements/notifications-pnotify.js"></script>
+</body>
+
+</html>
