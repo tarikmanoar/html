@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Google Sans Regular'), local(GoogleSans-Regular), url(//fonts.gstatic.com/s/googlesans/v5/4UaGrENHsxJlGDuGo1OIlL3Kwp5MKg.woff2) format("woff2");
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+        }
+        
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Google Sans Regular'), local(GoogleSans-Regular), url(//fonts.gstatic.com/s/googlesans/v5/4UaGrENHsxJlGDuGo1OIlL3Nwp5MKg.woff2) format("woff2");
+            unicode-range: U+0370-03FF
+        }
+        
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Google Sans Regular'), local(GoogleSans-Regular), url(//fonts.gstatic.com/s/googlesans/v5/4UaGrENHsxJlGDuGo1OIlL3Awp5MKg.woff2) format("woff2");
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+        }
+        
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Google Sans Regular'), local(GoogleSans-Regular), url(//fonts.gstatic.com/s/googlesans/v5/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2) format("woff2");
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+        }
+        
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Google Sans Medium'), local(GoogleSans-Medium), url(//fonts.gstatic.com/s/googlesans/v5/4UabrENHsxJlGDuGo1OIlLU94Yt3CwZ-Pw.woff2) format("woff2");
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116
+        }
+        
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Google Sans Medium'), local(GoogleSans-Medium), url(//fonts.gstatic.com/s/googlesans/v5/4UabrENHsxJlGDuGo1OIlLU94YtwCwZ-Pw.woff2) format("woff2");
+            unicode-range: U+0370-03FF
+        }
+        
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Google Sans Medium'), local(GoogleSans-Medium), url(//fonts.gstatic.com/s/googlesans/v5/4UabrENHsxJlGDuGo1OIlLU94Yt9CwZ-Pw.woff2) format("woff2");
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF
+        }
+        
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 500;
+            src: local('Google Sans Medium'), local(GoogleSans-Medium), url(//fonts.gstatic.com/s/googlesans/v5/4UabrENHsxJlGDuGo1OIlLU94YtzCwY.woff2) format("woff2");
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+        }
+        
+        body {
+            background: #f4f5f9;
+            font-family: 'Google Sans';
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center
+        }
+        
+        h3.title {
+            text-align: center;
+            display: inline-block;
+            font-size: 1.2rem;
+            background: #fff;
+            padding: 5px 15px;
+            border-radius: 20px
+        }
+        /* Pricing Section by Dunia Blanter (www.idblanter.com) */
+        
+        .pricing-section {
+            font-family: 'Google Sans', Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            display: block;
+            margin: 15px 0;
+            line-height: 1.7
+        }
+        
+        .pricing-section h3 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0
+        }
+        
+        .pricing-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto
+        }
+        
+        .pricing-tag {
+            margin: .5rem 0 1rem;
+            font-size: 13px;
+            display: inline-block;
+            background: #333;
+            color: #fff;
+            padding: 3px 15px;
+            border-radius: 20px
+        }
+        
+        a.blanter-order-btn {
+            font-size: 14px;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #333;
+            color: #fff;
+            display: inline-block;
+            padding: 7px 20px;
+            border-radius: 20px;
+            transition: all .3s ease-in-out
+        }
+        
+        a.blanter-order-btn:hover {
+            transform: scale(1.1)
+        }
+        
+        .pricing-blanter-column {
+            background: #fff;
+            padding: 30px 15px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            text-align: center;
+            width: 33%;
+            margin: 10px;
+            box-shadow: 0 7px 7px rgba(0, 0, 0, 0.06);
+            border: 2px solid #fff;
+            transition: all .3s ease-in-out
+        }
+        
+        .pricing-blanter-column ul {
+            list-style: none;
+            padding: 10px 0;
+            font-size: 14px;
+            line-height: 2.2
+        }
+        
+        .pricing-blanter-column img {
+            width: 50px
+        }
+        
+        .pricing-section i {
+            font-size: 3rem
+        }
+        
+        .blanter-price {
+            font-weight: 700;
+            font-size: 22px
+        }
+        
+        .service-info {
+            opacity: .7
+        }
+        
+        .blanter-2-column .pricing-blanter-column {
+            width: 50%
+        }
+        
+        .pricing-blanter-column:nth-child(1) .blanter-price,
+        .pricing-blanter-column:nth-child(1) i {
+            color: #f87200
+        }
+        /*
+      Change Color Code */
+        
+        .pricing-blanter-column:nth-child(2) .blanter-price,
+        .pricing-blanter-column:nth-child(2) i {
+            color: #ff5483
+        }
+        /*
+      Change Color Code */
+        
+        .pricing-blanter-column:nth-child(3) .blanter-price,
+        .pricing-blanter-column:nth-child(3) i {
+            color: #2b73f6
+        }
+        /*
+      Change Color Code */
+        
+        .pricing-blanter-column:nth-child(1):hover {
+            border-color: #f87200
+        }
+        /* Change Color Code */
+        
+        .pricing-blanter-column:nth-child(2):hover {
+            border-color: #ff5483
+        }
+        /* Change Color Code */
+        
+        .pricing-blanter-column:nth-child(3):hover {
+            border-color: #2b73f6
+        }
+        /* Change Color Code */
+        
+        .pricing-blanter-column:nth-child(1) .pricing-tag,
+        .pricing-blanter-column:nth-child(1) a.blanter-order-btn {
+            background: #f87200
+        }
+        /* Change Color Code */
+        
+        .pricing-blanter-column:nth-child(2) .pricing-tag,
+        .pricing-blanter-column:nth-child(2) a.blanter-order-btn {
+            background: #ff5483
+        }
+        /* Change Color Code */
+        
+        .pricing-blanter-column:nth-child(3) .pricing-tag,
+        .pricing-blanter-column:nth-child(3) a.blanter-order-btn {
+            background: #2b73f6
+        }
+        /* Change Color Code */
+        
+        @media screen and (max-width:580px) {
+            .pricing-blanter-column,
+            .blanter-2-column .pricing-blanter-column {
+                width: auto
+            }
+            .pricing-container {
+                display: block
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 1rem 0 2rem;
+        }
+        
+        a:link {
+            text-decoration: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h3 class="title">3 Column Widget</h3>
+
+        <div class="pricing-section">
+            <div class="pricing-container">
+                <div class="pricing-blanter-column">
+                    <img src='https://2.bp.blogspot.com/-HWl2PCk1T_g/XqqDylYxjCI/AAAAAAAAONY/h6Yr9fkzWhQ35ob37L9PnxiX7ExTmns1gCLcBGAsYHQ/s50/basic.png' alt='Basic' />
+                    <h3>Basic</h3>
+                    <div class="pricing-tag">20% off</div>
+                    <div class="blanter-price">Rp 150.000</div>
+                    <div class="service-info">
+                        <ul>
+                            <li>Documentation</li>
+                            <li>Premium Template</li>
+                            <li>1 License</li>
+                            <li>Full Optimization</li>
+                            <li>1 Month Full Support</li>
+                            <li>Easy Customize</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                    <a class="blanter-order-btn" href="https://www.idblanter.com/2019/08/blanter-tokoshop-template-toko-online-terbaik.html" title="#" target="_blank">Order Sekarang</a>
+                </div>
+                <div class="pricing-blanter-column">
+                    <img src='https://2.bp.blogspot.com/-KVVFsnJlM9E/XqqD0Qo0KDI/AAAAAAAAONg/FIn1BXo4PU8xX12gCac755x9vXDHOfVvQCLcBGAsYHQ/s50/personal.png' alt='Personal' />
+                    <h3>Personal</h3>
+                    <div class="pricing-tag">Best Value</div>
+                    <div class="blanter-price">Rp 220.000</div>
+                    <div class="service-info">
+                        <ul>
+                            <li>Documentation</li>
+                            <li>Premium Template</li>
+                            <li>3 License</li>
+                            <li>Full Optimization</li>
+                            <li>3 Month Full Support</li>
+                            <li>Easy Customize</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                    <a class="blanter-order-btn" href="https://www.idblanter.com/2019/08/blanter-tokoshop-template-toko-online-terbaik.html" title="#" target="_blank">Order Sekarang</a>
+                </div>
+                <div class="pricing-blanter-column">
+                    <img src='https://2.bp.blogspot.com/-QoGlZN-t_fQ/XqqDzmE276I/AAAAAAAAONc/AG5ZXRxQo9Q24-LVUtdg_Jf3Za0kZqacACLcBGAsYHQ/s50/developer.png' alt='Developer' />
+                    <h3>Developer</h3>
+                    <div class="pricing-tag">For Business</div>
+                    <div class="blanter-price">Rp 999.000</div>
+                    <div class="service-info">
+                        <ul>
+                            <li>Documentation</li>
+                            <li>Premium Template</li>
+                            <li>Unlimited License</li>
+                            <li>Full Optimization</li>
+                            <li>6 Month Full Support</li>
+                            <li>Easy Customize</li>
+                            <li>1 Bonus Template</li>
+                        </ul>
+                    </div>
+                    <a class="blanter-order-btn" href="https://www.idblanter.com/2019/08/blanter-tokoshop-template-toko-online-terbaik.html" title="#" target="_blank">Order Sekarang</a>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="title">2 Column Widget</h3>
+
+        <div class="pricing-section blanter-2-column">
+            <div class="pricing-container">
+                <div class="pricing-blanter-column">
+                    <img src='https://2.bp.blogspot.com/-HWl2PCk1T_g/XqqDylYxjCI/AAAAAAAAONY/h6Yr9fkzWhQ35ob37L9PnxiX7ExTmns1gCLcBGAsYHQ/s50/basic.png' alt='Basic' />
+                    <h3>Basic</h3>
+                    <div class="pricing-tag">20% off</div>
+                    <div class="blanter-price">Rp 150.000</div>
+                    <div class="service-info">
+                        <ul>
+                            <li>Documentation</li>
+                            <li>Premium Template</li>
+                            <li>1 License</li>
+                            <li>Full Optimization</li>
+                            <li>1 Month Full Support</li>
+                            <li>Easy Customize</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                    <a class="blanter-order-btn" href="#" title="#">Order Sekarang</a>
+                </div>
+                <div class="pricing-blanter-column">
+                    <img src='https://2.bp.blogspot.com/-KVVFsnJlM9E/XqqD0Qo0KDI/AAAAAAAAONg/FIn1BXo4PU8xX12gCac755x9vXDHOfVvQCLcBGAsYHQ/s50/personal.png' alt='Personal' />
+                    <h3>Personal</h3>
+                    <div class="pricing-tag">Best Value</div>
+                    <div class="blanter-price">Rp 220.000</div>
+                    <div class="service-info">
+                        <ul>
+                            <li>Documentation</li>
+                            <li>Premium Template</li>
+                            <li>3 License</li>
+                            <li>Full Optimization</li>
+                            <li>3 Month Full Support</li>
+                            <li>Easy Customize</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                    <a class="blanter-order-btn" href="#" title="#">Order Sekarang</a>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="title">4 Column Widget</h3>
+
+        <div class="pricing-section blanter-4-column">
+            <div class="pricing-container">
+                <div class="pricing-blanter-column">
+                    <img src='https://2.bp.blogspot.com/-HWl2PCk1T_g/XqqDylYxjCI/AAAAAAAAONY/h6Yr9fkzWhQ35ob37L9PnxiX7ExTmns1gCLcBGAsYHQ/s50/basic.png' alt='Basic' />
+                    <h3>Basic</h3>
+                    <div class="pricing-tag">20% off</div>
+                    <div class="blanter-price">Rp 150.000</div>
+                    <div class="service-info">
+                        <ul>
+                            <li>Documentation</li>
+                            <li>Premium Template</li>
+                            <li>1 License</li>
+                            <li>Full Optimization</li>
+                            <li>1 Month Full Support</li>
+                            <li>Easy Customize</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                    <a class="blanter-order-btn" href="#" title="#">Order Sekarang</a>
+                </div>
+                <div class="pricing-blanter-column">
+                    <img src='https://2.bp.blogspot.com/-KVVFsnJlM9E/XqqD0Qo0KDI/AAAAAAAAONg/FIn1BXo4PU8xX12gCac755x9vXDHOfVvQCLcBGAsYHQ/s50/personal.png' alt='Personal' />
+                    <h3>Personal</h3>
+                    <div class="pricing-tag">Best Value</div>
+                    <div class="blanter-price">Rp 220.000</div>
+                    <div class="service-info">
+                        <ul>
+                            <li>Documentation</li>
+                            <li>Premium Template</li>
+                            <li>3 License</li>
+                            <li>Full Optimization</li>
+                            <li>3 Month Full Support</li>
+                            <li>Easy Customize</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                    <a class="blanter-order-btn" href="#" title="#">Order Sekarang</a>
+                </div>
+                <div class="pricing-blanter-column">
+                    <img src='https://2.bp.blogspot.com/-HWl2PCk1T_g/XqqDylYxjCI/AAAAAAAAONY/h6Yr9fkzWhQ35ob37L9PnxiX7ExTmns1gCLcBGAsYHQ/s50/basic.png' alt='Basic' />
+                    <h3>Basic</h3>
+                    <div class="pricing-tag">20% off</div>
+                    <div class="blanter-price">Rp 150.000</div>
+                    <div class="service-info">
+                        <ul>
+                            <li>Documentation</li>
+                            <li>Premium Template</li>
+                            <li>1 License</li>
+                            <li>Full Optimization</li>
+                            <li>1 Month Full Support</li>
+                            <li>Easy Customize</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                    <a class="blanter-order-btn" href="#" title="#">Order Sekarang</a>
+                </div>
+                <div class="pricing-blanter-column">
+                    <img src='https://2.bp.blogspot.com/-KVVFsnJlM9E/XqqD0Qo0KDI/AAAAAAAAONg/FIn1BXo4PU8xX12gCac755x9vXDHOfVvQCLcBGAsYHQ/s50/personal.png' alt='Personal' />
+                    <h3>Personal</h3>
+                    <div class="pricing-tag">Default</div>
+                    <div class="blanter-price">Rp 220.000</div>
+                    <div class="service-info">
+                        <ul>
+                            <li>Documentation</li>
+                            <li>Premium Template</li>
+                            <li>3 License</li>
+                            <li>Full Optimization</li>
+                            <li>3 Month Full Support</li>
+                            <li>Easy Customize</li>
+                            <li>-</li>
+                        </ul>
+                    </div>
+                    <a class="blanter-order-btn" href="#" title="#">Order Sekarang</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br>
+    <div class='footer'>
+        Design and Written by <a href="https://www.idblanter.com" title="Dunia Blanter" target='_blank'>Dunia Blanter</a>
+    </div>
+</body>
+
+</html>
