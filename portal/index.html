@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/java.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .wrapper {
+            width: 1200px;
+            height: fit-content;
+            margin: 120px auto 0 auto;
+            margin-left: 70px;
+            display: block;
+        }
+        
+        body {
+            width: 100%;
+            line-height: 1.7em;
+        }
+        
+        div.flex {
+            display: flex;
+            width: 1200px;
+            height: 90px;
+        }
+        
+        div.flexsub {
+            display: flex;
+            height: 90px;
+            width: 300px;
+            margin-left: 130px;
+            justify-content: flex-end;
+        }
+        
+        div.block {
+            display: block;
+            text-align: right;
+            margin-top: 0px;
+        }
+        
+        img.a {
+            margin-left: 30px;
+        }
+        
+        span {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            color: #212121;
+            font-size: 19px;
+        }
+        
+        output.mid {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+            color: #212121;
+            font-size: 25px;
+        }
+        
+        span.midtwo {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #212121;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        
+        output.last {
+            color: #212121;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 13px;
+        }
+        
+        span.lasttwo {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #212121;
+            font-weight: normal;
+            font-size: 13px;
+        }
+        
+        img.b {
+            margin-left: 0px;
+        }
+        
+        .b {
+            margin-left: 30px;
+        }
+        
+        div.blockb {
+            text-align: start;
+        }
+        
+        .man {
+            width: 400px;
+            height: fit-content;
+            margin-left: 30px;
+        }
+        
+        canvas {
+            height: 218px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgb(201, 200, 200);
+            width: 218px;
+            border-radius: 50%;
+            margin: 50px;
+            background-image: url(./img/logo.png);
+            cursor: pointer;
+        }
+        
+        canvas:hover {
+            opacity: 50%;
+            cursor: pointer;
+            border-color: rgb(21, 21, 21);
+        }
+        
+        input {
+            font-family: verdana;
+            font-size: 12pt;
+        }
+        
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        
+        .upload-btn-wrapper {
+            overflow: hidden;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        
+        .btn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            visibility: hidden;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            visibility: visible;
+        }
+        
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+        
+        div.blockedM {
+            width: 90%;
+            height: fit-content;
+        }
+        
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            justify-content: flex-start;
+        }
+        /*
+        = PHONE VIEW
+        */
+        
+        .desktop {
+            display: block;
+        }
+        
+        .phone {
+            display: none;
+        }
+        
+        @media (max-width: 900px) {
+            .desktop {
+                display: none;
+            }
+            .phone {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .flex {
+                width: 96% !important;
+                display: block !important;
+            }
+            .flexsubPhone {
+                width: 100% !important;
+                padding: 15px 0;
+            }
+        }
+        
+        div.flexsubPhone {
+            display: flex;
+            height: auto;
+            width: 50%;
+            margin-left: 0;
+            justify-content: flex-start;
+        }
+    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.3-web/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.3-web/css/font-awesome.css">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.3-web/css/all.css">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.3-web/css/solid.css">
+    <link rel="stylesheet" href="./fontawesome-free-5.15.3-web/css/solid.min.css">
+    <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js">
+    </script>
+</head>
+
+<body>
+    <div class="desktop">
+        <div class="wrapper">
+            <center>
+                <div class="flex" style="margin-left: 0px; width: 90%; ">
+                    <div class="flexsub">
+                        <div class="block">
+                            <span style="margin-top: 0px;">AVG CSAT</span>
+                            <br />
+                            <output class="mid" name="87.5" for="AVG%">87.5</output><span class="midtwo">%</span>
+                            <br />
+                            <output class="last" name=".05%" for="AVG%">+.05</output><span class="lasttwo">%^</span>
+                        </div>
+                        <span class="fa-stack fa-3x" style="padding-left:30px; padding-right:10px">
+								<i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+								<i style="color:white" class="fa fa-certificate fa-stack-1x"></i>
+							</span>
+                    </div>
+                    <div class="flexsub" style="justify-content:flex-start;margin-left: 117px;">
+                        <span class="fa-stack fa-3x" style="padding-left:30px;">
+								<i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+								<i style="color:white" class="fa fa-money-check-alt fa-stack-1x"></i>
+							</span>
+                        <div class="blockb b">
+                            <span style="margin-top: 0px;">Cost Aggregate</span>
+                            <br />
+                            <output class="mid" name="87.5" for="AVG%">12</output><span class="midtwo">K</span>
+                            <br />
+                            <span class="lasttwo">Total Cost per month</span>
+                        </div>
+                    </div>
+                </div>
+            </center>
+        </div>
+        <div style="width: fit-content; height: 365px;">
+            <div class="flex" style="margin-top: 30px; justify-content: unset; margin-left: 0%; ">
+                <div class="block man">
+                    <div class="flex" style=" width: fit-content;">
+                        <div class="flexsub" style="margin: 0%; width: 430px;">
+                            <div class="block">
+                                <span style="margin-top: 0px;">Utilization/Logins</span>
+                                <br />
+                                <output class="mid" style="color: #23be4f;" name="87.5" for="AVG%">46(55%)</output><span class="midtwo" style="color: #23be4f;">^</span>
+                                <br />
+                                <span class="lasttwo">Current Month</span>
+                            </div>
+                            <span class="fa-stack fa-3x" style="padding-left:30px; padding-right:10px">
+									<i class="fas fa-circle fa-stack-2x" style="color:#25AA02"></i>
+									<i class="fa fa-mouse-pointer fa-stack-1x" style="color:white"></i>
+								</span>
+                        </div>
+                    </div>
+                    <div class="flex" style=" width: fit-content; margin-top: 30px;">
+                        <div class="flexsub" style="margin: 0%; width: fit-content; ">
+
+
+                            <div class="block">
+                                <span style="margin-top: 0px;">Service Availability</span>
+                                <br />
+
+                                <output class="mid" style="color: #23be4f;" name="87.5" for="AVG%">100</output><span class="midtwo" style="color: #23be4f;">%</span>
+                                <br />
+
+                                <span class="lasttwo">Uptime Number (Outages/Service Availability)</span>
+
+
+                            </div>
+
+
+
+                            <span class="fa-stack fa-3x" style="padding-left:30px; padding-right:10px">
+									<i class="fas fa-circle fa-stack-2x" style="color:#25AA02"></i>
+									<i style="color:white" class="fa fa-cloud fa-stack-1x"></i>
+								</span>
+
+                        </div>
+                    </div>
+                    <div class="flex" style=" width: fit-content; margin-top: 30px;">
+                        <div class="flexsub" style="margin: 0%; width: 430px;">
+
+
+                            <div class="block">
+                                <span style="margin-top: 0px;">Automation</span>
+                                <br />
+
+                                <output class="mid" name="87.5" for="AVG%">43(89%)</output><span class="midtwo"></span>
+                                <br />
+
+                                <span class="lasttwo">Current Active Stacks(Stacks spun up via ACP4Gov)</span>
+
+
+                            </div>
+
+
+
+                            <span class="fa-stack fa-3x" style="padding-left:30px; padding-right:10px">
+									<i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+									<i style="color:white" class="fa fa-robot fa-stack-1x"></i>
+								</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="man" style="width: 295px; justify-content: center;">
+                    <div class="container">
+
+                        <canvas id="canv1"></canvas>
+                        <img class="centered" src="./img/lines2.png" alt="">
+
+                        <div class="upload-btn-wrapper">
+                            <button class="btn"><img src="./img/icon.png" alt=""></button>
+                            <input class="inputlogo" type="file" multiple="false" accept="image/*" id="finput" onchange="upload()">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="block man" style="justify-content: flex-start; text-align: left; width: 400px;">
+                    <div class="flex" style=" width: fit-content;">
+                        <div class="flexsub" style="margin: 0%; width: 430px; justify-content: flex-start; text-align: left;margin-left: -14px">
+
+                            <span class="fa-stack fa-3x" style="padding-left:30px; padding-right:10px">
+									<i class="fas fa-circle fa-stack-2x" style="color:#25AA02"></i>
+									<i style="color:white" class="fa fa-search-plus fa-stack-1x"></i>
+								</span>
+                            <div class="block" style="text-align: left;">
+                                <span style="margin-top: 0px;">Cost Optimization Opportunities</span>
+                                <br />
+
+                                <output class="mid" name="87.5" for="AVG%">2</output><span class="midtwo">K</span>
+                                <br />
+
+                                <span class="lasttwo">Based on Past and Predicted Utilization</span>
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="flex" style=" width: fit-content; margin-top: 30px;">
+                        <div class="flexsub" style="margin-left: 17px; width: fit-content; ">
+
+                            <span class="fa-stack fa-3x" style="padding-left:30px; padding-right:10px">
+									<i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+									<i style="color:white" class="fa fa-hourglass-half fa-stack-1x"></i>
+								</span>
+                            <div class="block" style="text-align: left; ">
+                                <span style="margin-top: 0px;">Avg Ticket Handling Time</span>
+                                <br />
+
+                                <output class="mid" name="87.5" for="AVG%">13</output><span class="midtwo">hrs</span>
+                                <br />
+
+                                <span class="lasttwo">(Time/Total tickets)</span>
+
+
+                            </div>
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="flex" style=" width: fit-content; margin-top: 30px;">
+                        <div class="flexsub" style="margin: 0%; width: 430px; justify-content: flex-start; text-align: left;margin-left: -15px">
+
+                            <span class="fa-stack fa-3x" style="padding-left:10px; padding-right:10px">
+									<i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+									<i style="color:white" class="fa fa-shield-alt fa-stack-1x"></i>
+								</span>
+                            <div class="block" style="text-align: left;">
+                                <span style="margin-top: 0px;">Security/Policy Violations</span>
+                                <br />
+
+                                <output class="mid" name="87.5" for="AVG%">2</output>
+                                <br />
+
+                                <span class="lasttwo">Trending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex" style="margin-left: 130px; width: 900px; margin-top: 0px; ">
+            <div class="flexsub">
+                <div class="block">
+                    <span style="margin-top: 0px;">Usage Information</span>
+                    <br />
+                    <output class="mid" name="87.5" for="AVG%" style="color: #08bb39;">1328</output><span class="midtwo" style="color: #08bb39;">/</span><output class="mid" name="87.5" for="AVG%" style="color: #08bb39;">58</output>
+                    <br />
+                    <span class="lasttwo">Views/Viewers Per month</span>
+                </div>
+                <span class="fa-stack fa-3x" style="padding-left:30px; padding-right:10px">
+						<i class="fas fa-circle fa-stack-2x" style="color:#25AA02"></i>
+						<i style="color:white" class="fa fa-tachometer-alt fa-stack-1x"></i>
+					</span>
+            </div>
+            <div class="flexsub" style="justify-content:flex-start ; width: 387px;margin-left: 178px;">
+                <span class="fa-stack fa-3x">
+						<i class="fas fa-circle fa-stack-2x" style="color:red"></i>
+						<i style="color:white" class="fa fa-bell fa-stack-1x"></i>
+					</span>
+                <div class="blockb b">
+                    <span style="margin-top: 0px;">Incidents caused by DevOps</span>
+                    <br />
+                    <output class="mid" style="color: #f74157;" name="87.5" for="AVG%">21</output><span class="midtwo" style="color: #f74157;">^</span>
+                    <br />
+                    <span class="lasttwo">Alerts from Stacks, Releases, per Month</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="phone">
+        <div class="man" style=" justify-content: center;display: flex;width: 100%;align-items: center;margin-left: 0;">
+            </script>
+            <div class="container">
+
+                <canvas id="canv1Phone" style="width: 125px;background-position: center;background-size: contain;height: 125px;"></canvas>
+                <img class="centered" src="./img/lines2.png" alt="" style="display: none;">
+
+                <div class="upload-btn-wrapper">
+                    <button class="btn"><img src="./img/icon.png" alt=""></button>
+                    <input class="inputlogo" type="file" multiple="false" accept="image/*" id="finputPhone" onchange="uploadPhone()">
+
+                </div>
+            </div>
+        </div>
+        <div class="flex" style="width:100%;height: auto;">
+            <div class="flexsubPhone" style="justify-content: flex-end;">
+                <div class="block">
+                    <span style="margin-top: 0px;font-size: 14px;">AVG CSAT</span>
+                    <br />
+                    <output class="mid" name="87.5" for="AVG%" style="font-size: 18px;color:#79b2f9">87.5%</output>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">+.05%^</span>
+                </div>
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:10px">
+						<i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+						<i style="color:white" class="fa fa-certificate fa-stack-1x"></i>
+					</span>
+            </div>
+            <div class="flexsubPhone" style="padding-right: 15px;justify-content: flex-start;">
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:15px">
+                    <i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+                    <i style="color:white" class="fa fa-money-check-alt fa-stack-1x"></i>
+					</span>
+                <div class="blockb b" style="margin-left: 10px;">
+                    <span style="margin-top: 0px;font-size: 14px;">Cost Aggregate</span>
+                    <br />
+                    <output class="mid" style="font-size: 18px;color:#79b2f9">12</output><span style="font-size: 18px;color:#79b2f9" class="midtwo">K</span>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">Total Cost per month</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex" style="width:100%;height: auto;">
+            <div class="flexsubPhone" style="justify-content: flex-end;">
+                <div class="block">
+                    <span style="margin-top: 0px;font-size: 14px;">Utilization/Logins</span>
+                    <br />
+                    <output class="mid" name="87.5" for="AVG%" style="font-size: 18px;color:#25aa02">46(55%)^</output>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">Current Month </span>
+                </div>
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:10px">
+						<i class="fas fa-circle fa-stack-2x" style="color:#25aa02"></i>
+						<i style="color:white" class="fa fa-mouse-pointer fa-stack-1x"></i>
+					</span>
+            </div>
+            <div class="flexsubPhone" style="padding-right: 15px;justify-content: flex-start;">
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:15px">
+                    <i class="fas fa-circle fa-stack-2x" style="color:#25aa02"></i>
+                    <i style="color:white" class="fa fa-search-plus fa-stack-1x"></i>
+					</span>
+                <div class="blockb b" style="margin-left: 10px;">
+                    <span style="margin-top: 0px;font-size: 14px;">Cost Optimization Opportunities</span>
+                    <br />
+                    <output class="mid" style="font-size: 18px;color:#25aa02">2</output><span style="font-size: 18px;color:#25aa02" class="midtwo">K</span>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">Based on Past and Predicted Utilization</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex" style="width:100%;height: auto;">
+            <div class="flexsubPhone" style="justify-content: flex-end;">
+                <div class="block">
+                    <span style="margin-top: 0px;font-size: 14px;">Service Availability</span>
+                    <br />
+                    <output class="mid" name="87.5" for="AVG%" style="font-size: 18px;color:#25aa02">100</output>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">Uptime Number (Outages/Service Availability) </span>
+                </div>
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:10px">
+						<i class="fas fa-circle fa-stack-2x" style="color:#25aa02"></i>
+						<i style="color:white" class="fa fa-cloud fa-stack-1x"></i>
+					</span>
+            </div>
+            <div class="flexsubPhone" style="padding-right: 15px;justify-content: flex-start;">
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:15px">
+                    <i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+                    <i style="color:white" class="fa fa-hourglass-half fa-stack-1x"></i>
+					</span>
+                <div class="blockb b" style="margin-left: 10px;">
+                    <span style="margin-top: 0px;font-size: 14px;">Avg Ticket Handling Time</span>
+                    <br />
+                    <output class="mid" style="font-size: 18px;color:#79b2f9">13</output><span style="font-size: 18px;color:#79b2f9" class="midtwo">hrs</span>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">(Time/Total tickets)</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex" style="width:100%;height: auto;">
+            <div class="flexsubPhone" style="justify-content: flex-end;">
+                <div class="block">
+                    <span style="margin-top: 0px;font-size: 14px;">Automation</span>
+                    <br />
+                    <output class="mid" name="87.5" for="AVG%" style="font-size: 18px;color:#79b2f9">43(89%)</output>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">Current Active Stacks(Stacks spun up via ACP4Gov)</span>
+                </div>
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:10px">
+						<i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+						<i style="color:white" class="fa fa-robot fa-stack-1x"></i>
+					</span>
+            </div>
+            <div class="flexsubPhone" style="padding-right: 15px;justify-content: flex-start;">
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:15px">
+                    <i class="fas fa-circle fa-stack-2x" style="color:#79b2f9"></i>
+                    <i style="color:white" class="fa fa-shield-alt fa-stack-1x"></i>
+					</span>
+                <div class="blockb b" style="margin-left: 10px;">
+                    <span style="margin-top: 0px;font-size: 14px;">
+                        Security/Policy Violations</span>
+                    <br />
+                    <output class="mid" style="font-size: 18px;color:#79b2f9">2</output>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">Trending</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex" style="width:100%;height: auto;">
+            <div class="flexsubPhone" style="justify-content: flex-end;">
+                <div class="block">
+                    <span style="margin-top: 0px;font-size: 14px;">Usage Information</span>
+                    <br />
+                    <output class="mid" name="87.5" for="AVG%" style="color: #08bb39;font-size: 18px;">1328</output><span class="midtwo" style="color: #08bb39;font-size: 18px;">/</span><output class="mid" name="87.5" for="AVG%" style="color: #08bb39;font-size: 18px;">58</output>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">Views/Viewers Per month</span>
+                </div>
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:10px">
+						<i class="fas fa-circle fa-stack-2x" style="color:#25AA02"></i>
+						<i style="color:white" class="fa fa-tachometer-alt fa-stack-1x"></i>
+					</span>
+            </div>
+            <div class="flexsubPhone" style="padding-right: 15px;justify-content: flex-start;">
+                <span class="fa-stack fa-2x" style="padding-left:30px; padding-right:15px">
+						<i class="fas fa-circle fa-stack-2x" style="color:red"></i>
+						<i style="color:white" class="fa fa-bell fa-stack-1x"></i>
+					</span>
+                <div class="blockb b" style="margin-left: 10px;">
+                    <span style="margin-top: 0px;font-size: 14px;">Incidents caused by DevOps</span>
+                    <br />
+                    <output class="mid" style="color: #f74157;font-size: 18px;" name="87.5" for="AVG%">21</output><span class="midtwo" style="color: #f74157;font-size: 18px;">^</span>
+                    <br />
+                    <span class="lasttwo" style="font-size: 10px;">Alerts from Stacks, Releases, per Month</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
