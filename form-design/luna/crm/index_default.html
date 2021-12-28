@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Luna Multi Step Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin-ext" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/font.css"/>
+    <link rel="stylesheet" href="css/plugins.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="background-image">
+
+<div class="luna-loader-container">
+    <div class="luna-loader"></div>
+</div>
+
+<div class='luna-signup-container luna-default'>
+    <div class="luna-signup-left-overlay"></div>
+    <div class='container'>
+        <div class="row">
+            <div class='luna-signup-left'>
+                <img class='luna-signup-logo img-responsive' src='images/luna-logo-white.png' alt="logo"/>
+                <div class="luna-navigation">
+                    <a class="toPrev prevStep"><i class="icon icon-arrow-up2"></i></a>
+                    <ul class="dots"></ul>
+                    <a class="toNext nextStep"><i class="icon icon-arrow-down2"></i></a>
+                </div>
+            </div>
+            <div class='luna-signup-right'>
+                <div class="container-fluid">
+                    <div class='steps-count'>
+                        STEP <span class="step-current">1</span>/<span class="step-count"></span>
+                    </div>
+                    <form action='http://wmedya.com/luna/crm/post' name='signupForm' autocomplete="off">
+                        <div class="luna-steps">
+                            <div class="step step-active" data-step-id='1'>
+
+                                <img src="images/company-logo.png" class="img-responsive"/>
+                                <h4>Welcome to Crm Enterprice</h4>
+
+                                <div class="survey-description">
+                                    <p>To add contact to crm, please follow the instructions.<br/> It's easy when using Luna Signup Form.</p>
+                                </div>
+                                <a href="javascript:void(0)" class="btn btn-green btn-rounded nextStep "><i class="icon icon-user-plus"></i> Add Contact</a> &nbsp;&nbsp;&nbsp;or&nbsp; 
+                                <a href='javascript:void(0)' class="btn btn-grey btn-rounded nextStep"><i class="icon icon-database"></i> Import Contacts </a>
+
+                            </div>
+                            <div class="step" data-step-id='2'>
+                                <h2 class="step-title">Personal Information</h2>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="step-label" for="name">First Name</label>
+                                            <input type="text" class="form-control" required id='name' name="name" autocomplete="off" spellcheck="false" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="step-label" for="lastname">Last Name</label>
+                                            <input type="text" class="form-control" required id='lastname' name="lastname" autocomplete="off" spellcheck="false" />   
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="step-label" for="email">Email Address</label>
+                                    <input type="email" class="form-control" required id='email' name="email" autocomplete="off" spellcheck="false" />   
+                                </div>
+                                <div class="form-group">
+                                    <label class="step-label" for="phone">Phone Number</label>
+                                    <input type="text" class="form-control" id='phone' name="phone" autocomplete="off" spellcheck="false" />
+                                    <div class="help-block">Please enter a valid 10 digit US phone number without country code</div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="step-label">Country</div>
+                                    <select id='country' name="country" class="selectpicker form-control" >
+                                        <option>Select country</option>
+                                        <option>Afghanistan</option>
+                                        <option>Albania</option>
+                                        <option>Algeria</option>
+                                        <option>Andorra</option>
+                                        <option>Angola</option>
+                                        <option>Antigua and Barbuda</option>
+                                        <option>Argentina</option>
+                                        <option>Armenia</option>
+                                        <option>Australia</option>
+                                        <option>Austria</option>
+                                        <option>Azerbaijan</option>
+                                        <option>Bahamas</option>
+                                        <option>Bahrain</option>
+                                        <option>Bangladesh</option>
+                                        <option>Barbados</option>
+                                        <option>Belarus</option>
+                                        <option>Belgium</option>
+                                        <option>Belize</option>
+                                        <option>Benin</option>
+                                        <option>Bhutan</option>
+                                        <option>Bolivia</option>
+                                        <option>Bosnia and Herzegovina</option>
+                                        <option>Botswana</option>
+                                        <option>Brazil</option>
+                                        <option>Brunei</option>
+                                        <option>Bulgaria</option>
+                                        <option>Burkina Faso</option>
+                                        <option>Burundi</option>
+                                        <option>Cabo Verde</option>
+                                        <option>Cambodia</option>
+                                        <option>Cameroon</option>
+                                        <option>Canada</option>
+                                        <option>Central African Republic (CAR)</option>
+                                        <option>Chad</option>
+                                        <option>Chile</option>
+                                        <option>China</option>
+                                        <option>Colombia</option>
+                                        <option>Comoros</option>
+                                        <option>Democratic Republic of the Congo</option>
+                                        <option>Republic of the Congo</option>
+                                        <option>Costa Rica</option>
+                                        <option>Cote d'Ivoire</option>
+                                        <option>Croatia</option>
+                                        <option>Cuba</option>
+                                        <option>Cyprus</option>
+                                        <option>Czech Republic</option>
+                                        <option>Denmark</option>
+                                        <option>Djibouti</option>
+                                        <option>Dominica</option>
+                                        <option>Dominican Republic</option>
+                                        <option>Ecuador</option>
+                                        <option>Egypt</option>
+                                        <option>El Salvador</option>
+                                        <option>Equatorial Guinea</option>
+                                        <option>Eritrea</option>
+                                        <option>Estonia</option>
+                                        <option>Ethiopia</option>
+                                        <option>Fiji</option>
+                                        <option>Finland</option>
+                                        <option>France</option>
+                                        <option>Gabon</option>
+                                        <option>Gambia</option>
+                                        <option>Georgia</option>
+                                        <option>Germany</option>
+                                        <option>Ghana</option>
+                                        <option>Greece</option>
+                                        <option>Grenada</option>
+                                        <option>Guatemala</option>
+                                        <option>Guinea</option>
+                                        <option>Guinea-Bissau</option>
+                                        <option>Guyana</option>
+                                    </select>
+                                </div>
+                            </div> 
+                            <div class="step" data-step-id='3'>
+
+                                <h2 class="step-title">Company Info</h2>
+
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="step-label" for="company_name">Company Name</label>
+                                        <input type="text" class="form-control" required id='company_name' name="company_name" autocomplete="off" spellcheck="false" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label class="step-label" for="company_email">Company Email Address</label>
+                                        <input type="text" class="form-control" id='company_email' name="company_email" autocomplete="off" spellcheck="false" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="step-label" for="company_phone">Company Phone Number</label>
+                                    <input type="text" class="form-control" id='company_phone' name="company_phone" autocomplete="off" spellcheck="false" />
+                                    <div class="help-block">Please enter a valid 10 digit US phone number without country code</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="step-label" for="company_position">Position in Company</label>
+                                    <input type="text" class="form-control" id='company_position' name="company_position" autocomplete="off" spellcheck="false" />
+                                </div>
+                            </div> 
+                            <div class="step" data-step-id='4'>
+                                <h2 class="step-title">Website &amp; Notes</h2>
+
+                                <div class="form-group">
+                                    <label class="step-label" for="company_website">Company Website</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">http(s)://</div>
+                                        <input type="text" class="form-control" id="company_website" name="company_website" placeholder="Website">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="step-label">Notes</div>
+                                    <textarea class="form-control" name="notes" id="notes"></textarea>
+                                </div>
+
+                                <a href="javascript:void(0)" class="btn btn-green btn-rounded finishBtn pull-right"><i class="icon icon-floppy-disk"></i> Save Contact</a>
+
+                            </div>
+
+
+
+
+
+                        </div>
+                    </form>
+                    <div class='button-container' style="display:none">
+                        <div>
+                            <a href="javascript:void(0)" class="btn btn-blue btn-rounded nextStep" tabindex="0">Continue →</a>
+                            <span>or press "Enter"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- build:js -->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>

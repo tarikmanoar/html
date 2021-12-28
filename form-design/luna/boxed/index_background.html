@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Luna Multi Step Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin-ext" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/font.css"/>
+    <link rel="stylesheet" href="css/plugins.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class='body-purple'>
+
+<div class="luna-loader-container">
+    <div class="luna-loader"></div>
+</div>
+<div class='container'>
+    <div class='top'>
+        <a href='https://codecanyon.net/item/luna-multi-step-form-ecommerce-questionnaire-reservation-service/20955073' class='btn btn-grey btn-rounded top-item pull-right'>Purchase Now <b>(12$)</b></a>
+        <img class='luna-signup-logo img-responsive' src='images/luna-logo-white.png' alt="logo"/>
+    </div>
+    <div class='luna-signup-container'>
+        <div class="row">
+            <div class='col-sm-3'>
+
+                <div class='luna-signup-left'>
+                    
+                    <div class="luna-navigation">
+                        <a class="toPrev prevStep"><i class="icon icon-arrow-up2"></i></a>
+                        <ul class="dots"></ul>
+                        <a class="toNext nextStep"><i class="icon icon-arrow-down2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class='col-sm-9'>
+                <div class='luna-signup-right'>
+                    <div class="container-fluid">
+                        <div class='steps-count'>
+                            STEP <span class="step-current">1</span>/<span class="step-count"></span>
+                        </div>
+                        <form action='http://wmedya.com/luna/boxed/post' name='signupForm' autocomplete="off">
+                            <div class="luna-steps">
+                                <div class="step step-active" data-step-id='1'>
+                                    <h2 class="step-title">Account Information</h2>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="formLabel" for="name">First Name</label>
+                                                <input type="text" class="formInput" required id='name' name="name" autocomplete="off" spellcheck="false" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="formLabel" for="lastname">Last Name</label>
+                                                <input type="text" class="formInput" required id='lastname' name="lastname" autocomplete="off" spellcheck="false" />   
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="formLabel" for="username">Select your username?</label>
+                                                <input type="text" class="formInput" id='username' name="username" autocomplete="off" spellcheck="false" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="formLabel" for="email">What is your email?</label>
+                                                <input type="email" class="formInput" required id='email' name="email" autocomplete="off" spellcheck="false" />   
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="formLabel" for="password">What is your password?</label>
+                                                <input type="password" class="formInput" required id='password' name="password" autocomplete="off" spellcheck="false" />
+                                                <div class="help-block">Password should contain 6 digits at least</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="formLabel" for="password_confirm">Confirm Password</label>
+                                                <input type="password" class="formInput" required id='password_confirm' name="password_confirm" autocomplete="off" spellcheck="false" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step" data-step-id='2'>
+                                    <h2 class="step-title">Personal Information</h2>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="step-label">What is your gender?</div>
+                                                <label class="radio-inline"><input type="radio" value="Male" name="gender" checked> Male</label>
+                                                <label class="radio-inline"><input type="radio" value="Female" name="gender"> Female</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label class="formLabel" for="birthdate">Date of Birth</label>
+                                                <input type="text" class="formInput datepicker" required id='birthdate' name="birthdate" autocomplete="off" spellcheck="false" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="formLabel" for="phone">What is your phone number?</label>
+                                        <input type="text" class="formInput" required id='phone' name="phone" autocomplete="off" spellcheck="false" />
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="step-label">Address</div>
+                                        <textarea class="formInput" name="address" id="address"></textarea>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="step-label">Country</div>
+                                                <select id='country' name="country" class="selectpicker form-control" >
+                                                    <option>Select country</option>
+                                                    <option>Afghanistan</option>
+                                                    <option>Albania</option>
+                                                    <option>Algeria</option>
+                                                    <option>Andorra</option>
+                                                    <option>Angola</option>
+                                                    <option>Antigua and Barbuda</option>
+                                                    <option>Argentina</option>
+                                                    <option>Armenia</option>
+                                                    <option>Australia</option>
+                                                    <option>Austria</option>
+                                                    <option>Azerbaijan</option>
+                                                    <option>Bahamas</option>
+                                                    <option>Bahrain</option>
+                                                    <option>Bangladesh</option>
+                                                    <option>Barbados</option>
+                                                    <option>Belarus</option>
+                                                    <option>Belgium</option>
+                                                    <option>Belize</option>
+                                                    <option>Benin</option>
+                                                    <option>Bhutan</option>
+                                                    <option>Bolivia</option>
+                                                    <option>Bosnia and Herzegovina</option>
+                                                    <option>Botswana</option>
+                                                    <option>Brazil</option>
+                                                    <option>Brunei</option>
+                                                    <option>Bulgaria</option>
+                                                    <option>Burkina Faso</option>
+                                                    <option>Burundi</option>
+                                                    <option>Cabo Verde</option>
+                                                    <option>Cambodia</option>
+                                                    <option>Cameroon</option>
+                                                    <option>Canada</option>
+                                                    <option>Central African Republic (CAR)</option>
+                                                    <option>Chad</option>
+                                                    <option>Chile</option>
+                                                    <option>China</option>
+                                                    <option>Colombia</option>
+                                                    <option>Comoros</option>
+                                                    <option>Democratic Republic of the Congo</option>
+                                                    <option>Republic of the Congo</option>
+                                                    <option>Costa Rica</option>
+                                                    <option>Cote d'Ivoire</option>
+                                                    <option>Croatia</option>
+                                                    <option>Cuba</option>
+                                                    <option>Cyprus</option>
+                                                    <option>Czech Republic</option>
+                                                    <option>Denmark</option>
+                                                    <option>Djibouti</option>
+                                                    <option>Dominica</option>
+                                                    <option>Dominican Republic</option>
+                                                    <option>Ecuador</option>
+                                                    <option>Egypt</option>
+                                                    <option>El Salvador</option>
+                                                    <option>Equatorial Guinea</option>
+                                                    <option>Eritrea</option>
+                                                    <option>Estonia</option>
+                                                    <option>Ethiopia</option>
+                                                    <option>Fiji</option>
+                                                    <option>Finland</option>
+                                                    <option>France</option>
+                                                    <option>Gabon</option>
+                                                    <option>Gambia</option>
+                                                    <option>Georgia</option>
+                                                    <option>Germany</option>
+                                                    <option>Ghana</option>
+                                                    <option>Greece</option>
+                                                    <option>Grenada</option>
+                                                    <option>Guatemala</option>
+                                                    <option>Guinea</option>
+                                                    <option>Guinea-Bissau</option>
+                                                    <option>Guyana</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="step-label">State / City</div>
+                                                <select id='city' name="city" class="selectpicker form-control">
+                                                    <option value="">Select an option</option>
+                                                    <option value="Alabama ">Alabama </option>
+                                                    <option value="Alaska ">Alaska </option>
+                                                    <option value="Arizona ">Arizona </option>
+                                                    <option value="Arkansas ">Arkansas </option>
+                                                    <option value="California ">California </option>
+                                                    <option value="Colorado ">Colorado </option>
+                                                    <option value="Connecticut ">Connecticut </option>
+                                                    <option value="Delaware ">Delaware </option>
+                                                    <option value="Florida ">Florida </option>
+                                                    <option value="Georgia ">Georgia </option>
+                                                    <option value="Hawaii ">Hawaii </option>
+                                                    <option value="Idaho ">Idaho </option>
+                                                    <option value="Illinois Indiana ">Illinois Indiana </option>
+                                                    <option value="Iowa ">Iowa </option>
+                                                    <option value="Kansas ">Kansas </option>
+                                                    <option value="Kentucky ">Kentucky </option>
+                                                    <option value="Louisiana ">Louisiana </option>
+                                                    <option value="Maine ">Maine </option>
+                                                    <option value="Maryland ">Maryland </option>
+                                                    <option value="Massachusetts ">Massachusetts </option>
+                                                    <option value="Michigan ">Michigan </option>
+                                                    <option value="Minnesota ">Minnesota </option>
+                                                    <option value="Mississippi ">Mississippi </option>
+                                                    <option value="Missouri ">Missouri </option>
+                                                    <option value="Montana Nebraska ">Montana Nebraska </option>
+                                                    <option value="Nevada ">Nevada </option>
+                                                    <option value="New Hampshire ">New Hampshire </option>
+                                                    <option value="New Jersey ">New Jersey </option>
+                                                    <option value="New Mexico ">New Mexico </option>
+                                                    <option value="New York ">New York </option>
+                                                    <option value="North Carolina ">North Carolina </option>
+                                                    <option value="North Dakota ">North Dakota </option>
+                                                    <option value="Ohio ">Ohio </option>
+                                                    <option value="Oklahoma ">Oklahoma </option>
+                                                    <option value="Oregon ">Oregon </option>
+                                                    <option value="Pennsylvania Rhode Island ">Pennsylvania Rhode Island </option>
+                                                    <option value="South Carolina ">South Carolina </option>
+                                                    <option value="South Dakota ">South Dakota </option>
+                                                    <option value="Tennessee ">Tennessee </option>
+                                                    <option value="Texas ">Texas </option>
+                                                    <option value="Utah ">Utah </option>
+                                                    <option value="Vermont ">Vermont </option>
+                                                    <option value="Virginia ">Virginia </option>
+                                                    <option value="Washington ">Washington </option>
+                                                    <option value="West Virginia ">West Virginia </option>
+                                                    <option value="Wisconsin ">Wisconsin </option>
+                                                    <option value="Wyoming">Wyoming</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div> 
+                                <div class="step" data-step-id='3'>
+                                    <h2 class="step-title">Contact Information</h2>
+                                    <div class="form-group">
+                                        <div class="step-label">Would you like to recieve our free catalog via postal mail?</div>
+                                        <label class="radio-inline"><input type="radio" value="Yes" name="requestcatalog" checked> Yes</label>
+                                        <label class="radio-inline"><input type="radio" value="No" name="requestcatalog"> No</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="step-label">Which kind of communication do you prefer?</div>
+                                        <label class="radio-inline"><input type="radio" value="Email" name="communicationprefer" checked> Email</label>
+                                        <label class="radio-inline"><input type="radio" value="Phone" name="communicationprefer"> Phone</label>
+                                    </div>                                
+
+                                </div> 
+                                <div class="step step-confirm" data-step-id='4'>
+                                    <h2 class="step-title">Confirm Details</h2>
+                                    <div class="fadeTop">
+                                        <h3 class="step-sub-title">Account Information</h3>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">First Name</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text name"></div>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Last Name</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text lastname"></div>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Username</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text username"></div>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Email</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text email"></div>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Password</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text">*******</div>
+                                    </div>
+
+                                    <div class="fadeTop">
+                                        <h3 class="step-sub-title">Personal Information</h3>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Gender</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text gender"></div>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Date of Birth</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text birthdate"></div>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Phone Number</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text phone"></div>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Address</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text">
+                                            <span class="address"></span>
+                                            <span class="country"></span> 
+                                            <span class="city"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="fadeTop">
+                                        <h3 class="step-sub-title">Contact Information</h3>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Receive Free Catalog?</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text requestcatalog"></div>
+                                    </div>
+                                    <div class="row fadeTop">
+                                        <div class="col-md-3 col-sm-6 col-xs-12 text-right confirm-label">Communication Preference</div>
+                                        <div class="col-md-9 col-sm-6 col-xs-12 confirm-text communicationprefer"></div>
+                                    </div>
+                                    <div class="fadeTop">
+                                        <div class="step-confirm-buttons">
+                                            <div>
+                                                <label class="checkbox-inline agreement">
+                                                    <input id="agreement" name="agreement" type="checkbox"/>I agree to the <a href="index_background.html#" target="_blank">terms of service</a>.
+                                                </label>
+                                            </div>
+                                            <a href="javascript:void(0)" class="btn btn-green btn-rounded finishBtn">Ready, Let's Start!</a>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </form>
+                        <div class='button-container'>
+                            <div>
+                                <a href="javascript:void(0)" class="btn btn-red btn-rounded nextStep" tabindex="0">Continue →</a>
+                                <span>or press "Enter"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- build:js -->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://wmedya.com/luna/boxed/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>

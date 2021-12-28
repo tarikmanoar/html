@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Luna Multi Step Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin-ext" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/font.css"/>
+    <link rel="stylesheet" href="css/plugins.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body class="background-image">
+
+<div class="luna-loader-container">
+    <div class="luna-loader"></div>
+</div>
+
+<div class='luna-signup-container luna-default'>
+    <div class="luna-signup-left-overlay"></div>
+    <div class='container'>
+        <div class="row">
+            <div class='luna-signup-left'>
+                <img class='luna-signup-logo img-responsive' src='images/luna-logo-white.png' alt="logo"/>
+                <div class="luna-navigation">
+                    <a class="toPrev prevStep"><i class="icon icon-arrow-up2"></i></a>
+                    <ul class="dots"></ul>
+                    <a class="toNext nextStep"><i class="icon icon-arrow-down2"></i></a>
+                </div>
+            </div>
+            <div class='luna-signup-right'>
+                <div class="container-fluid">
+                    <div class='steps-count'>
+                        STEP <span class="step-current">1</span>/<span class="step-count"></span>
+                    </div>
+                    <form action='http://wmedya.com/luna/questionnaire/post' name='signupForm' autocomplete="off">
+                        <div class="luna-steps">
+                            <div class="step step-active" data-step-id='1'>
+
+                                <img src="images/restaurant-logo.png" class="img-responsive"/>
+                                <h1>Customer Satisfaction On Qrz Family Restaurant</h1>
+
+                                <div class="survey-description">
+
+                                    <h4>Dear Customer,</h4>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                    <p>
+                                        Good day! The QRZ Family Restaurant is dedicated to improving customer satisfaction. Through this brief survey, your answers will be helpful in enhancing our services and meeting your needs.<br/><br/> In case you have any questions regarding the survey, please call Johnny Smith at 123-456-7890. Thank you very much for your time and suggestions.
+                                    </p>
+                                        </div>
+                                        </div>
+                                    
+                                </div>
+                                    <a href="javascript:void(0)" class="btn btn-green btn-rounded nextStep"><i class="icon icon-checkmark"></i> Ready, Let's Start!</a>
+
+
+
+
+
+                            </div>
+                            <div class="step" data-step-id='2'>
+                                <h2 class="step-title">Visit Information</h2>
+
+
+                                <div class="form-group">
+                                    <div class="step-label">1. How many times per year do you visit QRZ Family Restaurant?</div>
+                                    <label class="radio-inline label-block"><input type="radio" value="1" name="visitcount" checked> once per year</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="10" name="visitcount"> 10 times per year</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="50" name="visitcount"> 50 times per year</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="100" name="visitcount"> 100+ times per year</label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="step-label">2. Do you visit QRZ Family Restaurant with family or friends??</div>
+                                    <label class="radio-inline label-block"><input type="radio" value="YesWithFamily" name="withfamily" checked> Yes, with family almost</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="YesWithFriends" name="withfamily" checked> Yes, with friends almost</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="No" name="withfamily"> No</label>
+                                </div>
+
+                                
+                                 
+                                
+
+
+
+                            </div> 
+                            <div class="step" data-step-id='3'>
+                                
+                                <h2 class="step-title">Location and Timing</h2>
+                                
+                                <div class="form-group">
+                                    <div class="step-label">3. The store is accessibly located.</div>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyAgree" name="location" checked> Strongly Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Agree" name="location"> Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Neutral" name="location"> Neutral</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Disagree" name="location"> Disagree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyDisagree" name="location"> Strongly Disagree</label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="step-label">4. Store hours are convenient for my dining needs.</div>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyAgree" name="storehours" checked> Strongly Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Agree" name="storehours"> Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Neutral" name="storehours"> Neutral</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Disagree" name="storehours"> Disagree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyDisagree" name="storehours"> Strongly Disagree</label>
+                                </div>
+
+                            </div> 
+                            <div class="step" data-step-id='4'>
+                                <h2 class="step-title">Dishes</h2>
+                                
+                                <div class="form-group">
+                                    <div class="step-label">5. Advertised dish was in stock.</div>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyAgree" name="instock" checked> Strongly Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Agree" name="instock"> Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Neutral" name="instock"> Neutral</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Disagree" name="instock"> Disagree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyDisagree" name="instock"> Strongly Disagree</label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="step-label">6. A good selection of dishes was present.</div>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyAgree" name="goodselection" checked> Strongly Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Agree" name="goodselection"> Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Neutral" name="goodselection"> Neutral</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Disagree" name="goodselection"> Disagree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyDisagree" name="goodselection"> Strongly Disagree</label>
+                                </div>
+                            </div>
+                            <div class="step" data-step-id='5'>
+                                <h2 class="step-title">Prices &amp; Quality</h2>
+                                
+                                <div class="form-group">
+                                    <div class="step-label">7. Store has the lowest prices in the area.</div>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyAgree" name="lowestprice" checked> Strongly Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Agree" name="lowestprice"> Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Neutral" name="lowestprice"> Neutral</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Disagree" name="lowestprice"> Disagree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyDisagree" name="lowestprice"> Strongly Disagree</label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="step-label">8. Meals sold are of the highest quality.</div>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyAgree" name="highestquality" checked> Strongly Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Agree" name="highestquality"> Agree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Neutral" name="highestquality"> Neutral</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Disagree" name="highestquality"> Disagree</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="StronglyDisagree" name="highestquality"> Strongly Disagree</label>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="step" data-step-id='6'>
+                                <h2 class="step-title">Rating experience</h2>
+                                
+                                <div class="form-group">
+                                    <div class="step-label">9. How would you rate your overall experience at the QRZ Family Restaurant?.</div>
+                                    <label class="radio-inline label-block"><input type="radio" value="HighlySatisfactory" name="experience" checked> Highly satisfactory</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Satisfactory" name="experience"> Satisfactory</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Neutral" name="experience"> Neutral</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Unsatisfactory" name="experience"> Unsatisfactory</label>
+                                    <label class="radio-inline label-block"><input type="radio" value="Highly" name="experience"> Highly Unsatisfactory</label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="step-label">10. What could we do to make your restaurant dining experience better?</div>
+                                    <textarea class="form-control" name="suggestion" id="suggestion"></textarea>
+                                </div>
+                                
+                            </div>
+                            
+                            
+                            <div class="step" data-step-id='7'>
+                                <h2 class="step-title">Personal Information</h2>
+                                
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="step-label" for="name">First Name</label>
+                                            <input type="text" class="form-control" id='name' name="name" autocomplete="off" spellcheck="false" />
+                                            <div class="help-block">Optional</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="step-label" for="lastname">Last Name</label>
+                                            <input type="text" class="form-control" id='lastname' name="lastname" autocomplete="off" spellcheck="false" />   
+                                            <div class="help-block">Optional</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="step-label">Gender</div>
+                                            <label class="radio-inline"><input type="radio" value="Male" name="gender" checked> Male</label>
+                                            <label class="radio-inline"><input type="radio" value="Female" name="gender"> Female</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <div class="step-label">Number of Family Members</div>
+                                            <label class="radio-inline"><input type="radio" value="1-2" name="family_members" checked> 1-2</label>
+                                            <label class="radio-inline"><input type="radio" value="3-5" name="family_members"> 3-5</label>
+                                            <label class="radio-inline"><input type="radio" value="6-10" name="family_members"> 6-10</label>
+                                            <label class="radio-inline"><input type="radio" value="10+" name="family_members"> 10+</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                        <div class="form-group">
+                                            <label class="step-label" for="email">Email</label>
+                                            <input type="email" class="form-control" id='email' name="email" autocomplete="off" spellcheck="false" />
+                                            <div class="help-block">Optional</div>
+                                        </div>
+                                
+                                <div class="alert alert-info">
+                                    <b>Notes:</b> This section is optional. The questions asking for demographic data should be relevant to the survey goal and must point to the characteristics of the target population.
+                                </div>
+                                
+                                
+                            </div>
+                            
+                            <div class="step step-confirm" data-step-id='8'>
+                                <div class="text-center">
+                                    <img src="images/restaurant-logo.png"/>
+                                <h1>Almost Done!</h1>
+                                <p class="survey-description">Thank you for sharing your thoughts with us.<br/> Enjoy dining at QRZ Family Restaurant.</p>
+                                    <a href="javascript:void(0)" class="btn btn-green btn-rounded finishBtn">Send My Data!</a>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                        </div>
+                    </form>
+                    <div class='button-container' style="display:none">
+                        <div>
+                            <a href="javascript:void(0)" class="btn btn-blue btn-rounded nextStep" tabindex="0">Continue →</a>
+                            <span>or press "Enter"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- build:js -->
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/sweetalert.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>

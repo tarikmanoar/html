@@ -1,0 +1,737 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:	Tuna Signup Form Wizard
+Version:	1.0
+Last change:	30/06/17 [first release]
+Assigned to:	Wmedya
+Primary use:	Signup, Login, Reservation etc. 
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Body 
+2. Input & Labels
+3. Buttons
+    4. Loader / .tuna-loader-container
+    5. Signup Container / .tuna-signup-container
+        5.1. Left Panel / .tuna-signup-left
+            5.1.1. Logo / .tuna-signup-logo
+            5.1.2. Testimonial Slider / .tuna-slider-container
+        5.2. Right Panel / .tuna-signup-right
+            5.2.1. Steps Counts / .steps-count
+            5.2.2. Steps / .tuna-steps
+            5.2.2.1 Step Content / .step
+            5.2.2.2 Confirm Step / .step-confirm
+            5.2.3. Buttons / .button-container
+6. Animations
+7. Theme Options
+    7.1. Green Theme
+    7.2. Yellow Theme
+    7.3. Darkblue Theme
+8. Responsive Styles
+9. Bootstrap Select
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[1. Body / body]
+*/
+body {
+    font-size: 13px;
+    font-family: 'Open Sans', arial, helvetica, sans-serif;
+    color: #333;
+    background-image: -o-linear-gradient(left top, #5F71C4 0%, #EB467E 100%);
+    background-image: -moz-linear-gradient(left top, #5F71C4 0%, #EB467E 100%);
+    background-image: -webkit-linear-gradient(left top, #5F71C4 0%, #EB467E 100%);
+    background-image: -ms-linear-gradient(left top, #5F71C4 0%, #EB467E 100%);
+    background-image: linear-gradient(left top, #5F71C4 0%, #EB467E 100%);
+}
+
+.tuna-overlay {
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0; 
+    right:0;
+    background-image:url(../images/bg.png);
+}
+
+/*------------------------------------------------------------------
+[2.Input & Labels ]
+*/
+.formLabel {
+    display: block;
+    color: rgba(255, 255, 255, 1);
+    position: absolute;
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 300;
+    transition: all .2s
+}
+.formLabel.active {
+    -webkit-transform: translateY(-140%);
+    transform: translateY(-140%);
+    font-size: 20px;
+}
+.formInput {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+    font-size: 32px;
+    width: 100%;
+    color: #FFF;
+    display: block;
+}
+.formInput:focus {
+    outline: none;
+    border-bottom: 2px solid #FFF;
+    -webkit-transition: border-bottom .5s;
+    -moz-transition: border-bottom .5s;
+    -ms-transition: border-bottom .5s;
+    -o-transition: border-bottom .5s;
+    transition: border-bottom .5s;
+}
+.formInput.input-error {
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+.help-error {
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    padding: 10px 0;
+    display: none;
+    text-align: right;
+}
+.help-error i {
+    font-weight: bold;
+    font-size: 16px;
+    vertical-align: middle;
+    float: right;
+    margin-left: 20px;
+}
+.help-info {
+    text-align: right;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+
+/*------------------------------------------------------------------
+[3. Buttons ]
+*/
+.btn {
+    font-weight: 700;
+    font-size: 15px;
+}
+.btn-rounded {
+    border-radius: 30px;
+}
+.btn-white {
+    background: #FFF;
+    color: #777;
+    padding: 10px 30px !important;
+}
+.btn-white:hover {
+    background: #EEE;
+    color: #333;
+}
+.btn-white-transparent {
+    border: 2px solid #FFF;
+    background: none;
+    color: #FFF;
+    padding: 10px 30px !important;
+}
+.btn-white-transparent:hover {
+    background: #FFF;
+    color: #777;
+}
+
+
+/*------------------------------------------------------------------
+[4. Loader / .tuna-loader-container]
+*/
+.tuna-loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: #FFF;
+    z-index: 1000;
+}
+.tuna-loader {
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    left: 50%;
+    margin-left: -25px;
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+
+/*------------------------------------------------------------------
+[5. Signup Container / .tuna-signup-container]
+*/
+.tuna-signup-container {
+    display: none;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    padding:40px;
+    border-radius:10px;
+    margin:150px auto;
+    background:#2A3896;
+}
+.tuna-signup-container:before {
+   position: absolute;
+   top:0;
+   bottom:0;
+   left:0;
+   right:0;
+   background-image:url(../images/bg.png);
+   display:block;
+   content:'';
+   opacity: 0.5;
+    
+}
+
+/*------------------------------------------------------------------
+[5.1 Left Panel / .tuna-signup-left]
+*/
+.tuna-signup-left {
+   
+}
+.tuna-signup-left p {
+    font-size: 18px;
+    line-height: 30px;
+    color: #999;
+}
+.tuna-trial {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.tuna-signup-left hr { border-top:1px solid rgba(0,0,0,0.2); }
+
+/*------------------------------------------------------------------
+[5.1.1. Logo / .tuna-signup-logo]
+*/
+.tuna-signup-logo {
+    margin-bottom: 20px;
+}
+
+/*------------------------------------------------------------------
+[5.1.2. Testimonial Slider / .tuna-slider-container]
+*/
+.bx-wrapper {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+.tuna-signup-testimonial {
+    margin-top: 60px;
+    height: 300px;
+}
+.tuna-signup-testimonial:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+.tuna-signup-testimonial img {
+    height: 60px;
+    float: right;
+}
+.tuna-signup-testimonial b {
+    font-size: 16px;
+    color: #999;
+    display: block;
+    margin-top: 20px;
+}
+.tuna-signup-testimonial b span {
+    font-size: 14px;
+    color: #CCC;
+    display: block;
+    font-weight: normal;
+    margin-top: 3px;
+}
+.tuna-signup-testimonial i {
+    font-size: 30px;
+    color:#FFC926;
+}
+.tuna-signup-testimonial p {
+    color: #FFF;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/*------------------------------------------------------------------
+[5.2. Right Panel / .tuna-signup-right]
+*/
+.tuna-signup-right {
+    color: #FFF;
+    position: relative;
+    overflow-y: auto;
+    overflow-x:hidden;
+    min-height: 600px;
+}
+
+/*------------------------------------------------------------------
+[5.2.1 Steps Counts / .steps-count]
+*/
+.steps-count {
+    font-weight: bold;
+    font-size: 13px;
+    text-align: right;
+}
+
+/*------------------------------------------------------------------
+[5.2.2 Steps / .tuna-steps]
+*/
+.tuna-steps .step {
+    padding-left: 60px;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    margin-top: -80px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+}
+.step.step-active {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+.step-hide {
+    -webkit-transform: translateY(-50px) !important;
+    transform: translateY(-50px) !important;
+}
+.tuna-steps .step-confirm {
+    position: initial;
+    top: initial;
+    margin-top: 0;
+    padding-top: 30px;
+    overflow-x: hidden;
+    display: none;
+}
+.tuna-steps .step-confirm.step-active {
+    display: block;
+}
+.step-label { 
+    font-size:40px; 
+    margin-bottom:20px; 
+    font-weight:300; 
+    font-size:32px; 
+}
+
+.tuna-steps .checkbox-inline, .tuna-steps .radio-inline{
+    font-size:16px; 
+    font-weight:300;
+    padding-left:25px;
+    line-height: 20px;
+    margin-right: 20px;
+    margin-bottom:10px;
+}
+.checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline { 
+    margin-left:0;
+}
+
+/*------------------------------------------------------------------
+[5.2.2.2 Confirm Step / .step-confirm]
+*/
+.step-confirm .form-group {
+    opacity: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 20px 0;
+}
+.step-confirm.step-active .form-group {
+    animation: animateInput .3s forwards;
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+}
+.step-confirm .form-group:nth-of-type(1) {
+    animation-delay: .1s;
+}
+.step-confirm .form-group:nth-of-type(2) {
+    animation-delay: .3s;
+}
+.step-confirm .form-group:nth-of-type(3) {
+    animation-delay: .5s;
+}
+.step-confirm .form-group:nth-of-type(4) {
+    animation-delay: .7s;
+}
+.step-confirm .form-group:nth-of-type(5) {
+    animation-delay: .9s;
+}
+.step-confirm .control-label {
+    text-align: left;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: normal;
+    font-size: 20px;
+}
+.step-confirm input {
+    box-shadow: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    padding: 10px 20px;
+    height: auto;
+    transition: all .35s ease;
+    font-weight: 600;
+}
+.step-confirm input:hover {} .step-confirm input:focus {
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.5);
+    color: #333;
+}
+.step-confirm .input-container {
+    position: relative;
+}
+.step-confirm .input-container>a {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8)
+}
+.step-confirm .input-container>a:hover {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+.step-confirm .input-container>a.showPass {
+    right: 60px;
+}
+.step-confirm-buttons {
+    text-align: right;
+    margin-top: 35px;
+}
+.step-confirm-buttons a {
+    display: block;
+    margin-bottom: 10px;
+}
+.step-confirm-buttons>div {
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.step-confirm .confirm-input-error,
+.step-confirm .confirm-input-error:focus {
+    background: #b74950 !important;
+    color: #FFF;
+}
+
+.step-confirm .bootstrap-select button {
+    border-bottom:none;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+.step-confirm .bootstrap-select.btn-group .dropdown-toggle .caret {
+    display:none;
+}
+
+.agreement {
+    font-size: 14px;
+}
+.agreement a {
+    color: #FFF;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+
+/*------------------------------------------------------------------
+[5.2.3 Buttons / .button-container]
+*/
+.button-container {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    text-align: right;
+    width: 100%;
+}
+.button-container>div {
+    display: inline-block;
+    text-align: center;
+    float: right;
+    margin-left: 10px;
+}
+.button-container>div a {
+    margin-bottom: 10px;
+    display: block;
+}
+.prevStep {
+    outline: none;
+    display: none;
+    border-color:rgba(255,255,255,0.4);
+}
+.button-container a,
+.button-container a:hover,
+.button-container a:focus,
+.button-container a:active,
+.button-container a:active:focus {
+    outline: none;
+}
+
+/*------------------------------------------------------------------
+[6. Animations]
+*/
+
+.tuna_loading {
+    width: 60px;
+    height: 60px;
+    margin:auto;
+    margin-bottom:20px;
+    display:block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes animateInput {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+@keyframes animateInput {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+
+/*------------------------------------------------------------------
+[7. Theme Options]
+
+[7.1 Green Theme]
+*/
+.body-green {
+    background: #00B2B2;
+}
+.tuna-green {} .tuna-green .tuna-signup-right {
+    background: #00B2B2;
+}
+.tuna-green:after {
+    background: #00B2B2;
+}
+
+
+/*------------------------------------------------------------------
+[7.2 Yellow Theme]
+*/
+.body-yellow {
+    background: #DE991A
+}
+.tuna-yellow {
+    background: url(../images/backgrounds/yellow-bg.jpg);
+}
+.tuna-yellow .tuna-signup-right {
+    background: #DE991A;
+}
+.tuna-yellow:after {
+    background: #DE991A;
+}
+.tuna-yellow .tuna-signup-left p {
+    color: #cacaca;
+}
+.tuna-yellow .tuna-signup-testimonial i {
+    color: #ffc926;
+}
+
+
+/*------------------------------------------------------------------
+[7.3 DarkBlue Theme]
+*/
+.body-darkblue {
+    background: #364bb7
+}
+.tuna-darkblue {
+    background: url(../images/backgrounds/darkblue-bg.jpg);
+}
+.tuna-darkblue .tuna-signup-right {
+    background: #364bb7;
+}
+.tuna-darkblue:after {
+    background: #364bb7;
+}
+.tuna-darkblue .tuna-signup-left p {
+    color: #fff;
+}
+.tuna-darkblue .tuna-signup-testimonial i {
+    color: #CCC;
+}
+.tuna-darkblue .bx-wrapper .bx-pager.bx-default-pager a {
+    background: #FFF;
+}
+.tuna-darkblue .bx-wrapper .bx-pager.bx-default-pager a.active,
+.tuna-darkblue .bx-wrapper .bx-pager.bx-default-pager a:focus,
+.tuna-darkblue .bx-wrapper .bx-pager.bx-default-pager a:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+
+
+/*------------------------------------------------------------------
+[8. Responsive Styles]
+*/
+
+@media only screen and (max-width: 990px) {
+    .tuna-signup-left {
+        padding: 60px 15px 30px
+    }
+
+    .tuna-signup-testimonial { 
+        height:360px;  
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .container{
+        width:100%;
+    }
+
+    .tuna-signup-container { margin:15px auto; padding:20px;  }
+    .tuna-slider-container { display: none;}
+    
+    .tuna-signup-left {
+        padding: 15px;
+    }
+    .tuna-signup-left hr {
+        display: none;
+    }
+    .tuna-signup-right {
+        min-height: 400px;
+        padding: 15px 0;
+    }
+    .tuna-steps .step {
+        padding: 0 15px;
+    }
+    .steps-count,
+    .button-container {
+        padding-right: 15px;
+    }
+    .step-confirm .form-group {
+        margin-bottom: 0;
+        padding: 10px 0;
+    }
+    .step-confirm .control-label {
+        font-size: 16px;
+    }
+    .step-confirm input,.step-confirm .bootstrap-select button {
+        padding: 6px 15px;
+        font-size: 16px;
+    }
+
+    .formLabel,
+    .formInput,.step-label {
+        font-size: 20px;
+    }
+}
+
+/*------------------------------------------------------------------
+[9. BootStrap Select]
+*/
+.bootstrap-select.form-control {
+    background:none;
+    border-radius: 0;
+    box-shadow:none;
+    height:auto;
+}
+
+.bootstrap-select button { 
+    border:none;
+    background:none;
+    color:#FFF;
+    border-bottom:2px solid #FFF;
+    border-radius: 0;
+    box-shadow:none;
+    outline: none !important;
+    font-size:16px;
+    font-weight:300;
+}
+
+.bootstrap-select .btn-default:hover, .bootstrap-select.open>.dropdown-toggle.btn-default:hover {
+    background:none;
+    border-color:#FFF;
+    color:#FFF;
+    box-shadow:none !important;
+}
+
+.btn-group.open .dropdown-toggle
+{
+    box-shadow: none;
+}
+
+.bootstrap-select .btn-default.active, 
+.bootstrap-select .btn-default:active, 
+.bootstrap-select.open>.dropdown-toggle.btn-default,
+.bootstrap-select .btn-default.focus, 
+.bootstrap-select  .btn-default:focus{
+    background:none;
+    outline:none !important;
+    border-color:#FFF;
+    color:#FFF;
+}
+
+.bootstrap-select .dropdown-menu {
+    box-shadow:rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color:#FFF;
+    border-radius:0;
+}
+
+.bootstrap-select .dropdown-menu a:focus { 
+    outline: none; 
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a {
+    padding:6px 20px;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li.selected a {
+    color:#FFF;
+    background:#f55661;
+}

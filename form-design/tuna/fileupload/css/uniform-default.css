@@ -1,0 +1,204 @@
+
+
+.checker {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle
+}
+.checker,
+.checker input,
+.checker span {
+    width: 18px;
+    height: 18px
+}
+.checker span {
+    color: #FFF;
+    border: 2px solid #FFF;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    border-radius: 2px
+}
+.checker span:after {
+    content: "\ea10";
+    font-family: icomoon;
+    font-size: 16px;
+    color: inherit;
+    line-height: 1;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s
+}
+.checker span.checked {
+    border-color: transparent;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s
+}
+.checker span.checked:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1)
+}
+.checker input[type=checkbox],
+.radio input[type=radio] {
+    border: none;
+    background: 0 0;
+    display: -moz-inline-box;
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+    cursor: pointer;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    z-index: 2;
+    opacity: 0
+}
+.checkbox .checker,
+.checkbox-inline .checker {
+    position: absolute;
+    top: 1px;
+    left: 0
+}
+.form-horizontal .checkbox .checker,
+.form-horizontal .checkbox-inline .checker {
+    top: 10px
+}
+.checkbox-right .checker {
+    left: auto;
+    right: 0
+}
+.checker.disabled {
+    opacity: .5
+}
+.checker.disabled,
+.checker.disabled input[type=checkbox] {
+    cursor: not-allowed
+}
+.checkbox-inline:active .checker.disabled span:after,
+.checkbox>label:active .checker.disabled span:after {
+    opacity: 0
+}
+.checkbox-inline:active .checker.disabled span.checked:after,
+.checkbox>label:active .checker.disabled span.checked:after {
+    opacity: 1
+}
+.checker[class*=border-] span {
+    color: inherit
+}
+.checker[class*=border-] span:not(.checked) {
+    border-color: inherit
+}
+
+
+.checker span:after,
+.radio span:after {
+    -webkit-transition: all ease-in-out .15s;
+    -o-transition: all ease-in-out .15s;
+    transition: all ease-in-out .15s
+}
+
+.checker span {
+    -webkit-transition: border-color ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s;
+    transition: border-color ease-in-out .15s
+}
+
+
+.radio {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 100%
+}
+.radio,
+.radio input,
+.radio span {
+    width: 18px;
+    height: 18px;
+    margin:0;
+}
+.radio span {
+    border: 2px solid #FFF;
+    display: -moz-inline-box;
+    display: inline-block;
+    border-radius: 100%;
+    text-align: center;
+    position: relative
+}
+.radio span:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border: 4px solid;
+    border-color: inherit;
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0)
+}
+.radio span.checked:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1)
+}
+.radio .radio,
+.radio-inline .radio {
+    position: absolute;
+    top: 1px;
+    left: 0
+}
+.form-horizontal .radio .radio,
+.form-horizontal .radio-inline .radio {
+    top: 10px
+}
+.radio-right .radio {
+    left: auto;
+    right: 0
+}
+.radio.active span:after,
+.radio-inline:active .radio span:after,
+.radio>label:active .radio span:after {
+    opacity: .75
+}
+.radio.disabled {
+    opacity: .5
+}
+.radio.disabled,
+.radio.disabled input[type=radio] {
+    cursor: not-allowed
+}
+.radio-inline:active .radio.disabled span:after,
+.radio>label:active .radio.disabled span:after {
+    opacity: 0
+}
+.radio-inline:active .radio.disabled span.checked:after,
+.radio>label:active .radio.disabled span.checked:after {
+    opacity: 1
+}
+.radio[class*=border-] span {
+    border-color: inherit
+}
+.radio[class*=border-] span:after {
+    border-color: inherit
+}

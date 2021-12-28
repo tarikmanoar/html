@@ -1,0 +1,730 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:	Luna Signup Form Wizard
+Version:	1.0
+Last change:	09/11/17 [first release]
+Assigned to:	Wmedya
+Primary use:	Multi Step Form. 
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Body 
+2. Input & Labels
+3. Buttons
+    4. Loader / .luna-loader-container
+    5. Signup Container / .luna-signup-container
+        5.1. Left Panel / .luna-signup-left
+            5.1.1. Logo / .luna-signup-logo
+            5.1.2. Testimonial Slider / .luna-slider-container
+        5.2. Right Panel / .luna-signup-right
+            5.2.1. Steps Counts / .steps-count
+            5.2.2. Steps / .luna-steps
+            5.2.2.1 Step Content / .step
+            5.2.2.2 Confirm Step / .step-confirm
+            5.2.3. Buttons / .button-container
+6. Animations
+8. Responsive Styles
+9. Bootstrap Select
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[1. Body / body]
+*/
+body {
+    font-size: 13px;
+    font-family: 'Open Sans', arial, helvetica, sans-serif;
+    color: #565555;
+    background: #EEE;
+}
+
+.top {
+ padding:35px 10px;    
+}
+.top-item {
+    color:#999;
+    font-size:16px;
+    margin-top:30px;
+}
+
+/*------------------------------------------------------------------
+[2.Input & Labels ]
+*/
+
+.form-group { 
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.formLabel {
+    display: block;
+    position: absolute;
+    font-size: 20px;
+    color:#999;
+    font-weight: 500;
+    line-height: 1.2;
+    transition: all .2s
+}
+.formLabel.active {
+    -webkit-transform: translateY(-140%);
+    transform: translateY(-140%);
+    font-size: 16px;
+}
+
+.formInput {
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 24px;
+    width: 100%;
+    border-bottom: 2px solid #EEE;
+    display: block;
+}
+.formInput:focus {
+    outline: none;
+    border-bottom: 2px solid #CCC;
+    -webkit-transition: border-bottom .5s;
+    -moz-transition: border-bottom .5s;
+    -ms-transition: border-bottom .5s;
+    -o-transition: border-bottom .5s;
+    transition: border-bottom .5s;
+}
+.formInput.input-error {
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+.formInput.error { border-bottom-color:#ff6d6d; }  
+.errorIcon { position: absolute; top:8px; right:0; display: none; }
+.errorIcon i { color:#ff6d6d; font-size:18px; }
+.error { color:#ff6d6d; }
+
+.help-error {
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    padding: 10px 0;
+    display: none;
+    text-align: right;
+}
+.help-error i {
+    font-weight: bold;
+    font-size: 16px;
+    vertical-align: middle;
+    float: right;
+    margin-left: 20px;
+}
+.help-info {
+    text-align: right;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 600;
+    padding: 10px 0;
+}
+
+.help-block { color:#ecb200; font-size:14px; }
+
+/*------------------------------------------------------------------
+[3. Buttons ]
+*/
+.btn {
+    font-weight: 700;
+    font-size: 15px;
+}
+.btn-rounded {
+    border-radius: 30px;
+}
+.btn-red {
+    background: #E75349;
+    color: #FFF;
+    padding: 10px 30px !important;
+}
+.btn-red:hover {
+    background: #CC3333;
+    color:#FFF;
+}
+
+.btn-green {
+    background: #32b367;
+    color: #FFF;
+    padding: 10px 30px !important;
+}
+.btn-green:hover {
+    background: #12b957;
+    color:#FFF;
+}
+
+.btn-grey {
+    background:#b1b1b1;
+    padding: 10px 30px !important;
+    color:#FFF;
+}
+
+.btn-grey:hover {
+    background:#ccc;
+}
+
+
+.btn-white-transparent {
+    border: 2px solid #FFF;
+    background: none;
+    color: #FFF;
+    padding: 10px 30px !important;
+}
+.btn-white-transparent:hover {
+    background: #FFF;
+    color: #777;
+}
+
+
+/*------------------------------------------------------------------
+[4. Loader / .luna-loader-container]
+*/
+.luna-loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    background: #FFF;
+    z-index: 1000;
+}
+.luna-loader {
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    left: 50%;
+    margin-left: -25px;
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+
+/*------------------------------------------------------------------
+[5. Signup Container / .luna-signup-container]
+*/
+.luna-signup-container {
+    display: none;
+    position: relative;
+    z-index: 0;
+    overflow-x: hidden;
+    margin-bottom:20px;
+    border-radius:5px;
+    background:#FFF;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+
+/*------------------------------------------------------------------
+[5.1 Left Panel / .luna-signup-left]
+*/
+.luna-signup-left {
+    padding: 30px;
+    background:#E75349;
+    height:600px;
+}
+
+.luna-navigation { height: 100%; position: relative; }
+
+.dots { list-style: none; margin: 0; padding:0; position: absolute; top:50%; left:50%; margin-left: -10px; margin-top:-20px;}
+.dots li { margin-bottom: 6px; text-align: center; width:20px; }
+.dots span { position: relative; width:8px; height:8px; display:block; margin:auto; border-radius: 50%; background:#FFF; opacity: 0.8; }
+.dots span:hover { cursor: default; }
+.dots span.selected { width:10px; height:10px; opacity: 1; margin-top:10px; }
+.dots span.selected:after { content:''; position: absolute; top:-6px; left:0; width: 0; height: 0; border-style: solid; border-width: 0 5px 10px 5px; border-color: transparent transparent #ffffff transparent; }
+.toPrev, .toNext { width:40px; height:40px; border:2px solid #FFF; color:#FFF; text-align: center; border-radius: 50%; display:inline-block; font-size:20px; line-height: 40px; position: absolute; left:50%; margin-left: -20px; z-index: 1000; }
+.toNext:hover, .toPrev:hover { text-decoration: none; color:#FFF; opacity: 0.9; cursor: pointer; }
+.toNext { bottom: 0;  }
+/*------------------------------------------------------------------
+[5.1.1. Logo / .luna-signup-logo]
+*/
+.luna-signup-logo {
+    max-width:200px;
+    width:100%;
+}
+
+/*------------------------------------------------------------------
+[5.2. Right Panel / .luna-signup-right]
+*/
+.luna-signup-right {
+    position: relative;
+    padding:15px 15px 15px 0;
+    height:600px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+/*------------------------------------------------------------------
+[5.2.1 Steps Counts / .steps-count]
+*/
+.steps-count {
+    font-weight: bold;
+    font-size: 13px;
+    text-align: right;
+    position: absolute;
+    top:15px;
+    right:15px;
+}
+
+/*------------------------------------------------------------------
+[5.2.2 Steps / .luna-steps]
+*/
+.luna-steps { 
+    position: relative;
+}
+
+.luna-steps .step {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: .5s;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+}
+.step.step-active {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+.step .form-group {  display:none; }
+.step.step-active .form-group {
+    display: block;
+}
+
+.step-hide {
+    -webkit-transform: translateY(-50px) !important;
+    transform: translateY(-50px) !important;
+}
+
+.step-label { 
+    font-size:16px; 
+    margin-bottom:5px; 
+    font-weight:500; 
+    color:#999;
+    margin-top:-29px;
+}
+
+.luna-steps .checkbox-inline, .luna-steps .radio-inline{
+    font-size:20px; 
+    font-weight:500;
+    padding-left:25px;
+    line-height: 20px;
+    margin-right: 20px;
+    margin:10px 20px 10px 0;
+}
+.checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline { 
+    margin-left:0;
+}
+
+
+.step-title {
+    color:#E75349;
+    font-size:22px; 
+    margin-bottom:60px; 
+}
+
+.step-sub-title { 
+    font-size:20px; 
+    border-bottom:1px solid #EEE; 
+    padding-bottom:15px; 
+    margin-bottom:15px; 
+}
+
+
+/*------------------------------------------------------------------
+[5.2.2.2 Confirm Step / .step-confirm]
+*/
+
+.step-confirm {
+    height:0;
+    overflow:hidden;
+}
+
+.step-confirm.step-active { height: initial; overflow:initial;}
+
+.step-confirm.step-active .fadeTop {
+    opacity: 0;
+    animation: animateInput .3s forwards;
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+}
+
+
+
+.step-confirm.step-active .fadeTop:nth-of-type(1) {
+    animation-delay: 0.5s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(2) {
+    animation-delay: 0.7s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(3) {
+    animation-delay: 0.9s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(4) {
+    animation-delay: 1.05s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(5) {
+    animation-delay: 1.20s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(6) {
+    animation-delay: 1.35s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(7) {
+    animation-delay: 1.5s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(8) {
+    animation-delay: 1.65s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(9) {
+    animation-delay: 1.75s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(10) {
+    animation-delay: 1.85s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(11) {
+    animation-delay: 1.95s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(12) {
+    animation-delay: 2s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(13) {
+    animation-delay: 2.05s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(14) {
+    animation-delay: 2.08s;
+}
+.step-confirm.step-active .fadeTop:nth-of-type(15) {
+    animation-delay: 2.1s;
+}
+
+.step-confirm-buttons { padding:15px; text-align: center }
+
+.agreement {
+    font-size: 14px !important;
+}   
+.agreement a {
+    color: #48a5ea;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.confirm-label,.confirm-text { font-size:16px; margin-bottom:10px;}
+.confirm-label {color:#999 }
+.confirm-text {}
+
+/*------------------------------------------------------------------
+[5.2.3 Buttons / .button-container]
+*/
+.button-container {
+    text-align: right;
+    position: absolute;
+    bottom:20px;
+    right:20px;
+    z-index:10000;
+    width: 100%;
+}
+.button-container>div {
+    display: inline-block;
+    text-align: center;
+    float: right;
+    margin: 0 0 10px 10px;
+    
+}
+.button-container>div a {
+    margin-bottom: 10px;
+    display: block;
+}
+.prevStep {
+    outline: none;
+    display: none;
+}
+.button-container a,
+.button-container a:hover,
+.button-container a:focus,
+.button-container a:active,
+.button-container a:active:focus {
+    outline: none;
+}
+
+/*------------------------------------------------------------------
+[6. Animations]
+*/
+
+.luna_loading {
+  width: 60px;
+  height: 60px;
+  margin:auto;
+  margin-bottom:20px;
+  display:block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes animateInput {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+@keyframes animateInput {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+        transform: translateY(50px)
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+
+/*------------------------------------------------------------------
+[9. BootStrap Select]
+*/
+.bootstrap-select.form-control {
+    background:none;
+    border-radius: 0;
+    box-shadow:none;
+    height:auto;
+}
+
+.bootstrap-select button { 
+    border:none;
+    background:none;
+    color:#333 !important;
+    font-weight:normal;
+    border-bottom:2px solid #EEE;
+    border-radius: 0;
+    box-shadow:none;
+    outline: none !important;
+    font-size:20px;
+}
+
+.bootstrap-select .btn-default:hover, .bootstrap-select.open>.dropdown-toggle.btn-default:hover {
+    background:none;
+    border-color:#CCC;
+    box-shadow:none !important;
+}
+
+.btn-group.open .dropdown-toggle
+{
+    box-shadow: none;
+}
+
+.bootstrap-select .btn-default.active, 
+.bootstrap-select .btn-default:active, 
+.bootstrap-select.open>.dropdown-toggle.btn-default,
+.bootstrap-select .btn-default.focus, 
+.bootstrap-select  .btn-default:focus{
+    background:none;
+    outline:none !important;
+    border-color:#CCC;
+    color:#333;
+}
+
+.bootstrap-select .dropdown-menu {
+    box-shadow:rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    background-color:#FFF;
+    border-radius:0;
+}
+
+.bootstrap-select .dropdown-menu a:focus { 
+    outline: none; 
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a {
+    padding:6px 20px;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li.selected a {
+    color:#FFF;
+    background:#E75349;
+}
+
+.tooltip-inner { color:#8a8a8a; background:#FFF; border:2px solid #999; font-size:14px; }
+.tooltip.top .tooltip-arrow { border-top-color:#999; }
+
+
+/* Luna Default Theme  */
+
+.luna-default .bootstrap-select button {
+    border:2px solid #c9c9c9;
+    border-radius:3px;
+    font-size:18px;
+}
+.luna-default .errorIcon {
+    top:37px;
+    right:10px;
+}
+
+.luna-default .input-group-addon {
+    border:2px solid #c9c9c9;    
+}
+
+.luna-default  .input-group-addon:first-child {
+    border-right: 0;
+}
+
+.luna-default .step-title { margin-bottom:40px; }
+.form-control {
+    border:2px solid #c9c9c9;
+    box-shadow:none;
+    border-radius:3px;
+    height: 40px;
+    font-size:18px;
+}
+
+.form-control.error {
+    border-color:#ff6d6d;
+}
+
+.form-control:focus {
+    border-color:#52bad5;
+    box-shadow:none;
+}
+
+.luna-default .form-group { 
+    margin-bottom:30px; 
+}
+
+.luna-default .step-label { 
+    margin-top:0; 
+}
+
+
+.body-purple {
+    background:linear-gradient(to right,#4533AF,#9E5CC8) 
+}
+
+.body-purple .step-title {
+	color:#49ace8;
+}
+
+.body-purple .luna-signup-left {
+    background:#49ace8;
+}
+
+.body-purple .btn-red { 
+	background:#9c61cd;
+}
+
+.body-purple .btn-red:hover {
+	background:#8045b1;
+}
+
+/*------------------------------------------------------------------
+[8. Responsive Styles]
+*/
+
+@media only screen and (max-width: 990px) {
+    .luna-signup-left {
+        padding: 60px 15px 30px
+    }
+    
+    .luna-signup-right {
+        padding-right:0;
+        margin-left:-15px;
+    }
+    
+    
+}
+
+@media only screen and (max-width: 767px) {
+    .container{
+        width:100%;
+    }
+    
+    .step-hide { height: 0; overflow: hidden; }
+    .luna-signup-container:after {
+        display: none;
+    }
+    .luna-signup-left {
+        padding: 25px 15px;
+        width:100%;
+        height:auto;
+        position:initial;
+    }
+    
+    
+    .luna-navigation { position: relative; height:auto; padding:20px; }
+    .luna-navigation:after { clear:both; content:''; display:block; }
+    .dots { position: initial; }
+    .dots { text-align: center;  }
+    .dots li { display: inline-block; }
+    .toNext { float:right; transform: rotate(270deg); right:0; top:0; left:auto; }
+    .toPrev { float:left; transform: rotate(270deg); left:0; top:0; bottom:auto; left:auto; }
+    
+    .luna-signup-right {
+        padding: 20px 0;
+        margin-left: 0;
+        height:auto;
+    }
+    .luna-steps {
+        height:auto;
+    }
+    .luna-steps .step {
+        padding: 0 15px;
+        position:relative;
+    }
+    .steps-count,
+    .button-container {
+        padding-right: 15px;
+        position: relative;
+    }
+    .step-confirm .form-group {
+        margin-bottom: 0;
+        padding: 10px 0;
+    }
+    .step-confirm .control-label {
+        font-size: 16px;
+    }
+    .step-confirm input,.step-confirm .bootstrap-select button {
+        padding: 6px 15px;
+        font-size: 16px;
+    }
+    
+    .button-container { bottom:15px; }
+    
+    .formLabel,
+    .formInput,.step-label {
+        font-size: 20px;
+    }
+    
+    .luna-signup-left:after {
+        display:none;
+    }
+    
+    .confirm-label { text-align: left; margin-bottom:5px; }
+    .confirm-text { margin-bottom:20px; }
+    .step-confirm-buttons { padding:15px 0; }
+    
+    
+}
+
+
+
