@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        What&#039;s New in Laravel Config Validator v2.0.... | Ash Allen Design
+    </title>
+    <meta name="description" content="Read about the new changes that have been added to Laravel Config Validator, including a new refactor and many bug fixes. Laravel Config Validator now also uses Termwind for all console command output.">
+    <link rel="canonical" href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Read about the new changes that have been added to Laravel Config Validator, including a new refactor and many bug fixes. Laravel Config Validator now also uses Termwind for all console command output."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 6 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">19th April 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210.png"
+                         alt="Read about the new changes that have been added to Laravel Config Validator, including a new refactor and many bug fixes. Laravel Config Validator now also uses Termwind for all console command output.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>I recently tagged and released two new versions (<a href="https://github.com/ash-jc-allen/laravel-config-validator/releases/tag/v2.0.0">v2.0.0</a> and <a href="https://github.com/ash-jc-allen/laravel-config-validator/releases/tag/v2.1.0">v2.1.0</a>) of one of my packages, <a href="https://github.com/ash-jc-allen/laravel-config-validator">Laravel Config Validator</a>. So, I thought I'd put together a <a href="../blog?category=quickfire">Quickfire post</a> to give a quick overview of what has been added and changed.</p>
+<h2>What is Laravel Config Validator?</h2>
+<p>If you haven't already heard of Laravel Config Validator, here's a quick rundown of what it is and why you might want to use it in your Laravel projects...</p>
+<p>Towards the end of 2020, I built the package mainly as a proof-of-concept. The intention of the package was to provide developers the ability to define rules for your Laravel app's config so that you could validate the fields.</p>
+<p>My main motivation for this package was that I'm regularly being onboarded to new projects as a freelancer. So, each time I pull down a project to my machine to start working on it, I need to make sure that I have all the correct config and environment variables set up. For example, let's say that the app requires API keys for making HTTP requests to an API. By using Laravel Config Validator, I could define a rule to ensure that the keys are set correctly and in the right format. If a developer wanted to get really fancy, they could also write their own custom rule to make an API call so that they can 100% certain that the config values are working with the API.</p>
+<p>To give this a bit of context, let's imagine that your code interacts with the Mailchimp API and so you have a <code>services.mailchimp.api_key</code> config field like so:</p>
+<div class="code-block">
+    <pre>
+        <div class="file-path d-none d-md-block"><span>config/services.php</span></div><code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">mailchimp</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">api_key</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">env</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">MAILCHIMP_API_KEY</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">),</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span><span style="color: #7FDAFF;">  </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">9</span><span style="color: #7FDAFF;">];</span></div></code>    </pre>
+</div>
+<p>If we didn't provide a key in our <code>.env</code> field for the <code>MAILCHIMP_API_KEY</code>, it's probably very likely that we would only find out that the key was required or is incorrect when our application actually tries to interact with the Mailchimp API. So, by using Laravel Config Validator, we can write a set of rules that we can run before the application ever tries to interact with the API. For example, we could write the following set of rules (making the assumption that the <code>ValidMailchimpKey</code> rule makes a call to the Mailchimp API to ensure that the keys are actually valid.</p>
+<div class="code-block">
+    <pre>
+        <div class="file-path d-none d-md-block"><span>config-validation/services.php</span></div><code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ConfigValidator</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Rule</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Rules</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ValidMailchimpKey</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #FFDB8E;">Rule</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">make</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">mailchimp.api_key</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">rules</span><span style="color: #7FDAFF;">([</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">required</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">string</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">new</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">ValidMailchimpKey</span><span style="color: #7FDAFF;">()]),</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">];</span></div></code>    </pre>
+</div>
+<p>Now that we've added this rule, we could run the command <code>php artisan config:validate</code> in our terminal. If the <code>services.mailchimp.api_key</code> field is valid, the validation will pass. Otherwise, errors will be shown to indicate what is wrong with it.</p>
+<p>And the best part is that you don't need to learn any new syntax! Under the hood, the package uses the Validator provided by Laravel. So, you can use the same rules that you would typically use in your request validation.</p>
+<h2>Using Termwind for Command Output</h2>
+<p>Thanks to a really cool contribution from <a href="https://twitter.com/xiCO2k">Francisco Maderia</a>, as of v2.1.0, Laravel Config Validator now uses Termwind for the output in the validation command. This means that instead of the validation errors being output in a table, they're now using some awesome CLI styling.</p>
+<p>Here's a look at how the failure output for the command used to look before v2.1.0:</p>
+<img src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/84/laravel-config-validator-failed-before.png" alt="Laravel Config Validator old failure output" class="img-fluid rounded shadow mb-4">
+<p>And, here's how the failure and success output for the command now look thanks to the new Termwind additions:</p>
+<img src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/84/laravel-config-validator-failed-after.png" alt="Laravel Config Validator new failure output" class="img-fluid rounded shadow mb-4">
+<img src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/84/laravel-config-validator-passed-after.png" alt="Laravel Config Validator new success output" class="img-fluid rounded shadow mb-4">
+<p>I'm sure that you'll agree that the newer output looks a lot cleaner than before!</p>
+<h2>Major Bug Fixes</h2>
+<p>Laravel Config Validator v2.0.0 fixes two bugs that were present in earlier versions of the package.</p>
+<h3>1. Caching Bug</h3>
+<p>Before v2.0.0 of Laravel Config Validator, your config rules would be stored in a <code>config/validation</code> folder in your project. My original thinking behind this was that it would make logical sense to keep the validation for the config inside the <code>config</code> folder, so then it would be grouped together.</p>
+<p>However, due to me being a bit naive, I never took into consideration what would happen when running <code>php artisan config:cache</code>. When running this command, it would also try and cache the validation rules, which would inevitably cause the command to crash and the config to not be cached.</p>
+<p>So, as of Laravel Config Validator v2.0.0, the default location for the config isn't <code>config/validation</code> anymore, and is now <code>config-validation</code> instead. By moving the validation rules out of the <code>config</code> folder, you can now run the <code>config:cache</code> command without the package interfering.</p>
+<h3>2. Using Rule Objects</h3>
+<p>In earlier versions of the package, you weren't able to use rule objects in your validation. For example, you couldn't have a config validation ruleset like so:</p>
+<div class="code-block">
+    <pre>
+        <div class="file-path d-none d-md-block"><span>config-validation/services.php</span></div><code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ConfigValidator</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Rule</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Rules</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ValidMailchimpKey</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #FFDB8E;">Rule</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">make</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">mailchimp.api_key</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">rules</span><span style="color: #7FDAFF;">([</span><span style="color: #BAACFF;">new</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">ValidMailchimpKey</span><span style="color: #7FDAFF;">()]),</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">];</span></div></code>    </pre>
+</div>
+<p>Trying to use a rule object (like the <code>ValidMailchimpKey</code> rule) would throw an exception. However, as of v2.0.0, you can now use your own rule objects to write more complex config validation checks. For example, you might want to write a rule that makes an API call to Mailchimp to make sure that the calls are actually valid and can be used as expected.</p>
+<h2>Laravel and PHP Version Changes</h2>
+<p>As of v2.0.0, the package no longer supports PHP 7.3 or PHP 7.4. This means that your project will need to be using either PHP 8.0 or PHP 8.1.</p>
+<p>Support for Laravel 6 and 7 has also been dropped; meaning that your project will need to be using either Laravel 8 or Laravel 9.</p>
+<p>By dropping support for older PHP and Laravel versions, it allows us to make use of newer features in the language and framework when adding new features.</p>
+<h2>Migrated from Travis CI to GitHub Actions</h2>
+<p>Like many of my older projects, when I originally created the package, I added a CI workflow that would run the PHPUnit tests when a pull request was made. But, over time, I've been moving away from Travis CI for running my workflows and have been slowly migrating over to GitHub Actions.</p>
+<p>My reason for migrating is that it allows me to consolidate all the moving parts and bring them on to one platform that's easier to manage. So, although this doesn't necessarily affect any developers using any of my packages, by moving my packages over to GitHub Actions, it makes maintenance easier for myself.</p>
+<p>There's also a cool new Larastan workflow that also runs on each pull request so that it makes it easier to maintain a good quality of code and hopefully spot bugs before merging new code.</p>
+<h2>Tidying Up</h2>
+<p>As part of the v2.0.0 release, I also took the chance to add type hints and return types to the package. I'm a huge fan on return types and type hints because I love the extra protection that it can provide for us as developers. On a side note, if you're interested in type safety, check out my &quot;<a href="type-safe-package-for-php">Type Safe Package for PHP</a>&quot; blog post about a proof-on-concept package that I made that you can use to add better type safety to your PHP projects.</p>
+<p>I also moved the default validation rule stubs that come with the package from the <code>config-validation</code> folder to a <code>stubs/config-validation</code> folder. I feel that this makes more logical sense and if anymore stubs are added in the future, it will be easier to group them all together.</p>
+<h2>Conclusion</h2>
+<p>Hopefully, this post should have shown you the new changes that have been made to Laravel Config Validator v2.0.0 and v2.1.0.</p>
+<p>If you enjoyed reading this post, I'd love to hear about it. Likewise, if you have any feedback to improve the future ones, I'd also love to hear that too.</p>
+<p>If you're interested in getting updated each time I publish a new post, feel free to sign up for my newsletter below.</p>
+<p>Keep on building awesome stuff! 🚀</p>
+<div class="blog-affiliate-one"></div>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="round-up-march-2022" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        Round Up: March 2022
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0&amp;title=What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0&amp;text=What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="the-laravel-ecosystem" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/77/the-laravel-ecosystem_small.png"
+                             alt="The Laravel Ecosystem"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="the-laravel-ecosystem">
+                            The Laravel Ecosystem
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0";
+            this.page.identifier = "what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0";
+            this.page.title = "What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0";
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Using &#039;query()&#039; in Laravel Eloquent Queries | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn about using &#039;::query()&#039; in your Laravel Eloquent queries and when you might want to use it. This Quickfire article discusses the effects of using it in your queries.">
+    <link rel="canonical" href="using-query-in-laravel-eloquent-queries">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Using &#039;query()&#039; in Laravel Eloquent Queries"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/using-query-in-laravel-eloquent-queries"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn about using &#039;::query()&#039; in your Laravel Eloquent queries and when you might want to use it. This Quickfire article discusses the effects of using it in your queries."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="using-query-in-laravel-eloquent-queries#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                Using &#039;query()&#039; in Laravel Eloquent Queries
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                            <a href="../blog?category=quickfire" class="badge badge-fire px-3 py-2 my-1 category-badge">
+                                            <span class="pr-2">🔥</span> Quickfire
+                                        </a>
+                                                                                                                <a href="../blog?category=laravel" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Laravel
+                                        </a>
+                                                                            <a href="../blog?category=tips-and-tricks" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tips &amp; Tricks
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 5 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">30th March 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries.png"
+                         alt="Learn about using &#039;::query()&#039; in your Laravel Eloquent queries and when you might want to use it. This Quickfire article discusses the effects of using it in your queries.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>I recently put out a poll on Twitter asking which variation of code Laravel developers prefer to use. The piece of code was only a little snippet, but it seemed to get quite a bit of attention with a lot of opinions on either option.</p>
+<p>So, I thought I'd put together a Quickfire blog post to quickly look over the code snippet in the poll, the results, and the different opinions that I saw mentioned in the comments.</p>
+<h2>The Tweet</h2>
+<p>So, let's first look at the tweet:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Which approach do you prefer to use in your Laravel Eloquent queries? 🤔<br><br>I think I prefer option 1 personally<a href="https://twitter.com/hashtag/laravel?src=hash&amp;ref_src=twsrc%5Etfw">#laravel</a> <a href="https://twitter.com/hashtag/php?src=hash&amp;ref_src=twsrc%5Etfw">#php</a> <a href="https://t.co/QMhDIHoDJg">pic.twitter.com/QMhDIHoDJg</a></p>&mdash; Ash Allen 🚀 (@AshAllenDesign) <a href="https://twitter.com/AshAllenDesign/status/1497214342961397760?ref_src=twsrc%5Etfw">February 25, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<p>The poll was asking which approach developers prefered when using Laravel Eloquent queries:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7E8EDA;">// Option 1</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">email</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #7E8EDA;">// Or, option 2</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">query</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">email</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">();</span></div></code>    </pre>
+</div>
+<p>By the time the poll had finished, it had received 864 votes.</p>
+<p>66.4% voted for option 1 (not using <code>::query()</code>).</p>
+<p>The remaining 33.6% voted for option 2 (using <code>::query()</code>).</p>
+<h2>The Code</h2>
+<p>One question that I saw several times was &quot;what's the difference between the two?&quot;. That's a very valid question and when I first saw some code a few years ago using <code>::query()</code>, I wondered the same thing.</p>
+<p>So, to keep it short, the answer is that there isn't really a difference in the outcome. To understand this, let's take a look at this code snippet:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">email</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">();</span></div></code>    </pre>
+</div>
+<p>A <code>where</code> method doesn't actually exist on the <code>User</code> class or the <code>Model</code> class that it extends. Therefore, the <code>__call</code> magic method (shown below) is called on the <code>Model</code> class when we try to call <code>where</code>. As a result of this, the bottom line (line 18) is then called which creates a new <code>\Illuminate\Database\Eloquent\Builder</code> which does include the <code>where</code> method.</p>
+<div class="code-block">
+    <pre>
+        <div class="file-path d-none d-md-block"><span>/Illuminate/Database/Eloquent/Model.php</span></div><code data-theme="moonlight" data-lang="php" class="torchlight has-highlight-lines" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7E8EDA;"> * Handle dynamic method calls into the model.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #7E8EDA;"> *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #7E8EDA;"> * </span><span style="color: #BAACFF;">@param</span><span style="color: #7E8EDA;">    </span><span style="color: #BAACFF;">string</span><span style="color: #7E8EDA;">  $method</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #7E8EDA;"> * </span><span style="color: #BAACFF;">@param</span><span style="color: #7E8EDA;">    </span><span style="color: #BAACFF;">array</span><span style="color: #7E8EDA;">  $parameters</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7E8EDA;"> * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">mixed</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7E8EDA;"> */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">__call</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">method</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">parameters</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #34D3FB;">in_array</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">method</span><span style="color: #7FDAFF;">,</span><span style="color: #70B0FF;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">increment</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #70B0FF;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">decrement</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">]))</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;$</span><span style="color: #A7C6E8;">method</span><span style="color: #7FDAFF;">(</span><span style="color: #FF757F;">...</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">parameters</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">resolver </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">static</span><span style="color: #7FDAFF;">::$</span><span style="color: #E4F3FA;">relationResolvers</span><span style="color: #7FDAFF;">[</span><span style="color: #34D3FB;">get_class</span><span style="color: #7FDAFF;">($</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">)][$</span><span style="color: #E4F3FA;">method</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">??</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">null</span><span style="color: #7FDAFF;">))</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">resolver</span><span style="color: #7FDAFF;">($</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span>&nbsp;</div><div class='line line-highlight line-has-background' style='background-color: #2a2e48'><span style="color:#9da5d7; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">forwardCallTo</span><span style="color: #7FDAFF;">($</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">newQuery</span><span style="color: #7FDAFF;">(),</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">method</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">parameters</span><span style="color: #7FDAFF;">);</span><span style="color: #E4F3FA;"> </span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>To explain this in a simpler way, whenever we call a query method (such as <code>where</code>) on a model, it will automatically create the <code>Builder</code> object and append the <code>where</code> clause that we would have had to create manually ourselves using <code>User::query()-&gt;where()</code>. So, they both achieve the same things.</p>
+<h2>Reasons for Using query()</h2>
+<h3>Improved Visuals</h3>
+<p>A few developers mentioned that they liked to use <code>query()</code> method in queries that had conditional statments (such as <code>if</code> or <code>when()</code>). For example, let's take this query:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">query </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">email</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">approvedOnly</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">query</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">is_approved</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">true</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">result </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">query</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">();</span></div></code>    </pre>
+</div>
+<p>It could also be written as:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">result </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">email</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">when</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">approvedOnly</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">query</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">      </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">query</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">is_approved</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">true</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">})</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">();</span></div></code>    </pre>
+</div>
+<p>But, by using the <code>query()</code> model at the start of the query, the code might look like this instead:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">result </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">query</span><span style="color: #7FDAFF;">()</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">email</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">when</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">approvedOnly</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">query</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">      </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">query</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">is_approved</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">true</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">})</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">();</span></div></code>    </pre>
+</div>
+<p>As a few people mentioned in the Twitter comments, by doing this, it pushes all of the query constraints on to a new line and they all vertically align in the code. So, although it doesn't necessarily affect the code itself, it can appear a little bit easier to read for some developers. And, to be honest, I agree with this and I think that in these situations, I opt for using the <code>query()</code> method too.</p>
+<h3>Better IDE Support</h3>
+<p>Another pro for using <code>query()</code> that I saw was improving the IDE support. For example, by adding <code>query()</code> to the beginning of the queries, it helped the IDE (such as PHPStorm) to understand what the code was being used for. Therefore, it could provide better autocompleting and analysis of your code.</p>
+<p>Although this is a very valid point, it's worth noting that this scenario can sometimes be avoided by using the <a href="https://github.com/barryvdh/laravel-ide-helper">IDE Helper package</a> (barryvdh/laravel-ide-helper). If this isn't something you've come across before, I'd highly recommend checking it out.</p>
+<h2>Reasons for NOT Using query()</h2>
+<h3>Cleaner, Shorter Code</h3>
+<p>Some of the comments on the poll mentioned that not using <code>query()</code> in their code made their code feel cleaner and shorter. They argued that by using things such as <code>where</code>, <code>with</code>, <code>whereHas</code>, it made it obvious that the code was in fact a query. So, by adding <code>query()</code> to it, all it did was add unneeded noise that didn't provide any extra value. This slightly ties in to one of the points from above, where some developer said they only decided to use <code>query()</code> for more complex queries that contained conditionals.</p>
+<h2>Should I Use query()?</h2>
+<p>In my opinion, I'd say that it's purely down to personal preference. I think that using whichever version you think makes you feel most comfortable when building your apps will always be a sensible option.</p>
+<p>However, if you're working as part of a team, I think it's important to stick to any standards or style guides if they exist. For example, if your team has a style guide that states that every single query in your application should use the <code>query()</code> method, then you'll need to remember to stick to that convention. Code that is readable and everyone on your team understands will always be the best option!</p>
+<h2>Conclusion</h2>
+<p>Hopefully, this Quickfire post should have given you a quick insight into why you might want to use <code>query()</code> or not in your Laravel Eloquent model queries. Which version do you prefer using yourself?</p>
+<p>If this post helped you out, I'd love to hear about it. Likewise, if you have any feedback to improve this post, I'd also love to hear that too.</p>
+<p>If you're interested in getting updated each time I publish a new post, feel free to sign up for my newsletter below.</p>
+<p>Keep on building awesome stuff! 🚀</p>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="round-up-february-2022" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        Round Up: February 2022
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="round-up-march-2022" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        Round Up: March 2022
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/using-query-in-laravel-eloquent-queries">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/using-query-in-laravel-eloquent-queries" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/using-query-in-laravel-eloquent-queries"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/using-query-in-laravel-eloquent-queries&amp;title=Using &#039;query()&#039; in Laravel Eloquent Queries"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/using-query-in-laravel-eloquent-queries&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/using-query-in-laravel-eloquent-queries&amp;text=Using &#039;query()&#039; in Laravel Eloquent Queries&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="the-laravel-ecosystem" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/77/the-laravel-ecosystem_small.png"
+                             alt="The Laravel Ecosystem"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="the-laravel-ecosystem">
+                            The Laravel Ecosystem
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/using-query-in-laravel-eloquent-queries";
+            this.page.identifier = "using-query-in-laravel-eloquent-queries";
+            this.page.title = "Using &#039;query()&#039; in Laravel Eloquent Queries";
+        };
+    </script>
+</body>
+</html>

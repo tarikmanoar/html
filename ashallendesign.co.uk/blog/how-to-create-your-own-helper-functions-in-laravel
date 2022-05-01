@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        How to Create Your Own Helper Functions in L... | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn how to create and register your own PHP helpers in Laravel. This article also shows you how to autoload the custom helper functions using Composer.">
+    <link rel="canonical" href="how-to-create-your-own-helper-functions-in-laravel">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="How to Create Your Own Helper Functions in Laravel"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/how-to-create-your-own-helper-functions-in-laravel"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn how to create and register your own PHP helpers in Laravel. This article also shows you how to autoload the custom helper functions using Composer."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/25/how-to-create-your-own-helper-functions-in-laravel.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="how-to-create-your-own-helper-functions-in-laravel#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                How to Create Your Own Helper Functions in Laravel
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                                                                <a href="../blog?category=laravel" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Laravel
+                                        </a>
+                                                                            <a href="../blog?category=tips-and-tricks" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tips &amp; Tricks
+                                        </a>
+                                                                            <a href="../blog?category=tutorial" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tutorial
+                                        </a>
+                                                                            <a href="../blog?category=web-development" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Development
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 5 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">3rd July 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/25/how-to-create-your-own-helper-functions-in-laravel.png"
+                         alt="Learn how to create and register your own PHP helpers in Laravel. This article also shows you how to autoload the custom helper functions using Composer.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>Helper functions can be extremely useful in your <a href="https://laravel.com" target="_blank" rel="noopener noreferrer">Laravel</a> projects. They can help to simplify  your code in your projects in a clean and easy way. Laravel comes with many <a href="https://laravel.com/docs/8.x/helpers#miscellaneous-method-list" target="_blank" rel="noopener noreferrer">helper functions</a> out-the-box such as <code>dd()</code>, <code>abort()</code> and <code>session()</code>. But as your projects start to grow, you'll likely find that you'll want to add your own.</p>
+<p>In this article, we're going to look at how we can create and use our own custom PHP helper functions in our Laravel projects.</p>
+<h2>Creating the Helper Function</h2>
+<p>To add our own helper functions, we need to start by creating a new PHP file to place them in. So, let's create a <code>helpers.php</code> file inside our <code>app</code> folder. As a side note, this location is down to personal preference really. Another common place I've seen the file placed is inside an <code>app/Helpers/helpers.php</code> file. So, it's down to you to choose a directory that you feel works best for you.</p>
+<p>Now, that we've got our file, we can add our helper function to it. As a basic example for this article, we're going to be creating a super-simple function that converts minutes to hours.</p>
+<p>Let's add the function to our <code>helpers.php</code> file like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">!</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">function_exists</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">seconds_to_hours</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">))</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">seconds_to_hours</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">int</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">seconds</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">float</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">seconds </span><span style="color: #7FDAFF;">/</span><span style="color: #E4F3FA;"> </span><span style="color: #FF9668;">3600</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>As you can see in the example above, the function itself is really simple. However, one thing that you might notice is that the function name is written in snake case (e.g. seconds_to_hours) rather than camel case (e.g. secondsToHours) like you'd usually see with method names on a class. You aren't necessarily fixed to using snake case for defining the function name, but you'll find that all of the Laravel helper functions are written this way. So, I'd probably advise to use the format just so that you can follow the typical standard and format that's expected. This is totally up to you though.</p>
+<p>Another thing that you might have noticed is that we have wrapped the function name inside an 'if' statement. This is to stop us from accidentally redeclaring any helpers with the same name that have already been registered. For example, let's say that we were using a package that already had a <code>seconds_to_hours()</code> function registered, this would prevent us from registering our own function with the same name. To get around this, we could just simply change the name of our own function to avoid any clashes.</p>
+<p>It's also really important to remember when creating helper functions that they are only supposed to be used as helpers. They aren't really meant to be used to perform any business logic, but rather to help you tidy up your code. Of course, you can add complex logic to them, but if this is something you're looking to do, I'd probably advise thinking about if the code would be a better fit in another place such as a service class, action class or trait.</p>
+<h2>Registering the Helper Function</h2>
+<p>Now that we've created our helper file, we need to register it so that we can use our new function. To do this, we can update our <code>composer.json</code> file so that our file is loaded at runtime on each request and is available for using. This is possible because Laravel includes the <a href="https://getcomposer.org/" target="_blank" rel="noopener noreferrer">Composer</a> class loader in the <code>public/index.php</code> file.</p>
+<p>In your <code>composer.json</code> file, you should have a section that looks like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="json" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">autoload</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #70B0FF;">psr-4</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">App</span><span style="color: #7FDAFF;">\\&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">app/</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">Database</span><span style="color: #7FDAFF;">\\</span><span style="color: #34D3FB;">Factories</span><span style="color: #7FDAFF;">\\&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">database/factories/</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">Database</span><span style="color: #7FDAFF;">\\</span><span style="color: #34D3FB;">Seeders</span><span style="color: #7FDAFF;">\\&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">database/seeders/</span><span style="color: #7FDAFF;">&quot;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">}</span><span style="color: #E4F3FA;">,</span></div></code>    </pre>
+</div>
+<p>In this section, we just need to add the following lines to let Composer know that you want to load your file:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="json" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">files</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">app/helpers.php</span><span style="color: #7FDAFF;">&quot;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;">,</span></div></code>    </pre>
+</div>
+<p>The <code>autoload</code> section of your <code>composer.json</code> file should now look like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="json" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">autoload</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #70B0FF;">files</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">app/helpers.php</span><span style="color: #7FDAFF;">&quot;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #70B0FF;">psr-4</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">App</span><span style="color: #7FDAFF;">\\&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">app/</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">Database</span><span style="color: #7FDAFF;">\\</span><span style="color: #34D3FB;">Factories</span><span style="color: #7FDAFF;">\\&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">database/factories/</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">Database</span><span style="color: #7FDAFF;">\\</span><span style="color: #34D3FB;">Seeders</span><span style="color: #7FDAFF;">\\&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">database/seeders/</span><span style="color: #7FDAFF;">&quot;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7FDAFF;">}</span><span style="color: #E4F3FA;">,</span></div></code>    </pre>
+</div>
+<p>Now that we've manually updated the <code>composer.json</code> file, we'll need to run the following command to dump our autload file and create a new one:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">composer</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">dump-autoload</span></div></code>    </pre>
+</div>
+<h2>Using the Helper Function</h2>
+<p>Congratulations! Your helper function should now be all set up and ready to use. To use it, you can simply use:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #70B0FF;">seconds_to_hours</span><span style="color: #7FDAFF;">(</span><span style="color: #FF9668;">331</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>Because it's been registered as a global function, this means you can use it in a variety of places such as your controllers, service classes and even other helper functions. The part that I love about helper functions most though is being able to use them in your Blade views. For example, let's imagine that we had a <code>TimeServiceClass</code> that contained a <code>secondsToHours()</code> method that did the same as our new function. If we were to use the service class in our Blade view, we might have to do something like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="blade" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #34D3FB;">{{</span><span style="color: #E4F3FA;"> \</span><span style="color: #FFDF9B;">App</span><span style="color: #E4F3FA;">\</span><span style="color: #FFDF9B;">Services</span><span style="color: #E4F3FA;">\</span><span style="color: #FFDB8E;">TimeService</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">secondsToHours</span><span style="color: #7FDAFF;">(</span><span style="color: #FF9668;">331</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">}}</span></div></code>    </pre>
+</div>
+<p>As you can imagine, if this was used in multiple places across a page, it could probably start to make your view a bit messy.</p>
+<div class="blog-affiliate-one"></div>
+<h2>Taking It Further</h2>
+<p>Now that we've seen how we can register and use the helpers, we will look at how we can take it one step further. Over time, as your Laravel projects grow, you might find that you have a large amount of helpers that are all in one file. As you can imagine, the file might start to look a bit unorganised. So, we might want to think about splitting our functions out into separate files.</p>
+<p>For the sake of the article, let's imagine that we have many helpers in our <code>app/helpers.php</code> file; some related to money, some related to time and some related to user settings. We could start by splitting those functions out into separate files such as: <code>app/Helpers/money.php</code>, <code>app/Helpers/time.php</code> and <code>app/Helpers/settings.php</code>. This means that we can now delete our <code>app/helpers.php</code> file because we don't need it anymore.</p>
+<p>After that, we can update our <code>composer.json</code> file in a similar way to before so that it nows loads our 3 new files:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="json" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">autoload</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #70B0FF;">files</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">app/Helpers/money.php</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">app/Helpers/settings.php</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">app/Helpers/time.php</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #70B0FF;">psr-4</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">App</span><span style="color: #7FDAFF;">\\&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">app/</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">Database</span><span style="color: #7FDAFF;">\\</span><span style="color: #34D3FB;">Factories</span><span style="color: #7FDAFF;">\\&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">database/factories/</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">Database</span><span style="color: #7FDAFF;">\\</span><span style="color: #34D3FB;">Seeders</span><span style="color: #7FDAFF;">\\&quot;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">database/seeders/</span><span style="color: #7FDAFF;">&quot;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7FDAFF;">}</span><span style="color: #E4F3FA;">,</span></div></code>    </pre>
+</div>
+<p>We'll need to remember to dump the Composer autoload file again by running the following command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">composer</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">dump-autoload</span></div></code>    </pre>
+</div>
+<p>You should now be able to continue using your functions and have the benefit of them being split into logically-separated files.</p>
+<h2>Conclusion</h2>
+<p>Hopefully this article has shown you how to create and register your own PHP helper functions for your Laravel projects. Remember not to use them to perform complex business logic and to see them more as a way of tidying up little bits of code.</p>
+<p>If you've enjoyed reading this post and found it useful, feel free to sign up for my newsletter below so that you can get notified each time I publish a new article.</p>
+<p>Keep on building awesome stuff! 🚀</p>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="cleaning-up-laravel-controllers" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        Cleaning Up Laravel Controllers
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="interfaces-vs-abstract-classes-in-php" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        Interfaces vs Abstract Classes in PHP
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/how-to-create-your-own-helper-functions-in-laravel">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/how-to-create-your-own-helper-functions-in-laravel" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/how-to-create-your-own-helper-functions-in-laravel"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/how-to-create-your-own-helper-functions-in-laravel&amp;title=How to Create Your Own Helper Functions in Laravel"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/how-to-create-your-own-helper-functions-in-laravel&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/how-to-create-your-own-helper-functions-in-laravel&amp;text=How to Create Your Own Helper Functions in Laravel&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/how-to-create-your-own-helper-functions-in-laravel";
+            this.page.identifier = "how-to-create-your-own-helper-functions-in-laravel";
+            this.page.title = "How to Create Your Own Helper Functions in Laravel";
+        };
+    </script>
+</body>
+</html>

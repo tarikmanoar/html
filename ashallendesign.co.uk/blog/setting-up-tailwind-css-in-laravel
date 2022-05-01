@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Setting Up Tailwind CSS in Laravel | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn about how to set up Tailwind CSS in your Laravel projects. This article also covers how to purge unneeded CSS classes.">
+    <link rel="canonical" href="setting-up-tailwind-css-in-laravel">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Setting Up Tailwind CSS in Laravel"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/setting-up-tailwind-css-in-laravel"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn about how to set up Tailwind CSS in your Laravel projects. This article also covers how to purge unneeded CSS classes."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/40/setting-up-tailwind-css-in-laravel.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="setting-up-tailwind-css-in-laravel#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                Setting Up Tailwind CSS in Laravel
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                                                                <a href="../blog?category=laravel" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Laravel
+                                        </a>
+                                                                            <a href="../blog?category=tips-and-tricks" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tips &amp; Tricks
+                                        </a>
+                                                                            <a href="../blog?category=tutorial" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tutorial
+                                        </a>
+                                                                            <a href="../blog?category=web-design" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Design
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 10 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">31st August 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/40/setting-up-tailwind-css-in-laravel.png"
+                         alt="Learn about how to set up Tailwind CSS in your Laravel projects. This article also covers how to purge unneeded CSS classes.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p><a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a> is a really cool CSS framework that you can use when building your applications and websites. In fact, I think it's that cool that since it's release, I've switched away from using <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a> as my go-to framework for new projects and use Tailwind instead.</p>
+<p>In this article, we're going to take a quick look at what Tailwind CSS is and why I think it's useful. We're then going to step through two different ways of how to set up Tailwind in your <a href="https://laravel.com/" target="_blank" rel="noopener noreferrer">Laravel</a> projects.</p>
+<h2>What is Tailwind CSS?</h2>
+<p>Tailwind is a utility-first CSS framework that you can use to style your website directly in your HTML. As an example, it provides you with CSS classes such as <code>flex</code>, <code>pt-4</code>, <code>text-center</code> so that you can have granular control.</p>
+<p>To give an example, let's look at how you might make a button using Tailwind:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="html" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">  Button</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>If we wanted to make this same style button using Bootstrap, we'd probably do something like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="html" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">btn btn-primary</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">  Button</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>As you can see, we're adding individual CSS classes to the markup, rather than having one or two classes like you would in Bootstrap.</p>
+<p>Now, don't worry, I know what you're thinking... &quot;That HTML looks really messy and overcomplicated. The Bootstrap version looks so much better and easier to understand!&quot;. I thought the same thing when I first started using Tailwind. I just thought that it was a bit of a fad that would probably die down after a few months. But, I gave it a try anyway so that I could make a more informed decision. I loved it!</p>
+<p>Of course, it felt a little bit weird at first, but after an hour or two it felt really natural to use. When I was using Bootstrap, I always felt like I was fighting the built-in CSS styles to get anything done. It was great for throwing together sites really quickly, but to tailor them to my own liking, I had to override a lot of styles. But with Tailwind, if I wanted to quickly add a style to a button, it was as easy as adding it straight to the HTML.</p>
+<p>If you're interested in reading more about why Tailwind is useful, Adam Wathan (the creator of Tailwind) has a <a href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/" target="_blank" rel="noopener noreferrer">really interesting article</a> about it that I'd recommend reading.</p>
+<div class="blog-affiliate-one"></div>
+<h2>Using the CDN</h2>
+<p>The easiest (but not necessarily the best) way to get started with Tailwind is to add the stylesheet to your HTML using the CDN. This is particularly useful if you want to quickly prototype an idea or just have a play around with the framework.</p>
+<p>To get started, you just need to add the following line to into the <code>&lt;head&gt;</code> section of your HTML:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="html" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">link</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">href</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">rel</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">stylesheet</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>Although this is the quickest way to add Tailwind to your project, I'd probably advise against it for any live projects, because:</p>
+<p><i class="fas fa-times mr-3 font-red" aria-hidden="true"></i>The size of the CSS file is larger than it would be if bundled after installing via NPM.</p>
+<p><i class="fas fa-times mr-3 font-red" aria-hidden="true"></i>You can't customize Tailwind's default theme.</p>
+<p><i class="fas fa-times mr-3 font-red" aria-hidden="true"></i>You can't use any directives like @apply, @variants, etc.</p>
+<p><i class="fas fa-times mr-3 font-red" aria-hidden="true"></i>You can't enable additional variants like <code>group-focus</code>.</p>
+<p><i class="fas fa-times mr-3 font-red" aria-hidden="true"></i>You can't install third-party plugins.</p>
+<p><i class="fas fa-times mr-3 font-red" aria-hidden="true"></i>You can't tree-shake unused styles.</p>
+<h2>Using NPM</h2>
+<p>If you're intending on using Tailwind in a project that's going to be live, it's much better to install it using NPM. By doing this, you aren't affected by the downsides that I stated above like when using the CDN. So, let's take a look at how to get started:</p>
+<h3>Installing Tailwind</h3>
+<p>To install Tailwind, you'll just need to run the following command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">npm</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">install</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">-D</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">tailwindcss@latest</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">postcss@latest</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">autoprefixer@latest</span></div></code>    </pre>
+</div>
+<h3>Setting up Your Tailwind Config</h3>
+<p>Now that we have Tailwind installed, we can run the following command to create a blank <code>tailwind.config.js</code> file:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">npx</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">tailwindcss</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">init</span></div></code>    </pre>
+</div>
+<p>You should now have a <code>tailwind.config.js</code> that looks like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="json" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #E4F3FA;">module.exports = </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">purge</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">darkMode</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">false</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7E8EDA;">// or &#39;media&#39; or &#39;class&#39;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">theme</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #FF5370;">extend</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">variants</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #FF5370;">extend</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">plugins</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>This is the file that you might use when you need to make changes to your theme or install plugins. As an example, if we wanted to define 'Poppins' as our default 'sans' font, we could update the file like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="json" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #E4F3FA;">module.exports = </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">purge</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">darkMode</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">false</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7E8EDA;">// or &#39;media&#39; or &#39;class&#39;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">theme</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #FF5370;">fontFamily</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">      </span><span style="color: #FF5370;">&#39;sans&#39;</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #FF5370;">&#39;Poppins&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF5370;">&#39;ui-sans-serif&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF5370;">&#39;system-ui&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #FF5370;">extend</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">variants</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #FF5370;">extend</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">  </span><span style="color: #FF5370;">plugins</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<h3>Configuring Laravel Mix</h3>
+<p>Now that we have Tailwind installed and configured ready to go, we can set up <a href="https://laravel-mix.com" target="_blank" rel="noopener noreferrer">Laravel Mix</a> so that our CSS is bundled whenever we build our assets.</p>
+<p>I'm going to make the assumption here that you're using the default <code>app.css</code> file here that comes with a fresh Laravel installation. But if not, you can update the first parameter in the <code>postCss()</code> method to match your main CSS file path.</p>
+<p>I'm also going to make the assumption that your <code>webpack.mix.js</code> file still looks the same as the one that comes in the fresh default Laravel installation.</p>
+<p>Let's add the necessary <code>require()</code> method to our <code>postCss()</code> method in the <code>webpack.mix.js</code> file like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="js" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">const</span><span style="color: #E4F3FA;"> mix </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">require</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">laravel-mix</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">mix</span><span style="color: #7FDAFF;">.</span><span style="color: #70B0FF;">js</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">resources/js/app.js</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">public/js</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">.</span><span style="color: #70B0FF;">postCss</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">resources/css/app.css</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">public/css</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">        </span><span style="color: #34D3FB;">require</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">tailwindcss</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">),</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">]);</span></div></code>    </pre>
+</div>
+<h3>Adding Tailwind to Your Application's CSS</h3>
+<p>We're almost there! Now that we've installed and configured Tailwind, we need to add the styles to our main CSS file.</p>
+<p>I'm going to make the assumption here that we're using the <code>resources/css/app.css</code> CSS file mentioned above. All we need to do is open up the file and add the following to the top:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="css" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">@</span><span style="color: #BAACFF;">tailwind</span><span style="color: #7FDAFF;">  base</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">@tailwind  components</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">@tailwind  utilities</span></div></code>    </pre>
+</div>
+<p>Tailwind should now be added to your project's CSS file and you should be able to start using it right away. You'll also need to remember to add it to the top of your HTML:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="blade" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;!</span><span style="color: #BAACFF;">doctype</span><span style="color: #7FDAFF;"> </span><span style="color: #BAACFF;">html</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">head</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">meta</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">charset</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">UTF-8</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;"> /&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">meta</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">name</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">viewport</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">content</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">width=device-width, initial-scale=1.0</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;"> /&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">link</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">href</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #34D3FB;">{{</span><span style="color: #7AF8CA;"> </span><span style="color: #70B0FF;">asset</span><span style="color: #7FDAFF;">(&#39;</span><span style="color: #7AF8CA;">css/app.css</span><span style="color: #7FDAFF;">&#39;)</span><span style="color: #7AF8CA;"> </span><span style="color: #34D3FB;">}}</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">rel</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">stylesheet</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">head</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>Congratulations, you've now got Tailwind installed ready to use in your project!</p>
+<h2>Purging Unused CSS Classes</h2>
+<p>I'd recommend configuring Tailwind to purge unused CSS classes from your application's CSS file.</p>
+<p>As a really basic example, let's imagine that you're only using the <code>text-blue-500</code> class in your application. It wouldn't make sense for us to include all of the other classes that Tailwind provides in our application's CSS. If we included all of the unused classes, we would be increasing the size of our CSS file which can have a negative effect on search rankings in Google.</p>
+<p>So, to purge any unused CSS classes, we can update our <code>tailwind.config.js</code> file to look similar to the following:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="json" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #E4F3FA;">module.exports = </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">   </span><span style="color: #FF5370;">purge</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">     </span><span style="color: #FF5370;">&#39;./resources</span><span style="color: #7E8EDA;">/**/</span><span style="color: #FF5370;">*.blade.php&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">     </span><span style="color: #FF5370;">&#39;./resources</span><span style="color: #7E8EDA;">/**/</span><span style="color: #FF5370;">*.js&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">     </span><span style="color: #FF5370;">&#39;./resources</span><span style="color: #7E8EDA;">/**/</span><span style="color: #FF5370;">*.vue&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">   </span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #FF5370;">darkMode</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">false</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7E8EDA;">// or &#39;media&#39; or &#39;class&#39;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #FF5370;">theme</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">      </span><span style="color: #FF5370;">extend</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #FF5370;">variants</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">      </span><span style="color: #FF5370;">extend</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">},</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #FF5370;">plugins</span><span style="color: #7FDAFF;">:</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>As you can see, we've added three new lines to the <code>purge</code> section of the file. These lines allow us to preserve any CSS classes that are found in any files inside our <code>resources</code> folder that end with <code>.blade.php</code>, <code>.js</code> or <code>.vue</code>.</p>
+<p>But, it's really important to make sure that you write your styles in your markup in a way that can be preserved. Let's take a look at the example that the Tailwind documentation gives of how NOT to write your classes.</p>
+<p>Because of the way that the regex rule works that is used to detect the CSS classes, it will detect strings that aren't separated by spaces, quotes or angle brackets. This means that if you have any of these in your classes (for example, if you were adding conditional classes), they might get ignored and purged.</p>
+<p>For example, let's say that in a Vue.js file, you were adding conditional CSS classes. If there's an error, you want to add the <code>text-red-600</code> class, but if there's no error, you want to add <code>text-green-600</code>. You could potentially write it like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="vue" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #E4F3FA;">&lt;div class=&quot;text-{{  error  ?  &#39;red&#39;  :  &#39;green&#39;  }}-600&quot;&gt;&lt;/div&gt;</span></div></code>    </pre>
+</div>
+<p>However, this would detect <code>text-{{</code>, <code>error</code>, <code>?</code>, <code>red</code>, <code>:</code>, <code>green</code>, <code>}}-600</code>. As you can probably guess, this means that because it didn't detect <code>text-red-600</code> or <code>text-green-600</code>, the classes you need would be purged from your CSS (assuming that they aren't included elsewhere in your markup somewhere).</p>
+<p>Instead, to write the classes in a way that can be detected and not purged, you would write the conditional like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="vue" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #E4F3FA;">&lt;div class=&quot;{{  error  ?  &#39;text-red-600&#39;  :  &#39;text-green-600&#39;  }}&quot;&gt;&lt;/div&gt;</span></div></code>    </pre>
+</div>
+<p>To learn more about this, I'd recommend giving the official Tailwind documentation's section about <a href="https://tailwindcss.com/docs/optimizing-for-production#writing-purgeable-html" target="_blank" rel="noopener noreferrer">writing purgeable HTML</a> a read.</p>
+<h2>Splitting HTML into Components</h2>
+<p>As your application grows, you'll likely find that you'll be reusing common parts of your markup in a lot of different places. So, in a similar way that you'd tend to try and keep your code DRY (don't repeat yourself), you can do the same in Laravel with your views.</p>
+<p>In this particular section, we'll be using Blade components as examples, but the concept can still be applied if you're building your frontend using something like Vue.</p>
+<p>So, to get a bit of context, let's imagine that we have a button that we use in many places across our frontend that has the following markup:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="html" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">  Button</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>Now, let's say that a few months after releasing the original website, we want to update all of the buttons to be green rather than blue. Of course, we could do a 'find and replace' across all of our Blade files. But, as you can probably guess, that would be cumbersome and would leave room for error. What would happen if you forgot to change one of them? Or if you accidentally changed another element that was using the <code>bg-blue-500</code> class but that wasn't meant to be updated?</p>
+<p>To get around this, we can make use of Laravel components. Components allow us to create reusable elements that we can use in our Blade files.</p>
+<p>To get a better idea of what they are and how to use them, let's imagine the following HTML:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="html" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">div</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    Button One</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #E4F3FA;">    Button Two</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">9</span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">div</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>We're going to take these two buttons and split them into components that we can use instead. Let's start by creating our component by making a new <code>resources/views/components/button.blade.php</code> file.</p>
+<p>We can then move the button's HTML into our new <code>button.blade.php</code> file like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="html" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">  Button One</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>But, we'll need to make sure that we make the button text dynamic so that we can reuse this component across our system. We can do that by outputting a <code>$text</code> attribute that we'll be passing to the component. Our new button markup would then look like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="blade" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">  </span><span style="color: #34D3FB;">{{</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">text </span><span style="color: #34D3FB;">}}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>Now we can update our original HTML with the two buttons to use our new components rather than the button's duplicated markup:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="blade" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">div</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">x-button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">text</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">Button One</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">/&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">x-button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">text</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">Button Two</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">/&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">div</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>This now means that if we want to update the colours of our buttons from blue to green, all we'll need to do is change it once in our <code>resources/views/components/button.blade.php</code> file.</p>
+<p>You might find that in one part of your frontend that you'd like to keep the general look of the button but change something (the font size as an example). Instead of needing to create a new component or manually create the button without a component, we can make our component's CSS classes dynamic.</p>
+<p>To do this, we can update our component like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="blade" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;"> </span><span style="color: #34D3FB;">{{</span><span style="color: #7FDAFF;"> $</span><span style="color: #E4F3FA;">attributes</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">merge</span><span style="color: #7FDAFF;">([</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">class</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;"> =&gt; </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">]) </span><span style="color: #34D3FB;">}}</span><span style="color: #FF5370;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">    @</span><span style="color: #34D3FB;">{{</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">text </span><span style="color: #34D3FB;">}}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>We could then call our component:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="blade" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">x-button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">text</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">Button One</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">text-xl</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">/&gt;</span></div></code>    </pre>
+</div>
+<p>This would result in the following HTML being output:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="html" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">&lt;</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;"> </span><span style="color: #FFBD76;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-xl</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7FDAFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">  Button One</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">&lt;/</span><span style="color: #FF757F;">button</span><span style="color: #7FDAFF;">&gt;</span></div></code>    </pre>
+</div>
+<p>To find out more about components in Laravel, I'd definitely recommend giving the <a href="https://laravel.com/docs/8.x/blade#components" target="_blank" rel="noopener noreferrer">official documetation</a> a read. It shows the different types of things that you can do with components and gives some really useful examples.</p>
+<h2>Conclusion</h2>
+<p>Hopefully, this article should have given you an overview of how you can set up Tailwind CSS for your Laravel applications and websites. It should have also shown you how to set up Laravel Mix to purge any unused CSS and then briefly showed you how to split your reusable HTML into components.</p>
+<p>If this post helped you out, I'd love to hear about it. Likewise, if you have any feedback to improve this post, I'd also love to hear that too.</p>
+<p>If you're interested in getting updated each time I publish a new post, feel free to sign up for my newsletter below.</p>
+<p>Keep on building awesome stuff! 🚀</p>
+<div class="blog-affiliate-one"></div>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="how-to-assert-redirects-to-signed-urls-in-laravel-tests" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        How to Assert Redirects to Signed URLs in Laravel Tests
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="using-database-transactions-to-write-safer-laravel-code" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        Using Database Transactions to Write Safer Laravel Code
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/setting-up-tailwind-css-in-laravel">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/setting-up-tailwind-css-in-laravel" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/setting-up-tailwind-css-in-laravel"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/setting-up-tailwind-css-in-laravel&amp;title=Setting Up Tailwind CSS in Laravel"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/setting-up-tailwind-css-in-laravel&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/setting-up-tailwind-css-in-laravel&amp;text=Setting Up Tailwind CSS in Laravel&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/setting-up-tailwind-css-in-laravel";
+            this.page.identifier = "setting-up-tailwind-css-in-laravel";
+            this.page.title = "Setting Up Tailwind CSS in Laravel";
+        };
+    </script>
+</body>
+</html>

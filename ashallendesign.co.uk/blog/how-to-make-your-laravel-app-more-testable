@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        How to Make Your Laravel App More Testable | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn how to make your Laravel app more testable by using dependency injection, mocking and the service container.">
+    <link rel="canonical" href="how-to-make-your-laravel-app-more-testable">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="How to Make Your Laravel App More Testable"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/how-to-make-your-laravel-app-more-testable"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn how to make your Laravel app more testable by using dependency injection, mocking and the service container."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/14/how-to-make-your-laravel-app-more-testable.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="how-to-make-your-laravel-app-more-testable#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                How to Make Your Laravel App More Testable
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                                                                <a href="../blog?category=laravel" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Laravel
+                                        </a>
+                                                                            <a href="../blog?category=tips-and-tricks" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tips &amp; Tricks
+                                        </a>
+                                                                            <a href="../blog?category=tutorial" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tutorial
+                                        </a>
+                                                                            <a href="../blog?category=web-development" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Development
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 8 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">29th January 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/14/how-to-make-your-laravel-app-more-testable.png"
+                         alt="Learn how to make your Laravel app more testable by using dependency injection, mocking and the service container.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>Testing is an integral part to web and software development. It helps to give you the confidence that any code that you have written meets acceptance criterias and also reduces the chances of your code having bugs. In fact, <a href="https://www.freecodecamp.org/news/test-driven-development-what-it-is-and-what-it-is-not-41fa6bca02a2/" target="_blank" rel="noopener noreferrer">TDD (test driven development)</a>, a popular development approach, actually focuses around tests being written before any code is added to the actual app code base.</p>
+<h3>Intended Audience</h3>
+<p>This article is aimed at developers who are fairly new to the Laravel world but have a basic understanding of tests. This article won't cover how to write basic tests (that's for another post in the future), but it will show you how you can approach your code in a slightly different way to improve your code quality and test quality.</p>
+<h2>Why Should I Write Tests?</h2>
+<p>Tests are often thought of as being an afterthought and a &quot;<em>nice to have</em>&quot; for any code that is written. This is seen especially in organisations where business goals and time constraints are putting pressure on the development team. And in all fairness, if you're only trying to get an MVP (minimum viable product) or a prototype built together quickly, maybe the tests can take a bit of a backseat. But, the reality is that writing tests before the code is released into production is always the best option!</p>
+<p>When you write tests, you are doing multiple things:</p>
+<ul>
+<li>
+<strong>Spotting bugs early</strong> - Be honest, how many times have you written code, ran it once or twice and then committed it. I'll hold my hand up, I've done it myself. You think to yourself &quot;it looks right and it seems to run, I'm sure it'll be fine&quot;. Every single time I did this, I ended up with either my pull requests being rejected or bugs being released into production. So by writing tests, you can spot bugs before you commit your work and have a bit more confidence whenever you release to production.</li>
+<li>
+<strong>Making future work and refactoring easier</strong> - Imagine that you need to refactor one of the core classes in your Laravel app. Or, that you maybe need to add some new code to that class to extend the functionality. Without tests, how are you going to know for certain that changing or adding any code isn't going to break the existing functionality? Without a lot of manual testing, there's not much way of quickly checking. So, by writing tests when you write the first version of the code, you can treat them as <a href="https://www.globalapptesting.com/regression-testing-guide" target="_blank" rel="noopener noreferrer">regression tests</a>. That means that every time you update any code, you can run the tests to make sure everything is still working. You can also keep adding tests every time you add new code, so that you can be sure your additions are also working.</li>
+<li>
+<strong>Changing the way you approach writing code</strong> - When I first learnt about testing and started writing my first tests (for a <a href="https://laravel.com" target="_blank" rel="noopener noreferrer">Laravel</a> app using <a href="https://phpunit.de/" target="_blank" rel="noopener noreferrer">PHPUnit</a>), I quickly realised that my code was pretty difficult to write tests for. It was hard to do things like mocking classes, preventing third-party API calls and making some assertions. To be able to write code is a way that can be tested, you have to look at the structure of your classes and methods from a slightly different angle than before.</li>
+</ul>
+<h2>OK, Let's Write a Test</h2>
+<p>To explain how we can make your code more testable, we'll use a simple example. Of course, there's different ways that you could write the code and this might be that simple that it doesn't matter. But, hopefully it should help explain the overall concept.</p>
+<p>Let's take this example controller method:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">NewsletterSubscriptionService</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Http</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">JsonResponse</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Http</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Request</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">NewsletterSubscriptionController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #7E8EDA;">     * Store a new newsletter subscriber.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@param</span><span style="color: #7E8EDA;">    </span><span style="color: #FFDB8E;">Request</span><span style="color: #7E8EDA;">  $request</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #FFDB8E;">JsonResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">store</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Request</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">JsonResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">service </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">new</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">NewsletterSubscriptionService</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">service</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">handle</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">response</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">json</span><span style="color: #7FDAFF;">([</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">success</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">true</span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>The above method, which we'll assume is invoked if you make a <code>POST</code> request to <code>/newsletter/subscriptions</code>, which accepts an <code>email</code> parameter which is then passed to a service. We can then assume that the service handles all of the different processes that need to be carried out to complete a user's subscription to the newsletter.</p>
+<p>To test the above controller method, we code create the following test:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">NewsletterSubscriptionControllerTest</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">TestCase</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/** @test  */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">success_response_is_returned</span><span style="color: #7FDAFF;">()</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">postJson</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">/newsletter/subscriptions</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">mail@ashallendesign.co.uk</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">])-&gt;</span><span style="color: #70B0FF;">assertExactJson</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">success</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">true</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>There's just one problem that you have might noticed in our test. It doesn't actually check to see if the service class' <code>handle()</code> method was called! So, if by accident we were to delete or comment out that line in the controller, we wouldn't actually know.</p>
+<div class="blog-affiliate-one"></div>
+<h2>Now, Let's Write a Better Test</h2>
+<h3>What's The Problem?</h3>
+<p>One of the problems that we have here is that without adding extra code to flag or log that the service class has been called, it's pretty difficult for us check that it's been written.</p>
+<p>Sure, we could add more assertions in this controller test to test the service class's code is all being run. But that can lead to an overlap in your tests. For arguments sake, let's imagine that our Laravel app allows users to register and that whenever they register they are automatically signed up to the newsletter. Now, if we were to write tests for this controller as well that checked that all of the service class was run correctly, we'd have 2 near duplicates of test code. This would mean that if we were to update the way that the service class runs internally, we'd also need to update all of these tests as well.</p>
+<p>In all fairness, sometimes you might actually want to do that. If you're writing a feature test and run assertions against the whole end-to-end process, this would be suitable. However, if you're trying to write unit tests and only want to check the controller, this approach won't quite work.</p>
+<h3>How Can We Fix The Problem?</h3>
+<p>In order to improve the test that we've got, we can make use of <a href="https://laravel.com/docs/8.x/mocking#introduction" target="_blank" rel="noopener noreferrer">mocking</a>, the <a href="https://laravel.com/docs/8.x/container" target="_blank" rel="noopener noreferrer">service container</a> and <a href="https://laravel.com/docs/8.x/controllers#dependency-injection-and-controllers" target="_blank" rel="noopener noreferrer">dependency injection</a>. I won't go too much into too much depth about what the service container is (that's a whole new blog post in itself). But, I'd definitely recommend reading into it because it can be incredibly helpful and is a core part of Laravel. In fact, the Laravel docs actually cover the service container really well, so they're definitely worth a read.</p>
+<p>In short (and very basic terms), the service container manages class dependencies and allows us to use classes that Laravel has already set up for us. I'll make a post in the future on how to use service providers to bind classes to the service container for dependency injection. For the time being though, this following example should hopefully give a brief idea.</p>
+<p>To make our code example more testable, we can instantiate the <code>NewsletterSubscriptionService</code> by using dependency injection to resolve it from the service container, like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">NewsletterSubscriptionService</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Http</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">JsonResponse</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Http</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Request</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">NewsletterSubscriptionController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #7E8EDA;">     * Store a new newsletter subscriber.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@param</span><span style="color: #7E8EDA;">    </span><span style="color: #FFDB8E;">Request</span><span style="color: #7E8EDA;">  $request</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@param</span><span style="color: #7E8EDA;">    </span><span style="color: #FFDB8E;">NewsletterSubscriptionService</span><span style="color: #7E8EDA;"> $service</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #FFDB8E;">JsonResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">store</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Request</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">NewsletterSubscriptionService</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">service</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">JsonResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">service</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">handle</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">response</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">json</span><span style="color: #7FDAFF;">([</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">success</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">true</span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>What we've done above is we've added the <code>NewsletterSubscriptionService</code> class as an argument to the <code>store()</code> method because Laravel allows dependency injection in controllers. What this basically does is it tells Laravel when it's calling this method is &quot;Hey, I also want you to pass me a <code>NewsletterSubscriptionService</code>!&quot;. Laravel then replies and says &quot;Okay, I'll grab one now for you from the service container&quot;.</p>
+<p>In this case, our service class doesn't have any constructor arguments, so it's nice and simple. However, if we had to pass in constructor arguments, we'd potentially have to create a service provider that handles what data is passed into the class when we first instantiate it.</p>
+<p>Because we're now resolving from the container, we can update our test like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">NewsletterSubscriptionControllerTest</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">TestCase</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/** @test  */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">success_response_is_returned</span><span style="color: #7FDAFF;">()</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// Create the mock of the service class.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">mock </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Mockery</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">mock</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">NewsletterSubscriptionService</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">makePartial</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// Set the mocked class&#39; expectations.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">mock</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">shouldReceive</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">handle</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">once</span><span style="color: #7FDAFF;">()</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">withArgs</span><span style="color: #7FDAFF;">([</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">mail@ashallendesign</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">])</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">andReturnNull</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// Add this mock to the service container to take the service class&#39; place.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">        </span><span style="color: #70B0FF;">app</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">instance</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">NewsletterSubscriptionService</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">mock</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">postJson</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">/newsletter/subscriptions</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">mail@ashallendesign.co.uk</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">])-&gt;</span><span style="color: #70B0FF;">assertExactJson</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">success</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">true</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">24</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Now, in the above test, we start off by using  <a href="http://docs.mockery.io/en/latest/" target="_blank" rel="noopener noreferrer">Mockery</a> to create a mock of the service class. We then tell the service class that by the time the test finishes running, we expect that the <code>handle()</code> method will have been called once and have <code>mail@ashallendesign.co.uk</code> as the only parameter. After doing that, we then tell Laravel &quot;Hey Laravel, if you need to resolve a <code>NewsletterSubscriptionService</code> at any point, here's one for you to return&quot;.</p>
+<p>This means now that in our controller, the second parameter isn't actually the service class itself, but instead a mocked version of this class.</p>
+<p>So, when we run the test now, we'll see that the <code>handle()</code> method is actually called. As a result of this, if we were to ever delete where that code is called or add any logic which might prevent it from being called, the test would fail because Mockery would detect that the method was not invoked.</p>
+<h2>Bonus Tip</h2>
+<p>There might be times when you're inside a class of code and it turns out that without some major refactoring you won't be able to inject your class (that you want to mock) by passing it as an extra method argument. In these cases, you can make use of the <code>resolve()</code> helper method that comes with Laravel.</p>
+<p>The <code>resolve()</code> method simply returns a class from the service container. As a small example, let's look at how we could have updated our example controller method to still be testable with Mockery but without adding an extra argument:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">NewsletterSubscriptionService</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Http</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">JsonResponse</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Http</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Request</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">NewsletterSubscriptionController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #7E8EDA;">     * Store a new newsletter subscriber.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@param</span><span style="color: #7E8EDA;">    </span><span style="color: #FFDB8E;">Request</span><span style="color: #7E8EDA;">  $request</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #FFDB8E;">JsonResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">store</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Request</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">JsonResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">service </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">resolve</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">NewsletterSubscriptionService</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">service</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">handle</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">response</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">json</span><span style="color: #7FDAFF;">([</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">success</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">true</span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<h2>Conclusion</h2>
+<p>So, I'm hoping that this article has given a little bit of an insight into how you can make your Laravel app more testable by making use of the service container, mocking and dependency injection.</p>
+<p>Remember that tests are your friends and can save you an unbelievably huge amount of time, stress and pressure if they're added when code is first written. And as an added bonus, higher quality tests and increased test coverage usually means less bugs, which means less support tickets and happier clients!</p>
+<p>There are more things that can be done to make your code more testable and I'll hopefully get them written up into more blog posts like this. So, if you liked the way this post was written or if you'd prefer a different style, comment below and let me know.</p>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="how-to-validate-email-addresses-using-laravel-mailbox-layer" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        How to Validate Email Addresses using Laravel Mailbox Layer
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="how-to-filter-laravel-collections-using-whereinstanceof" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        How to Filter Laravel Collections Using whereInstanceOf
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/how-to-make-your-laravel-app-more-testable">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/how-to-make-your-laravel-app-more-testable" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/how-to-make-your-laravel-app-more-testable"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/how-to-make-your-laravel-app-more-testable&amp;title=How to Make Your Laravel App More Testable"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/how-to-make-your-laravel-app-more-testable&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/how-to-make-your-laravel-app-more-testable&amp;text=How to Make Your Laravel App More Testable&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/how-to-make-your-laravel-app-more-testable";
+            this.page.identifier = "how-to-make-your-laravel-app-more-testable";
+            this.page.title = "How to Make Your Laravel App More Testable";
+        };
+    </script>
+</body>
+</html>

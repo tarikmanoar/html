@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        How to Swap Items in an Array Using Laravel... | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn how to create a new Laravel macro and register it in a service provider. Then find out how we can use that macro to swap items in an array using the Arr::swap() method.">
+    <link rel="canonical" href="how-to-swap-items-in-an-array-using-laravel-macros">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="How to Swap Items in an Array Using Laravel Macros"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/how-to-swap-items-in-an-array-using-laravel-macros"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn how to create a new Laravel macro and register it in a service provider. Then find out how we can use that macro to swap items in an array using the Arr::swap() method."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/16/how-to-swap-items-in-an-array-using-laravel-macros.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="how-to-swap-items-in-an-array-using-laravel-macros#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                How to Swap Items in an Array Using Laravel Macros
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                                                                <a href="../blog?category=laravel" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Laravel
+                                        </a>
+                                                                            <a href="../blog?category=tips-and-tricks" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tips &amp; Tricks
+                                        </a>
+                                                                            <a href="../blog?category=tutorial" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tutorial
+                                        </a>
+                                                                            <a href="../blog?category=web-development" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Development
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 3 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">21st April 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/16/how-to-swap-items-in-an-array-using-laravel-macros.png"
+                         alt="Learn how to create a new Laravel macro and register it in a service provider. Then find out how we can use that macro to swap items in an array using the Arr::swap() method.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>There may be times when you are working with arrays in your <a href="https://www.php.net/" target="_blank" rel="noopener noreferrer">PHP</a> code and need to switch the order of two items. If you're using an array that uses integers as keys, this can be a pretty straightforward task. However, if you're trying to swap two items of an associative array, this can be little bit more hands-on. So, in this short post, I'll show you how you can use macros in <a href="https://laravel.com" target="_blank" rel="noopener noreferrer">Laravel</a> to keep your code looking clean and reusable.</p>
+<p>By the end of the post, you should have a brief idea on how to create a macro that you can use to change the order of your like in this example:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">assocArray </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_one</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">   </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">One</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_two</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">   </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Two</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_three</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Three</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_four</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Four</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">newArray </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Arr</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">swap</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_one</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_three</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7E8EDA;">/*</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7E8EDA;"> * $newArray is now:</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7E8EDA;"> * [</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7E8EDA;"> *     &#39;item_three&#39; =&gt; [&#39;name&#39; =&gt; &#39;Three&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7E8EDA;"> *     &#39;item_two&#39;   =&gt; [&#39;name&#39; =&gt; &#39;Two&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #7E8EDA;"> *     &#39;item_one&#39;   =&gt; [&#39;name&#39; =&gt; &#39;One&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7E8EDA;"> *     &#39;item_four&#39;  =&gt; [&#39;name&#39; =&gt; &#39;Four&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #7E8EDA;"> * ]</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #7E8EDA;"> */</span></div></code>    </pre>
+</div>
+<h2>What Are Macros?</h2>
+<p>In Laravel, macros are methods that can be added to classes at runtime. They can be a pretty cool way of extending the functionality of a class that you might not have full access to and might not want to inherit from. Not all classes are &quot;macroable&quot;, but if you want a full list of the Laravel classes that you can add macros to, check out <a href="https://tighten.co/blog/the-magic-of-laravel-macros/" target="_blank" rel="noopener noreferrer">this article written by Caleb Porzio</a>.</p>
+<div class="blog-affiliate-one"></div>
+<h2>Where Do I Define The Macro?</h2>
+<p>Whenever we create a new macro, we'll need to let Laravel new that we're providing a new macro; and we can do this inside a <a href="https://laravel.com/docs/8.x/providers#introduction" target="_blank" rel="noopener noreferrer">service provider</a>. In theory, we can add this code to the <code>AppServiceProvider</code> but I like to try and keep the providers split out; otherwise, that file starts to get full pretty early on in your project. But this is just my personal opinion though, so feel free to use the <code>AppServiceProvider</code> if that helps you.</p>
+<p>So, if you want to add the macro to a separate provider, let's start by creating a new <code>MacroServiceProvider</code> using the following command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">php</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">artisan</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">make:provider</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">MacroServiceProvider</span></div></code>    </pre>
+</div>
+<p>We'll then need to remember to register this service provider inside the <code>app/config.php</code> like below:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">providers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Providers</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">MacroServiceProvider</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">9</span><span style="color: #7FDAFF;">]</span></div></code>    </pre>
+</div>
+<p>Now that we've created the new service provider, let's create the macro. This is the macro that we're going to be adding:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #FFDB8E;">Arr</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">macro</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">swap</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">array</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">!</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Arr</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">isAssoc</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">))</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">itemOneTmp </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">itemOneTmp</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">foreach</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">array </span><span style="color: #BAACFF;">as</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">key </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">value</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">key </span><span style="color: #BAACFF;">===</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">}</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">elseif</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">key </span><span style="color: #BAACFF;">===</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">}</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">else</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">key</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">value</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span><span style="color: #7FDAFF;">});</span></div></code>    </pre>
+</div>
+<p>So, let's add this macro to the service provider so that we can access it:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">namespace</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Providers</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Arr</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ServiceProvider</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">MacroServiceProvider</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">ServiceProvider</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #7E8EDA;">     * Bootstrap services.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">void</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">boot</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #FFDB8E;">Arr</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">macro</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">swap</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">array</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">            </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">!</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Arr</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">isAssoc</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">))</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">                </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">itemOneTmp </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">                </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #E4F3FA;">                </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">itemOneTmp</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #E4F3FA;">                </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">24</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">25</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">26</span><span style="color: #E4F3FA;">            </span><span style="color: #BAACFF;">foreach</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">array </span><span style="color: #BAACFF;">as</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">key </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">value</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">27</span><span style="color: #E4F3FA;">                </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">key </span><span style="color: #BAACFF;">===</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">28</span><span style="color: #E4F3FA;">                    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">29</span><span style="color: #E4F3FA;">                </span><span style="color: #7FDAFF;">}</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">elseif</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">key </span><span style="color: #BAACFF;">===</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">keyTwo</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">30</span><span style="color: #E4F3FA;">                    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">keyOne</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">31</span><span style="color: #E4F3FA;">                </span><span style="color: #7FDAFF;">}</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">else</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">32</span><span style="color: #E4F3FA;">                    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray</span><span style="color: #7FDAFF;">[$</span><span style="color: #E4F3FA;">key</span><span style="color: #7FDAFF;">]</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">value</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">33</span><span style="color: #E4F3FA;">                </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">34</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">35</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">36</span><span style="color: #E4F3FA;">            </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">updatedArray</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">37</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">});</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">38</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">39</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Now that we've defined the macro inside the service provider, we can swap items in arrays using the <code>Arr::swap()</code> method. Here are some examples below of how we would be able to use this method:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">array </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">One</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Two</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Three</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Four</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">newArray </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Arr</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">swap</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF9668;">0</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF9668;">2</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7E8EDA;">/*</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7E8EDA;"> * $newArray is now:</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7E8EDA;"> * [</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7E8EDA;"> *     [&#39;name&#39; =&gt; &#39;Three&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7E8EDA;"> *     [&#39;name&#39; =&gt; &#39;Two&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #7E8EDA;"> *     [&#39;name&#39; =&gt; &#39;One&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7E8EDA;"> *     [&#39;name&#39; =&gt; &#39;Four&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #7E8EDA;"> * ]</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #7E8EDA;"> */</span></div></code>    </pre>
+</div>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">assocArray </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_one</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">   </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">One</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_two</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">   </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Two</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_three</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Three</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_four</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">  </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Four</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">newArray </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Arr</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">swap</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">array</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_one</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">item_three</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7E8EDA;">/*</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7E8EDA;"> * $newArray is now:</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7E8EDA;"> * [</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7E8EDA;"> *     &#39;item_three&#39; =&gt; [&#39;name&#39; =&gt; &#39;Three&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7E8EDA;"> *     &#39;item_two&#39;   =&gt; [&#39;name&#39; =&gt; &#39;Two&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #7E8EDA;"> *     &#39;item_one&#39;   =&gt; [&#39;name&#39; =&gt; &#39;One&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7E8EDA;"> *     &#39;item_four&#39;  =&gt; [&#39;name&#39; =&gt; &#39;Four&#39;],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #7E8EDA;"> * ]</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #7E8EDA;"> */</span></div></code>    </pre>
+</div>
+<p>Hopefully, this short post will have given you a very brief overview of how to quickly create a macro that we can use swap two items in a PHP array. And a pretty nice benefit is that we can reuse that macro method across our system and keep our code looking readable and Laravel-y.</p>
+<p>I'd love to hear any feedback in the comments if this helped you or not! 🚀</p>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="how-to-filter-laravel-collections-using-whereinstanceof" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        How to Filter Laravel Collections Using whereInstanceOf
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="how-to-use-the-sole-method-on-laravel-collections" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        How to Use the sole() Method on Laravel Collections
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/how-to-swap-items-in-an-array-using-laravel-macros">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/how-to-swap-items-in-an-array-using-laravel-macros" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/how-to-swap-items-in-an-array-using-laravel-macros"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/how-to-swap-items-in-an-array-using-laravel-macros&amp;title=How to Swap Items in an Array Using Laravel Macros"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/how-to-swap-items-in-an-array-using-laravel-macros&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/how-to-swap-items-in-an-array-using-laravel-macros&amp;text=How to Swap Items in an Array Using Laravel Macros&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/how-to-swap-items-in-an-array-using-laravel-macros";
+            this.page.identifier = "how-to-swap-items-in-an-array-using-laravel-macros";
+            this.page.title = "How to Swap Items in an Array Using Laravel Macros";
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Using Interfaces to Write Better PHP Code | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn how to use interfaces in your PHP code to improve extendability, readability, and testability. This article contains examples of how to use the interfaces in a real-world scenario.">
+    <link rel="canonical" href="using-interfaces-to-write-better-php-code">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Using Interfaces to Write Better PHP Code"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/using-interfaces-to-write-better-php-code"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn how to use interfaces in your PHP code to improve extendability, readability, and testability. This article contains examples of how to use the interfaces in a real-world scenario."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/21/using-interfaces-to-write-better-php-code.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="using-interfaces-to-write-better-php-code#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                Using Interfaces to Write Better PHP Code
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                                                                <a href="../blog?category=laravel" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Laravel
+                                        </a>
+                                                                            <a href="../blog?category=php" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>PHP
+                                        </a>
+                                                                            <a href="../blog?category=tips-and-tricks" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tips &amp; Tricks
+                                        </a>
+                                                                            <a href="../blog?category=web-development" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Development
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 7 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">8th June 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/21/using-interfaces-to-write-better-php-code.png"
+                         alt="Learn how to use interfaces in your PHP code to improve extendability, readability, and testability. This article contains examples of how to use the interfaces in a real-world scenario.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>In programming, it's important to make sure that your code is readable, maintainable, extendable and easily testable. One of the ways that we can improve all of these factors in our code is by using interfaces.</p>
+<h3>Intended Audience</h3>
+<p>This article is aimed at developers who have a basic understanding of OOP (object oriented programming) concepts and using inheritance in PHP. If you know how to use inheritance in your PHP code, this article should hopefully be understandable.</p>
+<h2>What Are Interfaces?</h2>
+<p>In basic terms, interfaces are just descriptions of what a class should do. They can be used to ensure that any class implementing the interface will include each public method that is defined inside it.</p>
+<p>Interfaces <strong>can</strong> be:</p>
+<ul>
+<li>Used to define public methods for a class.</li>
+<li>Used to define constants for a class.</li>
+</ul>
+<p>Interfaces <strong>cannot</strong> be:</p>
+<ul>
+<li>Instantiated on their own.</li>
+<li>Used to define private or protected methods for a class.</li>
+<li>Used to define properties for a class.</li>
+</ul>
+<p>Interfaces are used to define the public methods that a class should include. It's important to remember that only the method signatures are defined and that they don't include the method body (like you would typically see in a method in a class). This is because the interfaces are only used to define the communication between objects, rather than defining the communication and behaviour like in a class. To give this a bit of context, this example shows an example interface that defines several public methods:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">interface</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">DownloadableReport</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getHeaders</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getData</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>According to <a href="https://www.php.net/manual/en/language.oop5.interfaces.php" target="_blank" rel="noopener noreferrer">php.net</a>, interfaces serve two main purposes:</p>
+<ol>
+<li>To allow developers to create objects of different classes that may be used interchangeably because they implement the same interface or interfaces. A common example is multiple database access services, multiple payment gateways, or different caching strategies. Different implementations may be swapped out without requiring any changes to the code that uses them.</li>
+<li>To allow a function or method to accept and operate on a parameter that conforms to an interface, while not caring what else the object may do or how it is implemented. These interfaces are often named like Iterable, Cacheable, Renderable, or so on to describe the significance of the behavior.</li>
+</ol>
+<div class="blog-affiliate-one"></div>
+<h2>Using Interfaces in PHP</h2>
+<p>Interfaces can be an invaluable part of OOP (object oriented programming) codebases. They allow us to decouple our code and improve extendability. To give a example of this, let's take a look at this class below:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">BlogReport</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Blog report</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>As you can see, we have defined a class with a method that returns a string. By doing this, we have defined the behaviour of the method so we can see how <code>getName()</code> is building up the string that is returned. However, let's say that we call this method in our code inside another class. The other class won't care how the string was built up, it will just care that it was returned. For example, let's look at how we could call this method in another class:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">ReportDownloadService</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">downloadPDF</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">BlogReport</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">report</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">name </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">report</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// Download the file here...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">9</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Although the code above works, let's imagine that we now wanted to add the functionality to download a users report that's wrapped inside a <code>UsersReport</code> class. Of couse, we can't use the existing method in our <code>ReportDownloadService</code> because we have enforced that only a <code>BlogReport</code> class can be passed. So, we'll have to rename the existing method and then add a new method, like below:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">ReportDownloadService</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">downloadBlogReportPDF</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">BlogReport</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">report</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">name </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">report</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// Download the file here...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">downloadUsersReportPDF</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">UsersReport</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">report</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">name </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">report</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// Download the file here...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Although you can't actually see it, let's assume that the rest of the methods in the class above use identical code to build the download. We could lift the shared code into methods but we will still likely have some shared code. As well as this, we're going to have multiple points of entry into the class that runs near-identical code. This can potentially lead to extra work in the future when trying to extend the code or add tests.</p>
+<p>For example, let's imagine that we create a new <code>AnalyticsReport</code>; we'd now need to add a new <code>downloadAnalyticsReportPDF()</code> method to the class. You can likely see how this file could start growing quickly. This could be a perfect place to use an interface!</p>
+<p>Let's start by creating one; we'll call it <code>DownloadableReport</code> and define it like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">interface</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">DownloadableReport</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getHeaders</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getData</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>We can now update the <code>BlogReport</code> and <code>UsersReport</code> to implement the <code>DownloadableReport</code> interface like seen in the example below. But please note, I have purposely written the code for the <code>UsersReport</code> wrong so that I can demonstrate something!</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">BlogReport</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">implements</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">DownloadableReport</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Blog report</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getHeaders</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">The headers go here</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getData</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">The data for the report is here.</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">UsersReport</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">implements</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">DownloadableReport</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">()</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Users Report</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getData</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">The data for the report is here.</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>If we were to try and run our code, we would get errors for the following reasons:</p>
+<ol>
+<li>The <code>getHeaders()</code> method is missing.</li>
+<li>The <code>getName()</code> method doesn't include the return type that is defined in the interface's method signature.</li>
+<li>The <code>getData()</code> method defines a return type, but it isn't the same as the one defined in the interface's method signature.</li>
+</ol>
+<p>So, to update the <code>UsersReport</code> so that it correctly implements the <code>DownloadableReport</code> interface, we could change it to the following:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">UsersReport</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">implements</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">DownloadableReport</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Users Report</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getHeaders</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">       </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getData</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">The data for the report is here.</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Now that we have both of our report classes implementing the same interface, we can update our <code>ReportDownloadService</code> like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">ReportDownloadService</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">downloadReportPDF</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">DownloadableReport</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">report</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">name </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">report</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">getName</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// Download the file here...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>We could now pass in a <code>UsersReport</code> or <code>BlogReport</code> object into the <code>downloadReportPDF()</code> method without any errors. This is because we now know that the necessary methods needed on the report classes exist and return data in the type that we expect.</p>
+<p>As a result of passing in an interface to the method rather than a class, this has allowed us to loosely-couple the <code>ReportDownloadService</code> and the report classes based on <strong>what</strong> the methods do, rather than <strong>how</strong> they do it.</p>
+<p>If we wanted to create a new <code>AnalyticsReport</code>, we could make it implement the same interface and then this would allow us to pass the report object into the same <code>downloadReportPDF()</code> method without needing to add any new methods. This can be particularly useful if you are building your own package or framework and want to give the developer the ability to create their own class. You can simply tell them which interface to implement and they can then create their own new class. For example, in <a href="https://laravel.com/docs/8.x/cache#adding-custom-cache-drivers" target="_blank" rel="noopener noreferrer">Laravel</a>, you can create your own custom cache driver class by implementing the <code>Illuminate\Contracts\Cache\Store</code> interface.</p>
+<p>As well as using interfaces to improve the actual code, I tend to like interfaces because they act as code-as-documentation. For example, if I'm trying to figure out what a class can and can't do, I tend to look at the interface first before a class that is using it. It tells you all of the methods that be called without me needing to care too much about how the methods are running under the hood.</p>
+<p>It's worth noting for any of my Laravel developer readers that you'll quite often see the terms &quot;contract&quot; and &quot;interface&quot; used interchangeably. According to the <a href="https://laravel.com/docs/8.x/contracts" target="_blank" rel="noopener noreferrer">Laravel documentation</a>, &quot;Laravel's contracts are a set of interfaces that define the core services provided by the framework&quot;. So, it's important to remember that a contract is an interface, but an interface isn't necessarily a contract. Usually, a contract is just an interface that is provided by the framework. For more information on using the contracts, I'd recommend giving the <a href="https://laravel.com/docs/8.x/contracts" target="_blank" rel="noopener noreferrer">documentation</a> a read as I think it does a good job of breaking down what they are, how to use them and when to use them.</p>
+<h2>Conclusion</h2>
+<p>Hopefully, through reading this article, it should have given you a brief overview of what interfaces are, how they can be used in PHP, and the benefits of using them.</p>
+<p>For any of my Laravel developer readers, I will be writing a new blog post for next week that will show you how to use the strategy pattern in Laravel using interfaces. If you're interested in this, feel free to subscribe to my newsletter below so that you can get notified when I release it.</p>
+<p>I'd love to hear in the comments if this article has helped with your understanding of interfaces. Keep on building awesome stuff! 🚀</p>
+<p>Massive thanks for <a href="https://www.linkedin.com/in/aditya-kadam-77a594134/" target="_blank" rel="noopener noreferrer">Aditya Kadam</a>, <a href="https://www.linkedin.com/in/jae-toole/" target="_blank" rel="noopener noreferrer">Jae Toole</a> and <a href="https://www.linkedin.com/in/hannah-tinkler-28783792/" target="_blank" rel="noopener noreferrer">Hannah Tinkler</a> for proof-reading this post and helping me improve it!</p>
+<p>UPDATE: The follow-up post about how to use the strategy pattern in Laravel has now been published. <a href="using-the-bridge-pattern-in-laravel" target="_blank" rel="noopener noreferrer">Check it out here!</a></p>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="how-to-force-eager-loading-and-prevent-n-1-issues-in-laravel" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        How to Force Eager Loading and Prevent N+1 Issues in Laravel
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="an-introduction-to-caching-in-laravel" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        An Introduction to Caching in Laravel
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/using-interfaces-to-write-better-php-code">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/using-interfaces-to-write-better-php-code" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/using-interfaces-to-write-better-php-code"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/using-interfaces-to-write-better-php-code&amp;title=Using Interfaces to Write Better PHP Code"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/using-interfaces-to-write-better-php-code&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/using-interfaces-to-write-better-php-code&amp;text=Using Interfaces to Write Better PHP Code&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/using-interfaces-to-write-better-php-code";
+            this.page.identifier = "using-interfaces-to-write-better-php-code";
+            this.page.title = "Using Interfaces to Write Better PHP Code";
+        };
+    </script>
+</body>
+</html>

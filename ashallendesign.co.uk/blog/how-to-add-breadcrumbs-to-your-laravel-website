@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        How to Add Breadcrumbs to Your Laravel Websi... | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn how to add breadcrumbs to your website using the diglactic/laravel-breadcrumbs package. This article also briefly covers the benefits of using breadcrumbs and how they can help your website&#039;s visitors.">
+    <link rel="canonical" href="how-to-add-breadcrumbs-to-your-laravel-website">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="How to Add Breadcrumbs to Your Laravel Website"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/how-to-add-breadcrumbs-to-your-laravel-website"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn how to add breadcrumbs to your website using the diglactic/laravel-breadcrumbs package. This article also briefly covers the benefits of using breadcrumbs and how they can help your website&#039;s visitors."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/28/how-to-add-breadcrumbs-to-your-laravel-website.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="how-to-add-breadcrumbs-to-your-laravel-website#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                How to Add Breadcrumbs to Your Laravel Website
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                                                                <a href="../blog?category=laravel" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Laravel
+                                        </a>
+                                                                            <a href="../blog?category=php" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>PHP
+                                        </a>
+                                                                            <a href="../blog?category=tips-and-tricks" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tips &amp; Tricks
+                                        </a>
+                                                                            <a href="../blog?category=tutorial" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tutorial
+                                        </a>
+                                                                            <a href="../blog?category=web-design" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Design
+                                        </a>
+                                                                            <a href="../blog?category=web-development" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Development
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 7 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">23rd August 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/28/how-to-add-breadcrumbs-to-your-laravel-website.png"
+                         alt="Learn how to add breadcrumbs to your website using the diglactic/laravel-breadcrumbs package. This article also briefly covers the benefits of using breadcrumbs and how they can help your website&#039;s visitors.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>Breadcrumbs are a great way of improving the UI (user interface) and UX (user experience) of your applications and websites. They can help to reduce the chances of users getting lost and can make it easier for users to navigate around your site.</p>
+<p>In this article, we're going to cover what breadcrumbs are, the benefits of them and how you can add them to your own Laravel website or application.</p>
+<p>If you're interested in finding out different ways that you can improve your website, make sure to check out one of my recent articles called <a href="17-ways-to-get-your-website-ready-to-win">17 Ways to Get Your Website Ready to Win</a>.</p>
+<h2>What Are the Benefits of Using Breadcrumbs?</h2>
+<p>Breadcrumbs come from the story of <a href="https://en.wikipedia.org/wiki/Hansel_and_Gretel" target="_blank" rel="noopener noreferrer">Hansel and Gretel</a>, which is a fairytale about a brother and sister who leave a trail of breadcrumbs when they're in the forest so that they can find their way back. In the web development world, breadcrumbs work in the same way; they leave a trail for us so that we know where we are in the system and how to get back.</p>
+<p>You've almost definitely come across breadcrumbs before. For example, let's imagine that we're on a clothing site and that we're looking at the men's t-shirts. You might see something similar to this near the top of the page:</p>
+<p><strong><u>Home</u> &gt; <u>Men's Clothing</u> &gt; T-shirts</strong></p>
+<p>This is a breadcrumb and it's showing us that we're on the men's t-shirts page. Typically, each &quot;crumb&quot; is a link that takes you back to another page.</p>
+<p>Breadcrumbs are beneficial because:</p>
+<ol>
+<li>They can decrease bounces rates and reduce the chances of users getting lost. If your users start to get confused about where they are in a website or application, they can become frustrated. This can sometimes cause them to leave. So, breadcrumbs address this issue by providing your user with a bit more visibility where they are.</li>
+<li>They can provide a way for your visitors or users to &quot;move up a level&quot;. For example, let's imagine that a visitor has searched for &quot;men's t-shirts&quot; in Google and has landed on your website's t-shirt page. But, now they want to look at the other men's clothing you offer. Instead of them having to go to your site's main navigation, they could potentially click up a level to &quot;Men's Clothing&quot;. By presenting the breadcrumb in a simple way, you've allowed the user to navigate straight to their navigation without needing to hunt around.</li>
+<li>If your breadcrumbs are set up correctly, they can be incredibly useful for SEO purposes. They help search engine crawlers to get a better idea of your site's page structure. This structure can then sometimes be shown in your search engine results.</li>
+</ol>
+<p>If you're interested in reading about more benefits of using breadcrumbs, check out these two articles written by the <a href="https://www.nngroup.com/articles/breadcrumb-navigation-useful/" target="_blank" rel="noopener noreferrer">Nielsen Norman Group</a> and <a href="https://www.infidigit.com/blog/breadcrumbs/" target="_blank" rel="noopener noreferrer">Infidigit</a>.</p>
+<h2>How to Add Them to Your Laravel Website</h2>
+<p>To add the breadcrumbs to your Laravel project, we're going to be using the <a href="https://github.com/diglactic/laravel-breadcrumbs" target="_blank" rel="noopener noreferrer">diglactic/laravel-breadcrumbs</a> package. I've used this in quite a few projects now, ranging from small websites to fairly large applications, and I've always found it really easy to set up and easy to use.</p>
+<h3>Installation and Configuration</h3>
+<p>Let's start by installing the package using Composer with the following command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">composer</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">require</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">diglactic/laravel-breadcrumbs</span></div></code>    </pre>
+</div>
+<p>Now that we've installed the package, we can publish the config file using the following command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">php</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">artisan</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">vendor:publish</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">--tag=breadcrumbs-config</span></div></code>    </pre>
+</div>
+<p>You should now have a newly created <code>config/breadcrumbs.php</code> file that you can use to edit the package's config. In this particular article, we're only going to be bothered about the <code>view</code> option in the config file. But, feel free to explore the file though and change it to suit your needs.</p>
+<p>By default, when we output the breadcrumbs to our page, the package will style them using <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap 5</a>. So, if you're styling your UI using Bootstrap 5, you shouldn't need to make any changes straight away.</p>
+<p>However, if you're using <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind</a> for your CSS, you can update the <code>view</code> in the <code>breadcrumbs.php</code> config file so that the package uses Tailwind to render rather than Bootstrap. In this case, you could update your config file like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">view</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">breadcrumbs::tailwind</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">9</span><span style="color: #7FDAFF;">];</span></div></code>    </pre>
+</div>
+<h3>Using Custom Styles for Your Breadcrumbs</h3>
+<p>In my personal opinion, I quite like the default styling of the Tailwind version of the breadcrumbs. However, if you find that you want a more bespoke looking design, you can easily add this yourself.</p>
+<p>First, you can create a new <code>resources/views/partials/breadcrumbs.blade.php</code> file. The documentation provides a handy little template that you can get started with by dropping straight into this file:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="blade" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #34D3FB;">{{</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">@</span><span style="color: #70B0FF;">unless</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">breadcrumbs</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">isEmpty</span><span style="color: #7FDAFF;">())</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">&lt;</span><span style="color: #FFDF9B;">ol</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">breadcrumb</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #BAACFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">@</span><span style="color: #BAACFF;">foreach</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">breadcrumbs </span><span style="color: #BAACFF;">as</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">breadcrumb</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">@</span><span style="color: #BAACFF;">if</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">!</span><span style="color: #34D3FB;">is_null</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">breadcrumb</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">url</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">&amp;&amp;</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">!</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">loop</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">last</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">                </span><span style="color: #BAACFF;">&lt;</span><span style="color: #FFDF9B;">li</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">breadcrumb-item</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #BAACFF;">&gt;&lt;</span><span style="color: #FFDF9B;">a</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDF9B;">href</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #E4F3FA;">@</span><span style="color: #34D3FB;">{{</span><span style="color: #7AF8CA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">breadcrumb</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">url</span><span style="color: #7AF8CA;"> </span><span style="color: #34D3FB;">}}</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #BAACFF;">&gt;</span><span style="color: #7FDAFF;">{{</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">breadcrumb</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">title</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">}}</span><span style="color: #BAACFF;">&lt;</span><span style="color: #7FDAFF;">/</span><span style="color: #FFDF9B;">a</span><span style="color: #BAACFF;">&gt;&lt;</span><span style="color: #7FDAFF;">/</span><span style="color: #FFDF9B;">li</span><span style="color: #BAACFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">@</span><span style="color: #BAACFF;">else</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">                </span><span style="color: #BAACFF;">&lt;</span><span style="color: #FFDF9B;">li</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">=</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #7AF8CA;">breadcrumb-item active</span><span style="color: #7FDAFF;">&quot;</span><span style="color: #BAACFF;">&gt;</span><span style="color: #7FDAFF;">{{</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">breadcrumb</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">title</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">}}</span><span style="color: #BAACFF;">&lt;</span><span style="color: #7FDAFF;">/</span><span style="color: #FFDF9B;">li</span><span style="color: #BAACFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">@</span><span style="color: #BAACFF;">endif</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">@</span><span style="color: #BAACFF;">endforeach</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">&lt;</span><span style="color: #7FDAFF;">/</span><span style="color: #FFDF9B;">ol</span><span style="color: #BAACFF;">&gt;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7FDAFF;">@</span><span style="color: #FFDF9B;">endunless</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">}}</span></div></code>    </pre>
+</div>
+<p>You can now add your own styling and structure to this template and make it fit more with your application or website's design. In past projects, I've used this approach so that I could add breadcrumbs using styling from Tailwind UI.</p>
+<p>All that's left to do to use our custom style is to update the config file. We just need to change the <code>view</code> field to point to our new Blade file that we've just created. Here's an example of how it might look:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">view</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">partials/breadcrumbs</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">9</span><span style="color: #7FDAFF;">];</span></div></code>    </pre>
+</div>
+<div class="blog-affiliate-one"></div>
+<h3>Defining the Breadcrumbs</h3>
+<p>Now that we've got the config for the package set up, we can start defining our breadcrumbs ready for displaying.</p>
+<p>Before we start defining any breadcrumbs, let's take this basic, example <code>routes/web.php</code> file:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Http</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Controllers</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">UserController</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Facades</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Route</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #FFDB8E;">Route</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">/users</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #FFDB8E;">UserController</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">])-&gt;</span><span style="color: #70B0FF;">name</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #FFDB8E;">Route</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">/users/{user}</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #FFDB8E;">UserController</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">show</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">])-&gt;</span><span style="color: #70B0FF;">name</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.show</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #FFDB8E;">Route</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">/users/{user}/edit</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #FFDB8E;">UserController</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">edit</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">])-&gt;</span><span style="color: #70B0FF;">name</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.edit</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>The package works by us defining a breadcrumb for each route that we have. So, in this particular example, because we have 3 routes, we'll need to define 3 breadcrumbs.</p>
+<p>To do this, we'll first need to define a new, empty <code>routes/breadcrumbs.php</code> file. Once we've created it, we can add define our first breadcrumb:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Models</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Diglactic</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Diglactic</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Generator </span><span style="color: #BAACFF;">as</span><span style="color: #FFDB8E;"> BreadcrumbTrail</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">for</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">BreadcrumbTrail</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">push</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Users</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">});</span></div></code>    </pre>
+</div>
+<p>Let's quickly look at what the code above is doing. We're basically defining a breadcrumb for the page that you can access via the <code>users.index</code> route. We're then telling the package to push <code>Users</code> on to a stack for displaying and to display with a link to the <code>users.index</code> page.</p>
+<p>We'll define our other routes and take another look at what our breadcrumbs file might look like:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Models</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Diglactic</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Diglactic</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Generator </span><span style="color: #BAACFF;">as</span><span style="color: #FFDB8E;"> BreadcrumbTrail</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">for</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">BreadcrumbTrail</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">push</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Users</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7FDAFF;">});</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">for</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.show</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">BreadcrumbTrail</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">project</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">parent</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">push</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">name</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.show</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #70B0FF;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7FDAFF;">});</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">for</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.edit</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">BreadcrumbTrail</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">project</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">parent</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.show</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">trail</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">push</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Edit</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.edit</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #70B0FF;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #7FDAFF;">});</span></div></code>    </pre>
+</div>
+<p>In the lines above, we've defined two more breadcrumbs for the two other routes.</p>
+<p>For the first route, we've added a breadcrumb which will push the user's name on to the stack as a link to the user's 'show' route. If we were to navigate to this route in our browser, the breadcrumb would have the following structure as an example:</p>
+<p><strong><u>Users</u> &gt; Ash Allen</strong></p>
+<p>For the second route, we've added a breadcrumb which will push 'Edit' on to the stack as a link to the user's show route. If we were to navigate to this route in our browser, the breadcrumb would have the following structure as an example:</p>
+<p><strong><u>Users</u> &gt; <u>Ash Allen</u> &gt; Edit</strong></p>
+<h3>Displaying the Breadcrumbs</h3>
+<p>We're nearly there! Now that we've defined our breadcrumbs, we can now output them to our page for our visitors to start using. To do this, we just need to find a place in our Blade view file where we want to render them and then add:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="blade" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #34D3FB;">{{</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Breadcrumbs</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">render</span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">}}</span></div></code>    </pre>
+</div>
+<p>That's it! That's all you need to do!</p>
+<p>You should now be able to see your breadcrumbs displaying on your page and should be able to click through the different links to navigate through the different pages.</p>
+<p>The package is quite thorough, so I would definitely recommend checking out their documentation and looking at the other cool things that you can do.</p>
+<h2>Conclusion</h2>
+<p>Hopefully, this article should have explained the benefits of using breadcrumbs and how they can help your users. It should have also given you some insight into how you can add them to your own Laravel applications pretty easily.</p>
+<p>If this post helped you out, I'd love to hear about it. Likewise, if you have any feedback to improve this post, I'd also love to hear that too.</p>
+<p>If you're interested in getting updated each time I publish a new post, feel free to sign up for my newsletter below.</p>
+<p>Keep on building awesome stuff! 🚀</p>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="the-clean-coders-guide-to-laravel-free-70-page-pdf" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        The Clean Coder&#039;s Guide to Laravel [FREE 70 Page PDF]
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="17-ways-to-get-your-website-ready-to-win" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        17 Ways to Get Your Website Ready to Win
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/how-to-add-breadcrumbs-to-your-laravel-website">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/how-to-add-breadcrumbs-to-your-laravel-website" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/how-to-add-breadcrumbs-to-your-laravel-website"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/how-to-add-breadcrumbs-to-your-laravel-website&amp;title=How to Add Breadcrumbs to Your Laravel Website"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/how-to-add-breadcrumbs-to-your-laravel-website&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/how-to-add-breadcrumbs-to-your-laravel-website&amp;text=How to Add Breadcrumbs to Your Laravel Website&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/how-to-add-breadcrumbs-to-your-laravel-website";
+            this.page.identifier = "how-to-add-breadcrumbs-to-your-laravel-website";
+            this.page.title = "How to Add Breadcrumbs to Your Laravel Website";
+        };
+    </script>
+</body>
+</html>

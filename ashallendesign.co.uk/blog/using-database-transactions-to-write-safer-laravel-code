@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Using Database Transactions to Write Safer L... | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn about how to use database transactions in Laravel to improve data accuracy. The article also covers caveats of using database transactions inside queued jobs.">
+    <link rel="canonical" href="using-database-transactions-to-write-safer-laravel-code">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Using Database Transactions to Write Safer Laravel Code"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/using-database-transactions-to-write-safer-laravel-code"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn about how to use database transactions in Laravel to improve data accuracy. The article also covers caveats of using database transactions inside queued jobs."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/44/using-database-transactions-to-write-safer-laravel-code.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="using-database-transactions-to-write-safer-laravel-code#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                Using Database Transactions to Write Safer Laravel Code
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 9 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">21st September 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/44/using-database-transactions-to-write-safer-laravel-code.png"
+                         alt="Learn about how to use database transactions in Laravel to improve data accuracy. The article also covers caveats of using database transactions inside queued jobs.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>In web development, data integrity and accuracy is really important. So, making sure that we write code that stores, updates and deletes data in our databases in a safe way is imperative.</p>
+<p>In this article, we're going to look at what database transactions are, why they're important, and how to get started with using them in Laravel. We're also going to look at a common &quot;gotcha&quot; involving queued jobs and database transactions.</p>
+<h2>What are Database Transactions?</h2>
+<p>Before we get started with looking at database transactions in Laravel, let's take a look at what they are and how they can are beneficial.</p>
+<p>There's a lot of technical, complicated-sounding explanations for what a database transaction is. But, for a large majority of us, as web developers, we just need to know that transactions are way of completing a unit of work as a whole in a database.</p>
+<p>To understand what this actually means, let's take a look at a basic example that will give a little bit of context.</p>
+<p>Let's imagine that we have an application that lets users register. Whenever a user register, we want to create a new account for them and then assign them a default role of 'general'.</p>
+<p>Our code might look something like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">roles</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">attach</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Role</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">general</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">first</span><span style="color: #7FDAFF;">());</span></div></code>    </pre>
+</div>
+<p>At first glance, it might seem like this code is completely fine. But, when we take a closer look we can see that there's actually something that could go wrong. It's possible that we could create the user but not assign them the role. This could be caused by many different things, such as a bug in the code that assigns the roles, or even a hardware problem that stops us from reaching the database.</p>
+<p>As a result of this happening, this would mean that we would have a user in the system that doesn't have a role. As you can imagine, this will likely cause exceptions and bugs in other places across your application because you would always be making an assumption that a user has a role (and rightly so).</p>
+<p>So, to solve this issue, we can use database transactions. By using transaction, it would ensure that if anything goes wrong when executing the code, any changes to the database from inside that transaction would be rolled back. For example, if the user was inserted into the database but the query to assign the role failed for any reason, the transaction would be rolled back and the user's row would be removed. By doing this, it means that we wouldn't be able to create a user without an assigned role.</p>
+<p>In other words, it's &quot;all or nothing&quot;.</p>
+<h2>Using Database Transactions in Laravel</h2>
+<p>Now that we have a brief idea on what transactions are and what they achieve, let's take a look at how to use them in Laravel.</p>
+<p>In Laravel, it's actually really to easy to get started with using transactions thanks to the <code>transaction()</code> method that we can access on the <code>DB</code> facade. Sticking with our example code from earlier, let's take a look at how we could use a transaction when creating a user and assigning them a role.</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Facades</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">transaction</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">use</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">roles</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">attach</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Role</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">general</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">first</span><span style="color: #7FDAFF;">());</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">9</span><span style="color: #7FDAFF;">});</span></div></code>    </pre>
+</div>
+<p>Now that our code is wrapped in a database transaction, if an exception is thrown at any point inside it, any changes to the database will be returned to how they were before the transaction started.</p>
+<h2>Manually Using Database Transactions in Laravel</h2>
+<p>There may be times when you want to have more granular control over your transactions. For example, let's imagine that you're integrating with a third-party service; such as Mailchimp or Xero. And we'll say that whenever you create a new user, you also want to make a HTTP request to their API to create them as a user in that system too.</p>
+<p>We might want to update our code so that if we can't create the user in our own system <strong>and</strong> the third-party system, neither of them should be created. It's possible that if you're interacting with a third-party system that you might have a class that you can use for making requests. Or, it's possible that there might be an package that you can use. Sometimes, the classes making the request might throw an exception when certain requests can't be complete. However, some of them may silence the errors and instead just return <code>false</code> from the method you called and place the errors in an field on the class.</p>
+<p>So, let's imagine that we have the following basic, example class that makes a call to the API:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">ThirdPartyService</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">private</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">errors</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">createUser</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">userData</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">makeRequest</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">userData</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">successful</span><span style="color: #7FDAFF;">())</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">            </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">body</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">errors </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">errors</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">false</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getErrors</span><span style="color: #7FDAFF;">()</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">errors</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Of course, the code above for the request class is incomplete and my code example below isn't very clean, but it should give you the general idea of the point that I'm trying to make. So let's use this request class and add it to our previous code example:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Facades</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ThirdPartyService</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">beginTransaction</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">thirdPartyService </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">new</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">ThirdPartyService</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">userData </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">userData</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">roles</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">attach</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Role</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">general</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">first</span><span style="color: #7FDAFF;">());</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">thirdPartyService</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">createUser</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">userData</span><span style="color: #7FDAFF;">))</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">    </span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">commit</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">rollBack</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">24</span><span style="color: #70B0FF;">report</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">thirdPartyService</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">getErrors</span><span style="color: #7FDAFF;">());</span></div></code>    </pre>
+</div>
+<p>Looking at the code above, we can see that we start a transaction, create the user and assign them a role, and then we make a call to the third-party service. If the user is successfully created in the external service, we can safely commit our database changes knowing that everything has been created correctly. However, if the user wasn't created in the external service, we rollback the changes in our database (remove the user and their role assignment) and then report the errors.</p>
+<div class="blog-affiliate-one"></div>
+<h2>Tips for Interacting with Third-Party Services</h2>
+<p>As a bonus tip, I would usually recommend putting any code that affects any third-party systems, file storage or caches <strong>after</strong> your database calls.</p>
+<p>To understand this a little bit more, let's take the code example from above. Notice how we made all of our changes to our database first before making the request to the third-party service. This means that if any errors were returned from the third-party request, the user and role assignment in our own database would be rolled back.</p>
+<p>However, if we had done this the other way around and we made the request before making our database changes, this would not be the case. If, for any reason, we had any errors when creating our user in our database, we would have created a new user in the third-party system but not our own. As you can imagine, this could potentially lead to more issues. It would be possible to reduce the severity of this issue by writing a clean-up method that deletes the user from the third-party system. But, as you can imagine, this would likely cause more problems and would lead to more code to write, maintain and test.</p>
+<p>So, I'd always recommend trying to put your database calls before your API calls. However, this isn't always possible. There might be times when you need to save a value in your database that's returned from a third-party request. If this is the case, this is totally fine as long as you ensure you have some code in place to handle any failures.</p>
+<h2>Using Automatic or Manual Transactions</h2>
+<p>It's also worth noting that because our original example, using the <code>DB::transaction()</code> method, rolls back transactions if an exception is thrown, we could also use that approach for making requests to our third-party service. Instead we could update our class to do something like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Facades</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ThirdPartyService</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">transaction</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">use</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">roles</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">attach</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Role</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">general</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">first</span><span style="color: #7FDAFF;">());</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">!</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">thirdPartyService</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">createUser</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">userData</span><span style="color: #7FDAFF;">))</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">throw</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">new</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Exception</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">User could not be created</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7FDAFF;">});</span></div></code>    </pre>
+</div>
+<p>This is definitely a viable solution and would successfully rollback the transaction as expected. In fact, in terms of my personal preference, I actually prefer the way this looks than manually using the transactions. I think it looks much simpler to read and understand.</p>
+<p>However, exception handling can be expensive in terms of time and performance in comparison to using an 'if' statement like when we are manually committing or rolling back the transactions.</p>
+<p>So, as an example, if this code was being used for something like importing a CSV file with 10,000 users' data, you might find that throwing the exception will slow down the import considerably.</p>
+<p>However, if it was just being used inside a simple web request where a user can register, you would likely be okay with throwing the exception. Of course, this comes down to the size of your application, and how much performance is a key factor; so this is something that you'd need to decide on a case-by-case basis.</p>
+<h2>Dispatching Queued Jobs inside Database Transactions</h2>
+<p>Whenever you are working with jobs inside transactions, there's a &quot;gotcha&quot; that you need to be aware of.</p>
+<p>To give a bit of context, let's stick with our code example from earlier. We'll imagine that after we've created our user that we want to run a job that alerts an admin to inform them of a new sign up and sends a welcome email to the new user. We'll do this by dispatching a queued job called <code>AlertNewUser</code> like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Facades</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Jobs</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">AlertNewUser</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ThirdPartyService</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">transaction</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">use</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">roles</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">attach</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Role</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">general</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">first</span><span style="color: #7FDAFF;">());</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">    </span><span style="color: #FFDB8E;">AlertNewUser</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">dispatch</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7FDAFF;">});</span></div></code>    </pre>
+</div>
+<p>When you begin a transaction and make changes to any data inside it, those changes are only available to the request/process that the transaction is running in. For any other requests or processes to access the data you've changed, the transaction will first have to be committed. Therefore, this means that if we dispatch any queued jobs, event listeners, mailables, notifications, or broadcast events from inside our transaction, our data changes might not be available inside them due to a race condition.</p>
+<p>This can happen if the queue worker starts to process the queued code before the transaction was committed. Therefore, this can lead to your queued code potentially trying to access data that doesn't exist yet and may cause errors. In our case, if the queue <code>AlertNewUser</code> job is run before the transaction is committed, our job will try accessing a user that's not actually stored in the database yet. As you can expect, this will cause the job to fail.</p>
+<p>To prevent this race condition from happening, we can make some changes to our code and/or our config to ensure that the jobs are only dispatched after the transactions are successfully committed.</p>
+<p>We can make updates to our <code>config/queue.php</code> and add the <code>after_commit</code> field. Let's imagine that we are using the <code>redis</code> queue driver, we could update our config like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">connections</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">redis</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">driver</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">redis</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7FDAFF;">            </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">after_commit</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">true</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #7FDAFF;">];</span></div></code>    </pre>
+</div>
+<p>By making this change, if we try and dispatch a job inside a transaction, the job will wait for the transaction to be committed before actually dispatching the job. The handy thing is, if the transaction is rolled back, it will also prevent the job from being dispatched.</p>
+<p>However, there may be a reason that you don't want to set this option globally in the config. If this is the case, Laravel still provides some nice helper methods that we can use on a case-by-case basis.</p>
+<p>If we wanted to update the code in our transaction to only dispatch the job after it's committed, we could use the <code>afterCommit()</code> method like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Facades</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Jobs</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">AlertNewUser</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ThirdPartyService</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">transaction</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">use</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">roles</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">attach</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Role</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">general</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">first</span><span style="color: #7FDAFF;">());</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">    </span><span style="color: #FFDB8E;">AlertNewUser</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">dispatch</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">afterCommit</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7FDAFF;">});</span></div></code>    </pre>
+</div>
+<p>Laravel also provides another handy <code>beforeCommit()</code> method that we can use. We can use this if we have set the global <code>after_commit =&gt; true</code> in our queue config but don't care about waiting for the transaction to be committed. To do this we can simply update our code like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Facades</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Jobs</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">AlertNewUser</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Services</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">ThirdPartyService</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #FFDB8E;">DB</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">transaction</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">use</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">roles</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">attach</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Role</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">where</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">general</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">first</span><span style="color: #7FDAFF;">());</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">    </span><span style="color: #FFDB8E;">AlertNewUser</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">dispatch</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">beforeCommit</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7FDAFF;">});</span></div></code>    </pre>
+</div>
+<h2>Conclusion</h2>
+<p>Hopefully this article should have given you an overview of what database transactions are and how to get started with using them in Laravel. It should have also shown you how to avoid the &quot;gotcha&quot; when dispatching queued jobs from inside transactions.</p>
+<p>If this post helped you out, I'd love to hear about it. Likewise, if you have any feedback to improve this post, I'd also love to hear that too.</p>
+<p>If you're interested in getting updated each time I publish a new post, feel free to sign up for my newsletter below.</p>
+<p>Keep on building awesome stuff! 🚀</p>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="setting-up-tailwind-css-in-laravel" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        Setting Up Tailwind CSS in Laravel
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="how-to-get-currency-exchange-rates-in-laravel" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        How to Get Currency Exchange Rates in Laravel
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/using-database-transactions-to-write-safer-laravel-code">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/using-database-transactions-to-write-safer-laravel-code" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/using-database-transactions-to-write-safer-laravel-code"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/using-database-transactions-to-write-safer-laravel-code&amp;title=Using Database Transactions to Write Safer Laravel Code"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/using-database-transactions-to-write-safer-laravel-code&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/using-database-transactions-to-write-safer-laravel-code&amp;text=Using Database Transactions to Write Safer Laravel Code&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/using-database-transactions-to-write-safer-laravel-code";
+            this.page.identifier = "using-database-transactions-to-write-safer-laravel-code";
+            this.page.title = "Using Database Transactions to Write Safer Laravel Code";
+        };
+    </script>
+</body>
+</html>

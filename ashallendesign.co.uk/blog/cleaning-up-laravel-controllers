@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Cleaning Up Laravel Controllers | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn how to clean up controllers in Laravel by using form requests, actions, and services. The article also includes real-life examples of how you can use these techniques.">
+    <link rel="canonical" href="cleaning-up-laravel-controllers">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Cleaning Up Laravel Controllers"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/cleaning-up-laravel-controllers"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn how to clean up controllers in Laravel by using form requests, actions, and services. The article also includes real-life examples of how you can use these techniques."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/24/cleaning-up-laravel-controllers.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="cleaning-up-laravel-controllers#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                Cleaning Up Laravel Controllers
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                                                                <a href="../blog?category=laravel" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Laravel
+                                        </a>
+                                                                            <a href="../blog?category=tips-and-tricks" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tips &amp; Tricks
+                                        </a>
+                                                                            <a href="../blog?category=tutorial" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tutorial
+                                        </a>
+                                                                            <a href="../blog?category=web-development" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Development
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 10 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">25th June 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/24/cleaning-up-laravel-controllers.png"
+                         alt="Learn how to clean up controllers in Laravel by using form requests, actions, and services. The article also includes real-life examples of how you can use these techniques.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>Controllers play a huge role in any <a href="https://www.guru99.com/mvc-tutorial.html" target="_blank" rel="noopener noreferrer">MVC</a> (model view controller) based project. They're effectively the &quot;glue&quot; that takes a user's request, performs some type of logic, and then returns a response. If you've ever worked on any fairly large projects, you'll notice that you'll have a lot of controllers and that they can start to get messy quite quickly without you realising. In this article we're going to look at how we can clean up a bloated controller in <a href="https://laravel.com" target="_blank" rel="noopener noreferrer">Laravel</a>.</p>
+<h3>The Problem with Bloated Controllers</h3>
+<p>Bloated controllers can cause several problems for developers. They can:</p>
+<ol>
+<li>
+<strong>Make it hard to track down a particular piece of code or functionality.</strong> If you're looking to work on a particular piece of code that's in a bloated controller, you might need to spend a while tracking down which controller the method is actually in. When using clean controllers that are logically separated this is much easier.</li>
+<li>
+<strong>Make it difficult to spot the exact location of a bug.</strong> As we'll see in our code examples later on, if we're handling authorization, validation, business logic and response building all in one place, it can be difficult to pinpoint the exact location of a bug.</li>
+<li>
+<strong>Make it harder to write tests for more complex requests.</strong> It can sometimes be difficult to write tests for complex controller methods that have a lot of lines and are doing many different things. Cleaning up the code makes testing much easier. Check out this article if you're interested in finding out <a href="how-to-make-your-laravel-app-more-testable">how to make your Laravel app more testable</a>.</li>
+</ol>
+<h3>The Bloated Controller</h3>
+<p>For this article, we're going to use an example <code>UserController</code>:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">UserController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">store</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Request</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">RedirectResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">authorize</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">create</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">validate</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">     </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">string|required|max:50</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email|required|unique:users</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">password</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">string|required|confirmed</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">     </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">name</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">password</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">password</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">generateAvatar</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">dispatch</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">RegisterUserToNewsletter</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">redirect</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">24</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">25</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">unsubscribe</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">User</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">RedirectResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">26</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">27</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">unsubscribeFromNewsletter</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">28</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">29</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">redirect</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">30</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">31</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>To keep things nice and simple to read, I haven't included the <code>index()</code>, <code>create()</code>, <code>edit()</code>, <code>update()</code> and <code>delete()</code> methods in the controller. But we'll make the assumption that they are there and that we're also using the below techniques to clean up those methods too. For the majority of the article, we'll be focusing on optimizing the <code>store()</code> method.</p>
+<h2>1. Lift Validation and Authorization into Form Requests</h2>
+<p>One of the first things that we can do with the controller is to lift any validation and authorization out of the controller and into a <a href="https://laravel.com/docs/8.x/validation#form-request-validation" target="_blank" rel="noopener noreferrer">form request</a> class. So, let's take a look at how we could do this for the controller's <code>store()</code> method.</p>
+<p>We'll use the following Artisan command to create a new form request:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">php</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">artisan</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">make:request</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">StoreUserRequest</span></div></code>    </pre>
+</div>
+<p>The above command will have created a new <code>app/Http/Requests/StoreUserRequest.php</code> class that looks like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserRequest</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">FormRequest</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #7E8EDA;">     * Determine if the user is authorized to make this request.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">bool</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">authorize</span><span style="color: #7FDAFF;">()</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">false</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7E8EDA;">     * Get the validation rules that apply to the request.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">rules</span><span style="color: #7FDAFF;">()</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span><span style="color: #7FDAFF;">            </span><span style="color: #7E8EDA;">//</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">24</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>We can use the <code>authorize()</code> method to determine if the user should be allowed to carry out the request. The method should return <code>true</code> if they can and <code>false</code> if they cannot. We can also use the <code>rules()</code> method to specify any validation rules that should be run on the request body. Both of these methods will run automatically before we manage to run any code inside our controller methods without us needing to manually call either of them.</p>
+<p>So, let's move our authorization from the top of our controller's <code>store()</code> method and into the <code>authorize()</code> method. After we've done this, we can move the validation rules from the controller and into the <code>rules()</code> method. We should now have a form request that looks like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserRequest</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">FormRequest</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #7E8EDA;">     * Determine if the user is authorized to make this request.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">bool</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">authorize</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">bool</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Gate</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">allows</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">create</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7E8EDA;">     * Get the validation rules that apply to the request.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">rules</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">     </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">string|required|max:50</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email|required|unique:users</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">password</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">string|required|confirmed</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">24</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">25</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">26</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Our controller should now also look like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">UserController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">store</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">StoreUserRequest</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">RedirectResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">     </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">name</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">password</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">password</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">generateAvatar</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">dispatch</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">RegisterUserToNewsletter</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">redirect</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">unsubscribe</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">User</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">RedirectResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">unsubscribeFromNewsletter</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">redirect</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Notice how in our controller, we've changed the first argument of the <code>store()</code> method from a <code>\Illuminate\Http\Request</code> to our new <code>\App\Http\Requests\StoreUserRequest</code>. We've also managed to reduce some of the bloat for the controller method by extracting it out into the request class.</p>
+<p><strong>Note</strong>: For this to work automatically, you'll need to make sure that your controller is using the <code>\Illuminate\Foundation\Auth\Access\AuthorizesRequests</code> and <code>\Illuminate\Foundation\Validation\ValidatesRequests</code> traits. These come automatically included in the controller that Laravel provides you in a fresh install. So, if you're extending that controller, you're all set to go. If not, make sure to include these traits into your controller.</p>
+<h2>2. Move Common Logic into Actions or Services</h2>
+<p>Another step that we could take to clean up the <code>store()</code> method could be to move out our &quot;business logic&quot; into a separate action or service class.</p>
+<p>In this particular use case, we can see that the main functionality of the <code>store()</code> method is to create a user, generate their avatar and then dispatch a queued job that registers the user to the newsletter. In my personal opinion, an action would be more suitable for this example rather than a service. I prefer to use actions for small tasks that do only particular thing. Whereas for larger amounts of code that could potentially be hundreds of lines long and do multiple things, it would be more suited to a service.</p>
+<p>So, let's create our action by creating a new <code>Actions</code> folder inside our <code>app</code> folder and then creating a new class inside this folder called <code>StoreUserAction.php</code>. We can then move the code into the action like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Foundation</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Bus</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">DispatchesJobs</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserAction</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> DispatchesJobs</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">execute</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Request</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">     </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">name</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">password</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">password</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">generateAvatar</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">dispatch</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">RegisterUserToNewsletter</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Now we can update our controller to use the action:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">UserController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">store</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">StoreUserRequest</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserAction</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">storeUserAction</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">RedirectResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">storeUserAction</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">execute</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">redirect</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">unsubscribe</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">User</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">RedirectResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">unsubscribeFromNewsletter</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">redirect</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>As you can see, we've now been able to lift the business logic out of the controller method and into the action. This is useful because, as I mentioned before, controllers are essentially the &quot;glue&quot; for our requests and responses. So, we've managed to reduce the cognitive load for understanding what a method does by keeping the code logically separated. For example, if we want to check the authorization or validation, we know to check the form request. If we want to check what's being done with the request data, we can check the action.</p>
+<p>Another huge benefit to abstracting the code out into these separate classes is that it can make testing a lot easier and faster. I've briefly talked about this in my past article about <a href="how-to-make-your-laravel-app-more-testable">how to make your Laravel app more testable</a>; so I'd definitely recommend giving that a read if you haven't already.</p>
+<div class="blog-affiliate-one"></div>
+<h3>Using DTOs with Actions</h3>
+<p>Another great benefit of extracting your business logic into services and classes is that you can now use that logic in different places without needing to duplicate your code. For example, let's assume that we have a <code>UserController</code> that handles traditional web requests and an <code>Api\UserController</code> that handles API requests. For the sake of argument, we can make the assumption that the general structure of the <code>store()</code> methods for those controllers will be the same. But, what would we do if our API request we doesn't use an <code>email</code> field, but instead uses an <code>email_address</code> field? We wouldn't be able to pass our request object to the <code>StoreUserAction</code> class because it would be expecting a request object that has an <code>email</code> field.</p>
+<p>To solve this issue, we can use <a href="https://en.wikipedia.org/wiki/Data_transfer_object" target="_blank" rel="noopener noreferrer">DTOs</a> (data transfer objects). These are a really useful way of decoupling data and passing it around your system's code without it being tightly coupled to anything (in this case, the request). To add DTOs to our project, we'll use Spatie's <code>spatie/data-transfer-object</code> <a href="https://github.com/spatie/data-transfer-object" target="_blank" rel="noopener noreferrer">package</a> and install it using the following Artisan command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">composer</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">require</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">spatie/data-transfer-object</span></div></code>    </pre>
+</div>
+<p>Now that we have the package installed, let's create a new <code>DataTransferObjects</code> folder inside our <code>App</code> folder and create a new <code>StoreUserDTO.php</code> class. We'll then need to make sure that our DTO extends <code>Spatie\DataTransferObject\DataTransferObject</code>. We can then define our three fields like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserDTO</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">DataTransferObject</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">name</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">email</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">password</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Now that we've done this, we can add a new method to our <code>StoreUserRequest</code> from before to create and return a <code>StoreUserDTO</code> class like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserRequest</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">FormRequest</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #7E8EDA;">     * Determine if the user is authorized to make this request.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">bool</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">authorize</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">bool</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Gate</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">allows</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">create</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7E8EDA;">     * Get the validation rules that apply to the request.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">rules</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">     </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">string|required|max:50</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email|required|unique:users</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">password</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">string|required|confirmed</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">24</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">25</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">26</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">27</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">28</span><span style="color: #7E8EDA;">     * Build and return a DTO.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">29</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">30</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #FFDB8E;">StoreUserDTO</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">31</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">32</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">toDTO</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserDTO</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">33</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">34</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">new</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserDTO</span><span style="color: #7FDAFF;">(</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">35</span><span style="color: #E4F3FA;">            </span><span style="color: #FFDB8E;">name</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">name</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">36</span><span style="color: #E4F3FA;">            </span><span style="color: #FFDB8E;">email</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">37</span><span style="color: #E4F3FA;">            </span><span style="color: #FFDB8E;">password</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">password</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">38</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">39</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">40</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>We can now update our controller to pass the DTO to the action class:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">UserController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">store</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">StoreUserRequest</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserAction</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">storeUserAction</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">RedirectResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">storeUserAction</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">execute</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">request</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">toDTO</span><span style="color: #7FDAFF;">());</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">redirect</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">unsubscribe</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">User</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">RedirectResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">unsubscribeFromNewsletter</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">redirect</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Finally, we'll need to update our action's method to accept a DTO as an argument rather than the a request object:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Foundation</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Bus</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">DispatchesJobs</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserAction</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> DispatchesJobs</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">execute</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">StoreUserDTO</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">storeUserDTO</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">void</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">create</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">     </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">storeUserDTO</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">name</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">storeUserDTO</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">password</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">storeUserDTO</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">password</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">generateAvatar</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">dispatch</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">RegisterUserToNewsletter</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>As a result of doing all of this, we have now completely decoupled our action from the request object. This means that we can reuse this action in multiple places across the system without being tied to a specific request structure. We would now also be able to use this approach in a CLI environment or queued job that isn't tied to a web request. As an example, if our application had the functionality to import users from a CSV file, we would be able to build the DTOs from the CSV data and pass it in to the action.</p>
+<p>To go back to our original problem of having an API request that used <code>email_address</code> rather than <code>email</code>, we would now be able to solve it by simply building the DTO and assigning the DTO's email field the request's <code>email_address</code> field. Let's imagine that the API request had it's own separate form request class. It could look like this as an example:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserAPIRequest</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">FormRequest</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #7E8EDA;">     * Determine if the user is authorized to make this request.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">bool</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">authorize</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">bool</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Gate</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">allows</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">create</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7E8EDA;">     * Get the validation rules that apply to the request.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">rules</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">21</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">name</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">          </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">string|required|max:50</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">22</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email_address</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email|required|unique:users</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">23</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">password</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;">      </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">string|required|confirmed</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">24</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">25</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">26</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">27</span><span style="color: #E4F3FA;">    </span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">28</span><span style="color: #7E8EDA;">     * Build and return a DTO.</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">29</span><span style="color: #7E8EDA;">     *</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">30</span><span style="color: #7E8EDA;">     * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #FFDB8E;">StoreUserDTO</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">31</span><span style="color: #7E8EDA;">     */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">32</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">toDTO</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserDTO</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">33</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">34</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">new</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">StoreUserDTO</span><span style="color: #7FDAFF;">(</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">35</span><span style="color: #E4F3FA;">            </span><span style="color: #FFDB8E;">name</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">name</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">36</span><span style="color: #E4F3FA;">            </span><span style="color: #FFDB8E;">email</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">email_address</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">37</span><span style="color: #E4F3FA;">            </span><span style="color: #FFDB8E;">password</span><span style="color: #E4F3FA;">: </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #A7C6E8;">password</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">38</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">39</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">40</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<h2>3. Use Resource or Single-use Controllers</h2>
+<p>A great way of keeping controllers clean is to ensure that they are either &quot;<a href="https://laravel.com/docs/8.x/controllers#resource-controllers" target="_blank" rel="noopener noreferrer">resource controllers</a>&quot; or &quot;<a href="https://laravel.com/docs/8.x/controllers#single-action-controllers" target="_blank" rel="noopener noreferrer">single-use controllers</a>&quot;. Before we go any further and try to update our example controller, let's take a look at what both of these terms mean.</p>
+<p>A resource controller is a controller that provides functionality based around a particular resource. So, in our case, our resource is the <code>User</code> model and we want to be able to perform all <a href="https://www.codecademy.com/articles/what-is-crud" target="_blank" rel="noopener noreferrer">CRUD</a> (create, update, update, delete) operations on this model. A resource controller typically contains <code>index()</code>, <code>create()</code>, <code>store()</code>, <code>show()</code>, <code>edit()</code>, <code>update()</code> and <code>destroy()</code> methods. It doesn't necessarily have to include all of these methods, but it wouldn't have any methods that weren't in this list. By using these types of controllers, we can make our routing RESTful. For more information about REST and RESTful routing, <a href="https://www.codecademy.com/articles/what-is-rest" target="_blank" rel="noopener noreferrer">check out this article here</a>.</p>
+<p>A single-use controller is a controller that only has one public <code>__invoke()</code> method. These are really useful if you have a controller that doesn't really fit into one of the RESTful methods that we have in our resource controllers.</p>
+<p>Based off the above information, we can see that the our <code>UserController</code> could probably be improved by moving the <code>unsubscribe</code> method to its own single-use controller. By doing this, we'd be able to make the <code>UserController</code> a resource controller that only includes resource methods.</p>
+<p>So let's create a new controller using the following Artisan command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="shell" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">php</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">artisan</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">make:controller</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">UnsubscribeUserController</span><span style="color: #E4F3FA;"> </span><span style="color: #C7F59B;">-i</span></div></code>    </pre>
+</div>
+<p>Notice how we passed <code>-i</code> to the command so that the new controller will be an invokable, single-use controller. We should now have a controller that looks like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">UnsubscribeUserController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">__invoke</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">User</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #7FDAFF;">        </span><span style="color: #7E8EDA;">//</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>We can now move our method's code over and delete the <code>unsubscribe</code> method from our old controller:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">UnsubscribeUserController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">__invoke</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">User</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">RedirectResponse</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">unsubscribeFromNewsletter</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">redirect</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">route</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">users.index</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">9</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Make sure that you remember to switch over your route in your <code>routes/web.php</code> file to call the use the <code>UnsubscribeController</code> controller rather than the <code>UserController</code> for this method.</p>
+<h2>Conclusion</h2>
+<p>Hopefully this article has given you an insight into the different types of things you can do to clean up your controllers in your Laravel projects. Please remember though that the techniques I've used here are only my personal opinion. I'm sure that there are other developers that would use a totally different approach to building their controllers. The most important part is being consistent and using an approach that fits in with your (and your teams) workflow.</p>
+<p>I'd love to hear in the comments what types of techniques you use for writing clean controllers.</p>
+<p>If you also found this article useful, feel free to sign up to my newsletter below so that you can get notified whenever I release new posts similar to this one.</p>
+<p>Keeping on building awesome stuff! 🚀</p>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="using-the-bridge-pattern-in-laravel" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        Using the Strategy Pattern in Laravel
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="how-to-create-your-own-helper-functions-in-laravel" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        How to Create Your Own Helper Functions in Laravel
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/cleaning-up-laravel-controllers">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/cleaning-up-laravel-controllers" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/cleaning-up-laravel-controllers"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/cleaning-up-laravel-controllers&amp;title=Cleaning Up Laravel Controllers"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/cleaning-up-laravel-controllers&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/cleaning-up-laravel-controllers&amp;text=Cleaning Up Laravel Controllers&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/cleaning-up-laravel-controllers";
+            this.page.identifier = "cleaning-up-laravel-controllers";
+            this.page.title = "Cleaning Up Laravel Controllers";
+        };
+    </script>
+</body>
+</html>

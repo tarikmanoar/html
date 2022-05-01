@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Type Safe Package for PHP | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn about type safety and the Type Safe PHP package that you can use to add more type safety to your projects.">
+    <link rel="canonical" href="type-safe-package-for-php">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Type Safe Package for PHP"/>
+    <meta property="og:url" content="https://ashallendesign.co.uk/blog/type-safe-package-for-php"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn about type safety and the Type Safe PHP package that you can use to add more type safety to your projects."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/73/type-safe-banner.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="type-safe-package-for-php#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                Type Safe Package for PHP
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                                                                <a href="../blog?category=php" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>PHP
+                                        </a>
+                                                                            <a href="../blog?category=web-development" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Development
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 14 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">1st December 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/73/type-safe-banner.png"
+                         alt="Learn about type safety and the Type Safe PHP package that you can use to add more type safety to your projects.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>As a freelance web developer, I'm really lucky and get the chance to work on a lot of exciting projects. The majority of the time, the projects that I work on are existing projects and I'm brought on board to help add extra functionality, fix bugs and generally help maintain the system.</p>
+<p>As a result of working on a lot of projects, I get to meet some really cool people and teams (really fun!). I also get the chance to encounter a lot of bugs (not so fun!).</p>
+<p>I tend to find that a lot of the bugs I encounter could have been solved with better type safety. So, as a proof-of-concept to test an idea, I put together the <a href="https://github.com/ash-jc-allen/type-safe">Type Safe</a> package that you can use to add better type safety to your PHP projects.</p>
+<p>In this article, we're going to take a quick look at what type safety is, why I made the pacakge, what it actually does, and when you might want to use it.</p>
+<h2>What is Type Safety?</h2>
+<p>Rather than me delve deep into what type safety is and it's benefits, I'd highly recommend reading <a href="https://psalm.dev/articles/php-or-type-safety-pick-any-two">PHP or Type Safety: Pick any two</a> by Matt Brown. The article gives a detailed and insightful breakdown into how you can start to use some form of type safety in PHP using Psalm.</p>
+<p>But, just to quickly recap parts of what's already covered in that article, type safety can be defined as:</p>
+<p>&quot;Type safety measures the ability of available language tooling to help avoid type errors when running code in a production environment.&quot;</p>
+<p>To get some context into what type safety is in PHP, let's first look at how we can make our code more type safe. In PHP, we can define functions like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">addNumbers</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">numberOne</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberTwo</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberOne </span><span style="color: #7FDAFF;">+</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberTwo</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>In the above code block, we have created a function called <code>addNumbers</code> that adds two numbers together and then returns the results. However, this method lacks any type hints for the two parameters, so we could potentially pass anything we wanted to the function, such as strings, like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #70B0FF;">addNumbers</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">hello</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #70B0FF;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">goodbye</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>As you can imagine, if we were to run this, a <code>TypeError</code> will be thrown with the message <code>Unsupported operand types: string + string</code> because we can't add two strings together as if they were numbers.</p>
+<p>So, to prevent these errors, we can update our function to only allow integers to be passed as the two parameters:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">addNumbers</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">int</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberOne</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">int</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberTwo</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberOne </span><span style="color: #7FDAFF;">+</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberTwo</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Now, if we were to try and call this function again and pass <code>'hello'</code> and '<code>goodbye</code>', PHP will throw <code>TypeError</code>s telling us that the parameters must be integers. As a result of doing this, we can be sure that whenever we are working inside the function that the parameters passed in are both integers.</p>
+<p>As well as this, we can also define return types for methods so that we enforce the returned data's type. For example, we could update the <code>addNumbers</code> method to only return integers:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">addNumbers</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">int</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberOne</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">int</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberTwo</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">int</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberOne </span><span style="color: #7FDAFF;">+</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberTwo</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<h2>Why Did I Make the Package?</h2>
+<p>I decided to put together the Type Safe package purely as a proof-of-concept to scratch an itch of mine. I don't really expect the code in this package to ever be used in a production environment, but there are a few times in the past where something like this could have come in handy for me.</p>
+<h3>1. Incorrect Method Docblocks</h3>
+<p>As I've already mentioned above, I work on a lot of projects. The majority of the time, the projects that I work on are existing projects and I'm brought on board to help add extra functionality, fix bugs and generally help maintain the system.</p>
+<p>One thing that I find a common occurence in these projects are outdated docblocks. I think that as projects grow and change, documentation and docblocks are things which can get left behind. And let's be honest, it's because maintaining them can be pretty dull.</p>
+<p>For example, let's take this method:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7E8EDA;"> * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">int[]</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #7E8EDA;"> */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">build</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// Do something and build an array called $data...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// $data is equal to: [1, 2, 3].</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">data</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>When we look at this <code>build</code> method, we can see from the docblock that it is supposed to return an array of integers. However, it's better to imagine this more of a being a &quot;clue&quot; or &quot;suggestion&quot; rather than a definitive answer of what's being returned.</p>
+<p>For example, let's imagine that the code in the <code>build</code> method gets updated so that the <code>$data</code> field that's going to be returned is now an associative array (with strings as keys and integers for the values). If we forget to update the docblock, the method will still look the same on the surface.</p>
+<p>Of course, if you are using a static analysis tool like PHPStan or Psalm, the chances of these types of problems can be reduced. However, if you have a particularly complex piece of code, it can sometimes be difficult to spot these issues. So, if you're using a static analysis tool, you can probably have more confidence in your docblocks showing the correct return information. But, it's important to remember that it's still not guaranteed.</p>
+<h3>2. Incorrect Variable Docblocks</h3>
+<p>This same type of thinking can be applied when looking at docblocks for the variables. For example, let's imagine that we have this simple example block of code using the <code>session()</code> helper function (provided in Laravel) that let's us manage data in our user's session:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #FF9668;">1</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF9668;">2</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF9668;">3</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">put</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>As you can see, the code is really simple and adds an array of integers to the session with the key of <code>numbers</code>.</p>
+<p>Now if we wanted to retrieve that data from the session somewhere else in our codebase, we could use something like:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>From a first glance, we can't actually see what data type the <code>$numbers</code> field is. So, to give us more visibility of it's data type, we have three different options that we could take. The first would be adding a variable docblock above the line of code. The second would be adding moving the code into a separate method and adding a return type. The third would be using a data transfer object (DTO) to map our fields when we are storing them and then fetching them. Let's look at the approaches.</p>
+<p>If we were to use the variable docblock, our code might now look like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7E8EDA;">/** </span><span style="color: #BAACFF;">@var</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">int[]</span><span style="color: #7E8EDA;"> */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>However, the issue with this approach is that if we update our code where we set the session data to store an array of strings, this docblock would be wrong. So, we would be working with data that isn't necessarily correct.</p>
+<p>If we were to use the second approach and move the code into a separate method, it could look like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getNumbers</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getNumbers</span><span style="color: #7FDAFF;">();</span></div></code>    </pre>
+</div>
+<p>As you can see, we'll now have the protection to ensure that whatever is returned from the session is always an array. However, we don't have any idea what data type the items are inside the array. Of course, we could add a docblock to the method, but then we end up with the same issue that we discussed above where it may become redundant and outdated. Another approach could be to add some validation into the method to ensure that the items are all integers. A very crude example could be:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getNumbers</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">foreach</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">numbers </span><span style="color: #BAACFF;">as</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">number</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">!</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">is_int</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">number</span><span style="color: #7FDAFF;">))</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">            </span><span style="color: #BAACFF;">throw</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">new</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Exception</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">Not an integer</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getNumbers</span><span style="color: #7FDAFF;">();</span></div></code>    </pre>
+</div>
+<p>But the issue with doing this is that it's not that obvious at first glance what the items are in the array without reading the function body. When you are reading code in your projects, whether it be your own code or vendor code, it can save a lot of time being able to look at the docblocks and method signatures rather than trying to figure out what a method actually does. If we added the docblock, we would be able to solve the readability issue, but we would still have that same issue of having a potentially out of date docblock.</p>
+<p>If we were to use the third option and use DTOs, we could explicitly define the data types that we are expecting. The <a href="https://github.com/spatie/data-transfer-object">spatie/data-transfer-object</a> is usually very handy for use in Laravel projects. I personally really like this approach and have talked about using DTOs in my past blog articles. I actually discuss how to use DTOs in my <a href="cleaning-up-laravel-controllers">Cleaning Up Laravel Controllers</a> However, they're not always straight forward to implement in larger or more complex systems because it might mean that extra changes will need to be made. So, although, they're an ideal solution from a clean code perspective, they're not always feasible to implement in an existing project. But, saying that, if you have any easy chances to implement these in your own systems, it's something that I would probably encourage.</p>
+<div class="blog-affiliate-one"></div>
+<h3>3. Helpful For Systems Without Tests Yet</h3>
+<p>During my time freelancing, I've come across a lot of different projects: some with adequately sized automated test suites; some with a handful of basic tests; and some with no tests at all.</p>
+<p>Anyone who knows me will know that I actually enjoy writing tests. I love seeing them all pass and the satisfaction that it brings to other developers in the team when they can have more confidence making changes to the project. In fact, if you're interested in learning more about testing, check out my article about <a href="how-to-make-your-laravel-app-more-testable">How to Make Your Laravel App More Testable</a>.</p>
+<p>I've often found that there's a rough correlation between the size of the test suite (in comparision to the size of the project) and the amount of bugs reported from the production environment. The larger projects with less tests tend to have more bugs than the projects with more tests.</p>
+<p>So, the obvious thing to do is usually to add tests to the main pain points of the code where the bugs tend to occur. However, in larger and more complex systems, this isn't always straight forward. If a project hasn't been written with testing in mind, it's likely that the code is written in a way that makes it a bit trickier to write tests. For example, it might be more difficult to effectively mock dependencies for a method.</p>
+<p>As a result of this, it can sometimes take longer to write tests than originally anticipated because you also need to rewrite some of the code to make it more testable. This is something that I've had to do on quite a few projects. In fact, on one project, I spent 5 days a week for 2 months doing nothing but writing tests for a project. And I still only managed to achieve around 25% code coverage (yes, it was a pretty big project!).</p>
+<p>While adding tests for a lot of these projects and fixing bugs, I realised that quite a lot of the bugs could have been avoided with better type checking. Common examples of bugs were:</p>
+<ul>
+<li>A method that used to return an array of integers, but now returned an associative array where the keys were strings and the values were integers. Code elsewhere in the project wasn't updated to handle the fact that the array wasn't 0-indexed anymore and had strings for keys.</li>
+<li>A method that processed a Laravel <code>Collection</code> and made the assumption that all of the items in it were <code>User</code> models. But, due to a bug in another method, the <code>Collection</code> contained other types of models too.</li>
+</ul>
+<p>So, with a stop-gap solution until more tests were written, a lot of these types of issues could have been prevented relatively simply.</p>
+<h2>The Type Safe Package</h2>
+<p>Okay, now that we've mentioned the reasons why I decided to make this package, let's take a look at what it actually does.</p>
+<p>The package is really simple and basically acts as a way of checking the types of your variables at runtime.</p>
+<p>At the point of me writing this, the package has 3 different types of checks:</p>
+<ol>
+<li>Simple checks</li>
+<li>Advanced checks</li>
+<li>Custom checks</li>
+</ol>
+<p>Let's take a look at the different types of checks that we can use:</p>
+<h3>Simple Checks</h3>
+<p>Out of the box, we can validate that a variable is an integer, string, boolean, closure, object, array, or associative array.</p>
+<p>For example, let's take our example code from above for retrieving data from the session in Laravel:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>Now, if we wanted to add type safety to the <code>$numbers</code> variable, we could update it to look like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">array</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div></code>    </pre>
+</div>
+<p>Now from a quick glance at the code (especially once you're more used to the syntax), we can clearly see that we are fetching a data from the session with the key <code>numbers</code> and ensuring that it's an array. If the data isn't an array, an <code>\AshAllenDesign\TypeSafe\Exceptions\TypeSafeException</code> exception will be thrown.</p>
+<h3>Advanced Checks</h3>
+<p>As well as being able to check the type of a variable, we can also make some more assertions on the field itself.</p>
+<p>To expand on our example from above, instead of just ensuring that our <code>$numbers</code> field is an array, we can also check it's values data types like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">safe</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">),</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">arrayOf</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">INT</span><span style="color: #7FDAFF;">));</span></div></code>    </pre>
+</div>
+<p>Now, we've updated the check to ensure that data returned from the session is an array of integers. We can also use a similar approach if we had an associative array that we wanted to check:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">safe</span><span style="color: #7FDAFF;">(</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #70B0FF;">  session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">),</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #70B0FF;">  </span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">assocArrayOf</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">STRING</span><span style="color: #7FDAFF;">,</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">INT</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>If we need to check that an object is of a particular class, we could write something like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Models</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">safe</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">user</span><span style="color: #7FDAFF;">,</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">object</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">));</span></div></code>    </pre>
+</div>
+<h3>Custom Checks</h3>
+<p>You might want to use your own custom checks that aren't provided in the package by default. To do this, you can create your own class that implements the <code>AshAllenDesign\TypeSafe\Check</code> interface.</p>
+<p>The interface enforces two methods: <code>passes()</code> and <code>message()</code>. The <code>passes()</code> method is used to define your logic that determines if the field is the correct type. The <code>message()</code> method is used to return the message that will be passed to the thrown exception if the validation fails.</p>
+<p>For example, if we wanted to create a custom check to assert that our field was a Laravel <code>Collection</code> that only contained <code>User</code> models, it might look something like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Models</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Check</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Support</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Collection</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">LaravelUserCollection</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">implements</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Check</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">passes</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">mixed</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">prop</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">bool</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">!</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">prop </span><span style="color: #7FDAFF;">instanceof</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Collection</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span><span style="color: #E4F3FA;">            </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #FF8A8A;">false</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">prop</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">whereInstanceOf</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">count</span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">===</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">prop</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">count</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">message</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">mixed</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">prop</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">string</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">One of the items is not a User model.</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>We could then use that check like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">collection </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">collect</span><span style="color: #7FDAFF;">([</span><span style="color: #BAACFF;">new</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">User</span><span style="color: #7FDAFF;">(),</span><span style="color: #70B0FF;"> </span><span style="color: #BAACFF;">new</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">TestCase</span><span style="color: #7FDAFF;">()]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #70B0FF;">safe</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">collection</span><span style="color: #7FDAFF;">,</span><span style="color: #70B0FF;"> </span><span style="color: #BAACFF;">new</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">LaravelUserCollection</span><span style="color: #7FDAFF;">());</span></div></code>    </pre>
+</div>
+<h3>The Benefits of Using the Package</h3>
+<h4>Important Note</h4>
+<p>As I mentioned earlier, I made this package purely as a proof-of-concept to put together a few ideas that I'd had in my head for a while. Despite this, I do think that this package could serve some purpose and I can definitely see myself using this in the future.</p>
+<p>However, it's worth noting that this package is by no means a replacement for automated testing, static analysis, documentation or docblocks. In my opinion, in an ideal world, code should be well tested, with good static analysis coverage and relevant documentation. However, as we all know, we don't live in an ideal world, and all of these things don't tend to happen; especially when working on legacy projects that you have no control over.</p>
+<p>So, although this package can provide some type safety and checking, following best practices will usually (if not, always) yield better quality code.</p>
+<h4>Better &quot;Code-as-Documentation&quot;</h4>
+<p>On the other hand, the one thing that I do like about this approach is that it encourages you to treat your code as up-to-date documentation. As I mentioned, docblocks can sometimes become redundant and not accurately show the actual data type of the returned data. However, by using the Type Safe package, the code gives you a clear indicication of what is being returned. And, if the code is updated and returns a different data type, the package will catch this and throw an exception.</p>
+<p>Using an example from earlier, let's say that we are adding data to the session with the <code>numbers</code> key like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #FF9668;">1</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF9668;">2</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FF9668;">3</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">put</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>As we've already seen, we can get the data from the session like this:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">safe</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">),</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">arrayOf</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">INT</span><span style="color: #7FDAFF;">));</span></div></code>    </pre>
+</div>
+<p>But, as an example, in the future, we may decide to change the data from an array of integers to an array of strings:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">1</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">2</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">3</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">];</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">put</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>If we were to continue reading the data from the session using our above previous method, it would throw an exception because it is expecting the data to be an array of integers. So, we could update our code like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">safe</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">),</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">arrayOf</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">STRING</span><span style="color: #7FDAFF;">));</span></div></code>    </pre>
+</div>
+<p>As a result of doing this, we've also managed to update our &quot;code-as-documentation&quot; so that we can clearly see what <code>$numbers</code> is equal to.</p>
+<h4>Useful Debugging Tool</h4>
+<p>As well as this, this can also act as a really handy debugging tool for your methods when trying to track down a bug. For example, let's take the method that we quickly made earlier on to validate that all of the items being returned in an array were integers:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7E8EDA;"> * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">int[]</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #7E8EDA;"> */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getNumbers</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">9</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getNumbers</span><span style="color: #7FDAFF;">();</span></div></code>    </pre>
+</div>
+<p>If the <code>numbers</code> field was actually holding an array of strings rather than numbers we'd need to update the docblock. We've already discussed further up how we could add better type safety to this method. But they required a bit more of hands-on approach.</p>
+<p>However, let's imagine that you are working on a project and have been tasked with having to find a bug. You think that you might tracked it down to this particular method. So, then let's say that you want to assert that what the docblock is telling you is being returned is actually being returned. To do this, you could update the method to look like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #7E8EDA;">/**</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #7E8EDA;"> * </span><span style="color: #BAACFF;">@return</span><span style="color: #7E8EDA;">  </span><span style="color: #BAACFF;">int[]</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #7E8EDA;"> */</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getNumbers</span><span style="color: #7FDAFF;">():</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">array</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">safe</span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">session</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">numbers</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">),</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">arrayOf</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">INT</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numbers </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">getNumbers</span><span style="color: #7FDAFF;">();</span></div></code>    </pre>
+</div>
+<p>By making this change, you can be sure that what is being returned is in fact an array of integers. This means that when you run the code in your local development environment, you'd have a bit more confidence that the docblock is actually correct.</p>
+<p>Now, I know what a lot of you are thinking when you're reading this: &quot;There should be an automated test to spot this error!&quot;. And I 100% agree! But, as I've mentioned above, it's not always possible to write tests straight away for some classes and methods (especially when you've only just been brought onboard to work on an existing project). You also have the problem that sometimes methods can be so complex that you might not be able to cover all of the possible scenarios with your tests. So, although the code above doesn't really do any harm, in an ideal world, it would be reverted back to how it was originally after an adequate amount of tests are written.</p>
+<h4>Skipping the Checks in Production</h4>
+<p>As an added bonus, there may be times when you don't want to run the type checks. For example, you might want to disable them in production environments and only run them in local, testing and staging environments (for things like debugging and working on existing features). To skip the checks, you can simply use the <code>skipChecks</code> like so:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> AshAllenDesign</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #FFDB8E;">TypeSafe</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">skipChecks</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">validatedField </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">safe</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">field</span><span style="color: #7FDAFF;">,</span><span style="color: #70B0FF;"> </span><span style="color: #FFDB8E;">Type</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">ASSOC_ARRAY</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<h2>Conclusion</h2>
+<p>Hopefully, this post should have given you a brief overview of what type safety is and how we can use the Type Safe package to achieve slightly better type safety in our projects.</p>
+<p>If you're interested in checking out the repository on GitHub, you can view it here: <a href="https://github.com/ash-jc-allen/type-safe">ash-jc-allen/type-safe</a></p>
+<p>If this post helped you out, I'd love to hear about it. Likewise, if you have any feedback to improve this post, I'd also love to hear that too.</p>
+<p>If you're interested in getting updated each time I publish a new post, feel free to sign up for my newsletter below.</p>
+<p>Keep on building awesome stuff! 🚀</p>
+<div class="blog-affiliate-one"></div>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="13-placeholder-avatar-and-image-websites" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        13 Placeholder Avatar &amp; Image Websites
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="2021-a-year-in-review" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        2021: A Year in Review
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/type-safe-package-for-php">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/type-safe-package-for-php" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/type-safe-package-for-php"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/type-safe-package-for-php&amp;title=Type Safe Package for PHP"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/type-safe-package-for-php&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/type-safe-package-for-php&amp;text=Type Safe Package for PHP&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/type-safe-package-for-php";
+            this.page.identifier = "type-safe-package-for-php";
+            this.page.title = "Type Safe Package for PHP";
+        };
+    </script>
+</body>
+</html>

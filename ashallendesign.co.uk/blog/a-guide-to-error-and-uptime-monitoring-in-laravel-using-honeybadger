@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        A Guide to Error &amp; Uptime Monitoring in Lara... | Ash Allen Design
+    </title>
+    <meta name="description" content="Learn about how you can use Honeybadger in your Laravel applications to add error monitoring, queue monitoring and uptime checking.">
+    <link rel="canonical" href="https://www.honeybadger.io/blog/error-and-uptime-monitoring-in-laravel-using-honeybadger/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="WOddtz2xrsMLwDq1Y00hyUG0vtUNByspVCaLQ9k9">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="A Guide to Error &amp; Uptime Monitoring in Laravel Using Honeybadger"/>
+    <meta property="og:url" content="https://www.honeybadger.io/blog/error-and-uptime-monitoring-in-laravel-using-honeybadger/"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description" content="Learn about how you can use Honeybadger in your Laravel applications to add error monitoring, queue monitoring and uptime checking."/>
+    <meta property="og:image" content="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/69/a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger.png"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel='preload' as="font" href="../fonts/ElegantIcons.woff" type="font/woff" crossorigin>
+
+    <!-- CSS - Vendor CSS -->
+    <link href="../css/vendor.css?id=d1939467ce73c95e2c3f" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script defer src="https://kit.fontawesome.com/210fec59d6.js" crossorigin="anonymous"></script>
+
+    <!-- Cookie Consent -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer type="text/javascript" src="../js/scripts.js?id=bd890df8d5745390bb89"></script>
+
+            <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://cdn.usefathom.com/script.js" data-site="WXKBGHKV" defer></script>
+    
+</head>
+<body data-spy="scroll" data-target=".navbar">
+<header class="header">
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img class="white-logo" src="../images/custom/logo-white-side.png?v=1" alt="Ash Allen Design logo in white">
+                <img class="color-logo" src="../images/custom/logo-colour-side.png?v=1" alt="Ash Allen Design in colour">
+            </a>
+            <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#main-nav-collapse" aria-controls="main-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="menu-toggle">
+                    <span class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                    <span class="hamburger-cross">
+                        <span></span>
+                        <span></span>
+                    </span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse order-3 order-lg-2" id="main-nav-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../services">Services</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../services/website-design">Website Design</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../services/laravel-web-development">Laravel Web Development</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../freebies">Freebies</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="../portfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="../portfolio">Portfolio</a></li>
+                            <hr>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#about-me">About Me</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../portfolio#previous-projects">Previous Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-scroll" href="../blog">Blog</a>
+                    </li>
+
+                    <div class="nav-button order-2 order-lg-3">
+                        <a href="../contact">Contact</a>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-bar"></div>
+    </nav>
+</header><!-- header -->
+
+
+    <div class="page-title blog-page-title bg-img bg-6 overflow-x-hidden">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-content align-items-center text-left">
+                            <h1 class="page-name">
+                                A Guide to Error &amp; Uptime Monitoring in Laravel Using Honeybadger
+                            </h1>
+                        </div>
+
+                        <div class="col-lg-8 text-white py-5 px-lg-0">
+                                                            <div class="mb-5">
+                                                                                                                <a href="../blog?category=laravel" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Laravel
+                                        </a>
+                                                                            <a href="../blog?category=tips-and-tricks" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tips &amp; Tricks
+                                        </a>
+                                                                            <a href="../blog?category=tutorial" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Tutorial
+                                        </a>
+                                                                            <a href="../blog?category=web-development" class="badge badge-secondary px-3 py-2 my-1 category-badge">
+                                            <i class="fas fa-hashtag pr-2"></i>Web Development
+                                        </a>
+                                                                    </div>
+                            
+                            <div class="mb-5">
+                                <i class="fa fa-clock pr-2"></i> 16 minutes read
+                            </div>
+
+                            <img src="../images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                                 class="blog-author-image mr-2 shadow">
+                            <span class="meta-author text-black">Ashley Allen</span>&nbsp;·&nbsp;
+                            <span class="meta-date font-italic">22nd November 2021</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 px-lg-0">
+                <figure class="pb-3">
+                    <img class="rounded-thumbnail img-fluid shadow"
+                         src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/69/a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger.png"
+                         alt="Learn about how you can use Honeybadger in your Laravel applications to add error monitoring, queue monitoring and uptime checking.">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="blog-page-main-wrapper blog-post-container pt-5 mt-5 py-2">
+        <div class="container">
+            <div class="row justify-content-center full-width">
+                <main class="col-lg-8 main-content">
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+                        <div class="blog-single-post blog-post" id="blog-post-content">
+        <div class="post-info">
+            <div class="post-des mt-0">
+
+                
+                <h2>Introduction</h2>
+<p>In this article, we will take a look at what error monitoring is and its benefits to both you and your system's users. We will then take a look at how to use Honeybadger in your Laravel applications for error monitoring, uptime checking, and queue monitoring.</p>
+<h2>What is Error Monitoring?</h2>
+<h3>Bugs and Errors in Code</h3>
+<p>Bugs and errors are an inevitable part of any web application. As web developers, we often make mistakes (big and small) that can go unnoticed during review stages and can often lead to bugs being deployed to live systems. For our users, these bugs can cause confusion and frustration. In the worst-case scenario, if users experience too many errors, they might decide to leave your site/application completely and go elsewhere.</p>
+<h3>Infrastructure Errors</h3>
+<p>There can be a lot of moving parts in a web application, depending on the features it provides. For example, your application's infrastructure might consist of a load balancer, multiple application servers, databases, cache servers, and queue worker servers. With all of this infrastructure, many things can go wrong. For example, here are a few different infrastructure-related errors that I've experienced while working with different teams on projects:</p>
+<ul>
+<li>One of your application servers might run out of storage space and stop serving web requests.</li>
+<li>Your hosting provider might experience some downtime, resulting in your databases no longer working.</li>
+<li>Some changes might be made to your network's firewall that prevent connections to your Redis cache server.</li>
+<li>An error within one of your queue servers might cause the queues to stop processing jobs.</li>
+</ul>
+<p>As you can see, there's a lot that can go wrong in web applications. Sometimes, the issues might be trivial and can be resolved in a couple of minutes. However, there are other times when the issues take a lot of debugging or troubleshooting to figure out. The most important part of fixing any issue, though, is being notified whenever these errors occur and being given as much information as possible to help fix it. This is where error reporting steps in.</p>
+<div class="blog-affiliate-one"></div>
+<h3>Disadvantages of Human Error Reporting</h3>
+<p>Generally, there are two ways that you can be informed about errors and bugs in your systems: by humans or by an automated system.</p>
+<p>When it comes to relying on the humans using your applications to report errors, there are a few key issues:</p>
+<ul>
+<li>It can be frustrating to users because they have to fill out a support ticket to report the bug.</li>
+<li>They might not give a meaningful bug report that can be used to track down the issue. For example, they might not provide information about the steps taken to reproduce the error.</li>
+<li>They might not even report the bug. This can sometimes be caused by a psychological phenomenon known as the “diffusion of responsibility”, where the user might not submit a bug report because they assume that someone else has already sent one.</li>
+<li>The user might not even realize there's a bug in the system. Therefore, they won’t report it, and you likely won’t find it. Thus, it could stay in your application unnoticed for awhile.</li>
+</ul>
+<p>As well as relying on your users, you (as a developer) can perform your own form of human error monitoring. For example, you could periodically check through your server and application logs to see if any errors have occurred. In Laravel, this can be made easier by using packages, such as Laravel Telescope. Nonetheless, it's still a manual and potentially tedious task that you'll need to perform routinely. The main issue that comes with this type of process is that errors can go unnoticed until you choose to check the logs.</p>
+<p>So, as you can see, human error reporting has some disadvantages that can cause frustration for your users and yourself. However, although it has flaws, it's important to remember that allowing your users to report errors and submit support tickets is something that your system should always provide. These reports can be useful for picking up 'logic errors' rather than 'runtime errors'. For example, let's say that your system displays all of your user's invoices, but this month's total is wrong. This is a 'logic error' and likely caused by a bug in your code that calculated something wrong. But, because the invoice was generated (albeit with an incorrect value), this likely wouldn't have caused an exception that would have been detected by an automated error reporting system.</p>
+<h3>Advantages of Automated Error Reporting</h3>
+<p>As you can see, there are many flaws in relying solely on users to report bugs in your system. So, this is why having an automated error reporting system set up for your application or website is a must-have. It can help you understand any exceptions that your code might be throwing and helps you to check that your infrastructure is working as expected.</p>
+<p>When it comes to diagnosing the cause of an error or bug, information is key because the more information you have, the easier it is to resolve the issue. This is true regardless of whether the information is in the form of a stack trace showing the exact lines of code that your application ran before failing or the parameters sent in a web request.</p>
+<p>In addition to having extra information, having an automated error reporting system can give you a chance to get ahead of your users. For example, let's imagine that an exception was thrown while trying to load a page. You could be notified instantly and would be able to start an investigation before the user has a chance to report the bug. If they do choose to report it, this can lead to some reassuring and impressive customer service because you'd be able to tell them that you're already aware of the problem and putting a fix in place.</p>
+<p>Furthermore, let's imagine that your web application sends a report every morning to your customers via email. To implement a feature like this, you'd likely have some queue workers and scheduled jobs to perform this task. I think you would agree that it would be much better to have an automated system in place to let you know as soon as possible when your scheduler or queue workers stop working. It could give you a chance to rectify the issue so that the reports would continue to be sent out, and the customer would never be aware of the fact that it was ever actually broken.</p>
+<h3>Error Monitoring Using Honeybadger</h3>
+<p>One of the error monitoring platforms that we can use is Honeybadger. It's a system that integrates really well with Laravel projects and provides three useful features, which we will cover:</p>
+<ol>
+<li>Error monitoring - This taps into your Laravel application and reports any errors or exceptions thrown by it. These errors are then recorded so that we can go to the Honeybadger site and find information about the error. In this article, we'll cover how to set up the error monitoring and then take a look at the information that is available to us for each type of error.</li>
+<li>Uptime monitoring - This part can send requests to your application to make sure it's still running and reachable by your customers. In this article, we'll cover how to set up uptime monitoring for single-server Laravel applications and applications that are spread across multiple app servers.</li>
+<li>Check-ins - This part is really useful for monitoring your scheduler and queues to ensure that they're still running as expected. In this article, we'll explain how to set up check-ins to make sure that your Laravel queue worker is running.</li>
+</ol>
+<h2>Installing and Configuring Honeybadger in Laravel</h2>
+<p>Now that we have explored what error monitoring is and its benefits, we can take a look at how to implement it in our own Laravel application using Honeybadger. To get started, you'll need to head over to the Honeybadger site and sign up.</p>
+<p>Once you've signed up, you can run the following command in your Laravel project's root:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="text" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #e4f3fa;">composer require honeybadger-io/honeybadger-laravel</span></div></code>    </pre>
+</div>
+<p>Once the package is installed, you'll need to add the following method to your <code>app/Exceptions/Handler.php</code> file:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">report</span><span style="color: #7FDAFF;">(\</span><span style="color: #FFDB8E;">Throwable</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">exception</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">if</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">(</span><span style="color: #70B0FF;">app</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">bound</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">honeybadger</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">&amp;&amp;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">shouldReport</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">exception</span><span style="color: #7FDAFF;">))</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #E4F3FA;">        </span><span style="color: #70B0FF;">app</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">honeybadger</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">notify</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">exception</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">app</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">request</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">));</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">7</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">parent</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">report</span><span style="color: #7FDAFF;">($</span><span style="color: #E4F3FA;">exception</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">8</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>After you've added this, you'll then need to run the following installation command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="text" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #e4f3fa;">php artisan honeybadger:install YOUR-API-KEY-HERE</span></div></code>    </pre>
+</div>
+<p>Make sure to include your Honeybadger API key when you run this command. After running this command, you should have the following:</p>
+<ul>
+<li>A <code>HONEYBADGER_API_KEY</code> field in your <code>.env</code> and <code>.env.example</code> file.</li>
+<li>A new <code>config/honeybadger.php</code> config file.</li>
+<li>A test exception that you should be able to see on Honeybadger.</li>
+</ul>
+<p>If all of this is completed successfully, it means that you've installed Honeybadger, and you're ready to get started using it.</p>
+<h2>Error reporting and monitoring bugs</h2>
+<p>Now that we have Honeybadger set up in your Laravel application, let's take a look at the error reporting side of things.</p>
+<p>To get started, you can trigger a test exception (like the installation command did) using the following command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="text" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #e4f3fa;">php artisan honeybadger:test</span></div></code>    </pre>
+</div>
+<p>After running this command, it will send a test notification to Honeybadger to simulate what would happen if an exception was thrown in a live system. So, if you wanted to SSH into your production server after first adding Honeybadger to your live deployment, you could run this command to make sure it is connected correctly.</p>
+<p>However, so that we can dive into the error details a bit more, we'll create a basic bug and cause an exception. For this example, we'll make a request as an authenticated user to a controller method and purposely pass incorrect parameters to a method. To do this, let’s take a look at some controller methods that will always cause an error:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">namespace</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">App</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Http</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Controllers</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #BAACFF;">use</span><span style="color: #FFDB8E;"> Illuminate</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">Http</span><span style="color: #7FDAFF;">\</span><span style="color: #FFDB8E;">JsonResponse</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #BAACFF;">class</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">ErrorController</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">extends</span><span style="color: #E4F3FA;"> </span><span style="color: #7AF8CA;">Controller</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">public</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #34D3FB;">__invoke</span><span style="color: #7FDAFF;">()</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">answer </span><span style="color: #7FDAFF;">=</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #FF757F;">this</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">addNumbers</span><span style="color: #7FDAFF;">(</span><span style="color: #FF9668;">1</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">INVALID</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">response</span><span style="color: #7FDAFF;">()-&gt;</span><span style="color: #70B0FF;">json</span><span style="color: #7FDAFF;">([</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">answer</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">answer</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">]);</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">15</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">16</span><span style="color: #E4F3FA;">    </span><span style="color: #BAACFF;">private</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">addNumbers</span><span style="color: #7FDAFF;">(</span><span style="color: #BAACFF;">int</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberOne</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">int</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberTwo</span><span style="color: #7FDAFF;">):</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">int</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">17</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">18</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberOne </span><span style="color: #7FDAFF;">+</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">numberTwo</span><span style="color: #7FDAFF;">;</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">19</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">}</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">20</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>As you can see in the basic example above, we have a method that adds two integers together and then returns the answer in a JSON response. However, we are purposely passing a string to the method to cause a failure.</p>
+<p>To call this method, I've created a new route:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #FFDB8E;">Route</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">get</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">error</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">ErrorController</span><span style="color: #7FDAFF;">::</span><span style="color: #BAACFF;">class</span><span style="color: #7FDAFF;">);</span></div></code>    </pre>
+</div>
+<p>Now, when we go to the <code>/error</code> route in our browser, the following exception is thrown:</p>
+<pre><code>App\Http\Controllers\ErrorController::addNumbers():
+Argument #2 ($numberTwo) must be of type int, string given,
+called in /var/www/html/app/Http/Controllers/ErrorController.php on line 11
+</code></pre>
+<p>As you would expect, the error is also logged on Honeybadger for us. Let's take a dive into some information that Honeybadger provides about the exception and how it can be useful for us:</p>
+<ul>
+<li>
+<strong>Backtrace</strong> - We can see the backtrace that shows the methods and lines of code that were run before the exception was thrown. This can be particularly useful if you have a method that is called in a lot of different places in your application because you can figure out exactly where it was called from.</li>
+<li>
+<strong>URL</strong> - We can see the URL that the request was made to. In our case, the URL was <code>http://localhost/error</code>.</li>
+<li>
+<strong>Browser</strong> - We can see the browser and operating system that the request was made using. We can also see whether the user was accessing the site via a desktop or mobile device. This is particularly helpful if you are trying to determine whether a bug only happens in a particular browser.</li>
+<li>
+<strong>Breadcrumbs</strong> - We can see the important events that led up to the exception being thrown, such as the request being made and any database queries that were executed. The database queries part is particularly useful if you need to identify any errors that you might have in your queries.</li>
+<li>
+<strong>Session &amp; cookie data</strong> - We can see any session data or cookies used in the request. This can be particularly useful if you are trying to pinpoint a bug that might have been caused by a value in a cookie that you have set in a previous request.</li>
+</ul>
+<p>In addition to being able to see the errors, Honeybadger also allows us to perform a few actions to manage our reported errors:</p>
+<ul>
+<li>
+<strong>Update status</strong> - You can toggle the status of your errors between 'unresolved' and 'resolved'. This can be useful because you can toggle an error report to be 'resolved' after you've fixed the bug and deployed your fix to your live system.</li>
+<li>
+<strong>Add tags</strong> - You can add tags to your bugs so that you can group them together. For example, let's imagine that you keep getting bugs reported that are related to a particular new feature that you've released. You could tag all the errors related to that particular feature so that they're easy to filter from the rest of your bugs.</li>
+<li>
+<strong>Add comments</strong> - You can add comments to your errors. This can be particularly useful if you have a hunch as to what might have caused the issue, so if another team member chooses to fix the bug, they’ll have a bit more information. It can also be useful for review purposes if you review past bugs and want to find out what the issue was and how it was fixed.</li>
+<li>
+<strong>Assign to a team member</strong> - If you're working as part of a team, you can assign bugs to other team members. This can be useful because it can make it obvious who is working on a bug and can prevent multiple developers from trying to fix the same issue.</li>
+<li>
+<strong>Create a public URL</strong> - You can create a public URL to share the bug. This can be useful if you want to share your error with someone outside your team that might not have access to Honeybadger. For example, you might want to pass the information on to someone who maintains a third-party API or package and want to give as much data as possible about a bug that their API/package is causing.</li>
+<li>
+<strong>Search Stack Overflow</strong> - From the error report, you can open up a new tab that will search Stack Overflow for your exception. This can be particularly useful when trying to see if anyone else has experienced the same error before and has found a solution.</li>
+</ul>
+<h2>Uptime Monitoring</h2>
+<p>Another powerful feature of Honeybadger is uptime monitoring. This feature allows you to set up an HTTP request that is sent periodically to ensure that your site or application is still running as expected.</p>
+<h3>Basic Checks</h3>
+<p>When we set up our check, we need to provide some information, such as the URL for the request to be made to and how often it should be made. To give an idea of how we could set up a check for our website, let's take a look at an example.</p>
+<p>Let's imagine that we have a website with the following URL: <code>https://example.com</code>. It's possible that you might want to make a call to a URL on your website or application and assume that the site is reachable if the page returns a <code>HTTP 200</code> response. To do this, we could set up a check:</p>
+<ul>
+<li>Name: My homepage check</li>
+<li>URL: <code>https://example.com</code>
+</li>
+<li>Match type: HTTP Success</li>
+<li>Request method: GET</li>
+<li>Frequency: Every 5 minutes</li>
+</ul>
+<p>As you can likely see, this check will run every 5 minutes and will send a <code>GET</code> request to <code>https://example.com</code>. If we get a successful response back, the check will pass. Otherwise, the check will fail, and we'll be notified so that we are aware that the site is down.</p>
+<div class="blog-affiliate-one"></div>
+<h3>Advanced Checks</h3>
+<p>There might be times when you want to run a bit more than just a basic <code>GET</code> uptime check. For example, you might want to send a <code>POST</code> request to a route that triggers off some code and only returns a successful response if the code is executed correctly. The code can do anything, such as adding an item to the cache to make sure it's still reachable or creating a file to make sure your file storage is still writeable. So, you could essentially bundle in other system health checks into this check. If this is the case, you'll likely want to protect the route so that the code can't be triggered inadvertently. To protect the route, Honeybadger provides a <code>Honeybadger-Token</code> header that is sent in the request. So, you could store the expected token in your <code>.env</code> file, and then, in your Laravel app's controller, you could assert that the tokens match.</p>
+<h3>Checks for Applications Running on Multiple Servers</h3>
+<p>If your Laravel app is running on multiple application servers, and the web traffic is sent through a load balancer, you might want to set up multiple checks. Let's imagine that we have our application hosted at <code>https://example.com</code>. We'll assume that the site has two application servers with the following URLs: <code>https://app1.example.com</code> and <code>https://app2.example.com</code>.</p>
+<p>If we were to set up a basic <code>GET</code> request to <code>https://example.com</code>, we would be able to visibly confirm whether the site is reachable. However, without adding some extra checks, this wouldn't necessarily tell us that both of our app servers are running. For example, if our load balancer was configured to route traffic to any server that is running and ignore any servers that weren't running, how would we know if one of the servers was down?</p>
+<p>One way to tackle this issue is to set up three different uptime monitoring checks:</p>
+<ol>
+<li>
+<code>GET</code> to <code>https://example.com</code>
+</li>
+<li>
+<code>GET</code> to <code>https://app1.example.com</code>
+</li>
+<li>
+<code>GET</code> to <code>https://app2.example.com</code>
+</li>
+</ol>
+<p>After running these checks, you'd have more confidence that both of the app servers are running and that the load balancer is routing traffic as expected.</p>
+<h3>Public Status Page</h3>
+<p>One of the useful features that Honeybadger provides is public status pages. By enabling public status pages for your projects, you can provide a page that your users can go to and check that your site or application is up and running. If your application is experiencing a bit of downtime, this feature can be a simple way to keep users informed of your site's health for full transparency.</p>
+<h2>Check-ins</h2>
+<p>Another powerful feature that Honeybadger offers is check-ins. This feature is extremely useful for helping to ensure that your scheduled tasks and queue workers are still running. For example, let's assume that you have an application that generates and emails a report to your users at the end of each day. To implement a feature like this, you'll likely have a scheduled command that runs at the end of each day and then triggers a queued job that generates and sends the email.</p>
+<p>If your queues or scheduler stop running, how would you know? Of course, your users would likely submit a bug report if their emails didn't arrive when expected. However, as we mentioned earlier, this doesn't look great for your customer service or provide any confidence that your system is stable. So, this is where check-ins can be useful.</p>
+<p>To get started with check-ins, you'll first need to create one on the Honeybadger website. You can create a check-in and specify how often you expect a check-in. After creating it, you are provided with a small unique code that you can use.</p>
+<p>Thanks to the <code>honeybadger-io/honeybadger-laravel</code> package that we installed earlier, we can use the following handy command to make our check-ins much simpler in our Laravel applications:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="text" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #e4f3fa;">php artisan honeybadger:checkin YOUR-CHECK-IN-CODE-HERE</span></div></code>    </pre>
+</div>
+<p>Let's assume that your check-in's code was <code>ABC123</code>, you could run the following command:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="text" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #e4f3fa;">php artisan honeybadger:checkin ABC123</span></div></code>    </pre>
+</div>
+<p>So, based on this, if we wanted to test that our scheduler was working, we could add the following block of code to our <code>app/Console/Kernel.php</code>:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">1</span><span style="color: #BAACFF;">protected</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">schedule</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Schedule</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">schedule</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">3</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">schedule</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">command</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">honeybadger:checkin ABC123</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">everyFiveMinutes</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">4</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>If the scheduler is working as expected, this would trigger a check-in every five minutes. If the scheduler stopped running for any reason, we would be alerted if the check-in didn't happen as expected.</p>
+<p>You can also create separate check-ins for each of your queue workers. For example, let's assume that we have three different queues: <code>default</code>, <code>email</code>, and <code>long-running</code>.</p>
+<p>If we wanted to ensure that each of the queues are running, we could add the following blocks of code to our <code>app/Console/Kernel.php</code>:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">protected</span><span style="color: #E4F3FA;"> </span><span style="color: #BAACFF;">function</span><span style="color: #E4F3FA;"> </span><span style="color: #70B0FF;">schedule</span><span style="color: #7FDAFF;">(</span><span style="color: #FFDB8E;">Schedule</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">schedule</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span><span style="color: #7FDAFF;">{</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">schedule</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">call</span><span style="color: #7FDAFF;">(</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">fn</span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Artisan</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">queue</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">honeybadger:checkin ABC123</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">onQueue</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">default</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">everyFiveMinutes</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">schedule</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">call</span><span style="color: #7FDAFF;">(</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">fn</span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Artisan</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">queue</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">honeybadger:checkin DEF456</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">onQueue</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">sms</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">everyFiveMinutes</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">$</span><span style="color: #E4F3FA;">schedule</span><span style="color: #7FDAFF;">-&gt;</span><span style="color: #70B0FF;">call</span><span style="color: #7FDAFF;">(</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span><span style="color: #E4F3FA;">        </span><span style="color: #BAACFF;">fn</span><span style="color: #7FDAFF;">()</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #FFDB8E;">Artisan</span><span style="color: #7FDAFF;">::</span><span style="color: #70B0FF;">queue</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">honeybadger:checkin GHI789</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">onQueue</span><span style="color: #7FDAFF;">(</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">long-running</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">)</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #E4F3FA;">    </span><span style="color: #7FDAFF;">)-&gt;</span><span style="color: #70B0FF;">everyFiveMinutes</span><span style="color: #7FDAFF;">();</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">14</span><span style="color: #7FDAFF;">}</span></div></code>    </pre>
+</div>
+<p>Let's take a quick look at the code above so that we can understand what is happening. We are specifying in our scheduler that every five minutes, three different callbacks should be run. Inside each of the callbacks, we queue the <code>honeybadger:checkin</code> Artisan command, with each callback using a different queue. Therefore, if the command runs successfully and checks in, we can be sure that the queue has active workers running on it and processing jobs.</p>
+<h2>Bonus tips</h2>
+<h3>Setting the User URL</h3>
+<p>In your project's settings in Honeybadger, you can set a 'User URL'. To give this a bit of context, let's say that your Laravel applications has an <code>/admin/users/{user}</code> route that you can go to in your browser and get details about a user. You could set your project's user URL to <code>https://example.com/admin/users/[user_id]</code>. By doing this, if a user is authenticated when the error is thrown, instead of Honeybadger showing just their ID, you'll be able to click it and go to their page. For example, if the user's ID is <code>3</code>, you could click their ID and be taken to <code>https://example.com/admin/users/3</code>. As you can imagine, this is a handy feature that makes it easier to find information about your users to make the debugging and troubleshooting process quicker.</p>
+<h3>Opening Your Project Code from Honeybadger</h3>
+<p>One feature that you can use in Honeybadger is opening your IDE or editor from the backtrace. You can set this up by going to your user settings and adding the local path to your projects. You can then choose which editor to open your project in, such as Atom, Visual Studio Code, or Sublime. Once you've done this, whenever a bug is reported, you'll be able to open the project in your editor on the exact line that the error was caused on.</p>
+<h3>Filtering Out Sensitive Information</h3>
+<p>When you're building an application, you might need to comply with some data protection regulations, such as the General Data Protection Regulation (GDPR). Alternatively, you may have some legal obligations set out in contracts with your clients that specify the types of personal information you are permitted to send to external services, such as Honeybadger. If this is the case, you can make use of request filtering to comply with these different rules and regulations. To do this, you can simply add the names of the fields that you want to ignore to your <code>config/honeybadger.php</code> file.</p>
+<p>For example, let's imagine that we don't want to send the <code>email</code> address field from a request to Honeybadger if an error occurs; we could update it as follows:</p>
+<div class="code-block">
+    <pre>
+        <code data-theme="moonlight" data-lang="php" class="torchlight" style="background-color: #212539; --theme-selection-background: #aab3e5;"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 1</span><span style="color: #BAACFF;">return</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 2</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 3</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 4</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 5</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">request</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 6</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">filter</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">=&gt;</span><span style="color: #E4F3FA;"> </span><span style="color: #7FDAFF;">[</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 7</span><span style="color: #E4F3FA;">                </span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7AF8CA;">email</span><span style="color: #7FDAFF;">&#39;</span><span style="color: #7FDAFF;">,</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 8</span><span style="color: #E4F3FA;">            </span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number"> 9</span><span style="color: #E4F3FA;">        </span><span style="color: #7FDAFF;">],</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">10</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">11</span><span style="color: #7FDAFF;">    </span><span style="color: #7E8EDA;">// ...</span></div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">12</span>&nbsp;</div><div class='line'><span style="color:#5b6395; text-align: right; -webkit-user-select: none; user-select: none;" class="line-number">13</span><span style="color: #7FDAFF;">]</span></div></code>    </pre>
+</div>
+<p>Now, whenever an exception is thrown that is caused by a web request containing an <code>email</code> field, rather than the field's value being shown in the error report, you will see <code>[REDACTED]</code> instead.</p>
+<h2>Conclusion</h2>
+<p>Hopefully, this article has helped you understand what error reporting is and how you can benefit from using it in your projects. It should have also given you an overview of how to get started with error reporting, uptime monitoring, and queue monitoring using Honeybadger in your Laravel applications. Although this article has covered a lot of the cool features that Honeybadger offers, there's still a lot more that is definitely worth checking out to help with error monitoring, such as integrations with Slack, GitHub, and Trello, as well as SMS and browser alerts and public error dashboards.</p>
+<div class="blog-affiliate-one"></div>
+
+            </div>
+        </div>
+    </div>
+                    <div class="author-box clearfix rounded-thumbnail">
+        <form class="subscription-form">
+            <div class="author-avatar">
+                <i class="far fa-paper-plane"></i>
+            </div>
+            <div class="author-info">
+                <div class="author-info-head">
+                    <h3>Get your FREE copy of "<span class="pdf-name">The Clean Coder's Guide to Laravel</span>" and subscribe for future posts!</h3>
+                </div>
+                <div class="author-description">
+                    <p class="mb-2 pt-2">
+                        Join over 4000 developers who have already downloaded their copy!
+                    </p>
+
+                    <p class="mb-2">
+                        Drop your email in the box below and you'll get notified every time a new post is published. You'll also get a FREE copy of my <strong>70 page</strong> PDF that shows you how you can make your Laravel projects cleaner.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="Your email address">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn fill-style">Subscribe</button>
+                        </div>
+                        <div class="col-md-12 error-box"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+                    <hr>
+                    <p class="font-italic mb-2">Blog post banner image by <a href="https://jesspickup.co.uk">Jess Pickup</a>.</p>
+
+                                            <p class="font-italic">Originally posted: <a href="https://www.honeybadger.io/blog/error-and-uptime-monitoring-in-laravel-using-honeybadger/">https://www.honeybadger.io/blog/error-and-uptime-monitoring-in-laravel-using-honeybadger/</a></p>
+                    
+                    <div class="text-center">
+    <hr>
+
+    <div class="row py-3">
+        <div class="col-lg text-left">
+                            <a href="using-a-custom-alphabet-in-the-short-url-laravel-package" class="prev-next-container row align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-chevron-left prev-next-button"></i>
+                    </div>
+                    <div class="col">
+                        <strong>Previous article:</strong><br>
+                        Using a Custom Alphabet in the Short URL Laravel Package
+                    </div>
+                </a>
+                    </div>
+        <div class="col-lg text-right pt-4 py-lg-0">
+                            <a href="new-features-in-short-url-v6-1-0" class="prev-next-container row align-items-center">
+                    <div class="col">
+                        <strong>Next article:</strong><br>
+                        New Features in Short URL v6.1.0
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chevron-right prev-next-button"></i>
+                    </div>
+                </a>
+                    </div>
+    </div>
+</div>
+                    <hr>
+                    <div class="share-buttons text-center">
+    <h5><strong>Share!</strong></h5>
+
+    <!-- Email -->
+    <div class="p-1 share-button-container">
+        <a href="mailto:?Subject=Sharing this blog post from Ash Allen Design!&Body=I am sharing this blog post from Ash Allen Design!https://ashallendesign.co.uk/blog/a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger">
+            <img src="https://simplesharebuttons.com/images/somacro/email.png"
+                 alt="Share website design email to Email"/>
+        </a>
+    </div>
+
+    <!-- Facebook -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.facebook.com/sharer.php?u=https://ashallendesign.co.uk/blog/a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger" target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/facebook.png"
+                 alt="Share website design email to Facebook"/>
+        </a>
+    </div>
+
+
+    <!-- LinkedIn -->
+    <div class="p-1 share-button-container">
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://ashallendesign.co.uk/blog/a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/linkedin.png"
+                 alt="Share website design email to LinkedIn"/>
+        </a>
+    </div>
+
+    <!-- Print -->
+    <div class="p-1 share-button-container">
+        <a href="javascript:;" onclick="window.print()">
+            <img src="https://simplesharebuttons.com/images/somacro/print.png"
+                 alt="Share website design email to Print"/>
+        </a>
+    </div>
+
+    <!-- Reddit -->
+    <div class="p-1 share-button-container">
+        <a href="http://reddit.com/submit?url=https://ashallendesign.co.uk/blog/a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger&amp;title=A Guide to Error &amp; Uptime Monitoring in Laravel Using Honeybadger"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/reddit.png"
+                 alt="Share website design email to Reddit"/>
+        </a>
+    </div>
+
+    <!-- Tumblr-->
+    <div class="p-1 share-button-container">
+        <a href="http://www.tumblr.com/share/link?url=https://ashallendesign.co.uk/blog/a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger&amp;title=Simple Share Buttons"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/tumblr.png"
+                 alt="Share website design email to Tumblr"/>
+        </a>
+    </div>
+
+    <!-- Twitter -->
+    <div class="p-1 share-button-container">
+        <a href="https://twitter.com/share?url=https://ashallendesign.co.uk/blog/a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger&amp;text=A Guide to Error &amp; Uptime Monitoring in Laravel Using Honeybadger&amp;hashtags=ashallendesign,webdesign"
+           target="_blank" rel="noopener noreferrer">
+            <img src="https://simplesharebuttons.com/images/somacro/twitter.png"
+                 alt="Share website design email to Twitter"/>
+        </a>
+    </div>
+</div>
+
+                    <div class="mt-5" id="disqus_thread"></div>
+                </main>
+
+                <aside class="col-lg-3 offset-lg-1">
+                    <div class="widget widget-tags">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <img src="../images/custom/AshleyAllen-Blog.png?v=1"
+                 alt="Ashley Allen - Freelance web developer"
+                 class="blog-author-image mr-2 shadow">
+        </div>
+        <div class="col-lg-6">
+            <p class="side-bar-author my-auto mb-0">Ashley Allen</p>
+        </div>
+        <div class="col-12 widget-title"></div>
+    </div>
+    <div class="row mb-5">
+        <p class="col-12 text-muted font-size-regular">
+            I'm a freelance Laravel web developer who loves contributing to open-source projects and building exciting systems to help businesses succeed.
+            <br>
+        </p>
+        <div class="col-12">
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+
+    <h3 class="widget-title">Related</h3>
+    <div class="mb-5 pb-1">
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/82/whats-new-in-laravel-config-validator-v200-and-v210_small.png"
+                             alt="What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="what-s-new-in-laravel-config-validator-v2-0-0-and-v2-1-0">
+                            What&#039;s New in Laravel Config Validator v2.0.0 &amp; v2.1.0
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="round-up-march-2022" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/81/round-up-march-2022_small.png"
+                             alt="Round Up: March 2022"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="round-up-march-2022">
+                            Round Up: March 2022
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+                    <div class="blog-post mb-4">
+                <div class="post-thumb shadow mb-3">
+                    <a href="using-query-in-laravel-eloquent-queries" class="d-block rounded-thumbnail shadow">
+                        <img data-src="https://ashallendesign.ams3.digitaloceanspaces.com/public/blog/79/Using query in Laravel Eloquent Queries_small.png"
+                             alt="Using &#039;query()&#039; in Laravel Eloquent Queries"
+                             class="rounded-thumbnail lazyload">
+                    </a>
+                </div>
+                <div class="post-info">
+                    <h4 class="related-post-title">
+                        <a href="using-query-in-laravel-eloquent-queries">
+                            Using &#039;query()&#039; in Laravel Eloquent Queries
+                        </a>
+                    </h4>
+
+                    <img data-src="/images/custom/AshleyAllen-Blog.png?v=1" alt="Ashley Allen - Freelance web developer"
+                         class="blog-author-image-smaller mr-2 shadow-sm lazyload">
+                    <span class="meta-author">Ashley Allen</span>
+                </div>
+            </div>
+            </div>
+
+    <h3 class="widget-title pb-4"></h3>
+    <div>
+        <div class="author-box clearfix sponsor-section ml-0">
+    <div class="author-info">
+        <div class="author-info-head">
+            <h3>Sponsor Me! 🚀</h3>
+        </div>
+        <div class="author-description">
+            <p class="mb-3 pt-2 font-size-regular">
+                Help support the blog so that I can continue creating new content!
+            </p>
+
+            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+        </div>
+    </div>
+</div>
+
+        <h3 class="widget-title pb-4"></h3>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/digital-ocean-free-credit.png"
+                         alt="DigitalOcean Referral Badge"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+
+        <div class="blog-post mb-4">
+            <div class="post-thumb shadow mb-3">
+                <a href="https://usefathom.com/ref/IYEWUV"
+                   class="d-block rounded-thumbnail shadow"
+                   target="_blank"
+                   rel="noreferrer noopener"
+                >
+                    <img data-src="/images/custom/sponsors/fathom-vertical.png"
+                         alt="Fathom Analytics"
+                         class="rounded-thumbnail lazyload">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="animated-waves">
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-one" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-two" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-three" d=""/>
+        </svg>
+        <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="animated-wave">
+            <defs></defs>
+            <path id="animated-wave-four" d=""/>
+        </svg>
+    </div>
+    <div class="f-widget-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="f-widget">
+                        <div class="f-logo">
+                            <img src="../images/custom/logo-colour-side.png" alt="Ash Allen Design logo in colour">
+                        </div>
+                        <p>A passionate freelance web developer based in Preston, Lancashire, UK. </p>
+                        <div class="footer-social-media">
+                            <ul class="social-profile">
+                                <li>
+                                    <a href="https://www.facebook.com/ashallendesignuk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://linkedin.com/company/ash-allen-design" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/ash-jc-allen" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/ashallendesign_uk/" class="p-2" target="_blank" rel="noopener noreferrer">
+                                        <i class="social_instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <a href="https://www.digitalocean.com/?refcode=7d06055e9d46&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
+                            <img data-src="/images/custom/sponsors/digital-ocean-white.svg" alt="DigitalOcean Referral Badge" class="lazyload"/>
+                        </a>
+
+                        <div class="mt-3">
+                            <iframe src="https://github.com/sponsors/ash-jc-allen/button"
+        title="Sponsor ash-jc-allen"
+        height="35"
+        width="116"
+        style="border: 0;">
+</iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 offset-lg-1">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">Services</h3>
+                                <ul class="f-list">
+                                    <li><a href="../services/website-design">Website Design</a></li>
+                                    <li><a href="../services/laravel-web-development">Laravel Web Development</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="f-widget">
+                                <h3 class="f-widget-title">About Me</h3>
+                                <ul class="f-list">
+                                    <li><a href="../portfolio">Portfolio</a></li>
+                                    <li><a href="../blog">Blog</a></li>
+                                    <li><a href="../contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                    <div class="f-widget">
+                        <h3 class="f-widget-title">Contact Info</h3>
+                        <ul class="f-contact-list">
+                            <li><span>Office:</span> Preston, Lancashire, UK</li>
+                            <li><span>Call Me:</span> 07963 116038</li>
+                            <li><span>Email Me:</span> mail@ashallendesign.co.uk</li>
+                        </ul>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="f-copyright-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-6">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0">
+                        © 2022 <a href="../index.html">Ash Allen Design</a> ALL RIGHTS RESERVED
+                    </p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../privacy-policy" class="dark-link">Privacy Policy</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block mr-2">
+                        <a href="../terms-of-service" class="dark-link">Terms of Service</a>
+                    </p>
+                    <p class="copyright text-center text-md-left mb-2 mb-md-0 d-inline-block">
+                        <a href="../sitemap" class="dark-link">Sitemap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- footer -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        var disqus_config = function () {
+            this.page.url = "https://ashallendesign.co.uk/blog/a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger";
+            this.page.identifier = "a-guide-to-error-and-uptime-monitoring-in-laravel-using-honeybadger";
+            this.page.title = "A Guide to Error &amp; Uptime Monitoring in Laravel Using Honeybadger";
+        };
+    </script>
+</body>
+</html>
