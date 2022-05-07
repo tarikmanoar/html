@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-cast-api-enabled="true">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube</title>
+    <link rel="canonical" href="../mp4-video-simple-post" />
+    <style>
+    body {
+font: 12px Roboto, Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+#embed-video {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+}
+#player {
+	    height: 100%;
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+</style>
+<script src="../../king-content/js/videojs/video.min.js"></script>
+<link href="../../king-content/js/videojs/video-js.css" rel="stylesheet" >
+<link rel="stylesheet" href="../../king-theme/default/font-awesome/css/all.min.css" type="text/css" media="all">
+
+
+  </head>
+  <body
+    class="date-20220425 en_US ltr site-center-aligned site-as-giant-card webkit webkit-537"
+    dir="ltr"
+  ><div id="player"><video id="embed-video" class="video-js vjs-theme-forest" controls width="100%" height="100%" data-setup="{}" poster="../../king-include/uploads/2021/03/143534.jpg">
+			<source src="../../king-include/uploads/2021/03/143534-videoplayback.mp4" type="video/mp4" />
+			<div fallback>
+				<p>This browser does not support the video element.</p>
+			</div>
+		</video>
+		<a class="embedname" id="ename" target="_blank" href="../mp4-video-simple-post"><img src="../../index.html?qa=image&amp;qa_blobid=14473541867296403178&amp;qa_size=107" />Mp4 video simple post</a></div><script>
+
+var player = videojs(document.querySelector('.video-js'));
+var b=document.getElementById("ename");
+player.on('play', function() {
+  b.classList.add("hide");
+
+});
+player.on('pause', function() {
+  b.classList.remove("hide");
+
+});
+
+</script></body></html>
