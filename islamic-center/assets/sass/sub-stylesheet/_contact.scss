@@ -1,0 +1,207 @@
+/*Contact Item Css Start here*/
+
+.contact-item {
+    @extend %flex;
+    width: 100%;
+    padding: 30px 25px;
+    margin-bottom: 25px;
+    background: $white-color;
+    box-shadow: 0 5px 5px rgba(136, 136, 136, 0.05);
+    @include transition($transition);
+
+    &:hover {
+        box-shadow: 0 5px 5px rgba(136, 136, 136, 0.12);
+    }
+
+    .contact-icon {
+        width: 72px;
+
+        i {
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 100%;
+            text-decoration: none;
+            display: inline-block;
+            color: $white-color;
+            font-size: 24px;
+            background: #f85b82;
+        }
+    }
+
+    .contact-details {
+        width: calc(100% - 72px);
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+.col-12 {
+    &:nth-child(2) {
+        .contact-item {
+            .contact-icon i {
+                background: $theme-color;
+            }
+        }
+    }
+
+    &:nth-child(3) {
+        .contact-item {
+            .contact-icon i {
+                background: #5ce1b9;
+            }
+        }
+    }
+}
+
+/*Contact Item Css end here*/
+
+/* @@@@@@@@@@@@@  Contact Us Section Start Here  @@@@@@@@@@@@@@ */
+
+.location-map {
+    @include breakpoint(max-lg) {
+        margin-bottom: 15px;
+    }
+
+    #map {
+        height: 435px;
+        width: 100%;
+
+        iframe {
+            height: 100%;
+            width: 100%;
+            border: none;
+        }
+    }
+}
+
+.contact-form-wrapper {
+    .contact-form {
+        p {
+            max-width: 610px;
+        }
+
+        h5 {
+            font-family: $font-family1;
+        }
+
+        form {
+            &.comment-form {
+                @extend %flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-top: 0;
+
+                input[type="text"],
+                [type="email"] {
+                    padding: 15px;
+                    border: 1px solid $border-color;
+                    background: $white-color;
+                    width: 100%;
+                    margin-bottom: 30px;
+
+                    @include breakpoint(sm) {
+                        width: calc(100% / 2 - 10px);
+                    }
+
+                    border-radius: 4px;
+                }
+
+                textarea {
+                    background: $white-color;
+                    border: 1px solid $border-color;
+                    width: 100%;
+                    padding: 10px 15px;
+                    border-radius: 4px;
+                }
+
+                button {
+                    &.lab-btn {
+                        margin-top: 30px;
+                        padding: 10px 15px;
+                        color: $white-color;
+                        background: $theme-color;
+                        outline: none;
+                        border: none;
+                        @include border-radius(3px);
+                        box-shadow: 0 5px 5px rgba($secondary-color, $alpha: .20);
+                        @extend %pointer;
+
+                        &:hover {
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contact-info-wrapper {
+    padding-left: 30px;
+
+    @include breakpoint(max-lg) {
+        margin-top: 50px;
+        padding-left: 0;
+    }
+
+    .contact-info-title {
+        h5 {
+            font-family: $font-family1;
+        }
+
+        p {
+            max-width: 280px;
+            margin-bottom: 30px;
+        }
+    }
+
+    .contact-info-content {
+        @include breakpoint(max-lg) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contact-info-item {
+            @include breakpoint(max-lg) {
+                margin-right: 30px;
+                margin-bottom: 30px;
+            }
+
+            @include breakpoint (lg) {
+                margin-bottom: 30px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            .contact-info-inner {
+                @include breakpoint(max-lg) {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+
+                    .contact-info-thumb {
+                        margin-bottom: 0;
+                        margin-right: 15px;
+                    }
+                }
+
+                .contact-info-thumb {
+                    margin-bottom: 15px;
+                }
+
+                .contact-info-details {
+                    span {
+                        color: $title-color;
+                    }
+                }
+            }
+        }
+    }
+
+}

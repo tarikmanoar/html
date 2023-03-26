@@ -1,0 +1,156 @@
+//team section
+.team-section {
+    padding-bottom: 95px;
+}
+
+/*Team Single Page Start Here*/
+.scholar-single-section {
+    .section-wrapper {
+        padding: 10px;
+
+        @include breakpoint(sm) {
+            padding: 20px;
+        }
+
+        @include breakpoint(md) {
+            padding: 50px;
+        }
+
+        filter: drop-shadow(0 0 5px rgba(136, 136, 136, 0.1));
+
+        .section-inner {
+            z-index: 3;
+            @extend %rel;
+
+            .scholar-left {
+                @include breakpoint(max-lg) {
+                    margin-bottom: 40px;
+                }
+
+                .scholar-single-thumb {
+                    filter: drop-shadow(0 0 5px rgba(136, 136, 136, 0.1));
+                    border: 8px solid $white-color;
+                    margin-bottom: 50px;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .scholar-single-content {
+
+                    .skill-bar {
+                        margin-top: 20px;
+                        text-align: center;
+
+                        .skill-item {
+                            margin-right: 20px;
+
+                            &:last-child {
+                                margin-right: 0;
+                            }
+
+                            span {
+                                margin-top: 8px;
+                                display: inline-block;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .scholar-right {
+                .scholar-intro {
+                    h5 {
+                        margin-bottom: 0;
+                        font-size: 24px !important;
+                    }
+
+                    p {
+                        margin: 20px 0;
+                    }
+                }
+
+                .scholar-info {
+                    ul {
+                        li {
+                            display: flex;
+                            margin-bottom: 10px;
+
+                            .info-title {
+                                width: 85px;
+
+                                @include breakpoint (sm) {
+                                    width: 150px;
+                                }
+                            }
+
+                            .info-details {
+                                ul {
+                                    li {
+                                        margin-right: 20px;
+
+                                        &:last-child {
+                                            margin-right: 0;
+                                        }
+
+                                        .twitter {
+                                            color: $twitter;
+                                        }
+
+                                        .behance {
+                                            color: $behance;
+                                        }
+
+                                        .instagram {
+                                            color: $instagram;
+                                        }
+
+                                        .vimeo {
+                                            color: $vimeo;
+                                        }
+
+                                        .linkedin {
+                                            color: $linkedin;
+                                        }
+
+                                        &:hover {
+                                            a {
+                                                transform: scale(1.05);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .scholar-award {
+                    margin-top: 60px;
+
+                    .all-awards {
+                        margin-top: 20px;
+
+                        .single-award {
+                            margin-right: 40px;
+
+                            &:last-child {
+                                margin-right: 0;
+                            }
+
+                            p {
+                                text-align: center;
+                                margin-bottom: 0;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+/*Team Single Page end Here*/

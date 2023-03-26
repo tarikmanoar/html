@@ -1,0 +1,99 @@
+/* ======= / Sermons Section start here /========= */
+.sermon-section {
+    .sermon-item {
+        &:hover {
+            .sermon-thumb {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+            .sermon-content{
+                .sermon-details{
+                    h5{
+                        a{
+                            color:$theme-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sermon-inner {
+            background-color: $white-color;
+            filter: drop-shadow(0 0 5px rgba(136, 136, 136, 0.1));
+
+            .sermon-thumb {
+                overflow: hidden;
+
+                img {
+                    @include transition($transition);
+                    width: 100%;
+
+                }
+            }
+
+            .sermon-content {
+                padding: 10px;
+                position: relative;
+
+                .sermon-content-wrapper {
+                    margin-top: -20px;
+                    background-color: $white-color;
+                    filter: drop-shadow(0 0 5px rgba(136, 136, 136, 0.1));
+                    text-align: center;
+
+                    .sermon-content-inner {
+                        @extend %rel;
+                        z-index: 3;
+
+                        .sermon-icon {
+                            border-bottom: 1px solid $border-color;
+                            padding: 15px;
+
+                            .sermon-icon-wrapper {
+                                li {
+                                    margin-right: 24px;
+
+                                    &:last-child {
+                                        margin-right: 0;
+                                    }
+
+                                    a {
+                                        color: $desc-color;
+                                        @include transition($transition);
+                                    }
+
+                                    &:hover {
+                                        a {
+                                            color: $theme-color;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .sermon-details {
+                            padding: 25px;
+
+                            h5 {
+                                @extend %text-clamp-1;
+
+                                a {
+                                    @include transition($transition);
+                                    @extend %text-clamp-1;
+
+                                    &:hover {
+                                        color: $theme-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+/* ======= / Sermons Section end here /========= */

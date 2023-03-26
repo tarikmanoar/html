@@ -1,0 +1,348 @@
+// cart page css start here
+.shop-cart {
+	.section-wrapper {
+		.cart-top {
+			margin-bottom: 40px;
+			box-shadow: 0 0 10px rgba(136, 136, 136, .10);
+
+			@include breakpoint(max-md) {
+				overflow-x: auto;
+			}
+
+			table {
+				font-weight: 600;
+				width: 100%;
+
+				@include breakpoint(max-md) {
+					width: 720px;
+				}
+
+				thead {
+					tr {
+						th {
+							background: $theme-color;
+							color: $white-color;
+							padding: 18px;
+							border: none;
+
+							&:nth-child(3) {
+								text-align: center;
+							}
+
+							&:last-child {
+								text-align: right;
+							}
+						}
+					}
+				}
+
+				tbody {
+					tr {
+						border-bottom: 1px solid $border-color;
+						border-right: none;
+						border-left: none;
+						border-top: none;
+						background: #f5faff;
+
+						&:last-child {
+							border-bottom: none;
+						}
+
+						td {
+							padding: 20px;
+							border: none;
+
+							&:last-child {
+								text-align: right;
+							}
+
+							&.product-item {
+								align-items: center;
+								@extend %flex;
+								margin-bottom: 0;
+								box-shadow: none;
+
+								.p-thumb {
+									width: 85px;
+								}
+
+								.p-content {
+									width: calc(100% - 85px);
+									padding-left: 10px;
+									text-align: left;
+
+									a {
+										color: $title-color;
+										@include transition($transition);
+
+										&:hover {
+											color: $theme-color;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.cart-bottom {
+			// margin-bottom: 15px;
+			background: #f5faff;
+			box-shadow: 0 0 10px rgba(136, 136, 136, .10);
+			@extend %hidden;
+
+			.cart-checkout-box {
+				padding: 20px 30px;
+				margin-top: 30px;
+				justify-content: space-between;
+				align-items: center;
+				@extend %flex;
+
+				.coupon {
+					max-width: 340px;
+					display: flex;
+					@include border-radius(3px);
+					@extend %hidden;
+
+					input {
+						margin-bottom: 0;
+						border: 1px solid $border-color;
+						padding: 10px 15px;
+						outline: none;
+						width: 100%;
+					}
+
+					input[type="submit"] {
+						background: $theme-color;
+						margin-left: -10px;
+						outline: none;
+						border: none;
+						color: $white-color;
+						font-weight: 700;
+						font-size: 14px;
+						@extend %pointer;
+					}
+				}
+
+				.cart-checkout {
+					width: 100%;
+					margin-top: 30px;
+					justify-content: space-between;
+					@extend %flex;
+
+					@include breakpoint(lg) {
+						max-width: 500px;
+						text-align: right;
+						margin-top: 0;
+					}
+
+					input {
+						background: $white-color;
+						color: $title-color;
+						outline: none;
+						border: none;
+						font-weight: 700;
+						font-size: 14px;
+						@include transition ($transition);
+
+						@include breakpoint(md) {
+							width: calc(100% / 2 - 15px);
+						}
+
+						&:hover {
+							background-color: $theme-color;
+							color: $white-color;
+						}
+					}
+
+					input[type="submit"] {
+						padding: 11px 30px;
+						border: 1px solid $border-color;
+						@include border-radius(3px);
+						font-size: 16px;
+						border: none;
+						@extend %pointer;
+
+						@include breakpoint(max-sm) {
+							width: 100%;
+							margin-bottom: 15px;
+
+							&:last-child {
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+
+			.shiping-box {
+				padding: 30px 20px;
+				border-top: 1px solid $white-color;
+
+				.calculate-shiping {
+					@include breakpoint(max-md) {
+						margin-bottom: 30px;
+					}
+
+					h4 {
+						margin-bottom: 30px;
+					}
+
+					.outline-select {
+						background: $white-color;
+						margin-bottom: 20px;
+						@extend %rel;
+
+						select {
+							width: 100%;
+							padding: 9px 20px;
+							background: transparent;
+							z-index: 1;
+							-webkit-appearance: none;
+							-moz-appearance: none;
+							border: 1px solid $border-color;
+							@extend %rel;
+						}
+
+						&.shipping-select {
+							width: 100%;
+
+							@include breakpoint(lg) {
+								width: 50%;
+								float: left;
+							}
+						}
+
+						.select-icon {
+							top: 0;
+							right: 0;
+							padding: 9px 20px;
+							background: $theme-color;
+							color: $white-color;
+							border: 1px solid $border-color;
+							border-radius: 0px 3px 3px 0px;
+							@extend %abs;
+						}
+					}
+
+					.cart-page-input-text {
+						width: 45%;
+						float: right;
+						padding: 10px 20px;
+						font-size: 14px;
+						outline: none;
+						margin-bottom: 20px;
+						border: 1px solid $border-color;
+
+						@include breakpoint(max-sm) {
+							width: 100%;
+						}
+					}
+
+					button {
+						font-size: 14px;
+						background: $theme-color;
+						font-weight: 700;
+						color: $white-color;
+						outline: none;
+						border: none;
+						float: right;
+						@extend %pointer;
+						@include border-radius(3px);
+					}
+				}
+
+				.cart-overview {
+					@include breakpoint(max-sm) {
+						margin-top: 30px;
+					}
+
+					h4 {
+						margin-bottom: 30px;
+					}
+
+					ul {
+						margin: 0;
+
+						li {
+							list-style: none;
+							align-items: center;
+							justify-content: space-between;
+							border: 1px solid $border-color;
+							padding: 8px 20px;
+							margin-bottom: 15px;
+							background: $white-color;
+							@extend %flex;
+
+							.pull-right {
+								margin-bottom: 0;
+								color: $theme-color;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//cart page css end here
+
+// cart-plus-minus start here
+.cart-plus-minus {
+	border: 1px solid $border-color;
+	width: 125px;
+	margin: 0 auto;
+	@extend %rel;
+	@extend %hidden;
+
+	.dec.qtybutton {
+		border-right: 1px solid $border-color;
+		height: 40px;
+		left: 0;
+		top: 0;
+	}
+
+	.cart-plus-minus-box {
+		border: medium none;
+		color: $title-color;
+		float: left;
+		font-size: 14px;
+		height: 38px;
+		margin: 0;
+		// padding: 0 9px 0 0;
+		text-align: center;
+		width: 125px;
+		outline: none;
+	}
+
+	.qtybutton {
+		color: $title-color;
+		float: inherit;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 40px;
+		margin: 0;
+		text-align: center;
+		width: 40px;
+		@extend %abs;
+		@extend %pointer;
+		@include transition($transition);
+
+		&:hover {
+			background: $theme-color;
+			color: $white-color;
+		}
+	}
+
+	.inc.qtybutton {
+		border-left: 1px solid $border-color;
+		height: 40px;
+		right: 0;
+		top: 0;
+	}
+}
+
+//cart plus-minus ending here

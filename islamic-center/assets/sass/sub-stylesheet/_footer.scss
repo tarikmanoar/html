@@ -1,0 +1,212 @@
+/*Footer section start here*/
+footer {
+    background-color: #051639;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    p,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a {
+        color: $white-color;
+    }
+
+    //top Footer part
+    .footer-top {
+        @include breakpoint(max-lg){
+            padding-top: 80px;
+        }
+        @include breakpoint(lg) {
+            border-bottom: 1px solid rgba($white-color, $alpha: .10);
+
+            .col-12 {
+                border-left: 1px solid rgba($white-color, $alpha: .10);
+
+                &:last-child {
+                    border-right: 1px solid rgba($white-color, $alpha: .10);
+                }
+            }
+        }
+
+        .footer-top-item {
+            padding: 15px;
+
+            @include breakpoint(xl) {
+                padding: 40px 20px;
+            }
+
+            @include breakpoint(max-lg) {
+                border: 1px solid rgba($white-color, $alpha: .10);
+            }
+
+            .lab-inner {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+
+                @include breakpoint(xl) {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+
+                .lab-thumb {
+                    margin-bottom: 15px;
+
+                    @include breakpoint(xl) {
+                        margin-bottom: 0;
+                        margin-right: 15px;
+                    }
+                }
+
+                .lab-content {
+                    text-align: center;
+
+                    span {
+                        color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+
+    //Middle footer part
+    .footer-middle {
+        .footer-middle-item-wrapper {
+            .footer-middle-item {
+                margin-bottom: 40px;
+
+                .fm-item-title {
+                    h5 {
+                        text-transform: uppercase;
+                        margin-bottom: 25px;
+                    }
+                }
+
+                .fm-item-content {
+                    .footer-abt-img {
+                        margin-bottom: 15px;
+                    }
+
+                    .fm-item-widget {
+                        margin-bottom: 20px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        .lab-inner {
+                            @extend %flex;
+                            align-items: center;
+
+                            .lab-thumb {
+                                width: 100px;
+                                overflow: hidden;
+                                a{
+                                    img{
+                                    @include transition($transition);
+                                    }
+                                }
+                            }
+                            .lab-content {
+                                width: calc(100% - 100px);
+                                padding-left: 20px;
+
+                                h6 {
+                                    a {
+                                        color: $white-color;
+                                        font-size: 18px;
+                                        @extend %text-clamp-2;
+                                        font-weight: 600;
+                                        line-height: 30px;
+                                    }
+                                }
+
+                                p {
+                                    margin: 0;
+                                    color: #677ca9;
+                                }
+                            }
+                        }
+                        &:hover{
+                            .lab-thumb{
+                                a{
+                                    img{
+                                    transform: scale(1.05);
+                                    }
+                                }
+                            }
+                            .lab-content{
+                                h6{
+                                    a{
+                                        color:$theme-color;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .footer-middle-item-3 {
+                .fm-item-content {
+                    p {
+                        margin-bottom: 25px;
+                    }
+
+                    form {
+                        .form-group {
+                            input {
+                                // &:focus{
+                                //     outline: none;
+                                // }
+                                border: none;
+                                border-radius: 2px;
+                                padding: 18px;
+                                box-shadow: none;
+                            }
+                        }
+
+                        button {
+                            outline: none;
+                            border: none;
+                            margin-top: 15px;
+                            padding: 16px 39px;
+
+                            i {
+                                font-size: 24px;
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //footer-bottom
+    .footer-bottom {
+        background-color: $white-color;
+
+        .footer-bottom-content {
+            padding: 38px 0;
+
+            p {
+                color: $title-color;
+                margin: 0;
+
+                a {
+                    color: $theme-color;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
+/*Footer section End here*/

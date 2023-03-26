@@ -1,0 +1,366 @@
+/*Banner section css start here*/
+.banner-section {
+    background-image: linear-gradient(0deg, #8dc53f 0%, rgba(141, 197, 63, 0) 100%);
+    padding: 110px 0;
+
+    .banner-item {
+        .banner-inner {
+            .banner-thumb {
+                img {
+                    animation: floating 8s infinite alternate linear;
+                }
+            }
+
+            .banner-content {
+                @include breakpoint (max-sm) {
+                    margin-top: 25px;
+                }
+
+                @include breakpoint (sm) {
+                    margin-top: 30px;
+                }
+
+                @include breakpoint(md) {
+                    margin-top: 0;
+                }
+
+                h1 {
+                    font-size: 33px;
+                    line-height: 1.3;
+
+                    @include breakpoint(lg) {
+                        font-size: 45px;
+                    }
+
+                    @include breakpoint(xl) {
+                        font-size: 56px;
+                    }
+
+                    span {
+                        font-weight: 100;
+                        max-width: 300px;
+                    }
+                }
+
+                p {
+                    max-width: 555px;
+                    font-size: $fs-h6;
+                    line-height: 1.5;
+                }
+
+                a {
+                    background-color: $secondary-color;
+                    margin-bottom: 15px;
+
+                    &:hover {
+                        filter: drop-shadow(0px 10px 5px rgba($secondary-color, $alpha: .2));
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*Banner section css end here*/
+
+/*About section css start here*/
+.about-section {
+    overflow: hidden;
+
+    .lab-item {
+        .lab-inner {
+            .lab-thumb {
+                .img-grp {
+                    position: relative;
+                    background-image: url(../images/about/01.png);
+                    background-size: cover;
+                    width: 290px;
+                    height: 290px;
+                    margin: 0 auto;
+
+                    @include breakpoint(md) {
+                        width: 450px;
+                        height: 450px;
+                    }
+
+                    @include breakpoint(xl) {
+                        width: 550px;
+                        height: 550px;
+                    }
+
+                    .about-fg-img {
+                        position: absolute;
+                        z-index: 1;
+                        right: 37px;
+                        top: -51px;
+
+                        @include breakpoint(md) {
+                            right: 57px;
+                            top: -79px;
+                        }
+
+                        @include breakpoint(xl) {
+                            right: 75px;
+                            top: -33px;
+                        }
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                    .about-img-wrapper {
+                        border: 2px solid $secondary-color;
+                        border-radius: 100%;
+                    }
+
+                    .about-circle,
+                    .about-circle-2 {
+                        display: block;
+                        box-shadow: 0px 0px 20px 0px rgba(0, 255, 106, 0.3);
+                        background: green;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 100%;
+                        position: absolute;
+
+                        @include breakpoint(md) {
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+
+                    .about-circle-wrapper {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0%;
+                        left: 0%;
+                        animation: circle 15s cubic-bezier(.68, -0.55, .27, 1.55) infinite;
+
+                        .about-circle {
+                            bottom: -15px;
+                            left: 50%;
+                            background-image: linear-gradient(to bottom, #8dc53f, #76c14e, #5ebd5b, #46b868, #29b373);
+                        }
+
+                        .about-circle-2 {
+                            top: -16px;
+                            right: 50%;
+                            background-image: linear-gradient(to top, #8dc53f, #76c14e, #5ebd5b, #46b868, #29b373);
+                        }
+                    }
+
+                }
+            }
+
+            .lab-content {
+                margin-bottom: 80px;
+            }
+        }
+    }
+}
+
+/*About section css end here*/
+
+// Service section start here
+
+.service-section {
+    .service-wrapper {
+        filter: drop-shadow(0px 10px 5px rgba(136, 136, 136, 0.1));
+
+        .col-12 {
+            &:nth-child(3n+3) {
+                .lab-content-wrapper {
+                    border: none;
+
+                    &:after,
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//service section end here
+
+/*Program section css start here*/
+.program-section {
+
+    // background: url(../images/program/bg.jpg) rgba($color: #051539, $alpha: .70);
+    // background-blend-mode: overlay;
+    .header-title {
+        max-width: 750px;
+        margin-bottom: 80px;
+
+        h2 {
+            color: $white-color;
+        }
+    }
+
+    .progress-item {
+        padding: 0 3%;
+
+        @include breakpoint (lg) {
+            padding: 0 10%;
+        }
+
+        .progress-item-status {
+            li {
+                color: $white-color;
+                font-size: 20px;
+                margin-top: 12px;
+
+                span {
+                    color: $white-color;
+                }
+            }
+        }
+
+        .progress-bar-wrapper {
+            height: 20px;
+            border-radius: 10px;
+            padding: 3px;
+
+            .progress-bar {
+                height: 14px;
+                border-radius: 7px;
+            }
+        }
+
+        .progress-bar-percent {
+            top: -60px;
+        }
+    }
+}
+
+.upcoming-programs {
+    margin-top: -30px;
+
+    position: relative;
+
+    @include breakpoint (xl) {
+        margin-top: -65px;
+
+        * {
+            z-index: 1;
+            position: relative;
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            width: 70%;
+            height: 76%;
+            top: 0;
+            right: 0;
+            background-color: $ash-color;
+        }
+    }
+
+    .donation-part {
+        background-image: url(../images/program/01.jpg);
+        padding: 65px 20px;
+
+        @include breakpoint(xl) {
+            padding: 65px 20px 210px;
+        }
+
+        .donation-content {
+            h5 {
+                text-transform: uppercase;
+            }
+
+            h2 {
+                margin-bottom: 30px;
+            }
+
+            p {
+                margin-top: 10px;
+                margin-bottom: 40px;
+            }
+
+            .lab-btn {
+                padding: 17px 24px;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .programs-item-part {
+        .program-desc {
+            padding-top: 30px;
+            padding-bottom: 20px;
+
+            @include breakpoint(lg) {
+                padding-top: 60px;
+            }
+
+            p {
+                font-size: 18px;
+                max-width: 100%;
+
+                @include breakpoint (lg) {
+                    max-width: 70%;
+                }
+            }
+
+            ul {
+                display: none;
+
+                @include breakpoint (lg) {
+                    max-width: 30%;
+                    display: flex;
+
+                    li {
+                        a {
+                            background-color: #182d41;
+                            color: $white-color;
+                            width: 50px;
+                            height: 50px;
+                            line-height: 50px;
+                            text-align: center;
+                            margin-left: 10px;
+                            font-size: 18px;
+                            border-radius: 2px;
+
+                            &:hover {
+                                background-color: $theme-color;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .program-item-container {
+            overflow: hidden;
+        }
+    }
+}
+
+/*Program section css end here*/
+
+/*Events section start */
+.event-section {
+    .event-content {
+        .event-top {
+            .event-top-thumb {
+                filter: drop-shadow(0px 10px 5px rgba(24, 45, 65, 0.1));
+
+                @include breakpoint (lg) {
+                    transform: translate(25px, -25px);
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/*Events section end */

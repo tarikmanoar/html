@@ -1,0 +1,370 @@
+//Program-single-page
+.program-single-section {
+    &.aside-bg {
+        &::after {
+            @include breakpoint(max-xl) {
+                display: none;
+            }
+        }
+    }
+
+    article {
+        .pro-single-item {
+            .pro-single-inner {
+                .pro-single-thumb {
+                    @extend %rel;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .pro-single-content {
+                    padding: 30px;
+                    @extend %rel;
+                    margin: -50px 10px 0 10px;
+                    z-index: 1;
+
+                    .progress-item {
+                        margin-top: 30px;
+                        margin-bottom: 25px;
+                        border-bottom: 1px solid #f0f0f0;
+
+                        .progress-item-status {
+                            padding: 1rem 0;
+
+                            li {
+                                font-size: 24px;
+                            }
+                        }
+
+                        .progress-bar-wrapper {
+                            height: 20px;
+                            padding: 3px;
+                            border-radius: 10px;
+
+                            .progress-bar {
+                                height: 14px;
+                                border-radius: 7px;
+                            }
+                        }
+
+                        .progress-bar-percent {
+                            top: -55px;
+                            width: 45px !important;
+                            height: 45px;
+
+                            &::after {
+                                bottom: -5px;
+                                left: 37%;
+                            }
+                        }
+                    }
+
+                    .donate-amount {
+                        margin-bottom: 10px;
+
+                        .custom-donate {
+                            @extend %rel;
+                            @extend %flex;
+                            margin-bottom: 20px;
+
+                            span {
+                                display: inline-block;
+                                top: 0;
+                                left: 0;
+                                width: 60px;
+                                height: 46px;
+                                color: $white-color;
+                                text-align: center;
+                                line-height: 46px;
+                                font-size: 20px;
+                                @extend %abs;
+
+                                span {
+                                    width: 47px;
+                                    height: 34px;
+                                    line-height: 34px;
+                                    top: 50%;
+                                    left: 50%;
+                                    background-color: $theme-color;
+                                    @include border-radius(4px);
+                                    @include transform(translate(-50%, -50%));
+                                }
+                            }
+
+                            input {
+                                width: 275px;
+                                height: 46px;
+                                margin: 0;
+                                padding-left: 60px;
+                                background: $white-color;
+                                border: 1px solid $border-color;
+                                border-radius: 4px;
+
+                                &:focus,
+                                &::placeholder {
+                                    color: $title-color;
+                                    font-weight: 500;
+                                }
+
+                                @include breakpoint(max-sm) {
+                                    margin-bottom: 20px;
+                                }
+                            }
+                        }
+
+                        ul {
+                            @extend %flex;
+
+                            li {
+                                font-weight: 400;
+                                border: 1px solid $border-color;
+                                padding: 5px 15px 5px 25px;
+                                margin: 5px;
+                                color: $title-color;
+                                @extend %rel;
+                                font-size: 14px;
+                                cursor: pointer;
+                                @include transition($transition);
+                                @include border-radius(4px);
+
+                                &:first-child {
+                                    margin-left: 0;
+                                }
+
+                                &:last-child {
+                                    margin-right: 0;
+                                }
+
+                                &:after,
+                                &:before {
+                                    top: 50%;
+                                    left: 15px;
+                                    @extend %abs;
+                                    @include border-radius(50%);
+                                    @include transition($transition);
+                                    @include transform(translate(-50%, -50%));
+                                }
+
+                                &:after {
+                                    width: 6px;
+                                    height: 6px;
+                                    background-color: $title-color;
+                                }
+
+                                &:before {
+                                    width: 12px;
+                                    height: 12px;
+                                    border: 1px solid $title-color;
+                                }
+
+                                &:hover {
+                                    color: $theme-color;
+                                    border-color: $theme-color;
+
+                                    &:after {
+                                        background: $theme-color;
+                                    }
+
+                                    &:before {
+                                        border-color: $theme-color;
+                                    }
+                                }
+
+                                &.active {
+                                    color: $white-color;
+                                    background: $theme-color;
+                                    border-color: $theme-color;
+
+                                    &:after {
+                                        background: $white-color;
+                                    }
+
+                                    &:before {
+                                        border-color: $white-color;
+                                    }
+                                }
+                            }
+                        }
+
+                        .amount-notifications {
+                            padding: 5px;
+                            border: 1px solid $border-color;
+                            @include border-radius(4px);
+
+                            p {
+                                margin-bottom: 0 !important;
+                                @extend %flex;
+                                align-items: center;
+                                font-size: 15px;
+
+
+                                span {
+                                    width: 46px;
+                                    height: 46px;
+                                    line-height: 46px;
+                                    text-align: center;
+                                    font-size: 30px;
+                                    font-weight: 700;
+                                    color: $white-color;
+                                    background: $theme-color;
+                                    display: inline-block;
+                                    margin-right: 10px;
+                                    @include border-radius(4px);
+                                }
+
+                                b {
+                                    color: $title-color;
+                                }
+                            }
+                        }
+
+                        .payment-mathod {
+                            padding: 15px 0;
+                            border-top: 1px solid $border-color;
+                            border-bottom: 1px solid $border-color;
+                        }
+
+                        .personal-info {
+                            border-bottom: 1px solid $border-color;
+                            padding-bottom: 15px;
+
+                            .lab-btn {
+                                border: none;
+                            }
+
+                            .total-donate {
+                                font-size: 18px;
+                                color: $theme-color;
+                                font-weight: 600;
+
+                                b {
+                                    color: $title-color;
+                                }
+                            }
+                        }
+                    }
+
+                    .comment-form {
+                        @extend %flex;
+                        justify-content: space-between;
+                        margin-bottom: -30px;
+
+                        .form-group {
+                            width: 100%;
+                            margin-bottom: 30px;
+
+                            @include breakpoint(sm) {
+                                width: calc(50% - 15px);
+                            }
+
+                            input {
+                                height: 50px;
+                                border: 1px solid #ebebeb;
+                                @include border-radius(4px);
+                                background: transparent;
+                                padding: 0 20px;
+                            }
+
+                            textarea {
+                                display: flex;
+                                border: 1px solid #ebebeb;
+                                @include border-radius(4px);
+                                background: transparent;
+                                padding: 20px;
+                                height: 130px;
+                            }
+
+                            button {
+                                margin-bottom: 10px;
+                            }
+
+                            .custom-button {
+                                span {
+                                    line-height: unset;
+                                }
+                            }
+                        }
+                    }
+
+                    blockquote {
+                        text-align: center;
+                        padding: 30px;
+                        margin: 30px 0;
+                        border: 1px solid $border-color;
+                        @include border-radius(4px);
+                        @extend %rel;
+
+                        &::after {
+                            @extend %abs;
+                            content: "\f10d";
+                            width: 50px;
+                            height: 50px;
+                            line-height: 40px;
+                            text-align: center;
+                            @include border-radius(100%);
+                            background: $theme-color;
+                            color: $white-color;
+                            top: -25px;
+                            left: 50%;
+                            border: 5px solid $white-color;
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 900;
+                            @include transform(translateX(-50%));
+                        }
+
+                        p {
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: $title-color;
+                            font-style: italic;
+                        }
+
+                        span {
+                            color: $theme-color;
+                        }
+                    }
+
+                    .con-thumb {
+                        padding-top: 15px;
+
+                        .left-part {
+                            width: 100%;
+
+                            @include breakpoint(lg) {
+                                width: 60%;
+                            }
+
+                            h6 {
+                                color: $theme-color;
+                                margin-bottom: 5px;
+                                font-size: 20px;
+                            }
+
+                            p {
+                                margin-bottom: 25px;
+
+                                @include breakpoint(lg) {
+                                    padding-right: 15px;
+                                }
+                            }
+                        }
+
+                        .right-part {
+                            width: 100%;
+
+                            @include breakpoint(lg) {
+                                width: 40%;
+                            }
+
+                            img {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
