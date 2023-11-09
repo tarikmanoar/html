@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaflet Map Example</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <h1>Leaflet Map Example</h1>
+    <input type="search" name="place" id="place">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        $(document).ready(function() {
+            var map = L.map('map').setView([0, 0], 18); // Set initial zoom level to 18
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors & <a href="https://tarikmanoar.github.io">&hearts; Manoar</a>'
+            }).addTo(map);
+
+            var marker;
+
+            // Function to perform reverse geocoding
+            function reverseGeocode(lat, lng) {
+                $.ajax({
+                    url: 'https://nominatim.openstreetmap.org/reverse',
+                    dataType: 'json',
+                    data: {
+                        format: 'json',
+                        lat: lat,
+                        lon: lng,
+                        zoom: 18,
+                        addressdetails: 1
+                    },
+                    success: function(data) {
+                        var address = data.address;
+                        var city = address.city || address.town || address.village;
+                        var state = address.state || address.region;
+                        var country = address.country;
+                        var postalCode = address.postcode;
+                        var streetAddress = address.road || address.pedestrian;
+
+                        // Display the retrieved information
+                        console.log('City:', city);
+                        console.log('State:', state);
+                        console.log('Country:', country);
+                        console.log('Postal Code:', postalCode);
+                        console.log('Street Address:', streetAddress);
+                    },
+                    error: function(error) {
+                        console.error('Error in reverse geocoding:', error);
+                    }
+                });
+            }
+
+            // Get user's current location using geolocation API
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var lng = position.coords.longitude;
+
+                    // Set the map center to the user's location
+                    map.setView([lat, lng], 18);
+
+                    // Add a marker to the user's location
+                    marker = L.marker([lat, lng]).addTo(map);
+
+                    // Perform reverse geocoding
+                    reverseGeocode(lat, lng);
+                }, function(error) {
+                    console.error('Error getting location: ' + error.message);
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+
+            // Define a click event listener to get the coordinates and add a marker
+            map.on('click', function(e) {
+                var lat = e.latlng.lat;
+                var lng = e.latlng.lng;
+
+                // Remove any existing marker
+                if (marker) {
+                    map.removeLayer(marker);
+                }
+
+                // Add a new marker
+                marker = L.marker([lat, lng]).addTo(map);
+
+                // Perform reverse geocoding
+                reverseGeocode(lat, lng);
+            });
+
+
+            // Place Searching
+            $('#place').on('change', function() {
+                let location = $(this).val();
+
+                let apiUrl = `https://nominatim.openstreetmap.org/search.php?q=${location}&format=jsonv2&details=1&addressdetails=1&limit=10`;
+
+                $.ajax({
+                    url: apiUrl,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log('Data:', data);
+                        if (data && data.length > 0) {
+                            let result = data[0];
+
+                            let city = result.address.city || result.address.town || result.address.village;
+                            let state = result.address.state || result.address.county;
+                            let country = result.address.country;
+                            let postalCode = result.address.postcode;
+                            let streetAddress = result.address.road || result.address.street;
+
+                            console.log('City:', city);
+                            console.log('State:', state);
+                            console.log('Country:', country);
+                            console.log('Postal Code:', postalCode);
+                            console.log('Street Address:', streetAddress);
+                        } else {
+                            console.log('Location not found');
+                        }
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+            // Place Searching
+        });
+    </script>
+</body>
+
+</html>

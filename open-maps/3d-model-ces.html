@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Display buildings in 3D</title>
+    <meta property="og:description" content="Use extrusions to display buildings' height in 3D." />
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body,
+        #cesiumContainer {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cesiumContainer"></div>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.90/Build/Cesium/Cesium.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var viewer = new Cesium.Viewer('cesiumContainer', {
+                terrainProvider: Cesium.createWorldTerrain(),
+                baseLayerPicker: false,
+                geocoder: false,
+                timeline: false,
+                animation: false,
+                scene3DOnly: true,
+                navigationHelpButton: false,
+                homeButton: false,
+                fullscreenButton: false,
+                skyBox: false,
+                skyAtmosphere: false,
+                shouldAnimate: true,
+                contextOptions: {
+                    webgl: {
+                        alpha: false,
+                        depth: false,
+                        stencil: false,
+                        antialias: true,
+                        premultipliedAlpha: true,
+                        preserveDrawingBuffer: true,
+                        failIfMajorPerformanceCaveat: false,
+                    },
+                },
+            });
+
+            var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+            var marker;
+
+            handler.setInputAction(function(movement) {
+                var ray = viewer.camera.getPickRay(movement.position);
+                var position = viewer.scene.globe.pick(ray, viewer.scene);
+
+                if (Cesium.defined(position)) {
+                    var cartographicPosition = Cesium.Cartographic.fromCartesian(position);
+                    var latitude = Cesium.Math.toDegrees(cartographicPosition.latitude);
+                    var longitude = Cesium.Math.toDegrees(cartographicPosition.longitude);
+
+                    console.log('Latitude:', latitude, 'Longitude:', longitude);
+
+                    if (marker) {
+                        viewer.entities.remove(marker);
+                    }
+
+                    marker = viewer.entities.add({
+                        position: position,
+                        billboard: {
+                            image: 'https://cesium.com/downloads/cesiumjs/releases/1.90/Apps/Sandcastle/images/Cesium_Logo_overlay.png',
+                            scale: 0.1,
+                            verticalOrigin: Cesium.VerticalOrigin.BOTTOM
+                        }
+                    });
+                }
+            }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+        });
+    </script>
+</body>
+
+</html>
