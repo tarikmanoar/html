@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Terabox Video Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .min-screen {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+        .card {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .btn-primary {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .btn-primary:hover {
+            background-color: #004494;
+            border-color: #004494;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h1 class="card-title text-center mb-4">Terabox Video Player</h1>
+                            <div class="mb-3">
+                                <label for="terabox_url" class="form-label">Terabox Video URL</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-link-45deg"></i></span>
+                                    <input type="url" class="form-control" name="terabox_url" id="terabox_url" placeholder="Enter Terabox URL" required>
+                                </div>
+                                <div class="form-text">Paste your Terabox video URL here</div>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg" id="play">
+                                    <i class="bi bi-play-circle me-2"></i>Play Now
+                                </button>
+                            </div>
+                    </div>
+                </div>
+                <div id="alertPlaceholder"></div>
+            </div>
+            <div class="col-lg-10">
+                <div class="ratio ratio-16x9">
+                    <iframe id="video" src="about:blank" frameborder="0" scrolling="no" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function() {
+            const alertPlaceholder = $('#alertPlaceholder');
+            const showAlert = (message, type) => {
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = [
+                    `<div class="alert alert-${type} alert-dismissible fade show" role="alert">`,
+                    `   <div>${message}</div>`,
+                    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                    '</div>'
+                ].join('');
+                alertPlaceholder.append(wrapper);
+            };
+
+            $('#play').on('click', function(e) {
+                let url = $('#terabox_url');
+                try {
+                    const embedLink = convertToEmbedLink(url.val());
+                    $('#video').attr('src', embedLink);
+                    url.val('');
+                    showAlert('Video loaded successfully!', 'success');
+                } catch (error) {
+                    showAlert(error.message, 'danger');
+                }
+            });
+        });
+
+        function convertToEmbedLink(link, resolution = '720', autoplay = 'true', mute = 'false') {
+            const parts = link.split('/s/1');
+            if (parts.length !== 2) {
+                throw new Error("Invalid Terabox URL. Please check and try again.");
+            }
+            const key = parts[1];
+            return `https://www.terabox.com/sharing/embed?surl=1${key}&resolution=${resolution}&autoplay=${autoplay}&mute=${mute}`;
+        }
+    </script>
+</body>
+</html>
